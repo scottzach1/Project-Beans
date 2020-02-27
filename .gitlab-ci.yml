@@ -1,0 +1,29 @@
+stages:
+  - Static Analysis
+  - Test
+  - Deploy
+
+markdownlint:
+  stage: Static Analysis
+  tags:
+    - Shell
+  script:
+    - echo "static analysis"
+
+unittest:
+  stage: Test
+  tags:
+    - Shell
+  script:
+    - echo "test"
+    - exit 1
+  allow_failure: true
+
+Deploy:
+  stage: Deploy
+  tags:
+    - Shell
+  script:
+    - echo "deploy"
+    - exit 1
+  allow_failure: true
