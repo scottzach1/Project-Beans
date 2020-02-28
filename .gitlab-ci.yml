@@ -1,10 +1,10 @@
 stages:
-  - Static Analysis
+  - Build
   - Test
   - Deploy
 
 build:
-  stage: Static Analysis
+  stage: Build
   tags:
     - Shell
   script:
