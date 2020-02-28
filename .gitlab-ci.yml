@@ -3,12 +3,14 @@ stages:
   - Test
   - Deploy
 
-markdownlint:
+build:
   stage: Static Analysis
   tags:
     - Shell
   script:
     - echo "static analysis"
+    - exit 1
+  allow_failure: true
 
 unittest:
   stage: Test
@@ -19,7 +21,7 @@ unittest:
     - exit 1
   allow_failure: true
 
-Deploy:
+deploy:
   stage: Deploy
   tags:
     - Shell
