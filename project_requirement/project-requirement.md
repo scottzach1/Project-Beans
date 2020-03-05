@@ -117,6 +117,8 @@ See 9.5.13. for most systems this will be around one page. Hardware projects als
 
 See 9.5.14. for most systems, a focus on d) and e) is appropriate, such as an object-oriented domain analysis. You should provide an overview domain model (e.g.  a UML class diagram of approximately ten classes) and write a brief description of the responsibilities of each class in the model (3 pages).
 
+You should use right tools, preferabley PlantUML, to draw your URL diagrams which can be easily embedded into a Mardown file (PlantUML is also supported by GitLab and Foswiki).
+
 ### 3.6 Design constraints
 
 see 9.5.15 and 9.5.16. for most systems, this will be around one page.
