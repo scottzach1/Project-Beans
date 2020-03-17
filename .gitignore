@@ -22,6 +22,9 @@ Thumbs.db
 # PyCharm
 .idea/
 
+# VS Code
+.vscode/
+
 ## Emacs
 *~
 \#*\#
