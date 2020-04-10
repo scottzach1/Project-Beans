@@ -16,7 +16,6 @@ unittest:
   stage: Test
   tags:
     - Shell
-    
   script:
     - echo "test"
     - exit 1
