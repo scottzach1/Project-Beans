@@ -2,7 +2,7 @@ stages:
   - Build
   - Test
   - Deploy
-
+ 
 build:
   stage: Build
   tags:
