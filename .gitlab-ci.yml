@@ -2,7 +2,7 @@ stages:
   - Build
   - Test
   - Deploy
- 
+
 build:
   stage: Build
   tags:
@@ -16,6 +16,7 @@ unittest:
   stage: Test
   tags:
     - Shell
+    
   script:
     - echo "test"
     - exit 1
