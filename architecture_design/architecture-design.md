@@ -27,21 +27,62 @@ All team members are expected to contribute equally to the document and list the
 
 **Authors:** a comma-separated list of the names of each member of the team.
 
-## 1. Introduction
+## 1. Introduction - (Can do)
 
-One page overall introduction including sections 1.1 and 1.2 (ISO/IEC/IEEE 42010:2011(E) clause 5.2)
+Requirement: "One page overall introduction including sections 1.1 and 1.2 (ISO/IEC/IEEE 42010:2011(E) clause 5.2)"
+			Notes: Should contain a more general introduction in this section as well as the below requirements. Since the below requirements are going to only fill about half a page so this part should be around half a page also.
+			This general introduction should contain:
+			- A small background on existing rocket avionics systems, keep concise though probably not much detail required here, just some context.
+			- Perhaps an intro to the project itself.
+			- Discuss the active nature of the project (Using a PID controller) rather than a passive.
+				- Perhaps discuss about the fact that active can record data and provide
+				real time info like location.
+				- Difficulty of creating an effective passive rocket, Extreme Precision Required, cannot account for everything.
+					- List some unexpected conditions like wind, or small flaws in parts etc..
 
-### Client
+### Client - (Can do)
 
-Identify the client and their contact details.
+Requirement: "Identify the client and their contact details."
+			Notes: Pretty Straight forward.
+			- Identify
+				- Name
+				- Member of NZ Rocketry Association
+				- Rocket enthusiast
+			- Contact
+				- Mention that the team can contact him through mattermost?
+				- Email
+
 
 ### 1.1 Purpose
 
-One sentence describing the purpose of the system.
+Requirement: "One sentence describing the purpose of the system(9.5.1)"
+			Notes: Seems like not enough to describe purpose, so important to construct this sentence carefully.
+			- Honestly not sure about this.
+				- Need to understand what our project is lol.
+				- Might learn more from lecturers before uni starts again.
+				- Should make some questions to ask the customer and lecturers.
 
 ### 1.2 Scope
 
-One paragraph describing the scope of the system.
+Requirement: "One paragraph describing the scope of the system(9.5.2)"
+			Notes: Run into a similar problem as above, the changes to the course will have
+			definitely changed the scope. Can attempt this but not complete this section.
+			- Improve on existing 2018 project in the parts we can.
+			- Scope might say about the situation or compare what has been changed scope wise
+				- may be a lack of construction.
+			- what the package we are creating with must involve.
+				- Aero dynamic Rocket model
+					- smaller
+				- Gimbal able to interface with solid fuel motor and control electric motors.
+				- functioning Circuit schematics and PCB layouts
+					- with Communications aspects and all required functionality
+					- Smaller.
+				- Tuned PID algorithm
+					- Transfer function
+					- Simulation to find correct parameters
+				- Software to communicate with rocket from laptop.
+					- Record and display flight data.
+
 
 ### 1.3 Changes to requirements
 
@@ -68,13 +109,13 @@ See ISO/IEC/IEEE 42010 clause 5.3 and ISO/IEC/IEEE 12207 clause 6.4.4.3(2).
 For most systems this will be about 2 pages, including a table mapping concerns to stakeholder.
 
 ### 3.2 Architectural Viewpoints
-(1 page, 42010 5.4) 
+(1 page, 42010 5.4)
 
 Identify the architectural viewpoints you will use to present your system's architecture. Write one sentence to outline each viewpoint. Show which viewpoint frames which architectural concern.
 
 ### 4. Architectural Views
 
-(5 sub-sections of 2 pages each sub-section, per 42010, 5.5, 5.6, with reference to Annex F of both 12207 and 15288) 
+(5 sub-sections of 2 pages each sub-section, per 42010, 5.5, 5.6, with reference to Annex F of both 12207 and 15288)
 
 Describe your system's architecture in a series of architectural views, each view corresponding to one viewpoint.
 
@@ -83,7 +124,7 @@ You should include views from the following viewpoints (from Kruchten's 4+1 mode
  * Logical
  * Development
  * Process
- * Physical 
+ * Physical
  * Scenarios - present scenarios illustrating how two of your most important use cases are supported by your architecture
 
 As appropriate you should include the following viewpoints:
@@ -102,7 +143,7 @@ Each architectural view should include at least one architectural model. If arch
 ### 4.3 Process
 ...
 
-### 4.4 Physical 
+### 4.4 Physical
 ...
 
 ### 4.5 Scenarios
@@ -130,14 +171,14 @@ Identify dates for key project deliverables:
 
 Present a budget for the project (as a table), showing the amount of expenditure the project requires and the date(s) on which it will be incurred. Substantiate each budget item by reference to fulfilment of project goals (one paragraph per item).
 
-(1 page). 
+(1 page).
 
 #### 5.2.2 Procurement
 
 Present a table of goods or services that will be required to deliver project goals and specify how they are to be procured (e.g. from the School or from an external organisation). These may be software applications, libraries, training or other infrastructure, including open source software. Justify and substantiate procurement with reference to fulfilment of project goals, one paragraph per item.
 (1 page).
 
-### 5.3 Risks 
+### 5.3 Risks
 
 Identify the ten most important project risks: their type, likelihood, impact, and mitigation strategies (3 pages).
 
@@ -152,13 +193,13 @@ Safety Plans may be required for some projects, depending on project requirement
 
 ## 6. Appendices
 
-### 6.1 Assumptions and dependencies 
+### 6.1 Assumptions and dependencies
 
-One page on assumptions and dependencies (9.5.7) 
+One page on assumptions and dependencies (9.5.7)
 
 ### 6.2 Acronyms and abbreviations
 
-One page glossary as required 
+One page glossary as required
 
 ## 7. Contributions
 
@@ -166,19 +207,19 @@ An one page statement of contributions, including a list of each member of the g
 
 ---
 
-## Formatting Rules 
+## Formatting Rules
 
  * Write your document using [Markdown](https://gitlab.ecs.vuw.ac.nz/help/user/markdown#gitlab-flavored-markdown-gfm) in your team's GitLab repository.
  * Major sections should be separated by a horizontal rule.
 
 
-## Assessment 
+## Assessment
 
 This document will be weighted at 20% on the architectural proof-of-concept(s), and 80% on the architecture design.
 
 The proof-of-concept will be assessed for coverage (does it demonstrate all the technologies needed to build your project?) and quality (with an emphasis on simplicity, modularity, and modifiability).
 
-The document will be assessed by considering both presentation and content. Group and individual group members will be assessed by identical criteria, the group mark for the finished PDF and the individual mark on the contributions visible through `git blame`, `git diff`, file histories, etc. 
+The document will be assessed by considering both presentation and content. Group and individual group members will be assessed by identical criteria, the group mark for the finished PDF and the individual mark on the contributions visible through `git blame`, `git diff`, file histories, etc.
 
 The presentation will be based on how easy it is to read, correct spelling, grammar, punctuation, clear diagrams, and so on.
 
