@@ -15,21 +15,61 @@ All team members are expected to contribute equally to the document and list the
 # ENGR 301 Project *NN* Project Proposal and Requirements Document
 #### Author list, a comma-separated list of the names of each member of the team.
 
-## 1. Introduction (test)
+## 1. Introduction - (Can do)
 
-One page overall introduction including sections 1.1 and 1.2.
+Requirement: "One page overall introduction including sections 1.1 and 1.2 (ISO/IEC/IEEE 42010:2011(E) clause 5.2)"
+			Notes: Should contain a more general introduction in this section as well as the below requirements. Since the below requirements are going to only fill about half a page so this part should be around half a page also.
+			This general introduction should contain:
+			- A small background on existing rocket avionics systems, keep concise though probably not much detail required here, just some context.
+			- Perhaps an intro to the project itself.
+			- Discuss the active nature of the project (Using a PID controller) rather than a passive.
+				- Perhaps discuss about the fact that active can record data and provide
+				real time info like location.
+				- Difficulty of creating an effective passive rocket, Extreme Precision Required, cannot account for everything.
+					- List some unexpected conditions like wind, or small flaws in parts etc..
 
-### Client
+### Client - (Can do)
 
-Identify the client and their contact details
+Requirement: "Identify the client and their contact details."
+			Notes: Pretty Straight forward.
+			- Identify
+				- Name
+				- Member of NZ Rocketry Association
+				- Rocket enthusiast
+			- Contact
+				- Mention that the team can contact him through mattermost?
+				- Email
+
 
 ### 1.1 Purpose
 
-One sentence describing the purpose of the system (9.5.1)
+Requirement: "One sentence describing the purpose of the system(9.5.1)"
+			Notes: Seems like not enough to describe purpose, so important to construct this sentence carefully.
+			- Honestly not sure about this.
+				- Need to understand what our project is lol.
+				- Might learn more from lecturers before uni starts again.
+				- Should make some questions to ask the customer and lecturers.
 
 ### 1.2 Scope
 
-One paragraph des cribing the scope of the system (9.5.2)
+Requirement: "One paragraph describing the scope of the system(9.5.2)"
+			Notes: Run into a similar problem as above, the changes to the course will have
+			definitely changed the scope. Can attempt this but not complete this section.
+			- Improve on existing 2018 project in the parts we can.
+			- Scope might say about the situation or compare what has been changed scope wise
+				- may be a lack of construction.
+			- what the package we are creating with must involve.
+				- Aero dynamic Rocket model
+					- smaller
+				- Gimbal able to interface with solid fuel motor and control electric motors.
+				- functioning Circuit schematics and PCB layouts
+					- with Communications aspects and all required functionality
+					- Smaller.
+				- Tuned PID algorithm
+					- Transfer function
+					- Simulation to find correct parameters
+				- Software to communicate with rocket from laptop.
+					- Record and display flight data.
 
 ### 1.3 Product overview
 #### 1.3.1 Product perspective
