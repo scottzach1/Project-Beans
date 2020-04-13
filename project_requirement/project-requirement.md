@@ -19,9 +19,9 @@ All team members are expected to contribute equally to the document and list the
 
 Requirement: "One page overall introduction including sections 1.1 and 1.2 (ISO/IEC/IEEE 42010:2011(E) clause 5.2)"
 
-			Notes: Should contain a more general introduction in this section as well as the below requirements. Since the below requirements are going to only fill about half a page so this part should be around half a page also.
+Notes: Should contain a more general introduction in this section as well as the below requirements. Since the below requirements are going to only fill about half a page so this part should be around half a page also.
 
-			This general introduction should contain:
+This general introduction should contain:
 * A small background on existing rocket avionics systems, keep concise though probably not much detail required here, just some context.
 * Perhaps an intro to the project itself.
 * Discuss the active nature of the project (Using a PID controller) rather than a passive.
@@ -33,7 +33,7 @@ Requirement: "One page overall introduction including sections 1.1 and 1.2 (ISO/
 
 Requirement: "Identify the client and their contact details."
 
-			Notes: Pretty Straight forward.
+Notes: Pretty Straight forward.
 
 * Identify
   * Name
@@ -48,7 +48,7 @@ Requirement: "Identify the client and their contact details."
 
 Requirement: "One sentence describing the purpose of the system(9.5.1)"
 
-			Notes: Seems like not enough to describe purpose, so important to construct this sentence carefully.
+Notes: Seems like not enough to describe purpose, so important to construct this sentence carefully.
 
 * Honestly not sure about this.
   * Need to understand what our project is lol.
@@ -59,7 +59,7 @@ Requirement: "One sentence describing the purpose of the system(9.5.1)"
 
 Requirement: "One paragraph describing the scope of the system(9.5.2)"
 
-			Notes: Run into a similar problem as above, the changes to the course will have definitely changed the scope. Can attempt this but not complete this section.
+Notes: Run into a similar problem as above, the changes to the course will have definitely changed the scope. Can attempt this but not complete this section.
 
 * Improve on existing 2018 project in the parts we can.
 * Scope might say about the situation or compare what has been changed scope wise
