@@ -159,16 +159,43 @@ See 9.5.13. for most systems this will be around one page. Hardware projects als
 > NOTE Numerical limits applied to one specific function are normally specified as part of the processing subparagraph description of that function.
 
 
-### 3.5 Logical database requirements
+### 3.5 Logical database requirements (Cannot Start)
+#### Summary:
 
-See 9.5.14. for most systems, a focus on d) and e) is appropriate, such as an object-oriented domain analysis. You should provide an overview domain model (e.g.  a UML class diagram of approximately ten classes) and write a brief description of the responsibilities of each class in the model (3 pages).
+This section requires us to do some in-depth modelling  of the software system conveyed through a UML Class Diagram, and to provide descriptions. This seems difficult to achieve (as of 14 April) given that we need final clarification as to what the client wants and to conduct more planning regarding the software system that we need to implement.
 
-You should use right tools, preferabley PlantUML, to draw your URL diagrams which can be easily embedded into a Mardown file (PlantUML is also supported by GitLab and Foswiki).
+**Suggested steps to make progress here**:
 
-### 3.6 Design constraints
+- Contact client to finalise software requirements
+- Plan the software system at a _**highly abstract level**_. This can help us understand the different components of the software system and in turn, will allow us to start forming the different classes (If for some reason we are going to use OOP) or define the different modules of the software system and their relationships with one another.
+- After these steps, we can use PlantUML or draw.io to form the UML class diagram.
 
-see 9.5.15 and 9.5.16. for most systems, this will be around one page.
+**Original Instructions:**
 
+> See 9.5.14. for most systems, a focus on d) and e) is appropriate, such as an object-oriented domain analysis. You should provide an overview domain model (e.g.  a UML class diagram of approximately ten classes) and write a brief description of the responsibilities of each class in the model (3 pages). You should use right tools, preferabley PlantUML, to draw your URL diagrams which can be easily embedded into a Mardown file (PlantUML is also supported by GitLab and Foswiki).
+
+### 3.6 Design constraints (Can Start)
+
+#### Summary:
+
+In this section, we need to define the restrictions of our software and hardware. **This is a section we can start from a hardware perspective** by conducting our own research regarding legal restrictions. See [2018 Project](https://github.com/andre-geldenhuis/team-rocket-2018-handover/blob/master/ENGR302-2019T2_Delivery_Team-12/Assignment1_Requirements.pdf) to see how they formed legal restrictions.
+
+**Suggested Content**:
+
+- Two further subheadings - 3.6.1 Hardware Design Constraints, 3.6.2 Software Design Constraints
+
+- What are the legal restrictions imposed upon our hardware/rocket?
+- What are the restrictions imposed by the client upon our hardware/rocket? (Eg does the client want a maximum rocket height?)
+- Legal and client restrictions/requirements conflict?
+- We can also write about the restrictions of each specific hardware component once we decide what equipment we are going to use (Eg. is there a limitation of the specific hardware component we are going to use).
+- For the software section, one requirement is that its open source since the project is targeted towards the wider rocket community (can ask client about what they intend to do with the project to clear this up). One potential constraint is that we cannot use non-open source libraries?
+
+**Suggested steps to make progress here:**
+
+- Contact the client about what conditions our hardware design must meet. (Eg What size the rocket should be?, What materials can we use?, Weight limit? Preferred electronics?)
+- Contact client about further software design constraints.
+
+**Original Instructions**
 > 9.5.15 Design constraints<br>
 > Specify constraints on the system design imposed by external standards, regulatory requirements, or project limitations.
 >
@@ -182,21 +209,69 @@ see 9.5.15 and 9.5.16. for most systems, this will be around one page.
 >
 > For example, this could specify the requirement for software to trace processing activity. Such traces are needed for some applications to meet minimum regulatory or financial standards. An audit trace requirement may, for example, state that all changes to a payroll database shall be recorded in a trace file with before and after values.
 
-### 3.7 Nonfunctional system attributes
+### 3.7 Nonfunctional system attributes (Can Start)
 
-Present the systemic (aka nonfunctional) requirements of the product (see ISO/IEC 25010).
-List up to twenty systemic requirements / attributes.
-Write a short natural language description of the top nonfunctional requirements (approx. five pages).
+#### Summary:
+
+In this section, we need to write about the non-functional requirements of our software and hardware systems. This means we need to define the nature of a system through some characteristic. Eg  'The software system is easily extensible'. We need around **20 non-functional requirements** and _**write a description for the ones we think take the top priority.**_
+
+**Suggested Content:**
+
+- 2 further subheadings? - 3.7.1 Hardware Non-Functional Requirements, 3.7.2 Software Non-Functional Requirements
+
+- Adaptibility - Our project is intended for the wider rocket community (clear this up with client?) therefore our codebase should easily adapt into different scenarios or use techniques or libraries that are known.
+- Ensuring safety - This is important given that we are working with equipment that is potentially dangerous. This can be achieved by conducting extensive sofware correctness testing? As for hardware...... strictly adhere to legal/client restrictions hardware restrictions, especially for potential sources of danger?
+- Code Quality? - Since its open source, we need to adhere to programming conventions where possible. Follow design patterns and observe proper coupling/cohesion where possible. Code must be documented!
+- **Simulation part of the project (simulating hardware).... is this a non-functional requirement? Should the concept of simulation be stated under ensuring safety?- Contact course coordinators/client**
+
+Theres a lot more to suggest from a software perspective. We can split some different characteristics into their own descriptions (eg Testing can be in its own paragraph instead of being listed under Ensuring safety description if we see the need to do so.). The  [2018 Project](https://github.com/andre-geldenhuis/team-rocket-2018-handover/blob/master/ENGR302-2019T2_Delivery_Team-12/Assignment1_Requirements.pdf) seems to do this very in-depth but it seems to have combined both hardware and software components into each non-functional requirement.
+
+**Suggested steps to make progress here**:
+
+- Contact client to clarify any more non-functional requirements, **particularly from a hardware perspective**. We can also clarify with the client if they have any specific non-functional requirements.
 
 
-### 3.8 Physical and Environmental Requirements
+**Original Instructions:**
 
-For systems with hardware components, identify the physical characteristics of that hardware (9.4.10) and environment conditions in which it must operate (9.4.11).  Depending on the project, this section may be from one page up to 5 pages.
+>Present the systemic (aka nonfunctional) requirements of the product (see ISO/IEC 25010). List up to twenty systemic requirements / attributes. Write a short natural language description of the top nonfunctional requirements (approx. five pages).
+
+
+### 3.8 Physical and Environmental Requirements (Can Start)
+
+#### Summary:
+
+The first half of this section requires us to identify specific features and characteristics of the hardware we are using. **The first half of this section cannot be started .** We need to decide what hardware we are going to use before writing about it. 
+
+The second half (Environmental Requirements) we can start.
+
+**Suggested Content:**
+
+- Legal restrictions as to where we can launch rockets. (Conduct research and cite them)
+- Weather restrictions and how this can impact rocket launches/flight. What weather is acceptable/unacceptable for commencing with a launch.
+- 2018 Project also seems to cover obligations to the wider community and stakeholders. Eg rocket should be safe for residents of wellington region.
+
+We need to get to a point where we can confidently say what hardware components we are going to use. That way, we can start listing them in this section and state their features and characteristics.
+
+**Original Instructions:**
+
+> For systems with hardware components, identify the physical characteristics of that hardware (9.4.10) and environment conditions in which it must operate (9.4.11).  Depending on the project, this section may be from one page up to 5 pages.
 
 ### 3.9 Supporting information
 
-see 9.5.19.
+#### Summary:
 
+This section declares any additional information that could justify why we have listed any particular specific requirement for all of section 3.  We can start this section, but not much.
+
+**Suggested Content:**
+
+- Open Source - We can write about the fact that this is open source, why, and its implications for the future of the project. 
+- Can probably state any legal restrictions that justify a particular requirement or to ensure some safety measure.
+
+Cannot make much progress here right now. We need to move forward with the project more until some extra info becomes obvious to us.
+
+**Original Instructions:**
+
+> see 9.5.19.
 ## 4. Verification
 
 3 pages outlining how you will verify that the product meets the most important specific requirements. The format of this section should parallel section 3 of your document (see 9.5.18). Wherever possible (especially systemic requirements) you should indicate testable acceptance criteria.
