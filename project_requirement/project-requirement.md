@@ -240,7 +240,7 @@ Theres a lot more to suggest from a software perspective. We can split some diff
 
 #### Summary:
 
-The first half of this section requires us to identify specific features and characteristics of the hardware we are using. **The first half of this section cannot be started .** We need to decide what hardware we are going to use before writing about it. 
+The first half of this section requires us to identify specific features and characteristics of the hardware we are using. **The first half of this section cannot be started .** We need to decide what hardware we are going to use before writing about it.
 
 The second half (Environmental Requirements) we can start.
 
@@ -264,7 +264,7 @@ This section declares any additional information that could justify why we have 
 
 **Suggested Content:**
 
-- Open Source - We can write about the fact that this is open source, why, and its implications for the future of the project. 
+- Open Source - We can write about the fact that this is open source, why, and its implications for the future of the project.
 - Can probably state any legal restrictions that justify a particular requirement or to ensure some safety measure.
 
 Cannot make much progress here right now. We need to move forward with the project more until some extra info becomes obvious to us.
@@ -274,7 +274,26 @@ Cannot make much progress here right now. We need to move forward with the proje
 > see 9.5.19.
 ## 4. Verification
 
-3 pages outlining how you will verify that the product meets the most important specific requirements. The format of this section should parallel section 3 of your document (see 9.5.18). Wherever possible (especially systemic requirements) you should indicate testable acceptance criteria.
+//3 pages outlining how you will verify that the product meets the most important specific requirements. The format of this section should parallel ////section 3 of your document (see 9.5.18). Wherever possible (especially systemic requirements) you should indicate testable acceptance criteria.
+
+This section will contain criteria used to assess whether the main performance requirements have been met and whether certain components of our design have improved on designs from previous years/
+
+The main components that will be verified are:
+- Is the rocket capable of successfully being launched under the correct circumstances. This can be measured by observing whether the rocket makes it off of the launchpad.
+
+- Does the rocket successfully deploy it's parachute within the correct time frame during its flight. This will also be measured by observation, does the parachute eject within a 2 second window of the rocket's apogee.
+
+- Does the rocket land within a given radius of the launch site? Measurement based on distance from launch pad to landing site.
+
+- Is the rocket able to be recovered without damage that may compromise future flights. Observation based measurement, assessed after launch and the next launch.
+
+- Has our rocket's form factor improved on previous designs. This could be measured by comparing the dimensions, mass and volume of our rocket designs from previous years.
+
+- Has the gimbal design been improved. This can be measured by performing simulations of stress tests, comparing the angle through which the gimbal can rotate in both directions. How compatible the gimbal is with different motors.
+
+- Does the rocket have an effective active control system for gimballing the motor. This can be assessed by recording measurements from accelerometer, signals sent to gimbal servos, gps location and observation of the flight.
+
+This list goes on. Essentially we need to determine what the requirements and goals for our rocket are first. Once we know what we want the rocket to achieve, then we can discuss how we can determine whether these goals/requirements were actually met. As mentioned above, our requirements are likely to be the same as previous years, however with the addition of extra requirements bought about by planned improvements on previous designs.
 
 ## 5. Development schedule.
 
