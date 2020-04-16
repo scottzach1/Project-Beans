@@ -78,10 +78,24 @@ Notes: Run into a similar problem as above, the changes to the course will have 
     * Record and display flight data.
 
 ### 1.3 Product overview
-#### 1.3.1 Product perspective
+#### 1.3.1 Product perspective (Can partially do)
 
 One page defining the system's relationship to other related products
 (9.5.3. but not the subsections in the standard.)
+
+**Can partially do:**
+- talk about how this is related to other related programs (Note: aaron asking about this in project info pdf)
+  - does require some general idea of our end goal   
+
+**Things we need to know:**
+- the actual scope of our program
+- the "why" behind our end goals
+- how we're improving on the 2018 group
+
+**Things needed:**
+- Generic UML Diagram (Started - what we did last meeting)
+- knowledge on how software interacts with each subsection (Can't do)
+
 
 > **9.5.3 Product perspective** <br>
 > Define the system's relationship to other related products.
@@ -102,15 +116,40 @@ f) Memory;
 g) Operations;  
 h) Site adaptation requirements.
 
-#### 1.3.2 Product functions
+#### 1.3.2 Product functions (Can't do)
+
+Essentially outlining the end goals for this project.
+
+**Things needed:**
+- Actual scope/hard requirements
+  - We should ask the client about this
 
 One page summary of the main functions of the product (9.5.4), briefly characterising the minimum viable product.
 
-#### 1.3.3 User characteristics   
+#### 1.3.3 User characteristics (Can do)
+
+Talk about Client:
+- Still appears to be hobby based and open source?
+- Worth checking in with the client about the specifics and their expectations (again see Aaron's confusion in project info pdf).
+
+Talk about potential future users:
+- need to comply with health and safety (what is this)
+- likely going to need some basic technical/domain knowledge
+- rocket hobby-ists
+- probably us again when we retake this course next year
+- others?
+
+Do we come under users?
+
 
 One page identifying the main classes of users and their characteristics (9.5.5)
 
-#### 1.3.4 Limitations
+#### 1.3.4 Limitations (Can't do)
+
+Essentially a summary of the constraints and limitations of the hardware and software we end up using.
+
+**Need to know:**
+- exact hardware widgets being used
 
 One page on the limitations on the product (9.5.6)
 
