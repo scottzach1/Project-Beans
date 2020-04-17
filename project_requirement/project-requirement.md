@@ -210,7 +210,7 @@ This section should outline each of the required functions that the stakeholder 
 
 #### Summary: (Can't Start)
 
-Outline the usability requirements set by the stakeholder, then using the possible use cases discussed in **3.3**, discuss the usability requirements of the project in terms of actual product use cases. 
+Outline the usability requirements set by the stakeholder, then using the possible use cases discussed in **3.3**, discuss the usability requirements of the project in terms of actual product use cases.
 
 **Suggested steps to make progress here:**
 
@@ -374,7 +374,7 @@ Cannot make much progress here right now. We need to move forward with the proje
 
 This section will contain criteria used to assess whether the main performance requirements have been met and whether certain components of our design have improved on designs from previous years/
 
-The main components that will be verified are:
+The main components that will be verified for example...
 - Is the rocket capable of successfully being launched under the correct circumstances. This can be measured by observing whether the rocket makes it off of the launchpad.
 
 - Does the rocket successfully deploy it's parachute within the correct time frame during its flight. This will also be measured by observation, does the parachute eject within a 2 second window of the rocket's apogee.
