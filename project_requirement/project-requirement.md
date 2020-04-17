@@ -293,6 +293,16 @@ The main components that will be verified are:
 
 - Does the rocket have an effective active control system for gimballing the motor. This can be assessed by recording measurements from accelerometer, signals sent to gimbal servos, gps location and observation of the flight.
 
+Verification Sections will likely be similar to 2018
+- External interfaces
+- functions
+- Usability requirements
+- Performance requirements
+- Domain Model requirements
+- Design constraints
+- Software System attributes
+- Physical and Environmental requirements
+
 This list goes on. Essentially we need to determine what the requirements and goals for our rocket are first. Once we know what we want the rocket to achieve, then we can discuss how we can determine whether these goals/requirements were actually met. As mentioned above, our requirements are likely to be the same as previous years, however with the addition of extra requirements bought about by planned improvements on previous designs.
 
 ## 5. Development schedule.
