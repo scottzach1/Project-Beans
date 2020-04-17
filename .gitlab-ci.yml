@@ -5,6 +5,7 @@ stages:
 
 build:
   stage: Build
+  image: 6d3ea156
   tags:
     - Shell
   script:
@@ -14,6 +15,7 @@ build:
 
 unittest:
   stage: Test
+  image: 6d3ea156
   tags:
     - Shell
   script:
@@ -23,6 +25,7 @@ unittest:
 
 deploy:
   stage: Deploy
+  image: 6d3ea156
   tags:
     - Shell
   script:
