@@ -5,9 +5,8 @@ stages:
 
 build:
   stage: Build
-  image: 6d3ea156
   tags:
-    - Shell
+    - shell
   script:
     - echo "static analysis"
     - exit 1
@@ -15,9 +14,8 @@ build:
 
 unittest:
   stage: Test
-  image: 6d3ea156
   tags:
-    - Shell
+    - shell
   script:
     - echo "test"
     - exit 1
@@ -25,9 +23,8 @@ unittest:
 
 deploy:
   stage: Deploy
-  image: 6d3ea156
   tags:
-    - Shell
+    - shell
   script:
     - echo "deploy"
     - exit 1
