@@ -405,55 +405,108 @@ This list goes on. Essentially we need to determine what the requirements and go
 
 ### 5.1 Schedule
 
-Identify dates for key project deliverables:
+**Original Instructions**
 
-1. architectural prototype
-1. minimum viable product
-1. further releases
+> Identify dates for key project deliverables:
 
-(1 page).
+> 1. architectural prototype
+> 1. minimum viable product
+> 1. further releases
+
+> (1 page).
+
+5.1 Schedule
+
+5.1.1 Architectural Prototype
+
+Set out a date that we want to have the architectural prototype done by.
+
+5.1.2 Minimum Viable Product
+
+Set out a date that we want to have the minimumt viable product done by. Section 1.3
+
+5.1.3 Further Releases.
+
+Finanl prototype due, as well as any other planned significant releases. (Perhaps improvements)
+Will software and hardware be published differently? This will be announced in Section 1.3 as well.
 
 ### 5.2 Budget
 
-Present a budget for the project (table), and justify each budget item (one paragraph per item, one page overall).
+**Original Instructions**
+
+> Present a budget for the project (table), and justify each budget item (one paragraph per item, one page overall).
+
+Present a budget covering the cost of all of the component? Are we going to use hardware next tri?
+Perhaps we are paying for some of the software for simulation?
+
+- We should make a list of the hardware that we might need. (ie, micro controllers and sensors etc.)
+- Ie, "This is our theoretical budget." Treat it as a grocery list.
 
 ### 5.3 Risks
 
-Identify the ten most important project risks to achieving project goals: their type, likelihood, impact, and mitigation strategies (3 pages).
+**Original Instructions**
 
-If the project will involve any work outside the ECS laboratories, i.e. off-campus activities, these should be included in the following section.
+> Identify the ten most important project risks to achieving project goals: their type, likelihood, impact, and mitigation strategies (3 pages).
+
+> If the project will involve any work outside the ECS laboratories, i.e. off-campus activities, these should be included in the following section.
+
+Identify top 10 most important risks affecting the project goals.
+
+- Global pandemic.
+- Injury of team mates
+- Distractions?
+
+For each of these risks, we need to analys and evaluate by listing their type, likelihood, impact and how we can mitigate.
 
 ### 5.4 Health and Safety
 
-Document here project requirements for Health and Safety. All teams must state in this section:
+**Original Instructions**
 
-1. How teams will manage computer-related risks such as Occupational Over Use, Cable management, etc.  
+> Document here project requirements for Health and Safety. All teams must state in this section:
 
-2. Whether project work requires work or testing at any external (off-campus) workplaces/sites. If so, state the team's plans for receiving a Health and Safety induction for the external workplaces/sites. If the team has already received such an induction, state the date it was received.
+> 1. How teams will manage computer-related risks such as Occupational Over Use, Cable management, etc.  
 
-3. Whether project work requires the team test with human or animal subjects? If so, explain why there is no option but for the team to perform this testing, and state the team's plans for receiving Ethics Approval _prior_ to testing.
+> 2. Whether project work requires work or testing at any external (off-campus) workplaces/sites. If so, state the team's plans for receiving a Health and Safety induction for the external workplaces/sites. If the team has already received such an induction, state the date it was received.
 
-Also document in this section any additional discussions with the School Safety Officer regarding Health and Safety risks. Give any further information on relevant health and safety regulations, risks, and mitigations, etc.
+> 3. Whether project work requires the team test with human or animal subjects? If so, explain why there is no option but for the team to perform this testing, and state the team's plans for receiving Ethics Approval _prior_ to testing.
 
+> Also document in this section any additional discussions with the School Safety Officer regarding Health and Safety risks. Give any further information on relevant health and safety regulations, risks, and mitigations, etc.
+
+- Computer related risks such as occupational overuse, cable management? Perhaps a couple points might tie in with 5.3? Mental health concerns are part of scope here.
+- Requirements for work or testing at external workplaces/sites. Discuss virtual testing? Perhaps we are going to be using hardware next tri? 
+- Ethically concerned requirements for testing Human or animals? Not very relevant. Explain why? Discuss ethics? 
 
 #### 5.4.1 Safety Plans
 
-Safety Plans may be required for some projects, depending on project requirements. Safety Plan templates are available on the course Health & Safety page. Two questions all teams must answer are:
+**Original Instructions**
 
-**Do project requirements involve anything that can cause serious harm or death?**  
-Examples: building/modifying devices using voltages > 60 V, chemicals, large moving machinery, flying devices, bodies of water.
+> Safety Plans may be required for some projects, depending on project requirements. Safety Plan templates are available on the course Health & Safety page. Two questions all teams must answer are:
 
-If so, you will have to write a separate Safety Plan as part of project requirements, and the Safety Plan must be referenced in this section. For health and safety risks involving serious harm or death, you must first contact the School Safety Officer and Course Coordinator first to discuss the Safety Plan and project requirements.
+> **Do project requirements involve anything that can cause serious harm or death?**  
+> Examples: building/modifying devices using voltages > 60 V, chemicals, large moving machinery, flying devices, bodies of water.
 
-**Do project requirements involve anything that can cause harm or injury?**  
-Examples: building/modifying things with voltages <= 60V, small moving machinery, wearable devices.
+> If so, you will have to write a separate Safety Plan as part of project requirements, and the Safety Plan must be referenced in this section. For health and safety risks involving serious harm or death, you must first contact the School Safety Officer and Course Coordinator first to discuss the Safety Plan and project requirements.
 
-If so, you will have to write a separate Safety Plan as part of project requirements, and the Safety Plan must be referenced in this section. For health and safety risks involving harm or injury, you should write a draft of the Safety Plan before contacting the School Safety Officer and Course Coordinator to discuss the Safety Plan and project requirements.
+> **Do project requirements involve anything that can cause harm or injury?**  
+> Examples: building/modifying things with voltages <= 60V, small moving machinery, wearable devices.
 
-If a safety plan is required, list in this section the date the School Safety officer accepted your Health and Safety plan (if accepted by submission date).
+> If so, you will have to write a separate Safety Plan as part of project requirements, and the Safety Plan must be referenced in this section. For health and safety risks involving harm or injury, you should write a draft of the Safety Plan before contacting the School Safety Officer and Course Coordinator to discuss the Safety Plan and project requirements.
+
+> If a safety plan is required, list in this section the date the School Safety officer accepted your Health and Safety plan (if accepted by submission date).
 
 _If the project is purely software and requires no contact risks involving physical harm, then state "Project requirements do not involve risk of death, serious harm, harm or injury." in this section._
 
+May be required depending on previously stated project requirements.
+
+Do project requirements involve anythign that can cause serious harm or death?
+
+- Hardware yeah? Risks of projectiles perhaps. incendiarys?. Will have to write indiviual safety plan as part of project requiements. Must contact School Safety officer and coordinator to discuss safety plan and project requirements.
+
+Do project requirements involve anything that can cause harm of injury?
+
+- Hardware electricution / chemical incendiaries - is this still a risk? Write safety plan as part of project requirements. For H&S risks write a draft for safety officer and coordinator to discuss the plan and project requirements.
+
+Otherwise, if all software. We can state "Project requirements do not involve risk of death, serious harm, harm or injury."
 
 ## 6. Appendices
 ### 6.1 Assumptions and dependencies
