@@ -78,10 +78,24 @@ Notes: Run into a similar problem as above, the changes to the course will have 
     * Record and display flight data.
 
 ### 1.3 Product overview
-#### 1.3.1 Product perspective
+#### 1.3.1 Product perspective (Can partially do)
 
 One page defining the system's relationship to other related products
 (9.5.3. but not the subsections in the standard.)
+
+**Can partially do:**
+- talk about how this is related to other related programs (Note: aaron asking about this in project info pdf)
+  - does require some general idea of our end goal   
+
+**Things we need to know:**
+- the actual scope of our program
+- the "why" behind our end goals
+- how we're improving on the 2018 group
+
+**Things needed:**
+- Generic UML Diagram (Started - what we did last meeting)
+- knowledge on how software interacts with each subsection (Can't do)
+
 
 > **9.5.3 Product perspective** <br>
 > Define the system's relationship to other related products.
@@ -102,15 +116,40 @@ f) Memory;
 g) Operations;  
 h) Site adaptation requirements.
 
-#### 1.3.2 Product functions
+#### 1.3.2 Product functions (Can't do)
+
+Essentially outlining the end goals for this project.
+
+**Things needed:**
+- Actual scope/hard requirements
+  - We should ask the client about this
 
 One page summary of the main functions of the product (9.5.4), briefly characterising the minimum viable product.
 
-#### 1.3.3 User characteristics   
+#### 1.3.3 User characteristics (Can do)
+
+Talk about Client:
+- Still appears to be hobby based and open source?
+- Worth checking in with the client about the specifics and their expectations (again see Aaron's confusion in project info pdf).
+
+Talk about potential future users:
+- need to comply with health and safety (what is this)
+- likely going to need some basic technical/domain knowledge
+- rocket hobby-ists
+- probably us again when we retake this course next year
+- others?
+
+Do we come under users?
+
 
 One page identifying the main classes of users and their characteristics (9.5.5)
 
-#### 1.3.4 Limitations
+#### 1.3.4 Limitations (Can't do)
+
+Essentially a summary of the constraints and limitations of the hardware and software we end up using.
+
+**Need to know:**
+- exact hardware widgets being used
 
 One page on the limitations on the product (9.5.6)
 
@@ -118,45 +157,102 @@ One page on the limitations on the product (9.5.6)
 
 References to other documents or standards. Follow the IEEE Citation  Reference scheme, available from the [IEEE website](https://www.ieee.org/) (please use the search box). (1 page, longer if required)
 
+
 ## 3. Specific requirements  
 
-20 pages outlining the requirements of the system. You should apportion these pages across the following subsections to focus on the most important parts of your product.
+#### Summary:
 
-### 3.1 External interfaces
+This Section will go into depth describing every single requirement of the project, these requirements will then be expanded upon in the subheadings below.
 
-See 9.5.10. for most systems this will be around one page.
+**Original Instructions**<br>
 
-### 3.2 Functions
+> 20 pages outlining the requirements of the system. You should apportion these pages across the following subsections to focus on the most important parts of your product.
 
-This is typically the longest subsection in the document. List up to fifty use cases (in order of priority for development), and for at least top ten focal use cases, write a short goal statement and use case body (up to seven pages).  Identify the use cases that comprise a minimum viable product.
+
+### 3.1 External interfaces (Can Start)
+
+#### Summary:
+
+This subsection will discuss the requirements of each of the external interfaces of our project. This will include interfaces such as:
+- Radio Antenna
+- SD Card
+- Internal Measurement Unit (IMU / Sensors)
+- Gimbal
+- Servos
+- GPS
+
+**Suggested steps to make progress here:**
+
+At the current time, we can discuss and outline possible requirements of each of these individual components. This will include discussing things such as reliability, usability, and system lifespan.
+
+**Original Instructions**<br>
+
+>See 9.5.10. for most systems this will be around one page.
+
+
+### 3.2 Functions (can start)
+
+#### Summary:
+
+This section should outline each of the required functions that the stakeholder has outlined for the project, how we intend to meet these functions, what the use-cases for out project are. It should break down each of the project requirements into subsections outlining the approach we are taking to implement them.
+
+**Suggested steps to make progress here:**
+
+- Talk with the customer about what their requirements for the project are.
+- Break down the requirements outlined by the customer into subsections which outline what we need to do to achieve them.
+- Come up with a list of possible use cases for our project outcomes.
+
+**Original Instructions**<br>
+> This is typically the longest subsection in the document. List up to fifty use cases (in order of priority for development), and for at least top ten focal use cases, write a short goal statement and use case body (up to seven pages).  Identify the use cases that comprise a minimum viable product.
+
 
 ### 3.3 Usability Requirements
 
-See 9.5.12. for most systems this will be around one page.
+#### Summary: (Can't Start)
 
-> **9.5.12 Usability requirements**<br>
-> Define usability (quality in use) requirements. Usability requirements and objectives for the software system include measurable effectiveness, efficiency, and satisfaction criteria in specific contexts of use.
+Outline the usability requirements set by the stakeholder, then using the possible use cases discussed in **3.3**, discuss the usability requirements of the project in terms of actual product use cases. 
+
+**Suggested steps to make progress here:**
+
+- Talk to the customer about the usability requirements.
+- Begin/Complete section 3.3.
+
+**Original Instructions**<br>
+
+> See 9.5.12. for most systems this will be around one page.
+>
+>> **9.5.12 Usability requirements**<br>
+>> Define usability (quality in use) requirements. Usability requirements and objectives for the software system include measurable effectiveness, efficiency, and satisfaction criteria in specific contexts of use.
 
 ### 3.4 Performance requirements
 
-See 9.5.13. for most systems this will be around one page. Hardware projects also see section 9.4.6.
+#### Summary: (Can't Start)
 
-> **9.5.13 Performance requirements** <br>
-> Specify both the static and the dynamic numerical requirements placed on the software or on human interaction with the software as a whole.
+This section will define what the base expectation of our of our project outcome will be. This section requires that we talk to the customer before anything can be done as it is the very general overview of the project.
+
+**Suggested steps to make progress here:**
+-talk to the customer and find out what their requirements are.
+
+**Original Instructions**<br>
+
+>See 9.5.13. for most systems this will be around one page. Hardware projects also see section 9.4.6.
 >
-> Static numerical requirements may include the following:
->
-> a) The number of terminals to be supported;  
-> b) The number of simultaneous users to be supported;  
-> c) Amount and type of information to be handled.
->
-> Static numerical requirements are sometimes identified under a separate section entitled Capacity.
->
-> Dynamic numerical requirements may include, for example, the numbers of transactions and tasks and the amount of data to be processed within certain time periods for both normal and peak workload conditions. The performance requirements should be stated in measurable terms.
->
->  For example, "_95 % of the transactions shall be processed in less than 1 second._" rather than, "An operator shall not have to wait for the transaction to complete."
->
-> NOTE Numerical limits applied to one specific function are normally specified as part of the processing subparagraph description of that function.
+>> **9.5.13 Performance requirements** <br>
+>> Specify both the static and the dynamic numerical requirements placed on the software or on human interaction with the software as a whole.
+>>
+>> Static numerical requirements may include the following:
+>>
+>> a) The number of terminals to be supported;  
+>> b) The number of simultaneous users to be supported;  
+>> c) Amount and type of information to be handled.
+>>
+>> Static numerical requirements are sometimes identified under a separate section entitled Capacity.
+>>
+>> Dynamic numerical requirements may include, for example, the numbers of transactions and tasks and the amount of data to be processed within certain time periods for both normal and peak workload conditions. The performance requirements should be stated in measurable terms.
+>>
+>>  For example, "_95 % of the transactions shall be processed in less than 1 second._" rather than, "An operator shall not have to wait for the transaction to complete."
+>>
+>> NOTE Numerical limits applied to one specific function are normally specified as part of the processing subparagraph description of that function.
 
 
 ### 3.5 Logical database requirements (Cannot Start)
@@ -172,7 +268,7 @@ This section requires us to do some in-depth modelling  of the software system c
 
 **Original Instructions:**
 
-> See 9.5.14. for most systems, a focus on d) and e) is appropriate, such as an object-oriented domain analysis. You should provide an overview domain model (e.g.  a UML class diagram of approximately ten classes) and write a brief description of the responsibilities of each class in the model (3 pages). You should use right tools, preferabley PlantUML, to draw your URL diagrams which can be easily embedded into a Mardown file (PlantUML is also supported by GitLab and Foswiki).
+> See 9.5.14. for most systems, a focus on d) and e) is appropriate, such as an object-oriented domain analysis. You should provide an overview domain model (e.g.  a UML class diagram of approximately ten classes) and write a brief description of the responsibilities of each class in the model (3 pages). You should use right tools, preferably PlantUML, to draw your URL diagrams which can be easily embedded into a Markdown file (PlantUML is also supported by GitLab and Foswiki).
 
 ### 3.6 Design constraints (Can Start)
 
