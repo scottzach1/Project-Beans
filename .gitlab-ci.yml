@@ -9,7 +9,7 @@ build:
     - shell
   script:
     - echo "static analysis"
-    - exit 1
+    - exit 0
   allow_failure: true
 
 unittest:
@@ -18,7 +18,7 @@ unittest:
     - shell
   script:
     - echo "test"
-    - exit 1
+    - exit 0
   allow_failure: true
 
 deploy:
@@ -27,5 +27,5 @@ deploy:
     - shell
   script:
     - echo "deploy"
-    - exit 1
+    - exit 0
   allow_failure: true
