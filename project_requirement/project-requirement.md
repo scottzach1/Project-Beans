@@ -463,7 +463,133 @@ Identify top 10 most important risks affecting the project goals.
 - Injury of team mates
 - Distractions?
 
-For each of these risks, we need to analys and evaluate by listing their type, likelihood, impact and how we can mitigate.
+The content below outlines the 10 most important risks that can impact achieving project goals. Attributes of each risk such as the likelihood of the risk occuring and its impact is described using the following levels:
+
+> Likelihood: - Unlikely, Likely, Very Likely
+> Impact - Mild, Moderate, Severe
+
+- #### Risk 1: Rocket falls on a person causing injury
+
+  - **Risk Type:** Health and Safety
+
+  - **Likelihood:** Unlikely
+
+  - **Impact:** Severe
+
+  - **Mitigation Strategy:** During a rocket launch, all attending project members and other stakeholders/spectators are required to maintain a safe distance from the rocket. Any member of the public present at the launch site will be informed of the rocket launch so that they are made aware of the potential danger. During the rocket's flight, the trajectory and status of the rocket will be closely monitored to ascertain the landing location of the rocket. If there are too many people at the launch site, the launch will be postponed. Ensure that a parachute deployment system is implemented to minimize the damage done by an impact with a person during landing.
+
+  - _**TODO:**_ Research safe distance to maintain during rocket launch. Inlcude specific numbers.
+
+- #### Risk 2: Rocket unintentionally makes contact with an object during flight or when it lands, causing damage to property.
+
+  - **Risk Type:** Health and Safety, Environmental
+
+  - **Likelihood:** Unlikely
+
+  - **Impact:** Moderate
+
+  - **Mitigation Strategy:**  The site of the rocket launch will be inspected closely prior to the launch to determine if there are any objects belonging to the project members or to the members of the public. The location of the launch site must be a safe distance away from any buildings, cars and roads. Ensure that a parachute deployment system is implemented to minimize the damage done by an impact with an object during landing.
+
+  - _**TODO:**_ One potential mitigation strategy is to limit the altitude the rocket can reach? Customer specifically said that the priority of the project is control and that the rocket reaching high altitudes is not the goal/desired. This mitigation strategy can also apply to Risk 1.
+
+    
+
+- #### Risk 3: Rocket's trajectory affected by winds, causing it to take an unsafe flight path and in turn, causing injury to people or damaging. 
+
+  - **Risk Type:** Environmental
+
+  - **Likelihood:** Unlikely
+
+  - **Impact:** Severe
+
+  - **Mitigation Strategy:** Consult mission control software before a rocket launch to determine if the current wind speeds can safely accomodate a flight. Launches will be postponed if wind speeds exceed _**[Insert number here]**_.
+
+    
+
+- #### Risk 4: Rocket parts unexpectedly disassembles during flight. Debris emitted causing damage to people and property.
+
+  - **Risk Type:** Health and Safety/Environmental
+
+  - **Likelihood:** Unlikely
+
+  - **Impact:** Moderate
+
+  - **Mitigation Strategy:** 
+
+    
+
+- #### Risk 5: Covid-19 pandemic causes lockdown, hindering progress.
+
+  - **Risk Type:** Legal/Health and Safety/Environmental
+
+  - **Likelihood:** Very Likely
+
+  - **Impact:** Moderate
+
+  - **Mitigation Strategy:** The project team will continue to work remotely, using tools as specified in the team contract to maintain communication during the lockdown period. Hold meetings remotely as outlined in the team contract to continually assess and provoke progress. Focus of the project will shift to parts of the project that do not require the practical application of hardware. Hardware related components of the project will be simulated. Project members will closely monitor the situation and decide on the achievability of certain project objectives in a reactive manner.
+
+  - Note: This is an ongoing issue as of 23/4/2020
+
+    
+
+- #### Risk 6: Covid-19 pandemic affects global logistics, making it difficult to procure equipment and parts. 
+
+  - **Risk Type:** Resources
+
+  - **Likelihood:** Very Likely
+
+  - **Impact:** Moderate
+
+  - **Mitigation Strategy:** The project team will continue to plan and budget for the equipment and parts required so when the ability to order parts becomes feasible, the team is able to order such parts immediately and mitigate the time lost to progress with the project. The project team will discuss with the client if certain parts can be recycled from previous attempts at the project by other teams.
+
+  - Note: This is an ongoing issue as of 23/4/2020
+
+    
+
+- #### Risk 7: Rocket ignites prematurely, causing injury to people
+
+  - **Risk Type:** 
+
+  - **Likelihood:** 
+
+  - **Impact:** 
+
+  - **Mitigation Strategy:** (Mention 10m wire connected to motor for manual ignition. Alternatively, we can ignite by means of software which would mean that we can be far away from the rocket for a long time. Although the client did say this is not the preferred method due to a number of safety precautions. Mention fire extinguisher)
+
+    
+
+- #### Risk 8: Rocket takes an unsafe trajectory mid-flight due to software error, causing damage to people or objects.
+
+  - **Risk Type:**  Health and Safety/Environmental
+
+  - **Likelihood:** Unlikely
+
+  - **Impact:** Severe
+
+  - **Mitigation Strategy:** The project team will extensively test the software to validate its correctness before proceeding with a rocket launch.
+
+  - _**TODO:**_ Is there a way of developing some sort of manual kill switch so if we ever see the rocket taking an unsafe path (eg heading towards the ground or a person), we can kill its thrust to minimize impact damage?
+
+    
+
+- #### Risk 9: Something about fire
+
+  - **Risk Type:** Health and Safety/Environmental
+
+  - **Likelihood:** 
+
+  - **Impact:** 
+
+  - **Mitigation Strategy:** Bring a fire extinguisher. Make sure we dont launch during a high fire alert level. Make sure launch pad isn't susceptible to fire (if we are launching in a field, make sure the grass isn't too dry?)
+
+    
+
+- #### Risk 10:
+
+  - **Risk Type:** 
+  - **Likelihood:** 
+  - **Impact:** 
+  - **Mitigation Strategy:** 
 
 ### 5.4 Health and Safety
 
