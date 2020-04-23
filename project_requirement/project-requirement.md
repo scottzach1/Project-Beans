@@ -214,21 +214,27 @@ This section should outline each of the required functions that the stakeholder 
 
 
 ### 3.3 Usability Requirements
+The goal is to design a user-friendly rocket with sufficient documentation to allow the wider avionics community to successfully launch and operate the product themselves. The product will also remain open source, ensuring the wider community can analyse and develop the product further as they wish.
 
-#### Summary: (Can't Start)
+The Usability of the rocket can be divided into its use cases.
 
+#### Launch:
+During launch it is important that:
+- Launch critical features are clearly marked and labeled
+- Hardware features to help mitigate the risk of incorrect operation of product, such as incorrect battery polarity.
+- Software safety guards to ensure all systems are operational and to prevent premature launch
+- System can be set up and ready to launch with 10 minutes of activation
 
-**Suggested steps to make progress here:**
+#### Flight analysis
+Following flight the system should:
+- Have recorded all sensor readings to the onboard SD Card
+- Saved these in a format that enables users to easily analyse the rockets performance and troubleshoot potential issues during flight
 
-- Talk to the customer about the usability requirements.
-- Begin/Complete section 3.3.
+#### Tuning Performance
+Before flight, the system should:
+- Enable the user to assess in flight variables and control parameters
+- Easily adjust such variables and parameters
 
-**Original Instructions**<br>
-
-> See 9.5.12. for most systems this will be around one page.
->
->> **9.5.12 Usability requirements**<br>
->> Define usability (quality in use) requirements. Usability requirements and objectives for the software system include measurable effectiveness, efficiency, and satisfaction criteria in specific contexts of use.
 
 ### 3.4 Performance requirements
 
