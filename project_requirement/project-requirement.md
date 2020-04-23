@@ -29,19 +29,26 @@ This general introduction should contain:
     * Difficulty of creating an effective passive rocket, Extreme Precision Required, cannot account for everything.
     * List some unexpected conditions like wind, or small flaws in parts etc..
 
+##### Ideas
+Amongst the Amateur Rocketry community, two types of rockets are used. Controller and uncontrolled. Both are vaild but each have their specialty. Our customer is one day hoping to launch a rocket from a weather balloon at 70,000ft, this is most definitely the realm of a control system and several electronic packages. What this project will cover is but a stepping stone for that goal. will be open source, done for andre but an the next team working on this, we are working on improving 2018 teams work (mainly improving reliability and ease of use in the field), working alongside two other projects (simulation and ?)
+
+
+Adv
+* Active systems can work with errors and therefore in more conditions
+* Active systems are then preferable
+
+Disadv
+* Active systems are complex and have a greater overhead
+* existing packages are not open source therefore cannot reprogram
+* existing packages are of limited functionality
+
+
+* This project aims to create a package that will improve the body of knowledge in the amateur rockety body of knowledge
+
+
 ### Client - (Can do)
 
-Requirement: "Identify the client and their contact details."
-
-Notes: Pretty Straight forward.
-
-* Identify
-  * Name
-	* Member of NZ Rocketry Association
-	* Rocket enthusiast
-* Contact
-	* Mention that the team can contact him through mattermost?
-	* Email
+Our client for this project is Andre Geldenhuis. Andre is a rocket enthusiast who is part of the NZ Rocketry Association. As of writing this, the contact email is "andre.geldenhuis@vuw.ac.nz" and throughout the project, the team can also contact Andre via a live text chat (Mattermost) channel.
 
 
 ### 1.1 Purpose
@@ -473,8 +480,8 @@ For each of these risks, we need to analys and evaluate by listing their type, l
 > Also document in this section any additional discussions with the School Safety Officer regarding Health and Safety risks. Give any further information on relevant health and safety regulations, risks, and mitigations, etc.
 
 - Computer related risks such as occupational overuse, cable management? Perhaps a couple points might tie in with 5.3? Mental health concerns are part of scope here.
-- Requirements for work or testing at external workplaces/sites. Discuss virtual testing? Perhaps we are going to be using hardware next tri? 
-- Ethically concerned requirements for testing Human or animals? Not very relevant. Explain why? Discuss ethics? 
+- Requirements for work or testing at external workplaces/sites. Discuss virtual testing? Perhaps we are going to be using hardware next tri?
+- Ethically concerned requirements for testing Human or animals? Not very relevant. Explain why? Discuss ethics?
 
 #### 5.4.1 Safety Plans
 
