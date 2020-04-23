@@ -123,15 +123,15 @@ f) Memory;
 g) Operations;  
 h) Site adaptation requirements.
 
-#### 1.3.2 Product functions (Can't do)
-
-Essentially outlining the end goals for this project.
+#### 1.3.2 Product functions
+The requirements specified for the clients minimum viable product include:
 
 **Things needed:**
-- Actual scope/hard requirements
-  - We should ask the client about this
+- A Rocket which achieves flight and implements an active control system.
+- Records and broadcasts radio telemetry during the launch, burn and post-burn phase of flight.
+- The Rocket is able to be safely launched without the use of a launch rail
+- The Rocket reliably deploys a parachute and lands without sustaining significant damage.
 
-One page summary of the main functions of the product (9.5.4), briefly characterising the minimum viable product.
 
 #### 1.3.3 User characteristics (Can do)
 
@@ -217,7 +217,6 @@ This section should outline each of the required functions that the stakeholder 
 
 #### Summary: (Can't Start)
 
-Outline the usability requirements set by the stakeholder, then using the possible use cases discussed in **3.3**, discuss the usability requirements of the project in terms of actual product use cases.
 
 **Suggested steps to make progress here:**
 
