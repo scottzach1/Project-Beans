@@ -492,9 +492,9 @@ The content below outlines the 10 most important risks that can impact achieving
 
   - _**TODO:**_ One potential mitigation strategy is to limit the altitude the rocket can reach? Customer specifically said that the priority of the project is control and that the rocket reaching high altitudes is not the goal/desired. This mitigation strategy can also apply to Risk 1.
 
-    
 
-- #### Risk 3: Rocket's trajectory affected by winds, causing it to take an unsafe flight path and in turn, causing injury to people or damaging. 
+
+- #### Risk 3: Rocket's trajectory affected by winds, causing it to take an unsafe flight path and in turn, causing injury to people or damaging.
 
   - **Risk Type:** Environmental
 
@@ -504,7 +504,7 @@ The content below outlines the 10 most important risks that can impact achieving
 
   - **Mitigation Strategy:** Consult mission control software before a rocket launch to determine if the current wind speeds can safely accomodate a flight. Launches will be postponed if wind speeds exceed _**[Insert number here]**_.
 
-    
+
 
 - #### Risk 4: Rocket parts unexpectedly disassembles during flight. Debris emitted causing damage to people and property.
 
@@ -514,9 +514,9 @@ The content below outlines the 10 most important risks that can impact achieving
 
   - **Impact:** Moderate
 
-  - **Mitigation Strategy:** 
+  - **Mitigation Strategy:**
 
-    
+
 
 - #### Risk 5: Covid-19 pandemic causes lockdown, hindering progress.
 
@@ -530,9 +530,9 @@ The content below outlines the 10 most important risks that can impact achieving
 
   - Note: This is an ongoing issue as of 23/4/2020
 
-    
 
-- #### Risk 6: Covid-19 pandemic affects global logistics, making it difficult to procure equipment and parts. 
+
+- #### Risk 6: Covid-19 pandemic affects global logistics, making it difficult to procure equipment and parts.
 
   - **Risk Type:** Resources
 
@@ -544,19 +544,19 @@ The content below outlines the 10 most important risks that can impact achieving
 
   - Note: This is an ongoing issue as of 23/4/2020
 
-    
+
 
 - #### Risk 7: Rocket ignites prematurely, causing injury to people
 
-  - **Risk Type:** 
+  - **Risk Type:**
 
-  - **Likelihood:** 
+  - **Likelihood:**
 
-  - **Impact:** 
+  - **Impact:**
 
   - **Mitigation Strategy:** (Mention 10m wire connected to motor for manual ignition. Alternatively, we can ignite by means of software which would mean that we can be far away from the rocket for a long time. Although the client did say this is not the preferred method due to a number of safety precautions. Mention fire extinguisher)
 
-    
+
 
 - #### Risk 8: Rocket takes an unsafe trajectory mid-flight due to software error, causing damage to people or objects.
 
@@ -570,26 +570,26 @@ The content below outlines the 10 most important risks that can impact achieving
 
   - _**TODO:**_ Is there a way of developing some sort of manual kill switch so if we ever see the rocket taking an unsafe path (eg heading towards the ground or a person), we can kill its thrust to minimize impact damage?
 
-    
+
 
 - #### Risk 9: Something about fire
 
   - **Risk Type:** Health and Safety/Environmental
 
-  - **Likelihood:** 
+  - **Likelihood:**
 
-  - **Impact:** 
+  - **Impact:**
 
   - **Mitigation Strategy:** Bring a fire extinguisher. Make sure we dont launch during a high fire alert level. Make sure launch pad isn't susceptible to fire (if we are launching in a field, make sure the grass isn't too dry?)
 
-    
+
 
 - #### Risk 10:
 
-  - **Risk Type:** 
-  - **Likelihood:** 
-  - **Impact:** 
-  - **Mitigation Strategy:** 
+  - **Risk Type:**
+  - **Likelihood:**
+  - **Impact:**
+  - **Mitigation Strategy:**
 
 ### 5.4 Health and Safety
 
@@ -605,9 +605,27 @@ The content below outlines the 10 most important risks that can impact achieving
 
 > Also document in this section any additional discussions with the School Safety Officer regarding Health and Safety risks. Give any further information on relevant health and safety regulations, risks, and mitigations, etc.
 
-- Computer related risks such as occupational overuse, cable management? Perhaps a couple points might tie in with 5.3? Mental health concerns are part of scope here.
-- Requirements for work or testing at external workplaces/sites. Discuss virtual testing? Perhaps we are going to be using hardware next tri?
-- Ethically concerned requirements for testing Human or animals? Not very relevant. Explain why? Discuss ethics?
+>> Planning:
+> - Computer related risks such as occupational overuse, cable management? Perhaps a couple points might tie in with 5.3? Mental health concerns are part of scope here.
+> - Requirements for work or testing at external workplaces/sites. Discuss virtual testing? Perhaps we are going to be using hardware next tri?
+> - Ethically concerned requirements for testing Human or animals? Not very relevant. Explain why? Discuss ethics?
+
+**Section Draft**
+
+1. How teams will manage computer-related risks such as Occupational Over Use, Cable management, etc.  
+
+It is the responsibility of the individual to make sure they have done the best they personally can to ensure they have a healthy, safe and tidy working environment. However, once these means have been met, there are still options that can be done as a team to ensure everyone's health and safety when undergoing computer related activities.
+
+In general, when it comes to computer usage, it isn't healthy to spend an inordinate amount of time in front of the screen. If any team member feels they have an inadequate working environment or an excessive amount of work they have been assigned. Then their obligation is to let the rest of the team know of their situation. The importance of this is as a team, we all share common interests and goals for the project. In sharing their situation with the team, it is then the teams responsibility to reassess the full situation. The team will get together and what they can do to lighten the burden off of the affected team member. This could be lightening the sum of work assigned to the individual. However, it might also look like changing the type of work assigned in order to meet the means of the affected individual. An example of this might be, if a pending task required creating large state diagrams (requiring a bigger monitor), and the team member only had access to a 11" laptop screen. The team member could ask for a reassessment of work such that they can find something that suits their means.
+
+2. Whether project work requires work or testing at any external (off-campus) workplaces/sites. If so, state the team's plans for receiving a Health and Safety induction for the external workplaces/sites. If the team has already received such an induction, state the date it was received.
+
+In the event that the team decides to perform work or testing at any external (off-campus) workplaces/sites, it is paramount that appropriate considerations are made ahead of time. These considerations will be realised in the form of a health and safety plan. Before the team visits any planned locations, they must first as a group brainstorm or discuss any health and safety risks that might be applicable to the location. It is important to note that mental health is also a vital consideration. Once these risks have been accessed, both the likelihood and what mitigations can / will be undertaken to reduce the risks. If any individual has concerns conflicting with the team about any offsite locations, then they can either express their stance with the team, or discretely raise the concern with the course coordinator / health and safety officer. Any industrial locations must require an induction, whether this is official, or provided unofficially by a member with strong knowledge of the environment.
+
+3. Whether project work requires the team test with human or animal subjects? If so, explain why there is no option but for the team to perform this testing, and state the team's plans for receiving Ethics Approval _prior_ to testing.
+
+The team as a whole has stated that they have strong objections with any work or testing on live or deceased subjects. The scope of this project entails creating software and hardware for miniature model rockets strictly used for conventional hobby-like activities. In the extreme event where the team becomes aware of the intention of either their software or hardware being used for unethical activities, then the team will halt any work until they have thoroughly assessed the situation. Should the intentions of the project usage, or scope change to an undesirable nature, then they have the right to halt all work undertaken indefinitely.
+
 
 #### 5.4.1 Safety Plans
 
