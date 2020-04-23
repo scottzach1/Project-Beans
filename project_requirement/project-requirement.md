@@ -223,7 +223,7 @@ During launch it is important that:
 - Launch critical features are clearly marked and labeled
 - Hardware features to help mitigate the risk of incorrect operation of product, such as incorrect battery polarity.
 - Software safety guards to ensure all systems are operational and to prevent premature launch
-- System can be set up and ready to launch with 10 minutes of activation
+- System can be set up and ready to launch within 10 minutes of activation
 
 #### Flight analysis
 Following flight the system should:
@@ -233,7 +233,7 @@ Following flight the system should:
 #### Tuning Performance
 Before flight, the system should:
 - Enable the user to assess in flight variables and control parameters
-- Easily adjust such variables and parameters
+- Easily adjust said variables and parameters
 
 
 ### 3.4 Performance requirements
