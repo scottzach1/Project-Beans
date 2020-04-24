@@ -133,22 +133,23 @@ The requirements specified for the clients minimum viable product include:
 - The Rocket reliably deploys a parachute and lands without sustaining significant damage.
 
 
-#### 1.3.3 User characteristics (Can do)
+#### 1.3.3 User characteristics (Draft)
 
-Talk about Client:
-- Still appears to be hobby based and open source?
-- Worth checking in with the client about the specifics and their expectations (again see Aaron's confusion in project info pdf).
+One of the key requests from our client is that the avionic package will be open source, which allows use and/or continuation of this product from anyone in the wider model rocket community. Future users could include but it not limited to students, researchers, programmers and rocket hobbyists.
 
-Talk about potential future users:
-- need to comply with health and safety (what is this)
-- likely going to need some basic technical/domain knowledge
-- rocket hobby-ists
-- probably us again when we retake this course next year
-- others?
+Users should have an understanding of how this package will be applied to their own specific projects. It's also important that the users are able to fully comply with all of the health and safety regulations of this package.
 
-Do we come under users?
+Parts of this project can be quite technical, and for that reason expertise in the following is recommended:
+- When installing the different components
+- The interaction of software and hardware
+- TODO: more specific to the actual project
 
+If this package is still used for avionics, then experience in these fields is also recommended:
+- Dealing and Complying with Civil Aviation Authority Regulations
+- Operating aircraft applications
+- TODO: more specific to the actual project
 
+**Original instructions:**
 One page identifying the main classes of users and their characteristics (9.5.5)
 
 #### 1.3.4 Limitations (Can't do)
