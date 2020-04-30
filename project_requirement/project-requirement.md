@@ -164,6 +164,9 @@ One page on the limitations on the product (9.5.6)
 ## 2. References
 
 References to other documents or standards. Follow the IEEE Citation  Reference scheme, available from the [IEEE website](https://www.ieee.org/) (please use the search box). (1 page, longer if required)
+_**TODO**: Properly format these sources in IEEE standard.
+https://www.nzrocketry.org.nz/rocketry/rocket-safety [1] (Viewed 30/4/2020)
+https://www.aviation.govt.nz/rules/ (Viewed 30/4/2020)
 
 
 ## 3. Specific requirements  
@@ -285,16 +288,10 @@ This section requires us to do some in-depth modelling  of the software system c
 
 ### 3.6 Design constraints (Can Start)
 
-#### Summary:
-
-In this section, we need to define the restrictions of our software and hardware. **This is a section we can start from a hardware perspective** by conducting our own research regarding legal restrictions. See [2018 Project](https://github.com/andre-geldenhuis/team-rocket-2018-handover/blob/master/ENGR302-2019T2_Delivery_Team-12/Assignment1_Requirements.pdf) to see how they formed legal restrictions.
-
 **Suggested Content**:
 
 - Two further subheadings - 3.6.1 Hardware Design Constraints, 3.6.2 Software Design Constraints
-
 - What are the legal restrictions imposed upon our hardware/rocket?
-- What are the restrictions imposed by the client upon our hardware/rocket? (Eg does the client want a maximum rocket height?)
 - Legal and client restrictions/requirements conflict?
 - We can also write about the restrictions of each specific hardware component once we decide what equipment we are going to use (Eg. is there a limitation of the specific hardware component we are going to use).
 - For the software section, one requirement is that its open source since the project is targeted towards the wider rocket community (can ask client about what they intend to do with the project to clear this up). One potential constraint is that we cannot use non-open source libraries?
@@ -317,6 +314,39 @@ In this section, we need to define the restrictions of our software and hardware
 > d) Audit tracing.
 >
 > For example, this could specify the requirement for software to trace processing activity. Such traces are needed for some applications to meet minimum regulatory or financial standards. An audit trace requirement may, for example, state that all changes to a payroll database shall be recorded in a trace file with before and after values.
+
+
+#### 3.6.1 Hardware Design Constraints
+
+For this project, the hardware design constraints are restrictions imposed upon the rocket being built. The primary source of these restrictions will come from legal requirements given that the client has not specified any specific hardware restriction and has given us more control over the design.
+
+##### Physical Construction of the Rocket
+
+According to the New Zealand Rocketry Association [1], the physical construction of a rocket with a motor class ranging from A-F  must adhere to the following rules:
+
+- The rocket's body, nose, and fins are made of lightweight, non-metal parts only. The following materials are approved:
+  - Paper
+  - Wood
+  - Rubber
+  - Plastic
+  - Fiberglass
+- The motor used must be commercially manufactured and certified.
+- The rocket must be ignited through an electric ignition system with electric motor igniters with a removable safety interlock.
+- The rocket cannot contain more than 125g of propellant.
+- The rocket must not weight more than 1500g at liftoff.
+- The rocket cannot produce more than 320N-secs of total impulse.
+- The rocket must have a recovery system in the form of a streamer or a parachute so it can land safely.
+- Recovery wadding used must be fire-resistant or fire-proof.
+- The rocket must not contain any payload that is intentionally flammable or to cause harm.
+
+_**TODO:**_ Identify any hardware design constraints imposed by the equipment and electronics we have agreed to use for our rocket. Place them in h5 subheadings here.
+
+#### 3.6.2 Software Design Constraints
+##### Open Source Software
+The client has clearly specified that the final result of the project is intended to contribute to the existing body of knowledge for rocket enthusiasts. The best way to ensure that this requirement is met is by making sure that the software produced by the project is open source and can be freely accessed by anyone. The open source nature of our software introduces some constraints, one of which is that the software produced during the project **cannot use non-open source third party libraries**. This limits the number of libraries that can be utilized for the development of the software.
+
+_**TODO:**_ Maybe talk about the fact that we have to use a programming language that better caters for the open-source nature of our software? Eg is C better suited to fulfill the open source attribute of our software compared to rust? If so, then a software design constraint is that we have to use C..
+
 
 ### 3.7 Nonfunctional system attributes (Can Start)
 
@@ -347,7 +377,7 @@ Theres a lot more to suggest from a software perspective. We can split some diff
 
 ### 3.8 Physical and Environmental Requirements (Can Start)
 
-#### Summary:
+#### Summary: See [1] for a lot of info!
 
 The first half of this section requires us to identify specific features and characteristics of the hardware we are using. **The first half of this section cannot be started .** We need to decide what hardware we are going to use before writing about it.
 
