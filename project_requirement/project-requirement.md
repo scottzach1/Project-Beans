@@ -291,14 +291,10 @@ This section requires us to do some in-depth modelling  of the software system c
 **Suggested Content**:
 
 - Two further subheadings - 3.6.1 Hardware Design Constraints, 3.6.2 Software Design Constraints
-- What are the legal restrictions imposed upon our hardware/rocket?
-- Legal and client restrictions/requirements conflict?
 - We can also write about the restrictions of each specific hardware component once we decide what equipment we are going to use (Eg. is there a limitation of the specific hardware component we are going to use).
-- For the software section, one requirement is that its open source since the project is targeted towards the wider rocket community (can ask client about what they intend to do with the project to clear this up). One potential constraint is that we cannot use non-open source libraries?
 
 **Suggested steps to make progress here:**
 
-- Contact the client about what conditions our hardware design must meet. (Eg What size the rocket should be?, What materials can we use?, Weight limit? Preferred electronics?)
 - Contact client about further software design constraints.
 
 **Original Instructions**
@@ -373,6 +369,26 @@ Theres a lot more to suggest from a software perspective. We can split some diff
 **Original Instructions:**
 
 >Present the systemic (aka nonfunctional) requirements of the product (see ISO/IEC 25010). List up to twenty systemic requirements / attributes. Write a short natural language description of the top nonfunctional requirements (approx. five pages).
+
+#### 3.7.1 Hardware Non-Functional System Attributes
+_**TODO:**_ Try to list approximately 10 hardware non-functional requirements, a few of which need to be written about in detail.
+
+#### 3.7.2 Software Non-Functional System Attributes
+
+##### Correctness and Reliability
+The client has highlighted that past attempts at the project by other teams had issues regarding the correctness and reliability of the software. This is especially important given that the project itself has elements that is potentially dangerous. Through these factors, it is paramount that the software works correctly and reliably. To assure the correctness of the software, the project team will continually discuss what is defined as correct behaviour as the project enters the execution phase. The software will be packaged with extensive unit testing suites to prove that the software is performing as intended. Continuous Integration will be setup in the GitLab repository of the project to ensure that features merged into production does not cause errors with the existing code base. From a coding perspective, the developers of the software should apply programming techniques such as error handling, pre/post condition checking and the maintenance of invariants. Observing these techniques should mitigate the risk of the software entering an incorrect state and can help assure its correctness and reliability.  
+
+##### Maintainability and Extensibility
+Since the client has outlined that one of the purposes of the project is to contribute to the wider rocket community, the software developed for the project should be easily maintanable and extensible. This is important since these attributes of maintainability and extensibility should facilitate easier contribution to the project by other individuals of the wider rocketry community. To achieve good maintainability, the software needs to follow existing coding conventions. Any 3rd party dependencies introduced to the software should be well-known, easily adaptable, and adheres to a standard of quality and usefulness agreed upon by the project team. From a lower level perspective, maintainability can be achieved by observing the 'low-coupling, high cohesion' relationship between the different modules of the software system. Extensibility can also be achieved by using these techniques and is therefore important if the software is to be added to or improved upon by other individuals after the completion of the project.
+
+##### Testing
+Testing is crucial in the process of assuring the correctness and reliability of the software. The testing strategy the project team will adopt is a combination of regular unit testing and integration testing. Unit testing will cover technical, lower-level aspects of the software to ensure that the logic is correct. Unit testing should become a regular part of the developer's workflow by running the unit tests before pushing changes to the remote repository. Integration testing will be accommodated by GitLab's CI/CD (Continuous Integration/Continuous Delivery) feature. This will assist in ensuring that code being merged into production meshes well with the existing code base. 
+
+Other non-functional requirements from a software perspective include the following:
+- **Documentation** - The software package should have comprehensive documentation to clearly convey the intent and purpose of the code.
+- **Code Quality** - The software should adhere to existing coding conventions and follow design patterns where appropriate. The software should facilitate easy maintenance and adaptability.
+- **Logger** - The software can include a logging module that is used to report telemetry data and other useful information about the state of the avionics package.
+- **Ease of Deployment** - Deployment of the software system should be easy for the user. A manual should accompany the software to describe how to use it, and to describe any important parts of the software the user should be made aware of.
 
 
 ### 3.8 Physical and Environmental Requirements (Can Start)
