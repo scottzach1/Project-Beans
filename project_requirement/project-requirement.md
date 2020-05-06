@@ -164,9 +164,10 @@ One page on the limitations on the product (9.5.6)
 ## 2. References
 
 References to other documents or standards. Follow the IEEE Citation  Reference scheme, available from the [IEEE website](https://www.ieee.org/) (please use the search box). (1 page, longer if required)
-_**TODO**: Properly format these sources in IEEE standard.
+_**TODO**_: Properly format these sources in IEEE standard.
 https://www.nzrocketry.org.nz/rocketry/rocket-safety [1] (Viewed 30/4/2020)
 https://www.aviation.govt.nz/rules/ (Viewed 30/4/2020)
+https://www.aviation.govt.nz/rules/rule-part/show/101/4 [3] (Viewed 6/5/2020)
 
 
 ## 3. Specific requirements  
@@ -372,6 +373,8 @@ Theres a lot more to suggest from a software perspective. We can split some diff
 
 #### 3.7.1 Hardware Non-Functional System Attributes
 _**TODO:**_ Try to list approximately 10 hardware non-functional requirements, a few of which need to be written about in detail.
+- Accessiblity (Client made a point about this in a Q&A (see Q&A Session 04 20 2020 in wiki))?
+- Drag?
 
 #### 3.7.2 Software Non-Functional System Attributes
 
@@ -393,23 +396,50 @@ Other non-functional requirements from a software perspective include the follow
 
 ### 3.8 Physical and Environmental Requirements (Can Start)
 
-#### Summary: See [1] for a lot of info!
-
-The first half of this section requires us to identify specific features and characteristics of the hardware we are using. **The first half of this section cannot be started .** We need to decide what hardware we are going to use before writing about it.
-
-The second half (Environmental Requirements) we can start.
+#### Summary:
 
 **Suggested Content:**
-
-- Legal restrictions as to where we can launch rockets. (Conduct research and cite them)
-- Weather restrictions and how this can impact rocket launches/flight. What weather is acceptable/unacceptable for commencing with a launch.
-- 2018 Project also seems to cover obligations to the wider community and stakeholders. Eg rocket should be safe for residents of wellington region.
+- 2 Subheadings - 3.8.1 Physical Requirements and 3.8.2 Environmental Requirements
+- Environmental Requirements
+  - Legal restrictions as to where we can launch rockets. (Conduct research and cite them)
+  - Weather restrictions and how this can impact rocket launches/flight. What weather is acceptable/unacceptable for commencing with a launch.
+  - 2018 Project also seems to cover obligations to the wider community and stakeholders. Eg rocket should be safe for residents of wellington region.
+  - How the station will look like on launch day (eg setup of the base station)
+- Physical Requirements
+  - State the legal restrictions (There may be some repetition from hardware design constraints)
+  - Identify the specific components that will be used to build the rocket and their purpose
+  - Describe the rocket and its composition. Include info about dimensions, weight, height, volume, general shape
+  - Describe where the parts come from and how they were procured
 
 We need to get to a point where we can confidently say what hardware components we are going to use. That way, we can start listing them in this section and state their features and characteristics.
 
 **Original Instructions:**
 
 > For systems with hardware components, identify the physical characteristics of that hardware (9.4.10) and environment conditions in which it must operate (9.4.11).  Depending on the project, this section may be from one page up to 5 pages.
+
+#### 3.8.1 Physical Requirements
+_**TODO:**_ Need to decide what hardware components we are going to use. See suggested content above.
+
+#### 3.8.2 Environmental Requirements
+
+The environmental requirements are based primarily around legal restrictions and safety requirements. According to the New Zealand Rocketry Association [1], a rocket with a motor class ranging from A-F can only be launched under the following environmental circumstances:
+- Wind speeds at the site of the launch do not exceed 32km/h
+- No dry grass must be present near the launching location of the rocket
+- People must maintain at least 5m distance from the rocket during a launch
+
+In addition to the guidelines provided by the New Zealand Rocketry Association, the New Zealand Civil Aviation Authority (NZCAA) Rules Part 101 [3] places the following restrictions:
+  - A rocket cannot be operate on or within 4km of an aerodome boundary unless permission is given by the aerodome operator
+    - If permission is granted, the rocket still has the following environmental restrictions:
+      - The rocket cannot fly above 400 feet (121.92m) AGL (Height above ground level)
+      - The rocket cannot interfere with the flight path of any aircraft
+      - The rocket cannot be operated over an active runway
+  - A rocket cannot be operated within 4km to 8km of an aerodome boundary if it exceeds an altitude of 400 feet AGL.
+  - A rocket cannot be launched in an environment where clouds or other obscuring meteorological phenomena is substantial
+  - A rocket cannot be launced if horizontal visibility is less than 8km
+  - Rockets cannot be launched at night under any circumstance
+
+_**TODO:**_ Make a statement about the actual wind speed our rocket can safely fly in once we can make this assessment confidently. Also state the required setup at the launch site if there are any.
+
 
 ### 3.9 Supporting information
 
