@@ -61,18 +61,20 @@ will be laid out within the launch documents.
 > - **CAA regulations Part 101.157 and Part 101.159**
 > - flight during daylight hours
 > - flight cancelled under following weather conditions:
->>  - Cloud cover which obscures more than half of the visible sky
->>  - Conditions which limit horizontal visibility to less than 8km.
->>  - Heavy precipitation
->>  - High wind speed (speeds exceeding 32 km/h)
+>> - Cloud cover which obscures more than half of the visible sky
+>> - Conditions which limit horizontal visibility to less than 8km.
+>> - Heavy precipitation
+>> - High wind speed (speeds exceeding 32 km/h)
 > - resources to check conditions
->>  - Accuweather - hourly expected wind speeds / wind gust speeds
->>  - Wind Finder - live data - wind speed and dir
->>  - Metservice - three hourly weather measurements
+>> - Accuweather - hourly expected wind speeds / wind gust speeds
+>> - Wind Finder - live data - wind speed and dir
+>> - Metservice - three hourly weather measurements
 > - not launched into clouds (**CAA regulations Part 101.157**)
 > - all members of general public using park at launch time notified
->>  - if they refuse to comply or >10 members of public launch must be postponed
+>> - if they refuse to comply or >10 members of public launch must be postponed
 > - throughout launch three members stationed at max launch radius to ensure general public do not enter zone
+
+[DRAFT]
 
  In accordance with ***[CAA regulations Part 101.157 and Part1.159](https://www.aviation.govt.nz/rules/rule-part/show/101)***
  as series of constraints will be applied to the conditions for which the rocket will be launched. Launch times for the
