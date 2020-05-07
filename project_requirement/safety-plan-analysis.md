@@ -31,16 +31,32 @@
  - see launch documents
 
 #### 2.1 - Travel Plan
- - heat required for ignition (288°)
-  - rocket must be kept away from any source of heat > 50°
- - at all times multiple persons of contact present
-  - mitigate getting lost or injured
-  - mobile phones for communication
- - rocket classified as Class 1 Dangerous Goods according to **Land Transport Rule: Dangerous Goods 2005**
- - designated member of staff contacted upon return to confirm safety of participants
-  - if designated member receives no contact within an hour after expected arrival they should take emrgency
-   - this action is laid out in launch documents
+> - heat required for ignition (288°)
+> - rocket must be kept away from any source of heat > 50°
+> - at all times multiple persons of contact present
+> - mitigate getting lost or injured
+> - mobile phones for communication
+> - rocket classified as Class 1 Dangerous Goods according to **Land Transport Rule: Dangerous Goods 2005**
+>> - designated member of staff contacted upon return to confirm safety of participants
+>> - if designated member receives no contact within an hour after expected arrival they should take emrgency
+>> - this action is laid out in launch documents
 
+[DRAFT]
+
+To launch the rocket, the motor requires a temperature of 288°C. To mitigate any risks of accidental ignition; which 
+may cause serious damage or injury, the rocket must be kept away from any source of heat greater than 50°C. At all times
+during transportation, there must be multiple persons of contact present. This can aid in any unforeseen circumstances 
+such as getting lost, injured or concerns about the rocket. To ensure this communication is available, it is mandatory 
+the group must have at least one mobile device with enough credit for texting / calls.   
+
+In accordance with the New Zealand Land Transport Rule: [Dangerous Goods 2005](https://www.nzta.govt.nz/resources/rules/dangerous-goods-2005/),
+the motor is classified as Class 1 under division [§1.4](https://www.nzta.govt.nz/resources/rules/dangerous-goods-2005/#1).
+To fulfill the requirements set out under the act, a designated member of staff must  be contacted upon return to 
+confirm safety of participants. In the circumstance that the designated member of staff receives contact from the party
+within an hour after expected arrival. They should immediately try to communicate with the party. If no contact can be 
+made, the designated member should take emergency action. Alternative points of contact and actions to be undertaken 
+will be laid out within the launch documents.
+      
 #### 2.2 - Environment
  - **CAA regulations Part 101.157 and Part 101.159**
   - flight during daylight hours
