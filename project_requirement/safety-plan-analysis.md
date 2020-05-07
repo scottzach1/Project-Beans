@@ -28,7 +28,7 @@
   - minimum dimensions of launch clear zone respective to motor (C class)
 
 ## Section 2 - Launch Details
- - see launch documents
+- see launch documents
 
 #### 2.1 - Travel Plan
 > - heat required for ignition (288°)
@@ -58,21 +58,42 @@ made, the designated member should take emergency action. Alternative points of 
 will be laid out within the launch documents.
       
 #### 2.2 - Environment
- - **CAA regulations Part 101.157 and Part 101.159**
-  - flight during daylight hours
-  - flight cancelled under following weather conditions:
-    - Cloud cover which obscures more than half of the visible sky
-    - Conditions which limit horizontal visibility to less than 8km.
-    - Heavy precipitation
-    - High wind speed (speeds exceeding 32 km/h)
-  - resources to check conditions
-    - Accuweather - hourly expected wind speeds / wind gust speeds
-    - Wind Finder - live data - wind speed and dir
-    - Metservice - three hourly weather measurements
-  - not launched into clouds (**CAA regulations Part 101.157**)
-  - all members of general public using park at launch time notified
-    - if they refuse to comply or >10 members of public launch must be postponed
-  - throughout launch three members stationed at max launch radius to ensure general public do not enter zone
+> - **CAA regulations Part 101.157 and Part 101.159**
+> - flight during daylight hours
+> - flight cancelled under following weather conditions:
+>>  - Cloud cover which obscures more than half of the visible sky
+>>  - Conditions which limit horizontal visibility to less than 8km.
+>>  - Heavy precipitation
+>>  - High wind speed (speeds exceeding 32 km/h)
+> - resources to check conditions
+>>  - Accuweather - hourly expected wind speeds / wind gust speeds
+>>  - Wind Finder - live data - wind speed and dir
+>>  - Metservice - three hourly weather measurements
+> - not launched into clouds (**CAA regulations Part 101.157**)
+> - all members of general public using park at launch time notified
+>>  - if they refuse to comply or >10 members of public launch must be postponed
+> - throughout launch three members stationed at max launch radius to ensure general public do not enter zone
+
+ In accordance with ***[CAA regulations Part 101.157 and Part1.159](https://www.aviation.govt.nz/rules/rule-part/show/101)***
+ as series of constraints will be applied to the conditions for which the rocket will be launched. Launch times for the
+ rocket are strictly limited to daylight hours. The rockets launch is also strictly dependend on the weather conditions.
+ If any of the following conditions regarding the current weather are present, then the rocket launch cannot take place
+ at the time. **CAA regulations Part 101.157** strictly specifies, that the rocket must not be launched into the clouds.
+ More details on the specifications are as follows:
+   
+- Cloud cover which obscures more than half of the visible sky.
+- Conditions which limit horizontal visibility to less than 8km.
+- Heavy precipitation.
+- High wind speed (speeds exceeding 32 km/h).
+To verify these environmental conditions are within safe limits, the following online resources must be utilised:
+- Accuweather - hourly expected wind speeds / wind gust speeds.
+- Wind Finder - live data for wind speed and direction.
+- Metservice - threee hourly wind measurements. 
+
+Before rocket launch, all members of the general public using park at launch time must be notified. If they refuse to 
+comply to provided instructions or there are more than 10 members of the public present, then launch must be postponed.
+If previously outlined conditions are met, throughout the entire launch and flight procedure three members are to be 
+stationed at max launch radius to ensure that no member of the general public enters the radius zone.   
 
 #### 2.3 Equipment
  - checklist of all gear and owner
