@@ -7,8 +7,13 @@
 - Risk Profile
 - Highest risk in project
 
+## Planning
+> Zac Launch details, travel plans and environment subsections <br>
+> Finn: Front cover, and The rocket <br>
+> Will: Launch, unforeseen events, fault components and supervision.
+
 ## Section 1 - The Rocket
-- maximum weight
+- maximum weight 
 - maximum length
 - motor specs
 - OpenRocket for test simulations
@@ -53,7 +58,7 @@
     - if they refuse to comply or >10 members of public launch must be postponed
   - throughout launch three members stationed at max launch radius to ensure general public do not enter zone
 
-#### 2.3 Equiptment
+#### 2.3 Equipment
  - checklist of all gear and owner
 
 #### 2.4 Supervision
