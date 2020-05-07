@@ -1,3 +1,9 @@
+## Planning
+> Zac Launch details, travel plans and environment subsections <br>
+> Finn: Front cover, and The rocket <br>
+> Will: Launch, unforeseen events, fault components and supervision.
+
+
 ## Analysis of 2018 safety plans
 
 - disclaimer that it's only valid till first milestone
@@ -7,13 +13,23 @@
 - Risk Profile
 - Highest risk in project
 
-## Planning
-> Zac Launch details, travel plans and environment subsections <br>
-> Finn: Front cover, and The rocket <br>
-> Will: Launch, unforeseen events, fault components and supervision.
+[DRAFT]
+## Safety Plan
+
+Note: This Safety Plan is valid for the first milestone of the project.
+**TODO: do we have a launch document?**
+
+Name: Project Beans (Group 3)
+Project Name: Avionics and Control
+Project Start Date: 17 March 2020
+Project End Date: 16 November 2020
+
+Risk profile of the project : Major
+
+The most severe risk that this package entails is the rocket falling on a person causing serious injury.
 
 ## Section 1 - The Rocket
-- maximum weight 
+- maximum weight
 - maximum length
 - motor specs
 - OpenRocket for test simulations
@@ -43,20 +59,20 @@
 
 [DRAFT]
 
-To launch the rocket, the motor requires a temperature of 288°C. To mitigate any risks of accidental ignition; which 
+To launch the rocket, the motor requires a temperature of 288°C. To mitigate any risks of accidental ignition; which
 may cause serious damage or injury, the rocket must be kept away from any source of heat greater than 50°C. At all times
-during transportation, there must be multiple persons of contact present. This can aid in any unforeseen circumstances 
-such as getting lost, injured or concerns about the rocket. To ensure this communication is available, it is mandatory 
+during transportation, there must be multiple persons of contact present. This can aid in any unforeseen circumstances
+such as getting lost, injured or concerns about the rocket. To ensure this communication is available, it is mandatory
 the group must have at least one mobile device with enough credit for texting / calls.   
 
 In accordance with the New Zealand Land Transport Rule: [Dangerous Goods 2005](https://www.nzta.govt.nz/resources/rules/dangerous-goods-2005/),
 the motor is classified as Class 1 under division [§1.4](https://www.nzta.govt.nz/resources/rules/dangerous-goods-2005/#1).
-To fulfill the requirements set out under the act, a designated member of staff must  be contacted upon return to 
+To fulfill the requirements set out under the act, a designated member of staff must  be contacted upon return to
 confirm safety of participants. In the circumstance that the designated member of staff receives contact from the party
-within an hour after expected arrival. They should immediately try to communicate with the party. If no contact can be 
-made, the designated member should take emergency action. Alternative points of contact and actions to be undertaken 
+within an hour after expected arrival. They should immediately try to communicate with the party. If no contact can be
+made, the designated member should take emergency action. Alternative points of contact and actions to be undertaken
 will be laid out within the launch documents.
-      
+
 #### 2.2 - Environment
  - **CAA regulations Part 101.157 and Part 101.159**
   - flight during daylight hours
