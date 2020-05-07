@@ -166,8 +166,7 @@ One page on the limitations on the product (9.5.6)
 References to other documents or standards. Follow the IEEE Citation  Reference scheme, available from the [IEEE website](https://www.ieee.org/) (please use the search box). (1 page, longer if required)
 _**TODO**_: Properly format these sources in IEEE standard.
 https://www.nzrocketry.org.nz/rocketry/rocket-safety [1] (Viewed 30/4/2020)
-https://www.aviation.govt.nz/rules/ (Viewed 30/4/2020)
-https://www.aviation.govt.nz/rules/rule-part/show/101/4 [3] (Viewed 6/5/2020)
+https://www.aviation.govt.nz/rules/rule-part/show/101/4 [2] (Viewed 6/5/2020)
 
 
 ## 3. Specific requirements  
@@ -427,14 +426,14 @@ The environmental requirements are based primarily around legal restrictions and
 - No dry grass must be present near the launching location of the rocket
 - People must maintain at least 5m distance from the rocket during a launch
 
-In addition to the guidelines provided by the New Zealand Rocketry Association, the New Zealand Civil Aviation Authority (NZCAA) Rules Part 101 [3] places the following restrictions:
+In addition to the guidelines provided by the New Zealand Rocketry Association, the New Zealand Civil Aviation Authority (NZCAA) Rules Part 101 [2] places the following restrictions:
   - A rocket cannot be operate on or within 4km of an aerodome boundary unless permission is given by the aerodome operator
     - If permission is granted, the rocket still has the following environmental restrictions:
       - The rocket cannot fly above 400 feet (121.92m) AGL (Height above ground level)
       - The rocket cannot interfere with the flight path of any aircraft
       - The rocket cannot be operated over an active runway
   - A rocket cannot be operated within 4km to 8km of an aerodome boundary if it exceeds an altitude of 400 feet AGL.
-  - A rocket cannot be launched in an environment where clouds or other obscuring meteorological phenomena is substantial
+  - A rocket cannot be launched in an environment where clouds or other obscuring meteorological phenomena has a substantial presence
   - A rocket cannot be launced if horizontal visibility is less than 8km
   - Rockets cannot be launched at night under any circumstance
 
@@ -449,14 +448,14 @@ This section declares any additional information that could justify why we have 
 
 **Suggested Content:**
 
-- Open Source - We can write about the fact that this is open source, why, and its implications for the future of the project.
-- Can probably state any legal restrictions that justify a particular requirement or to ensure some safety measure.
+- State that it could potentially pave way for launching a rocket from a diverse range of launch sites, including from a balloon.
 
-Cannot make much progress here right now. We need to move forward with the project more until some extra info becomes obvious to us.
+##### Open Source
+The client has communicated that their intention with the project after its completion is to contribute to the wider rocketry community. As a result, all of the project's content including hardware design and source code will be freely available to the public both for viewing and editing. This is an important factor in the design of the hardware and software systems since it imposes certain restrictions that the project team has to work around. Despite the restrictions, making the project open source allows the project to be improved upon by other individuals outside of the project team, and hopefully, provoke continued interest for the wider rocketry community.
 
-**Original Instructions:**
+##### Legal Regulations
+The project is subject to a wide range of legal regulations given the potentially dangerous nature of the product being developed. **It is critical that all legal regulations are followed by the design** of the system as any breaches can pose a real threat to the health and safety of the relevant project stakeholders. Furthermore, the legal repercussions from the breaches will drastically impact the project and its ability to continue.
 
-> see 9.5.19.
 ## 4. Verification
 
 //3 pages outlining how you will verify that the product meets the most important specific requirements. The format of this section should parallel ////section 3 of your document (see 9.5.18). Wherever possible (especially systemic requirements) you should indicate testable acceptance criteria.
@@ -558,9 +557,7 @@ The content below outlines the 10 most important risks that can impact achieving
 
   - **Impact:** Severe
 
-  - **Mitigation Strategy:** During a rocket launch, all attending project members and other stakeholders/spectators are required to maintain a safe distance from the rocket. Any member of the public present at the launch site will be informed of the rocket launch so that they are made aware of the potential danger. During the rocket's flight, the trajectory and status of the rocket will be closely monitored to ascertain the landing location of the rocket. If there are too many people at the launch site, the launch will be postponed. Ensure that a parachute deployment system is implemented to minimize the damage done by an impact with a person during landing.
-
-  - _**TODO:**_ Research safe distance to maintain during rocket launch. Inlcude specific numbers.
+  - **Mitigation Strategy:** During a rocket launch, all attending project members and other stakeholders/spectators are required to maintain a safe distance from the rocket. Any member of the public present at the launch site will be informed of the rocket launch so that they are made aware of the potential danger. During the rocket's flight, the trajectory and status of the rocket will be closely monitored to ascertain the landing location of the rocket. If there are too many people at the launch site, the launch will be postponed. Ensure that a recovery system in the form of a streamer or parachute is implemented [1] to minimize the damage done by an impact with a person during landing. Project stakeholders involved with the rocket launch will maintain a minimum distance of 5m from the rocket during a launch, as required by the NZRA [1].
 
 - #### Risk 2: Rocket unintentionally makes contact with an object during flight or when it lands, causing damage to property.
 
@@ -584,11 +581,11 @@ The content below outlines the 10 most important risks that can impact achieving
 
   - **Impact:** Severe
 
-  - **Mitigation Strategy:** Consult mission control software before a rocket launch to determine if the current wind speeds can safely accomodate a flight. Launches will be postponed if wind speeds exceed _**[Insert number here]**_.
+  - **Mitigation Strategy:** Consult mission control software before a rocket launch to determine if the current wind speeds can safely accomodate a flight. Launches will be postponed if wind speeds exceed **32km/h** [1]. 
 
 
 
-- #### Risk 4: Rocket parts unexpectedly disassembles during flight. Debris emitted causing damage to people and property.
+- #### Risk 4: Rocket parts unexpectedly disassembles during flight. Debris emitted causes damage to people and property.
 
   - **Risk Type:** Health and Safety/Environmental
 
@@ -630,13 +627,13 @@ The content below outlines the 10 most important risks that can impact achieving
 
 - #### Risk 7: Rocket ignites prematurely, causing injury to people
 
-  - **Risk Type:**
+  - **Risk Type:** Health and Safety
 
-  - **Likelihood:**
+  - **Likelihood:** Unlikely
 
-  - **Impact:**
+  - **Impact:** Severe
 
-  - **Mitigation Strategy:** (Mention 10m wire connected to motor for manual ignition. Alternatively, we can ignite by means of software which would mean that we can be far away from the rocket for a long time. Although the client did say this is not the preferred method due to a number of safety precautions. Mention fire extinguisher)
+  - **Mitigation Strategy:** At all times during a launch, project stakeholders involved with the launch must maintain a safe distance of at least 5m. Manual ignition system must be electric, and have a safety interlock in place [1]. A first aid kit will be brought to the launch site to treat any injuries immediately. _**TODO:**_ (Mention 10m wire connected to motor for manual ignition. Alternatively, we can ignite by means of software which would mean that we can be far away from the rocket for a long time. Although the client did say this is not the preferred method due to a number of safety precautions. Mention fire extinguisher)
 
 
 
@@ -653,25 +650,23 @@ The content below outlines the 10 most important risks that can impact achieving
   - _**TODO:**_ Is there a way of developing some sort of manual kill switch so if we ever see the rocket taking an unsafe path (eg heading towards the ground or a person), we can kill its thrust to minimize impact damage?
 
 
-
-- #### Risk 9: Something about fire
+- #### Risk 9: Rocket ignition causes a fire
 
   - **Risk Type:** Health and Safety/Environmental
 
-  - **Likelihood:**
+  - **Likelihood:** Unlikely
 
-  - **Impact:**
+  - **Impact:** Moderate
 
-  - **Mitigation Strategy:** Bring a fire extinguisher. Make sure we dont launch during a high fire alert level. Make sure launch pad isn't susceptible to fire (if we are launching in a field, make sure the grass isn't too dry?)
+  - **Mitigation Strategy:** Project stakeholders must undertake a health and safety induction prior to the launch In accordance with the NZCAA [1], the selected launch site must be clear of dry grass to lower the risk of causing a fire during a rocket ignition. The project stakeholders involved with the launch will closely inspect the launch site for flammable material to remove them. A rocket launch will be postponed if the fire alert level is high, or if the temperature is unusually high. A fire extuinguisher will be brought by the team at the launch site to counter small fires. 
 
 
+- #### Risk 10: Wind speeds suddenly exceed the safe wind speed for the rocket during flight
 
-- #### Risk 10:
-
-  - **Risk Type:**
-  - **Likelihood:**
-  - **Impact:**
-  - **Mitigation Strategy:**
+  - **Risk Type:** Health and Safety, Environmental, 
+  - **Likelihood:** Unlikely
+  - **Impact:** Moderate
+  - **Mitigation Strategy:** The rocket launch will only proceed if the current wind speeds are well below the maximum wind speed determined for the rocket. Wind speeds will be continually monitored during the flight to keep the team informed on the safety of the flight. Recovery system will be manually deployed in the event that the wind speed rises to an unsafe level.
 
 ### 5.4 Health and Safety
 
