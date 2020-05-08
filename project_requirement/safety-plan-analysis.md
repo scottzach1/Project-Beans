@@ -29,7 +29,7 @@ Risk profile of the project : Major
 The most severe risk that this package entails is the rocket falling on a person causing serious injury.
 
 ## Section 1 - The Rocket
-- maximum weight
+> - maximum weight
 - maximum length
 - motor specs
 - OpenRocket for test simulations
@@ -41,7 +41,25 @@ The most severe risk that this package entails is the rocket falling on a person
 - no recovery charge required so is deactivated
 - designed to tumble after burnout
 - **New Zealand Rocketry Association safety code**
-  - minimum dimensions of launch clear zone respective to motor (C class)
+>  - minimum dimensions of launch clear zone respective to motor (C class)
+
+**TODO**
+- talk about simulations - are we using openrocket?
+- Written assuming D motor
+
+The rocket has a weight of **TODO** and a length of **TODO**.
+
+According to the CAA Regulation 101.3 a rocket is defined as "a pilotless vehicle propelled by a system that contains every ingredient needed to form its own jet other than a rocket propelled by a model rocket motor of size A-D which
+achieves no more than 20 Newton-seconds of total impulse". As our rocket has a class D motor, and is achieves **TODO: EXACT** under 20 Newton-seconds of thrust it is not classified as a rocket by the CAA. Despite this, the team still aims to fully comply with and follow their guidelines as if it were to be considered a rocket.
+
+The team also aims to fully comply with the NZ Model Rocketry Safety Code. This means that the nose, body and fins of the rocket does not contain any metal parts.  It is built around a **TODO** motor from **TODO** manufacturer, which contains **TODO** substances. This motor will not be modified in any way from its manufactured state, nor will it be used in anyway that is not recommended by the manufacturer.
+
+The rocket has **TODO: EXACT** a recovery system, which ensures that the rocket can return safely and undamaged from a flight.
+
+The launch system for this rocket is electrical and uses electrical motor ignitors. The launch system also has a safety interlock which works in series with the launch switch.
+
+Finally, the launch exclusion zone for a class D motor is 150m in diameter. This means that 75m in all directions of the rocket must be cleared before launch of the rocket.
+
 
 ## Section 2 - Launch Details
 - see launch documents
@@ -98,7 +116,7 @@ will be laid out within the launch documents.
  If any of the following conditions regarding the current weather are present, then the rocket launch cannot take place
  at the time. **CAA regulations Part 101.157** strictly specifies, that the rocket must not be launched into the clouds.
  More details on the specifications are as follows:
-   
+
 - Cloud cover which obscures more than half of the visible sky.
 - Conditions which limit horizontal visibility to less than 8km.
 - Heavy precipitation.
@@ -106,11 +124,11 @@ will be laid out within the launch documents.
 To verify these environmental conditions are within safe limits, the following online resources must be utilised:
 - Accuweather - hourly expected wind speeds / wind gust speeds.
 - Wind Finder - live data for wind speed and direction.
-- Metservice - threee hourly wind measurements. 
+- Metservice - threee hourly wind measurements.
 
-Before rocket launch, all members of the general public using park at launch time must be notified. If they refuse to 
+Before rocket launch, all members of the general public using park at launch time must be notified. If they refuse to
 comply to provided instructions or there are more than 10 members of the public present, then launch must be postponed.
-If previously outlined conditions are met, throughout the entire launch and flight procedure three members are to be 
+If previously outlined conditions are met, throughout the entire launch and flight procedure three members are to be
 stationed at max launch radius to ensure that no member of the general public enters the radius zone.   
 
 #### 2.3 Equipment
