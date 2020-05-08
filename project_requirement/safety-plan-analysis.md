@@ -64,7 +64,7 @@ Finally, the launch exclusion zone for a class D motor is 150m in diameter. This
 ## Section 2 - Launch Details
 - see launch documents
 
-#### 2.1 - Travel Plan
+### 2.1 - Travel Plan
 > - heat required for ignition (288°)
 > - rocket must be kept away from any source of heat > 50°
 > - at all times multiple persons of contact present
@@ -91,7 +91,7 @@ within an hour after expected arrival. They should immediately try to communicat
 made, the designated member should take emergency action. Alternative points of contact and actions to be undertaken
 will be laid out within the launch documents.
 
-#### 2.2 - Environment
+### 2.2 - Environment
 > - **CAA regulations Part 101.157 and Part 101.159**
 > - flight during daylight hours
 > - flight cancelled under following weather conditions:
@@ -131,41 +131,57 @@ comply to provided instructions or there are more than 10 members of the public 
 If previously outlined conditions are met, throughout the entire launch and flight procedure three members are to be
 stationed at max launch radius to ensure that no member of the general public enters the radius zone.   
 
-#### 2.3 Equipment
+### 2.3 Equipment
  - checklist of all gear and owner
 
-#### 2.4 Supervision
- - supervised by Andre
-  - has Andre responsible for:
-    - launch
-    - deactivation
-    - transportation
-    - launch rail and pad
- - **we should probably meet/ask him about this**
+### 2.4 Supervision
+Launch procedure will be overseen by Andre Geldenhuis. Andre is a member of the
+NZ Rocketry Association and is an expert in the field of Model Rocketry. As such
+Andre will be responsible for the launch and deactivation of recovered charges
+as necessary. Andre will be responsible for transporting the required
+motors to and from the launch site, a procedure he is well familiar with. The
+launch rail and pad will also be provided by Andre.
 
-#### 2.5 - Launch
- - NOTAM
-  - as per  **CAA regulations Part 101.161** traffic control does not require notification
-  - hills and buildings nearby are closer than max  height of rocket therefore no aircraft
- - safety inspection upon arrival
-  - flammable materials in a 3 metre radius around the launcher removed **NZ Rocketry Association
-safety code Section 2-14.2**
-  - if necessary a blast deflector will be used to prevent the motor’s exhaust from hitting the ground
- - countdown for launch to ensure everyone is prepared
-  - anyone can stop count down at any time
- - if rocket fails to ignite safety interlocks on and 1 minute wait before anyone approaches rocket
- - launch trajectory direct up as possible for obvious reasons
- - eye goggles for all participants
+### 2.5 Launch
+As per CAA regulations part(101.161), Air Traffic Control does not require prior
+notice to any launch attempts as the rocket is classified under CAA regulations
+as a, "large model rocket" part(101.3). Additionally, features of the
+surrounding landscape i.e hills and trees are likely to dwarf the maximum
+apogee of the rocket minimizing the risk of interference from foreign aircraft.
 
-#### 2.6 - Unforeseen Events
-#### 2.6.1 - Member of public
-- if has a complaint contact *specific staff member* which team will have contact of
-- team members are to direct public to andre for generic confrontation
-- if safety threat then launch suspended until andre resolves
+Upon arriving at the launch destination, team members will conduct a safety
+inspection of the surroundings. Any hazards will be noted and procedure
+deemed necessary to help mitigate these hazards will be conducted accordingly.
+As required by the NZRA Safety Code, team members will ensure there is no dry
+grass close to the launch pad which could present a risk of grass fire. A blast
+deflector will also remain in place under the rocket to prevent the motor's
+exhaust from hitting the ground and further minimise risk of fire.
 
-#### 2.6.2 - Faulty Components
-  - if components faulty motor removed then team can attempt to fix
-  - if motor faulty wait 1 min then Andre approaches then provides all clear
+The rocket will be launched at an angle no greater than 30 degrees to the
+vertical to ensure the rocket lands within close proximity to the launch pad.
+Once all participants have approved of the launch arrangmenets, Andre Geldenhuis
+will activate the launch sequence.
+
+In keeping with NZRA Safety Code, software will implement a 10 second countdown
+timer. Once started, this timer can be cancelled remotely at the request of
+any team member. This will ensure all particapants are notified and prepared
+for launch. In the event of a misfire, safety interlocks will be put back in
+place and the team will remain on standby for a full minute before approaching
+the rocket.
+
+### 2.6 Unforeseen Events
+#### 2.6.1 Members of the Public
+Due to the launch occuring on public premises, members of the public may
+approach team members or otherwise pose a safety threat. In any such event,
+the individual will be referred to Andre. Any complaints or enquireies that
+cannot be handled onsight will be passed on to Aaron Chen.
+
+#### 2.6.2 Faulty Components
+If a component of the rocket is found to be faulty prior to launch, Andre will
+remove the motor and the team will attempt to fix the component. Otherwise, if
+any issues are identified with the motors Andre will, after waiting a minute,
+approach the rocket and inspect the motor to determine whether it is safe before
+permitting any team members to approach.
 
 ## Section 3 - Appendices
 
