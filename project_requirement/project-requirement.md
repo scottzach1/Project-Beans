@@ -163,13 +163,73 @@ One page on the limitations on the product (9.5.6)
 
 ## 2. References
 
-References to other documents or standards. Follow the IEEE Citation  Reference scheme, available from the [IEEE website](https://www.ieee.org/) (please use the search box). (1 page, longer if required)
+References to other documents or standards. Follow the IEEE Citation  Reference scheme, available from the [IEEE website](https://ieeexplore-ieee-org.helicon.vuw.ac.nz/stamp/stamp.jsp?tp=&arnumber=6146379&tag=1) (please use the search box). (1 page, longer if required)
 _**TODO**_: Properly format these sources in IEEE standard.
 https://www.nzrocketry.org.nz/rocketry/rocket-safety [1] (Viewed 30/4/2020)
 https://www.aviation.govt.nz/rules/rule-part/show/101/4 [2] (Viewed 6/5/2020)
 
 
 ## 3. Specific requirements  
+
+> Planing:
+> - Hardware:
+>> - Should be controlled (Some sort of control system).
+>>> - Radio Antenna
+>>> - SD Card
+>>> - Internal Measurement Unit (IMU / Sensors)
+>>> - Gimbal
+>>> - Servos
+>>> - GPS
+> - Software:
+>> - Database
+>> - 
+
+3.1 External Interfaces: Niels:
+3.2 Functions: 
+
+Use Cases for MVP:
+- Rocket meets user objectives.
+- Rocket reacts to wind speed.
+- Rocket is safe to transport.
+- Rocket consists of a single kit. (Pelican case) 
+- Re-usability of rocket (at least 11 times).
+- Post flight analysis. 
+- Rocket is tunable / tweakable for optimisation.
+- Rocket can be assembled and ready to launch within 15 minutes.
+    - (Once flashed)
+- Rocket is structurally sound.
+    - Components can withstand 20 m/s -2.   
+
+Software Functions: (Zac)
+- Connecting and communicating data between the base station and the rocket.
+- Processing of sensor data.
+    - Logging sensor data
+        - IMU (Once per meter)
+        - Radio (Radio range of > 81m.
+        - GPS accurate into at least 9m.
+    - Checking validity of respective data.
+        - Radio (Once every 11 sensor readings).
+        - GPS
+        - Write to SD card.
+        - Battery
+    - Sensor data for control.
+        - IMU (Once per meter)
+ 
+Usability Requirements: (Ron)
+- Continuous battery readouts.
+
+Performance Requirements: (Will)
+- Rocket can get 2m off the ground.
+ 
+ Non-Functional Requirements:
+ - Rocket lands in starting spot.
+ 
+ Logical Requirements: (Object-Oriented Domain Analysis).
+ - GPS Coordinates
+ - IMU Readings
+ - Battery readings
+ - SD Write 
+ - <b><i>TODO: Billy's UML Diagram</i></b>
 
 #### Summary:
 
