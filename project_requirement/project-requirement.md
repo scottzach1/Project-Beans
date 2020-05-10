@@ -182,18 +182,18 @@ https://www.aviation.govt.nz/rules/rule-part/show/101/4 [2] (Viewed 6/5/2020)
 >>> - GPS
 > - Software:
 >> - Database
->> - 
+>> -
 
 3.1 External Interfaces: Niels:
-3.2 Functions: 
+3.2 Functions:
 
 Use Cases for MVP:
 - Rocket meets user objectives.
 - Rocket reacts to wind speed.
 - Rocket is safe to transport.
-- Rocket consists of a single kit. (Pelican case) 
+- Rocket consists of a single kit. (Pelican case)
 - Re-usability of rocket (at least 11 times).
-- Post flight analysis. 
+- Post flight analysis.
 - Rocket is tunable / tweakable for optimisation.
 - Rocket can be assembled and ready to launch within 15 minutes.
     - (Once flashed)
@@ -214,21 +214,21 @@ Software Functions: (Zac)
         - Battery
     - Sensor data for control.
         - IMU (Once per meter)
- 
+
 Usability Requirements: (Ron)
 - Continuous battery readouts.
 
 Performance Requirements: (Will)
 - Rocket can get 2m off the ground.
- 
+
  Non-Functional Requirements:
  - Rocket lands in starting spot.
- 
+
  Logical Requirements: (Object-Oriented Domain Analysis).
  - GPS Coordinates
  - IMU Readings
  - Battery readings
- - SD Write 
+ - SD Write
  - <b><i>TODO: Billy's UML Diagram</i></b>
 
 #### Summary:
@@ -262,6 +262,58 @@ At the current time, we can discuss and outline possible requirements of each of
 
 
 ### 3.2 Functions (can start)
+
+
+-----------
+
+**TODO:** order of priority with Zac
+
+There are multiple sub sections in which the functions of this package can be broken down into. **Break section down into 3.2.x?**
+
+Use Cases for the Minimum Viable Product:
+
+1. The Rocket is safe to transport. <br>
+As the motor is classified as a Class 1 dangerous goods (New Zealand Land Transport Rule: Dangerous Goods 2005) it is of high importance that this requirement is met. The in depth safety plan for transportation is laid out in section 2.1 of the Safety Plan document.
+
+
+2. The rocket consists of a single kit. <br>
+ This means that all seperate components of the rocket can be packaged into one single kit. For example all components could fit into a suitable sized pelican case.
+
+
+3. The rocket is re-usable. <br>
+This means that the rocket does not sustain significant damage after any one launch, and ideally sustains none. The rocket should be able to sustain 10 launches at the bare minimum.
+
+
+4. The group is able to conduct a post flight analysis. <br>
+This means that all necessary flight data is recorded and sent to the base station during flight. This means that upon both successful and unsuccessful launches and flights the team is able to further analyse the flight in detail.
+
+
+5. The rocket is tunable/tweakable for optimisation. <br>
+This means that there are no unnecessary dependancies between packages. This should reduce "god objects" and help to make all packages as interchangableas possible for potential optimisation. <br>
+It also means that once built the rocket is able to be disassembled with relative ease.
+
+
+6. Once flashed the rocket can be assembled and ready to launch within 15 minutes.<br>
+Essentially from starting the assembly process of the rocket it should be ready for launch within 15 minutes. This is important for allowing multiple launch oppurtunities as it can be difficult for all launch conditions to be met. It also allows for the potential of small tweaks at the launch site. **TODO: check this is safe**
+
+
+Other potential uses include: **TODO: discussion**
+- Rocket reacts to wind speed
+- Components can withstand 20 m/s -2.
+
+
+**TODO: ensure these match up with Billy's requirements in intro**<br>
+The Rocket must also meet stakeholder objectives. These functions include:
+- Avionics package shall be controllable
+- The rocket will be no larger than **TODO**
+- All parts of this project, such as documents, blueprints, code, of this project will be open source
+- The rocket will record all flight data
+
+----------
+
+
+
+
 
 #### Summary:
 
@@ -444,7 +496,7 @@ The client has highlighted that past attempts at the project by other teams had 
 Since the client has outlined that one of the purposes of the project is to contribute to the wider rocket community, the software developed for the project should be easily maintanable and extensible. This is important since these attributes of maintainability and extensibility should facilitate easier contribution to the project by other individuals of the wider rocketry community. To achieve good maintainability, the software needs to follow existing coding conventions. Any 3rd party dependencies introduced to the software should be well-known, easily adaptable, and adheres to a standard of quality and usefulness agreed upon by the project team. From a lower level perspective, maintainability can be achieved by observing the 'low-coupling, high cohesion' relationship between the different modules of the software system. Extensibility can also be achieved by using these techniques and is therefore important if the software is to be added to or improved upon by other individuals after the completion of the project.
 
 ##### Testing
-Testing is crucial in the process of assuring the correctness and reliability of the software. The testing strategy the project team will adopt is a combination of regular unit testing and integration testing. Unit testing will cover technical, lower-level aspects of the software to ensure that the logic is correct. Unit testing should become a regular part of the developer's workflow by running the unit tests before pushing changes to the remote repository. Integration testing will be accommodated by GitLab's CI/CD (Continuous Integration/Continuous Delivery) feature. This will assist in ensuring that code being merged into production meshes well with the existing code base. 
+Testing is crucial in the process of assuring the correctness and reliability of the software. The testing strategy the project team will adopt is a combination of regular unit testing and integration testing. Unit testing will cover technical, lower-level aspects of the software to ensure that the logic is correct. Unit testing should become a regular part of the developer's workflow by running the unit tests before pushing changes to the remote repository. Integration testing will be accommodated by GitLab's CI/CD (Continuous Integration/Continuous Delivery) feature. This will assist in ensuring that code being merged into production meshes well with the existing code base.
 
 Other non-functional requirements from a software perspective include the following:
 - **Documentation** - The software package should have comprehensive documentation to clearly convey the intent and purpose of the code.
@@ -641,7 +693,7 @@ The content below outlines the 10 most important risks that can impact achieving
 
   - **Impact:** Severe
 
-  - **Mitigation Strategy:** Consult mission control software before a rocket launch to determine if the current wind speeds can safely accomodate a flight. Launches will be postponed if wind speeds exceed **32km/h** [1]. 
+  - **Mitigation Strategy:** Consult mission control software before a rocket launch to determine if the current wind speeds can safely accomodate a flight. Launches will be postponed if wind speeds exceed **32km/h** [1].
 
 
 
@@ -718,12 +770,12 @@ The content below outlines the 10 most important risks that can impact achieving
 
   - **Impact:** Moderate
 
-  - **Mitigation Strategy:** Project stakeholders must undertake a health and safety induction prior to the launch In accordance with the NZCAA [1], the selected launch site must be clear of dry grass to lower the risk of causing a fire during a rocket ignition. The project stakeholders involved with the launch will closely inspect the launch site for flammable material to remove them. A rocket launch will be postponed if the fire alert level is high, or if the temperature is unusually high. A fire extuinguisher will be brought by the team at the launch site to counter small fires. 
+  - **Mitigation Strategy:** Project stakeholders must undertake a health and safety induction prior to the launch In accordance with the NZCAA [1], the selected launch site must be clear of dry grass to lower the risk of causing a fire during a rocket ignition. The project stakeholders involved with the launch will closely inspect the launch site for flammable material to remove them. A rocket launch will be postponed if the fire alert level is high, or if the temperature is unusually high. A fire extuinguisher will be brought by the team at the launch site to counter small fires.
 
 
 - #### Risk 10: Wind speeds suddenly exceed the safe wind speed for the rocket during flight
 
-  - **Risk Type:** Health and Safety, Environmental, 
+  - **Risk Type:** Health and Safety, Environmental,
   - **Likelihood:** Unlikely
   - **Impact:** Moderate
   - **Mitigation Strategy:** The rocket launch will only proceed if the current wind speeds are well below the maximum wind speed determined for the rocket. Wind speeds will be continually monitored during the flight to keep the team informed on the safety of the flight. Recovery system will be manually deployed in the event that the wind speed rises to an unsafe level.
