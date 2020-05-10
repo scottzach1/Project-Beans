@@ -263,7 +263,6 @@ At the current time, we can discuss and outline possible requirements of each of
 
 ### 3.2 Functions (can start)
 
-
 -----------
 
 **TODO:** order of priority with Zac
@@ -296,10 +295,12 @@ It also means that once built the rocket is able to be disassembled with relativ
 6. Once flashed the rocket can be assembled and ready to launch within 15 minutes.<br>
 Essentially from starting the assembly process of the rocket it should be ready for launch within 15 minutes. This is important for allowing multiple launch oppurtunities as it can be difficult for all launch conditions to be met. It also allows for the potential of small tweaks at the launch site. **TODO: check this is safe**
 
+***Software Requirements***
+1. Rocket's software must react to wind speed within the maximum wind conditions specified within the safety requirements document. This will be in the form of error correction where the rocket will attempt to stabilise based off internal readings from the internal sensors, as well as potentially external readings such as those provided from sensors in the base station or environmental conditions provided by mission control.  
+ 
+2. The rocket must log all flight data. This will include the logging of all internal sensor data, as well as commands issued to the IMU. The components in particular whose readings should be logged include the IMU, Radio and GPS. The readings must be logged to a file within the SD card for post launch analysis as well as some critical readings broadcast over LoRa.
 
-Other potential uses include: **TODO: discussion**
-- Rocket reacts to wind speed
-- Components can withstand 20 m/s -2.
+3. The rocket's software must attempt to perform in air error analysis. This critical component of the rocket is fundamental to the safety of the rocket and any people or objects in the surrounding area. It is critical the rocket can respond correctly to erroneous data. Erroneous data could be observed via any readings from components whose output is part of the integral control system. The components that meet this category is the IMU, the battery and the SD card. 
 
 
 **TODO: ensure these match up with Billy's requirements in intro**<br>
