@@ -302,6 +302,14 @@ Essentially from starting the assembly process of the rocket it should be ready 
 
 3. The rocket's software must attempt to perform in air error analysis. This critical component of the rocket is fundamental to the safety of the rocket and any people or objects in the surrounding area. It is critical the rocket can respond correctly to erroneous data. Erroneous data could be observed via any readings from components whose output is part of the integral control system. The components that meet this category is the IMU, the battery and the SD card. 
 
+***Hardware Requirements***
+1. Due to the nature of model rockets, all components of the rocket must be able to withstand significant acceleration. It is crucial that no component becomes loose or dislodged during launch as this could cause significant component failure. To be conservative, the rocket must be rated for up to 20 m/s ^2 of acceleration. To ensure the rocket meets this requirement, counter measures such as secure mounting and robust bracing must be implemented on the rocket. 
+
+**TODO:** When writing this, it occured to me that the greatest force a model rocket might be subjected to will actually be the impact when it hits the ground. Currently we have a performance requirement that requires the rocket to be able to be reused after multiple flights. This hardware requirement should be a specification within that usability requirement.
+
+2. The rocket fits within a `X*Y*Z`mm enclosure. This hardware requirement is an extension of the usability requirement where the rocket must be consist of a single kit. The dimensions of the rocket would affect how its internal components are structured. A smaller rocket, ensures promotion of efficient use of space, as well as greater affordability of components.
+
+3. The components of the rocket must be easily accessible to the public. As this rocket is to be open source. It is a requirement that all components can be reasonably obtained or produced by a member of the public. This means that no unreasonably uncommon or expensive components will be used as part of the manufacturing of the rocket. ***TODO*** This includes 3d printers, and ... (What else is essential to produce or assemble the pcb / components of the rocket.
 
 **TODO: ensure these match up with Billy's requirements in intro**<br>
 The Rocket must also meet stakeholder objectives. These functions include:
@@ -309,12 +317,6 @@ The Rocket must also meet stakeholder objectives. These functions include:
 - The rocket will be no larger than **TODO**
 - All parts of this project, such as documents, blueprints, code, of this project will be open source
 - The rocket will record all flight data
-
-----------
-
-
-
-
 
 #### Summary:
 
