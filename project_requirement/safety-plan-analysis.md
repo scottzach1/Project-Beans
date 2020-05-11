@@ -11,7 +11,7 @@
 - Project Name
 - Start and End Data
 - Risk Profile
-- Highest risk in project
+- The Highest risk in project
 
 [DRAFT]
 ## Safety Plan
@@ -30,17 +30,17 @@ The most severe risk that this package entails is the rocket falling on a person
 
 ## Section 1 - The Rocket
 > - maximum weight
-- maximum length
-- motor specs
-- OpenRocket for test simulations
- - Results of the simulations - estimates/averages
- - worst case scenario based on sims
-- no metal parts (complying with **NZ Model Rocketry Safety Code**)
-- ignition safety locks
-- **CAA requirements** of 20 Newtown-seconds impulse is not met so technically isn't a rocket
-- no recovery charge required so is deactivated
-- designed to tumble after burnout
-- **New Zealand Rocketry Association safety code**
+> - maximum length
+> - motor specs
+> - OpenRocket for test simulations
+>> - Results of the simulations - estimates/averages
+>> - worst case scenario based on sims
+> - no metal parts (complying with **NZ Model Rocketry Safety Code**)
+> - ignition safety locks
+> - **CAA requirements** of 20 Newtown-seconds impulse is not met so technically isn't a rocket
+> - no recovery charge required so should be deactivated.
+> - designed to tumble after burnout
+> - **New Zealand Rocketry Association safety code**
 >  - minimum dimensions of launch clear zone respective to motor (C class)
 
 **TODO**
@@ -52,13 +52,13 @@ The rocket has a weight of **TODO** and a length of **TODO**.
 According to the CAA Regulation 101.3 a rocket is defined as "a pilotless vehicle propelled by a system that contains every ingredient needed to form its own jet other than a rocket propelled by a model rocket motor of size A-D which
 achieves no more than 20 Newton-seconds of total impulse". As our rocket has a class D motor, and is achieves **TODO: EXACT** under 20 Newton-seconds of thrust it is not classified as a rocket by the CAA. Despite this, the team still aims to fully comply with and follow their guidelines as if it were to be considered a rocket.
 
-The team also aims to fully comply with the NZ Model Rocketry Safety Code. This means that the nose, body and fins of the rocket does not contain any metal parts.  It is built around a **TODO** motor from **TODO** manufacturer, which contains **TODO** substances. This motor will not be modified in any way from its manufactured state, nor will it be used in anyway that is not recommended by the manufacturer.
+The team also aims to fully comply with the NZ Model Rocketry Safety Code. This means that the nose, body and fins of the rocket does not contain any metal parts.  It is built around a **TODO** motor from **TODO** manufacturer, which contains **TODO** substances. This motor will not be modified in any way from its manufactured state, nor will it be used in anyway not recommended by the manufacturer.
 
 The rocket has **TODO: EXACT** a recovery system, which ensures that the rocket can return safely and undamaged from a flight.
 
 The launch system for this rocket is electrical and uses electrical motor ignitors. The launch system also has a safety interlock which works in series with the launch switch.
 
-Finally, the launch exclusion zone for a class D motor is 150m in diameter. This means that 75m in all directions of the rocket must be cleared before launch of the rocket.
+Finally, the launch exclusion zone for a class D motor is 150 m in diameter. This means that 75 m in all directions of the rocket must be cleared before launch of the rocket.
 
 
 ## Section 2 - Launch Details
@@ -72,13 +72,13 @@ Finally, the launch exclusion zone for a class D motor is 150m in diameter. This
 > - mobile phones for communication
 > - rocket classified as Class 1 Dangerous Goods according to **Land Transport Rule: Dangerous Goods 2005**
 >> - designated member of staff contacted upon return to confirm safety of participants
->> - if designated member receives no contact within an hour after expected arrival they should take emrgency
+>> - if designated member receives no contact within an hour after expected arrival they should take emrgency.
 >> - this action is laid out in launch documents
 
 [DRAFT]
 
-To launch the rocket, the motor requires a temperature of 288°C. To mitigate any risks of accidental ignition; which
-may cause serious damage or injury, the rocket must be kept away from any source of heat greater than 50°C. At all times
+To launch the rocket, the motor requires a temperature of 288 °C. To mitigate any risks of accidental ignition; which
+may cause serious damage or injury, the rocket must be kept away from any source of heat greater than 50 °C. At all times
 during transportation, there must be multiple persons of contact present. This can aid in any unforeseen circumstances
 such as getting lost, injured or concerns about the rocket. To ensure this communication is available, it is mandatory
 the group must have at least one mobile device with enough credit for texting / calls.   
@@ -112,19 +112,19 @@ will be laid out within the launch documents.
 
  In accordance with ***[CAA regulations Part 101.157 and Part1.159](https://www.aviation.govt.nz/rules/rule-part/show/101)***
  as series of constraints will be applied to the conditions for which the rocket will be launched. Launch times for the
- rocket are strictly limited to daylight hours. The rockets launch is also strictly dependend on the weather conditions.
+ rocket are strictly limited to daylight hours. The rockets launch is also strictly depends on the weather conditions.
  If any of the following conditions regarding the current weather are present, then the rocket launch cannot take place
  at the time. **CAA regulations Part 101.157** strictly specifies, that the rocket must not be launched into the clouds.
  More details on the specifications are as follows:
 
 - Cloud cover which obscures more than half of the visible sky.
-- Conditions which limit horizontal visibility to less than 8km.
+- Conditions which limit horizontal visibility to less than 8 km.
 - Heavy precipitation.
 - High wind speed (speeds exceeding 32 km/h).
 To verify these environmental conditions are within safe limits, the following online resources must be utilised:
 - Accuweather - hourly expected wind speeds / wind gust speeds.
 - Wind Finder - live data for wind speed and direction.
-- Metservice - threee hourly wind measurements.
+- Metservice - three-hourly wind measurements.
 
 Before rocket launch, all members of the general public using park at launch time must be notified. If they refuse to
 comply to provided instructions or there are more than 10 members of the public present, then launch must be postponed.
@@ -158,27 +158,27 @@ deflector will also remain in place under the rocket to prevent the motor's
 exhaust from hitting the ground and further minimise risk of fire.
 
 The rocket will be launched at an angle no greater than 30 degrees to the
-vertical to ensure the rocket lands within close proximity to the launch pad.
-Once all participants have approved of the launch arrangmenets, Andre Geldenhuis
-will activate the launch sequence.
+vertical to ensure the rocket lands close to the launch pad. Once all participants 
+have approved of the launch arrangements, Andre Geldenhuis will activate the launch
+sequence.
 
-In keeping with NZRA Safety Code, software will implement a 10 second countdown
+In keeping with NZRA Safety Code, software will implement a 10-second countdown
 timer. Once started, this timer can be cancelled remotely at the request of
-any team member. This will ensure all particapants are notified and prepared
+any team member. This will ensure all participants are notified and prepared
 for launch. In the event of a misfire, safety interlocks will be put back in
-place and the team will remain on standby for a full minute before approaching
+place, and the team will remain on standby for a full minute before approaching
 the rocket.
 
 ### 2.6 Unforeseen Events
 #### 2.6.1 Members of the Public
-Due to the launch occuring on public premises, members of the public may
+Due to the launch occurring on public premises, members of the public may
 approach team members or otherwise pose a safety threat. In any such event,
-the individual will be referred to Andre. Any complaints or enquireies that
-cannot be handled onsight will be passed on to Aaron Chen.
+the individual will be referred to Andre. Any complaints or enquiries that
+cannot be handled on site will be passed on to Aaron Chen.
 
 #### 2.6.2 Faulty Components
 If a component of the rocket is found to be faulty prior to launch, Andre will
-remove the motor and the team will attempt to fix the component. Otherwise, if
+remove the motor, and the team will attempt to fix the component. Otherwise, if
 any issues are identified with the motors Andre will, after waiting a minute,
 approach the rocket and inspect the motor to determine whether it is safe before
 permitting any team members to approach.
