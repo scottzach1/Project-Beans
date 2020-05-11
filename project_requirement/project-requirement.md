@@ -241,6 +241,39 @@ Before flight, the system should:
 
 
 ### 3.4 Performance requirements
+This section details the specific performance requirements that the user can expect from the finsihed
+rocket.
+
+The avionics package is expected to be capable of polling the onboard IMU at least 100 times per second. This is important for the active control aspect of the rocket. Due to the high velocity of the rocket, the onboard microcontroller
+requires frequent input signals from the IMU in order to make timely adjustments to the motor's vector in
+order for the rocket to achieve an optimal flight path. If the IMU was polled at a slower frequency the
+microcontroller would not recieve sufficient information regarding its current velocity and could
+overcompensate for slight deviations resulting in stability issues. In addition to providing active control
+of the rocket, the avionics package should store these measurements at the same frequency on an SD card. These
+measurements will also be supplemented by readings of the batteries' voltage and current at a frequency of
+10 measurements per second to provide sufficient data to the user for post flight analysis.
+
+Assessing the flight path, the rocket should be capable of consistently achieving an apogee greater than 4
+metres above the launch pad. The
+rocket should also land with a horizontal displacement no greater than 25 metres to reduce the risk of people
+being injured or property being damaged.
+
+The GPS should provide accurate readings to within a five metre radius of the rocket. This is to ensure
+that in the event that the rocket's landing position is not immediately known, the GPS is able to provide
+effective assistance in locating the rocket. In addition to this, the rocket's radio unit is expected to
+achieve reliable connection to the base station at distances of up to 80 metres without line of sight.
+This is so that the GPS location can be successfully broadcasted to the base station even when environmental features obstruct vision.
+
+In terms of durability, the rocket's design is required to be robust enough to remain fully functioning
+following 10 individual launches. This requires the rocket's onboard electronics, software and body
+to be designed in such a way that ensures it is capable of enduring accelerations in excess of 120 metres
+per second per second. This is an important factor as the rocket's target
+demographic is the budget conscious hobbyist. It also ensures, that the user
+is able to tune the rocket over multiple consecutive launches to their preference.
+
+
+
+
 
 #### Summary: (Can't Start)
 
