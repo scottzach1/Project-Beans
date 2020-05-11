@@ -240,17 +240,34 @@ This Section will go into depth describing every single requirement of the proje
 > 20 pages outlining the requirements of the system. You should apportion these pages across the following subsections to focus on the most important parts of your product.
 
 
-### 3.1 External interfaces (Can Start)
+### 3.1 External interfaces
 
-#### Summary:
+TODO: come up with an alternative name for the avionics package, unless we want to continue calling it this. 
+#### Radio Antenna
+The radio antenna will facilitate the transfer of data and commands between the avionics package, and the base station. This radio antenna must allow for the live broadcast of the packages geographical location, provided by the GPS unit within the avionics package. This will allow for easier retrial of the unit as specified by the customer. While in flight, the radio antenna will also facilitate the periodic sending of other sensor data to the base station for use in live monitoring of performance. This data will be sent according to the *agreed on specification TODO*, and will include but is not limited too:
 
-This subsection will discuss the requirements of each of the external interfaces of our project. This will include interfaces such as:
-- Radio Antenna
-- SD Card
-- Internal Measurement Unit (IMU / Sensors)
-- Gimbal
-- Servos
-- GPS
+ - Current gimbal position/angle
+ - directional acceleration data
+ - Battery voltage 
+ 
+ This radio antenna will also allow for commands to be sent from the base station and received and processed by the avionics package. The commands will be able to query a range of current settings and readings available the avionics package, as well as altering the current state of the avionics package.  
+
+#### SD Card
+
+
+
+#### Internal Measurement Unit (IMU / Sensors)
+
+
+#### Gimbals
+
+
+#### Servos
+
+
+#### GPS
+
+
 
 **Suggested steps to make progress here:**
 
