@@ -16,73 +16,31 @@ All team members are expected to contribute equally to the document and list the
 #### Author list, a comma-separated list of the names of each member of the team.
 
 ## 1. Introduction - (Can do)
-
 Requirement: "One page overall introduction including sections 1.1 and 1.2 (ISO/IEC/IEEE 42010:2011(E) clause 5.2)"
 
-Notes: Should contain a more general introduction in this section as well as the below requirements. Since the below requirements are going to only fill about half a page so this part should be around half a page also.
-
-This general introduction should contain:
-* A small background on existing rocket avionics systems, keep concise though probably not much detail required here, just some context.
-* Perhaps an intro to the project itself.
-* Discuss the active nature of the project (Using a PID controller) rather than a passive.
-  * Perhaps discuss about the fact that active can record data and provide real time info like location.
-    * Difficulty of creating an effective passive rocket, Extreme Precision Required, cannot account for everything.
-    * List some unexpected conditions like wind, or small flaws in parts etc..
-
-##### Ideas
-Amongst the Amateur Rocketry community, two types of rockets are used. Controller and uncontrolled. Both are vaild but each have their specialty. Our customer is one day hoping to launch a rocket from a weather balloon at 70,000ft, this is most definitely the realm of a control system and several electronic packages. What this project will cover is but a stepping stone for that goal. will be open source, done for andre but an the next team working on this, we are working on improving 2018 teams work (mainly improving reliability and ease of use in the field), working alongside two other projects (simulation and ?)
+For rockets ranging from NASAs Saturn V to an amateur rocket enthusiasts first bottle rocket, stability is a desireable. How stable flight is achieved varies to a large degree, but can be divided into two categories. The more common of the two in the amateur rocketry community are passively stablized rockets. These maintain a stable flight due to passive aerodynamic features, an example being fins that give the rocket a stablizing rotation like a bullet.
+The simplicity of these is apealing but any error introduced to the system can cause an unwanted flight trajectory. An example of error could be unexpected wind or a part with more flex than initially accounted for.
+The second category is an active control system. Onboard electonics can be used to achieve active course correction. Error in the rockets trajectory can be mitigated in a way that passive systems cannot. The drawbacks of this are the complexity and large overhead introduced when constructing the rocket.
 
 
-Adv
-* Active systems can work with errors and therefore in more conditions
-* Active systems are then preferable
+Our customer is one day hoping to launch a rocket from a weather balloon approximately at 70,000ft. This will most definitely require an active control system. This project is covering the need for an active control avionics package. Existing off-the-shelf avionics packages for amateur rocketry enthusiasts are available, but our customer finds them lacking. This is due to limited functionality and with most packages not open source, they cannot be reprogrammed. This project aims to improve on an existing attempt at this completed in 2018, and is working along side other teams to ensure all aspects are covered.
 
-Disadv
-* Active systems are complex and have a greater overhead
-* existing packages are not open source therefore cannot reprogram
-* existing packages are of limited functionality
-
-
-* This project aims to create a package that will improve the body of knowledge in the amateur rockety body of knowledge
-
-
-### Client - (Can do)
+### Client
 
 Our client for this project is Andre Geldenhuis. Andre is a rocket enthusiast who is part of the NZ Rocketry Association. As of writing this, the contact email is "andre.geldenhuis@vuw.ac.nz" and throughout the project, the team can also contact Andre via a live text chat (Mattermost) channel.
 
 
 ### 1.1 Purpose
-
 Requirement: "One sentence describing the purpose of the system(9.5.1)"
 
-Notes: Seems like not enough to describe purpose, so important to construct this sentence carefully.
-
-* Honestly not sure about this.
-  * Need to understand what our project is lol.
-	* Might learn more from lecturers before uni starts again.
-	* Should make some questions to ask the customer and lecturers.
+The purpose of this system is to control a rocket in flight while being opensource and accessible so that it can be used in the amateur rocketry community.
 
 ### 1.2 Scope
 
 Requirement: "One paragraph describing the scope of the system(9.5.2)"
 
-Notes: Run into a similar problem as above, the changes to the course will have definitely changed the scope. Can attempt this but not complete this section.
-
-* Improve on existing 2018 project in the parts we can.
-* Scope might say about the situation or compare what has been changed scope wise
-  * may be a lack of construction.
-* what the package we are creating with must involve.
-  * Aero dynamic Rocket model
-    * smaller
-  * Gimbal able to interface with solid fuel motor and control electric motors.
-  * functioning Circuit schematics and PCB layouts
-    * with Communications aspects and all required functionality
-    * Smaller.
-  * Tuned PID algorithm
-    * Transfer function
-    * Simulation to find correct parameters
-  * Software to communicate with rocket from laptop.
-    * Record and display flight data.
+The main objective is to deliver an avionics system that will allow stable controlled flight while simultaneously logging and broadcasting data. This system must improve on the existing avionics package created by a team in 2018 for Andre. There is no requirement on height or flight, only to demonstrate controlled flight. The flight data must be logged to an onboard SD card, and the broadcast data must be accesed realtime by a onsite personal computer. The broadcast data must include the GPS position of the rocket. The rocket must use C or D class solid fuel engines?
+The improvements on the 2018 avionics package are the reduction in onboard PCB size, and reliability in the field. To be considered more reliable the avionics package will have to initialize and launch on the first attempt, the package must also not have loose wires or bare electronics.
 
 ### 1.3 Product overview
 #### 1.3.1 Product perspective (Can partially do)
