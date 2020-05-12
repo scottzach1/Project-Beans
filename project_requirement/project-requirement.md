@@ -278,23 +278,47 @@ This section should outline each of the required functions that the stakeholder 
 
 
 ### 3.3 Usability Requirements
-The goal is to design a user-friendly rocket with sufficient documentation to allow the wider avionics community to successfully launch and operate the product themselves. The product will also remain open source, ensuring the wider community can analyse and develop the product further as they wish.
+The usability requirements should enable any individual from the wider rocketry community to launch and operate the rocket and the avionics package. To ensure that this is achieved, all scenarios in which the rocket and the avionics package may be used in must be covered.
 
-The Usability of the rocket can be divided into its use cases.
+_**TODO:**_ Remove this
+  - Scenarios and usecases
+    - Transportability
+    - Base Station Connectivity
+    - Launch
+    - Mid-Flight Diagnostics
+    - Pre-Flight Tuning
+    - Post-Flight Analysis
+    - Accessibility
+    - Recoverability
 
-#### Launch:
+
+#### Scenarios and Usecases
+##### Transporting
+The rocket should feature the following properties to ensure the easiest transportability between locations:
+- Contained within a single physical construct or kit
+- Should weigh no more than 1.5kg as per the NZCAA regulations [2] 
+- Should possess reasonable dimensions (_**TODO:**_ Insert numbers here)
+
+##### Base Station Setup and Interactivity
+Before commencing with a launch, the rocket needs to establish a connection with the base station module. The base station module consists of a laptop to run the avionics package that will control the flight of the rocket, and a USB LoRa to enable bi-directional communication between the rocket and the laptop. Base station setup should take 5 minutes maximum.
+
+##### Pre-Flight Tuning
+A software platform should be provided to enable the user of the rocket to make quick changes to any reasonable aspect of the rocket, launch, and its flight that can be altered by means of software. This pre-flight tuning platform should be in the form of a basic input/output system to minimize the time required to make changes. **It is crucial that user input is validated** before being applied to the system.
+(_**TODO:**_ State specific parts of the system that can be altered by means of softwareas they become clearer)
+
+##### Launch:
 During launch it is important that:
 - Launch critical features are clearly marked and labeled
 - Hardware features to help mitigate the risk of incorrect operation of product, such as incorrect battery polarity.
 - Software safety guards to ensure all systems are operational and to prevent premature launch
 - System can be set up and ready to launch within 10 minutes of activation
 
-#### Flight analysis
+##### Flight analysis
 Following flight the system should:
 - Have recorded all sensor readings to the onboard SD Card
 - Saved these in a format that enables users to easily analyse the rockets performance and troubleshoot potential issues during flight
 
-#### Tuning Performance
+##### Tuning Performance
 Before flight, the system should:
 - Enable the user to assess in flight variables and control parameters
 - Easily adjust said variables and parameters
