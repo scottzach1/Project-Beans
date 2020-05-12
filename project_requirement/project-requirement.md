@@ -244,17 +244,16 @@ This Section will go into depth describing every single requirement of the proje
 
 TODO: come up with an alternative name for the avionics package, unless we want to continue calling it this. 
 #### Radio Antenna
-The radio antenna will facilitate the transfer of data and commands between the avionics package, and the base station. This radio antenna must allow for the live broadcast of the packages geographical location, provided by the GPS unit within the avionics package. This will allow for easier retrial of the unit as specified by the customer. While in flight, the radio antenna will also facilitate the periodic sending of other sensor data to the base station for use in live monitoring of performance. This data will be sent according to the *agreed on specification TODO*, and will include but is not limited too:
+The radio antenna will facilitate the transfer of data and commands between the avionics package and the base station. This radio antenna must allow for the live broadcast of the packages geographical location data, which will be provided by the GPS unit within the avionics package. This will allow for easier retrieval of the unit as specified by the customer. While in flight, the radio antenna will also facilitate the periodic sending of other sensor data to the base station for use in live monitoring of performance. This data will be sent according to the <b><i>TODO agreed on specification</i></b>, and will include but is not limited too:
 
  - Current gimbal position/angle
  - directional acceleration data
  - Battery voltage 
  
- This radio antenna will also allow for commands to be sent from the base station and received and processed by the avionics package. The commands will be able to query a range of current settings and readings available the avionics package, as well as altering the current state of the avionics package.  
+ This radio antenna will also allow for commands to be sent from the base station and received and processed by the avionics package. The commands will be able to query a range of current settings and readings available the avionics package, as well as altering the current state of the avionics package.
 
 #### SD Card
-
-
+The avionics package will be required to facilitate the logging of launch and flight data to an external SD card. The SD card will store the outputs of the sensory data provided by the internal measurement unit, as well as the geographical location data from the GPS unit. This data will be compiled into a CSV file and saved to the external SD, This data will be used for analysis of the launch. It will be required that the SD card is capable of writing data at the same rate that it is being polled from the internal measurement unit and the GPS, however this must not impact the performance of the guidance control systems. 
 
 #### Internal Measurement Unit (IMU / Sensors)
 
@@ -263,6 +262,9 @@ The radio antenna will facilitate the transfer of data and commands between the 
 
 
 #### Servos
+
+
+#### Guidance System
 
 
 #### GPS
