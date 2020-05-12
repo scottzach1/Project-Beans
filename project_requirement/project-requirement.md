@@ -163,13 +163,73 @@ One page on the limitations on the product (9.5.6)
 
 ## 2. References
 
-References to other documents or standards. Follow the IEEE Citation  Reference scheme, available from the [IEEE website](https://www.ieee.org/) (please use the search box). (1 page, longer if required)
-_**TODO**: Properly format these sources in IEEE standard.
+References to other documents or standards. Follow the IEEE Citation  Reference scheme, available from the [IEEE website](https://ieeexplore-ieee-org.helicon.vuw.ac.nz/stamp/stamp.jsp?tp=&arnumber=6146379&tag=1) (please use the search box). (1 page, longer if required)
+_**TODO**_: Properly format these sources in IEEE standard.
 https://www.nzrocketry.org.nz/rocketry/rocket-safety [1] (Viewed 30/4/2020)
-https://www.aviation.govt.nz/rules/ (Viewed 30/4/2020)
+https://www.aviation.govt.nz/rules/rule-part/show/101/4 [2] (Viewed 6/5/2020)
 
 
 ## 3. Specific requirements  
+
+> Planing:
+> - Hardware:
+>> - Should be controlled (Some sort of control system).
+>>> - Radio Antenna
+>>> - SD Card
+>>> - Internal Measurement Unit (IMU / Sensors)
+>>> - Gimbal
+>>> - Servos
+>>> - GPS
+> - Software:
+>> - Database
+>> - 
+
+3.1 External Interfaces: Niels:
+3.2 Functions: 
+
+Use Cases for MVP:
+- Rocket meets user objectives.
+- Rocket reacts to wind speed.
+- Rocket is safe to transport.
+- Rocket consists of a single kit. (Pelican case) 
+- Re-usability of rocket (at least 11 times).
+- Post flight analysis. 
+- Rocket is tunable / tweakable for optimisation.
+- Rocket can be assembled and ready to launch within 15 minutes.
+    - (Once flashed)
+- Rocket is structurally sound.
+    - Components can withstand 20 m/s -2.   
+
+Software Functions: (Zac)
+- Connecting and communicating data between the base station and the rocket.
+- Processing of sensor data.
+    - Logging sensor data
+        - IMU (Once per meter)
+        - Radio (Radio range of > 81m.
+        - GPS accurate into at least 9m.
+    - Checking validity of respective data.
+        - Radio (Once every 11 sensor readings).
+        - GPS
+        - Write to SD card.
+        - Battery
+    - Sensor data for control.
+        - IMU (Once per meter)
+ 
+Usability Requirements: (Ron)
+- Continuous battery readouts.
+
+Performance Requirements: (Will)
+- Rocket can get 2m off the ground.
+ 
+ Non-Functional Requirements:
+ - Rocket lands in starting spot.
+ 
+ Logical Requirements: (Object-Oriented Domain Analysis).
+ - GPS Coordinates
+ - IMU Readings
+ - Battery readings
+ - SD Write 
+ - <b><i>TODO: Billy's UML Diagram</i></b>
 
 #### Summary:
 
@@ -241,6 +301,39 @@ Before flight, the system should:
 
 
 ### 3.4 Performance requirements
+This section details the specific performance requirements that the user can expect from the finsihed
+rocket.
+
+The avionics package is expected to be capable of polling the onboard IMU at least 100 times per second. This is important for the active control aspect of the rocket. Due to the high velocity of the rocket, the onboard microcontroller
+requires frequent input signals from the IMU in order to make timely adjustments to the motor's vector in
+order for the rocket to achieve an optimal flight path. If the IMU was polled at a slower frequency the
+microcontroller would not recieve sufficient information regarding its current velocity and could
+overcompensate for slight deviations resulting in stability issues. In addition to providing active control
+of the rocket, the avionics package should store these measurements at the same frequency on an SD card. These
+measurements will also be supplemented by readings of the batteries' voltage and current at a frequency of
+10 measurements per second to provide sufficient data to the user for post flight analysis.
+
+Assessing the flight path, the rocket should be capable of consistently achieving an apogee greater than 4
+metres above the launch pad. The
+rocket should also land with a horizontal displacement no greater than 25 metres to reduce the risk of people
+being injured or property being damaged.
+
+The GPS should provide accurate readings to within a five metre radius of the rocket. This is to ensure
+that in the event that the rocket's landing position is not immediately known, the GPS is able to provide
+effective assistance in locating the rocket. In addition to this, the rocket's radio unit is expected to
+achieve reliable connection to the base station at distances of up to 80 metres without line of sight.
+This is so that the GPS location can be successfully broadcasted to the base station even when environmental features obstruct vision.
+
+In terms of durability, the rocket's design is required to be robust enough to remain fully functioning
+following 10 individual launches. This requires the rocket's onboard electronics, software and body
+to be designed in such a way that ensures it is capable of enduring accelerations in excess of 120 metres
+per second per second. This is an important factor as the rocket's target
+demographic is the budget conscious hobbyist. It also ensures, that the user
+is able to tune the rocket over multiple consecutive launches to their preference.
+
+
+
+
 
 #### Summary: (Can't Start)
 
@@ -291,14 +384,10 @@ This section requires us to do some in-depth modelling  of the software system c
 **Suggested Content**:
 
 - Two further subheadings - 3.6.1 Hardware Design Constraints, 3.6.2 Software Design Constraints
-- What are the legal restrictions imposed upon our hardware/rocket?
-- Legal and client restrictions/requirements conflict?
 - We can also write about the restrictions of each specific hardware component once we decide what equipment we are going to use (Eg. is there a limitation of the specific hardware component we are going to use).
-- For the software section, one requirement is that its open source since the project is targeted towards the wider rocket community (can ask client about what they intend to do with the project to clear this up). One potential constraint is that we cannot use non-open source libraries?
 
 **Suggested steps to make progress here:**
 
-- Contact the client about what conditions our hardware design must meet. (Eg What size the rocket should be?, What materials can we use?, Weight limit? Preferred electronics?)
 - Contact client about further software design constraints.
 
 **Original Instructions**
@@ -374,26 +463,75 @@ Theres a lot more to suggest from a software perspective. We can split some diff
 
 >Present the systemic (aka nonfunctional) requirements of the product (see ISO/IEC 25010). List up to twenty systemic requirements / attributes. Write a short natural language description of the top nonfunctional requirements (approx. five pages).
 
+#### 3.7.1 Hardware Non-Functional System Attributes
+_**TODO:**_ Try to list approximately 10 hardware non-functional requirements, a few of which need to be written about in detail.
+- Accessiblity (Client made a point about this in a Q&A (see Q&A Session 04 20 2020 in wiki))?
+- Drag?
+
+#### 3.7.2 Software Non-Functional System Attributes
+
+##### Correctness and Reliability
+The client has highlighted that past attempts at the project by other teams had issues regarding the correctness and reliability of the software. This is especially important given that the project itself has elements that is potentially dangerous. Through these factors, it is paramount that the software works correctly and reliably. To assure the correctness of the software, the project team will continually discuss what is defined as correct behaviour as the project enters the execution phase. The software will be packaged with extensive unit testing suites to prove that the software is performing as intended. Continuous Integration will be setup in the GitLab repository of the project to ensure that features merged into production does not cause errors with the existing code base. From a coding perspective, the developers of the software should apply programming techniques such as error handling, pre/post condition checking and the maintenance of invariants. Observing these techniques should mitigate the risk of the software entering an incorrect state and can help assure its correctness and reliability.  
+
+##### Maintainability and Extensibility
+Since the client has outlined that one of the purposes of the project is to contribute to the wider rocket community, the software developed for the project should be easily maintanable and extensible. This is important since these attributes of maintainability and extensibility should facilitate easier contribution to the project by other individuals of the wider rocketry community. To achieve good maintainability, the software needs to follow existing coding conventions. Any 3rd party dependencies introduced to the software should be well-known, easily adaptable, and adheres to a standard of quality and usefulness agreed upon by the project team. From a lower level perspective, maintainability can be achieved by observing the 'low-coupling, high cohesion' relationship between the different modules of the software system. Extensibility can also be achieved by using these techniques and is therefore important if the software is to be added to or improved upon by other individuals after the completion of the project.
+
+##### Testing
+Testing is crucial in the process of assuring the correctness and reliability of the software. The testing strategy the project team will adopt is a combination of regular unit testing and integration testing. Unit testing will cover technical, lower-level aspects of the software to ensure that the logic is correct. Unit testing should become a regular part of the developer's workflow by running the unit tests before pushing changes to the remote repository. Integration testing will be accommodated by GitLab's CI/CD (Continuous Integration/Continuous Delivery) feature. This will assist in ensuring that code being merged into production meshes well with the existing code base. 
+
+Other non-functional requirements from a software perspective include the following:
+- **Documentation** - The software package should have comprehensive documentation to clearly convey the intent and purpose of the code.
+- **Code Quality** - The software should adhere to existing coding conventions and follow design patterns where appropriate. The software should facilitate easy maintenance and adaptability.
+- **Logger** - The software can include a logging module that is used to report telemetry data and other useful information about the state of the avionics package.
+- **Ease of Deployment** - Deployment of the software system should be easy for the user. A manual should accompany the software to describe how to use it, and to describe any important parts of the software the user should be made aware of.
+
 
 ### 3.8 Physical and Environmental Requirements (Can Start)
 
-#### Summary: See [1] for a lot of info!
-
-The first half of this section requires us to identify specific features and characteristics of the hardware we are using. **The first half of this section cannot be started .** We need to decide what hardware we are going to use before writing about it.
-
-The second half (Environmental Requirements) we can start.
+#### Summary:
 
 **Suggested Content:**
-
-- Legal restrictions as to where we can launch rockets. (Conduct research and cite them)
-- Weather restrictions and how this can impact rocket launches/flight. What weather is acceptable/unacceptable for commencing with a launch.
-- 2018 Project also seems to cover obligations to the wider community and stakeholders. Eg rocket should be safe for residents of wellington region.
+- 2 Subheadings - 3.8.1 Physical Requirements and 3.8.2 Environmental Requirements
+- Environmental Requirements
+  - Legal restrictions as to where we can launch rockets. (Conduct research and cite them)
+  - Weather restrictions and how this can impact rocket launches/flight. What weather is acceptable/unacceptable for commencing with a launch.
+  - 2018 Project also seems to cover obligations to the wider community and stakeholders. Eg rocket should be safe for residents of wellington region.
+  - How the station will look like on launch day (eg setup of the base station)
+- Physical Requirements
+  - State the legal restrictions (There may be some repetition from hardware design constraints)
+  - Identify the specific components that will be used to build the rocket and their purpose
+  - Describe the rocket and its composition. Include info about dimensions, weight, height, volume, general shape
+  - Describe where the parts come from and how they were procured
 
 We need to get to a point where we can confidently say what hardware components we are going to use. That way, we can start listing them in this section and state their features and characteristics.
 
 **Original Instructions:**
 
 > For systems with hardware components, identify the physical characteristics of that hardware (9.4.10) and environment conditions in which it must operate (9.4.11).  Depending on the project, this section may be from one page up to 5 pages.
+
+#### 3.8.1 Physical Requirements
+_**TODO:**_ Need to decide what hardware components we are going to use. See suggested content above.
+
+#### 3.8.2 Environmental Requirements
+
+The environmental requirements are based primarily around legal restrictions and safety requirements. According to the New Zealand Rocketry Association [1], a rocket with a motor class ranging from A-F can only be launched under the following environmental circumstances:
+- Wind speeds at the site of the launch do not exceed 32km/h
+- No dry grass must be present near the launching location of the rocket
+- People must maintain at least 5m distance from the rocket during a launch
+
+In addition to the guidelines provided by the New Zealand Rocketry Association, the New Zealand Civil Aviation Authority (NZCAA) Rules Part 101 [2] places the following restrictions:
+  - A rocket cannot be operate on or within 4km of an aerodome boundary unless permission is given by the aerodome operator
+    - If permission is granted, the rocket still has the following environmental restrictions:
+      - The rocket cannot fly above 400 feet (121.92m) AGL (Height above ground level)
+      - The rocket cannot interfere with the flight path of any aircraft
+      - The rocket cannot be operated over an active runway
+  - A rocket cannot be operated within 4km to 8km of an aerodome boundary if it exceeds an altitude of 400 feet AGL.
+  - A rocket cannot be launched in an environment where clouds or other obscuring meteorological phenomena has a substantial presence
+  - A rocket cannot be launced if horizontal visibility is less than 8km
+  - Rockets cannot be launched at night under any circumstance
+
+_**TODO:**_ Make a statement about the actual wind speed our rocket can safely fly in once we can make this assessment confidently. Also state the required setup at the launch site if there are any.
+
 
 ### 3.9 Supporting information
 
@@ -403,14 +541,14 @@ This section declares any additional information that could justify why we have 
 
 **Suggested Content:**
 
-- Open Source - We can write about the fact that this is open source, why, and its implications for the future of the project.
-- Can probably state any legal restrictions that justify a particular requirement or to ensure some safety measure.
+- State that it could potentially pave way for launching a rocket from a diverse range of launch sites, including from a balloon.
 
-Cannot make much progress here right now. We need to move forward with the project more until some extra info becomes obvious to us.
+##### Open Source
+The client has communicated that their intention with the project after its completion is to contribute to the wider rocketry community. As a result, all of the project's content including hardware design and source code will be freely available to the public both for viewing and editing. This is an important factor in the design of the hardware and software systems since it imposes certain restrictions that the project team has to work around. Despite the restrictions, making the project open source allows the project to be improved upon by other individuals outside of the project team, and hopefully, provoke continued interest for the wider rocketry community.
 
-**Original Instructions:**
+##### Legal Regulations
+The project is subject to a wide range of legal regulations given the potentially dangerous nature of the product being developed. **It is critical that all legal regulations are followed by the design** of the system as any breaches can pose a real threat to the health and safety of the relevant project stakeholders. Furthermore, the legal repercussions from the breaches will drastically impact the project and its ability to continue.
 
-> see 9.5.19.
 ## 4. Verification
 
 //3 pages outlining how you will verify that the product meets the most important specific requirements. The format of this section should parallel ////section 3 of your document (see 9.5.18). Wherever possible (especially systemic requirements) you should indicate testable acceptance criteria.
@@ -512,9 +650,7 @@ The content below outlines the 10 most important risks that can impact achieving
 
   - **Impact:** Severe
 
-  - **Mitigation Strategy:** During a rocket launch, all attending project members and other stakeholders/spectators are required to maintain a safe distance from the rocket. Any member of the public present at the launch site will be informed of the rocket launch so that they are made aware of the potential danger. During the rocket's flight, the trajectory and status of the rocket will be closely monitored to ascertain the landing location of the rocket. If there are too many people at the launch site, the launch will be postponed. Ensure that a parachute deployment system is implemented to minimize the damage done by an impact with a person during landing.
-
-  - _**TODO:**_ Research safe distance to maintain during rocket launch. Inlcude specific numbers.
+  - **Mitigation Strategy:** During a rocket launch, all attending project members and other stakeholders/spectators are required to maintain a safe distance from the rocket. Any member of the public present at the launch site will be informed of the rocket launch so that they are made aware of the potential danger. During the rocket's flight, the trajectory and status of the rocket will be closely monitored to ascertain the landing location of the rocket. If there are too many people at the launch site, the launch will be postponed. Ensure that a recovery system in the form of a streamer or parachute is implemented [1] to minimize the damage done by an impact with a person during landing. Project stakeholders involved with the rocket launch will maintain a minimum distance of 5m from the rocket during a launch, as required by the NZRA [1].
 
 - #### Risk 2: Rocket unintentionally makes contact with an object during flight or when it lands, causing damage to property.
 
@@ -538,11 +674,11 @@ The content below outlines the 10 most important risks that can impact achieving
 
   - **Impact:** Severe
 
-  - **Mitigation Strategy:** Consult mission control software before a rocket launch to determine if the current wind speeds can safely accomodate a flight. Launches will be postponed if wind speeds exceed _**[Insert number here]**_.
+  - **Mitigation Strategy:** Consult mission control software before a rocket launch to determine if the current wind speeds can safely accomodate a flight. Launches will be postponed if wind speeds exceed **32km/h** [1]. 
 
 
 
-- #### Risk 4: Rocket parts unexpectedly disassembles during flight. Debris emitted causing damage to people and property.
+- #### Risk 4: Rocket parts unexpectedly disassembles during flight. Debris emitted causes damage to people and property.
 
   - **Risk Type:** Health and Safety/Environmental
 
@@ -584,13 +720,13 @@ The content below outlines the 10 most important risks that can impact achieving
 
 - #### Risk 7: Rocket ignites prematurely, causing injury to people
 
-  - **Risk Type:**
+  - **Risk Type:** Health and Safety
 
-  - **Likelihood:**
+  - **Likelihood:** Unlikely
 
-  - **Impact:**
+  - **Impact:** Severe
 
-  - **Mitigation Strategy:** (Mention 10m wire connected to motor for manual ignition. Alternatively, we can ignite by means of software which would mean that we can be far away from the rocket for a long time. Although the client did say this is not the preferred method due to a number of safety precautions. Mention fire extinguisher)
+  - **Mitigation Strategy:** At all times during a launch, project stakeholders involved with the launch must maintain a safe distance of at least 5m. Manual ignition system must be electric, and have a safety interlock in place [1]. A first aid kit will be brought to the launch site to treat any injuries immediately. _**TODO:**_ (Mention 10m wire connected to motor for manual ignition. Alternatively, we can ignite by means of software which would mean that we can be far away from the rocket for a long time. Although the client did say this is not the preferred method due to a number of safety precautions. Mention fire extinguisher)
 
 
 
@@ -607,25 +743,23 @@ The content below outlines the 10 most important risks that can impact achieving
   - _**TODO:**_ Is there a way of developing some sort of manual kill switch so if we ever see the rocket taking an unsafe path (eg heading towards the ground or a person), we can kill its thrust to minimize impact damage?
 
 
-
-- #### Risk 9: Something about fire
+- #### Risk 9: Rocket ignition causes a fire
 
   - **Risk Type:** Health and Safety/Environmental
 
-  - **Likelihood:**
+  - **Likelihood:** Unlikely
 
-  - **Impact:**
+  - **Impact:** Moderate
 
-  - **Mitigation Strategy:** Bring a fire extinguisher. Make sure we dont launch during a high fire alert level. Make sure launch pad isn't susceptible to fire (if we are launching in a field, make sure the grass isn't too dry?)
+  - **Mitigation Strategy:** Project stakeholders must undertake a health and safety induction prior to the launch In accordance with the NZCAA [1], the selected launch site must be clear of dry grass to lower the risk of causing a fire during a rocket ignition. The project stakeholders involved with the launch will closely inspect the launch site for flammable material to remove them. A rocket launch will be postponed if the fire alert level is high, or if the temperature is unusually high. A fire extuinguisher will be brought by the team at the launch site to counter small fires. 
 
 
+- #### Risk 10: Wind speeds suddenly exceed the safe wind speed for the rocket during flight
 
-- #### Risk 10:
-
-  - **Risk Type:**
-  - **Likelihood:**
-  - **Impact:**
-  - **Mitigation Strategy:**
+  - **Risk Type:** Health and Safety, Environmental, 
+  - **Likelihood:** Unlikely
+  - **Impact:** Moderate
+  - **Mitigation Strategy:** The rocket launch will only proceed if the current wind speeds are well below the maximum wind speed determined for the rocket. Wind speeds will be continually monitored during the flight to keep the team informed on the safety of the flight. Recovery system will be manually deployed in the event that the wind speed rises to an unsafe level.
 
 ### 5.4 Health and Safety
 
