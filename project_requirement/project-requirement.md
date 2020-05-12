@@ -278,7 +278,7 @@ This section should outline each of the required functions that the stakeholder 
 
 
 ### 3.3 Usability Requirements
-The usability requirements should enable any individual from the wider rocketry community to launch and operate the rocket and the avionics package. To ensure that this is achieved, all scenarios in which the rocket and the avionics package may be used in must be covered.
+The usability requirements should enable any individual from the wider rocketry community to launch and operate the rocket, and to use its accompanying avionics package with relative ease. To ensure that this is achieved, all scenarios in which the rocket and the avionics package is used in should feature certain properties.
 
 _**TODO:**_ Remove this
   - Scenarios and usecases
@@ -303,8 +303,8 @@ The rocket should feature the following properties to ensure the easiest transpo
 Before commencing with a launch, the rocket needs to establish a connection with the base station module. The base station module consists of a laptop to run the avionics package that will control the flight of the rocket, and a USB LoRa to enable bi-directional communication between the rocket and the laptop. Base station setup should take 5 minutes maximum.
 
 ##### Pre-Flight Tuning
-A software platform should be provided to enable the user of the rocket to make quick changes to any reasonable aspect of the rocket, launch, and its flight that can be altered by means of software. This pre-flight tuning platform should be in the form of a basic input/output system to minimize the time required to make changes. **It is crucial that user input is validated** before being applied to the system.
-(_**TODO:**_ State specific parts of the system that can be altered by means of softwareas they become clearer)
+A software platform should be provided to enable the user of the rocket to make quick changes to any aspect of the rocket, launch, and its flight that can be reasonably altered by means of software. This pre-flight tuning platform should be in the form of a basic input/output system to minimize the time required to make changes. **It is crucial that user input is validated** to prevent the system from entering an incorrect state.
+(_**TODO:**_ State specific parts of the system that can be altered by means of softwareas they become clearer. _Any_ aspect of the system seems a bit too ambitious)
 
 ##### Launch:
 During launch it is important that:
