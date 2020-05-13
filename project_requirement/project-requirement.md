@@ -263,7 +263,8 @@ At the current time, we can discuss and outline possible requirements of each of
 
 ### 3.2 Functions (can start)
 
------------
+**Original Instructions**<br>
+> This is typically the longest subsection in the document. List up to fifty use cases (in order of priority for development), and for at least top ten focal use cases, write a short goal statement and use case body (up to seven pages).  Identify the use cases that comprise a minimum viable product.
 
 **TODO:** order of priority with Zac
 
@@ -305,11 +306,15 @@ Essentially from starting the assembly process of the rocket it should be ready 
 ***Hardware Requirements***
 1. Due to the nature of model rockets, all components of the rocket must be able to withstand significant acceleration. It is crucial that no component becomes loose or dislodged during launch as this could cause significant component failure. To be conservative, the rocket must be rated for up to 20 m/s ^2 of acceleration. To ensure the rocket meets this requirement, counter measures such as secure mounting and robust bracing must be implemented on the rocket. 
 
-**TODO:** When writing this, it occured to me that the greatest force a model rocket might be subjected to will actually be the impact when it hits the ground. Currently we have a performance requirement that requires the rocket to be able to be reused after multiple flights. This hardware requirement should be a specification within that usability requirement.
+> **TODO:** When writing this, it occured to me that the greatest force a model rocket might be subjected to will actually be the impact when it hits the ground. Currently we have a performance requirement that requires the rocket to be able to be reused after multiple flights. This hardware requirement should be a specification within that usability requirement.
 
-2. The rocket fits within a `X*Y*Z`mm enclosure. This hardware requirement is an extension of the usability requirement where the rocket must be consist of a single kit. The dimensions of the rocket would affect how its internal components are structured. A smaller rocket, ensures promotion of efficient use of space, as well as greater affordability of components.
+2. Due to the potential altitudes of model rockets of this caliber, an uncontrolled landing can cause significant damage to both the rocket iteslf, as 
+any people or objects in the surrounding environment. To ensure the rocket is safe, it is essential that the rocket will perform a safe and slowed 
+landing, without drifting too far from the initial launch position.  
 
-3. The components of the rocket must be easily accessible to the public. As this rocket is to be open source. It is a requirement that all components can be reasonably obtained or produced by a member of the public. This means that no unreasonably uncommon or expensive components will be used as part of the manufacturing of the rocket. ***TODO*** This includes 3d printers, and ... (What else is essential to produce or assemble the pcb / components of the rocket.
+3. The rocket fits within a `X*Y*Z`mm enclosure. This hardware requirement is an extension of the usability requirement where the rocket must be consisted of a single kit. The dimensions of the rocket would affect how its internal components are structured. A smaller rocket, ensures promotion of efficient use of space, as well as greater affordability of components.
+
+4. The components of the rocket must be easily accessible to the public. As this rocket is to be open source. It is a requirement that all components can be reasonably obtained or produced by a member of the public. This means that no unreasonably uncommon or expensive components will be used as part of the manufacturing of the rocket. ***TODO*** This includes 3d printers, and ... (What else is essential to produce or assemble the pcb / components of the rocket.
 
 **TODO: ensure these match up with Billy's requirements in intro**<br>
 The Rocket must also meet stakeholder objectives. These functions include:
@@ -327,10 +332,6 @@ This section should outline each of the required functions that the stakeholder 
 - Talk with the customer about what their requirements for the project are.
 - Break down the requirements outlined by the customer into subsections which outline what we need to do to achieve them.
 - Come up with a list of possible use cases for our project outcomes.
-
-**Original Instructions**<br>
-> This is typically the longest subsection in the document. List up to fifty use cases (in order of priority for development), and for at least top ten focal use cases, write a short goal statement and use case body (up to seven pages).  Identify the use cases that comprise a minimum viable product.
-
 
 ### 3.3 Usability Requirements
 The goal is to design a user-friendly rocket with sufficient documentation to allow the wider avionics community to successfully launch and operate the product themselves. The product will also remain open source, ensuring the wider community can analyse and develop the product further as they wish.
