@@ -280,21 +280,9 @@ This section should outline each of the required functions that the stakeholder 
 ### 3.3 Usability Requirements
 The usability requirements should enable any individual from the wider rocketry community to launch and operate the rocket, and to use its accompanying avionics package with relative ease. To ensure that this is achieved, all scenarios in which the rocket and the avionics package is used in should feature certain properties.
 
-_**TODO:**_ Remove this
-  - Scenarios and usecases
-    - Transportability
-    - Base Station Connectivity
-    - Launch
-    - Mid-Flight Diagnostics
-    - Pre-Flight Tuning
-    - Post-Flight Analysis
-    - Accessibility
-    - Recoverability
-
-
-#### Scenarios and Usecases
+#### Scenarios
 ##### Transporting
-The rocket should feature the following properties to ensure the easiest transportability between locations:
+The rocket should feature the following properties to make it portable and easy to transport:
 - Contained within a single physical construct or kit
 - Should weigh no more than 1.5kg as per the NZCAA regulations [2] 
 - Should possess reasonable dimensions (_**TODO:**_ Insert numbers here)
@@ -307,21 +295,37 @@ A software platform should be provided to enable the user of the rocket to make 
 (_**TODO:**_ State specific parts of the system that can be altered by means of softwareas they become clearer. _Any_ aspect of the system seems a bit too ambitious)
 
 ##### Launch:
-During launch it is important that:
-- Launch critical features are clearly marked and labeled
+During launch, the usability of the system should be centered around reliability and safety. The rocket should feature the following features to ensure this:
+- The rocket should feature manual ignition to minimize the risk of premature ignition
+- Ignition system should feature at least a 10m wire from the motor of the rocket to ensure the safety of the person igniting the rocket
+- Launch critical features of the rocket are clearly marked and labeled
 - Hardware features to help mitigate the risk of incorrect operation of product, such as incorrect battery polarity.
-- Software safety guards to ensure all systems are operational and to prevent premature launch
+- Software safety checks and pre-flight diagnostics to ensure all systems are operational
 - System can be set up and ready to launch within 10 minutes of activation
 
-##### Flight analysis
-Following flight the system should:
-- Have recorded all sensor readings to the onboard SD Card
-- Saved these in a format that enables users to easily analyse the rockets performance and troubleshoot potential issues during flight
+##### Mid-Flight Diagnostics/Readings
+During the flight, the system should:
+- Continually record values that the onboard sensors are reading
+- Readings are stored onto the onboard SD card in a format that enables users to easily analyse the rockets performance and troubleshoot potential issues during flight
+- Broadcast telemetry at regular intervals to the base station to enable the personnel manning the base station to monitor the flight
 
-##### Tuning Performance
-Before flight, the system should:
-- Enable the user to assess in flight variables and control parameters
-- Easily adjust said variables and parameters
+##### Recoverability
+The rocket should be in a stable physical form at the end of the flight. This can be achieved by doing the following:
+- A parachute system is deployed after a specific amount time provided by the user by means of software
+- _**TODO:**_ Client has also stated that another criterion that would constitute the deployment of the parachute is if the on-board barometer detects a decrease in pressure levels.
+
+##### Post-Flight Diagnostics/Analysis
+At the end of a launch, the rocket should be in a state that enables the project team and stakeholders to evaluate the performance of the rocket. To allow this, the system should do the following:
+- On-board SD card should be stored in an easily accessible part of the rocket to allow for quick installation and removal
+- On-board SD card should be protected to withstand high velocities or hard impacts
+- Broadcasted mid-flight telemetry data should be stored onto a file at the base station's laptop as a backup to the SD card
+- Disassembly of the rocket should take no longer than 15 minutes
+
+##### Future Development
+The purpose of the project is to contribute to the existing body of knowledge about rocketry. To make the project usable by members of the wider rocketry community should they choose to contribute to the project, the project needs to have the following:
+- Documentation in the form of manuals
+- Extensive software documentation through commenting
+- Open source and freely available
 
 
 ### 3.4 Performance requirements
