@@ -266,65 +266,85 @@ At the current time, we can discuss and outline possible requirements of each of
 **Original Instructions**<br>
 > This is typically the longest subsection in the document. List up to fifty use cases (in order of priority for development), and for at least top ten focal use cases, write a short goal statement and use case body (up to seven pages).  Identify the use cases that comprise a minimum viable product.
 
-**TODO:** order of priority with Zac
+#### 3.2.2 Use Cases
 
-There are multiple sub sections in which the functions of this package can be broken down into. **Break section down into 3.2.x?**
+These are not that many unique uses for this project, as this is designed with the sole goal of creating a rocket which one launched is autonomous. As parts of this project contain dangerous goods, it's not advised to use this package for different purposes without making further changes to accomadate your specific use. That being said there are still various interactions between users and the rocket.
 
-Use Cases for the Minimum Viable Product:
+**Use Cases:**
+1. Transportation of Rocket <br>
+It's important that the rocket is handled safely and for this reason it will be handled by a professional. The specifics of this are outlined further in the safety plan.
+
+
+2. Assembly of rocket <br>
+The rocket is designed with different packages and components which must be put together before launch. This is a task which should take less than 15 minutes, and will be outlined in a supporting assembly document.
+
+
+3. Disassembly of rocket <br>
+This is important as we need the ability to add or remove components for a range of reasons, eg. faulty or outdated components. It also allows both this package and the rocket to be much easier be extended upon by future users. This will also be covered in the supporting assembly document.
+
+
+4. Reading of flight data <br>
+It's extremely important to record all flight data, as gves the team immediate feedback which helps to understand why a launch and/or flight happened the way it did. This data will be sent to the base station during flight, and should be visible to the team at the base station.
+
+
+5. Analysis of flight data <br>
+While its important to read the data its even more important to formally record the data. This gives users the oppurtunity to perform further analysis, and therfore tweak and improve the rocket for future launches.
+
+
+#### 3.2.2 Requirements
+
+This subsection is broken down into three subsections. The functions which make up the Minimum Viable Product are our most important, as if these aren't meant then the rocket can not be considered complete. We've also have additional Hardware and Software sections, which aim to include more specific requirements to their respective section.
+
+**Requirements / functions of the Minimum Viable Product:** <br>
+**TODO:** ensure these match up with Billy's requirements in intro**
 
 1. The Rocket is safe to transport. <br>
 As the motor is classified as a Class 1 dangerous goods (New Zealand Land Transport Rule: Dangerous Goods 2005) it is of high importance that this requirement is met. The in depth safety plan for transportation is laid out in section 2.1 of the Safety Plan document.
 
 
-2. The rocket consists of a single kit. <br>
- This means that all seperate components of the rocket can be packaged into one single kit. For example all components could fit into a suitable sized pelican case.
-
-
-3. The rocket is re-usable. <br>
+2. The rocket is re-usable. <br>
 This means that the rocket does not sustain significant damage after any one launch, and ideally sustains none. The rocket should be able to sustain 10 launches at the bare minimum.
 
 
-4. The group is able to conduct a post flight analysis. <br>
+3. The group is able to conduct a post flight analysis. <br>
 This means that all necessary flight data is recorded and sent to the base station during flight. This means that upon both successful and unsuccessful launches and flights the team is able to further analyse the flight in detail.
 
 
-5. The rocket is tunable/tweakable for optimisation. <br>
+4. The rocket is tunable/tweakable for optimisation. <br>
 This means that there are no unnecessary dependancies between packages. This should reduce "god objects" and help to make all packages as interchangableas possible for potential optimisation. <br>
 It also means that once built the rocket is able to be disassembled with relative ease.
 
 
-6. Once flashed the rocket can be assembled and ready to launch within 15 minutes.<br>
-Essentially from starting the assembly process of the rocket it should be ready for launch within 15 minutes. This is important for allowing multiple launch oppurtunities as it can be difficult for all launch conditions to be met. It also allows for the potential of small tweaks at the launch site. **TODO: check this is safe**
+5. Once flashed the rocket can be assembled and ready to launch within 15 minutes.<br>
+Essentially from starting the assembly process of the rocket it should be ready for launch within 15 minutes. This is important for allowing multiple launch oppurtunities as it can be difficult for all launch conditions to be met. It also allows for the potential of small tweaks at the launch site, provided it is safe.
+
+
+6. The rocket consists of a single kit. <br>
+ This means that all seperate components of the rocket can be packaged into one single kit. For example all components could fit into a suitable sized pelican case.
+
+
+ ***Hardware Requirements***
+ 1. Due to the nature of model rockets, all components of the rocket must be able to withstand significant acceleration. It is crucial that no component becomes loose or dislodged during launch as this could cause significant component failure. To be conservative, the rocket must be rated for up to 20 m/s ^2 of acceleration. To ensure the rocket meets this requirement, counter measures such as secure mounting and robust bracing must be implemented on the rocket.
+
+ 2. Due to the potential altitudes of model rockets of this caliber, an uncontrolled landing can cause significant damage to both the rocket iteslf, as
+ any people or objects in the surrounding environment. To ensure the rocket is safe, it is essential that the rocket will perform a safe and slowed
+ landing, without drifting too far from the initial launch position.  
+
+ 3. The rocket fits within a `X*Y*Z`mm enclosure. This hardware requirement is an extension of the usability requirement where the rocket must be consisted of a single kit. The dimensions of the rocket would affect how its internal components are structured. A smaller rocket, ensures promotion of efficient use of space, as well as greater affordability of components.
+
+ 4. The components of the rocket must be easily accessible to the public. As this rocket is to be open source. It is a requirement that all components can be reasonably obtained or produced by a member of the public. This means that no unreasonably uncommon or expensive components will be used as part of the manufacturing of the rocket. ***TODO*** This includes 3d printers, and ... (What else is essential to produce or assemble the pcb / components of the rocket.
+
 
 ***Software Requirements***
 1. Rocket's software must react to wind speed within the maximum wind conditions specified within the safety requirements document. This will be in the form of error correction where the rocket will attempt to stabilise based off internal readings from the internal sensors, as well as potentially external readings such as those provided from sensors in the base station or environmental conditions provided by mission control.  
- 
+
 2. The rocket must log all flight data. This will include the logging of all internal sensor data, as well as commands issued to the IMU. The components in particular whose readings should be logged include the IMU, Radio and GPS. The readings must be logged to a file within the SD card for post launch analysis as well as some critical readings broadcast over LoRa.
 
-3. The rocket's software must attempt to perform in air error analysis. This critical component of the rocket is fundamental to the safety of the rocket and any people or objects in the surrounding area. It is critical the rocket can respond correctly to erroneous data. Erroneous data could be observed via any readings from components whose output is part of the integral control system. The components that meet this category is the IMU, the battery and the SD card. 
+3. The rocket's software must attempt to perform in air error analysis. This critical component of the rocket is fundamental to the safety of the rocket and any people or objects in the surrounding area. It is critical the rocket can respond correctly to erroneous data. Erroneous data could be observed via any readings from components whose output is part of the integral control system. The components that meet this category is the IMU, the battery and the SD card.
 
-***Hardware Requirements***
-1. Due to the nature of model rockets, all components of the rocket must be able to withstand significant acceleration. It is crucial that no component becomes loose or dislodged during launch as this could cause significant component failure. To be conservative, the rocket must be rated for up to 20 m/s ^2 of acceleration. To ensure the rocket meets this requirement, counter measures such as secure mounting and robust bracing must be implemented on the rocket. 
 
-> **TODO:** When writing this, it occured to me that the greatest force a model rocket might be subjected to will actually be the impact when it hits the ground. Currently we have a performance requirement that requires the rocket to be able to be reused after multiple flights. This hardware requirement should be a specification within that usability requirement.
-
-2. Due to the potential altitudes of model rockets of this caliber, an uncontrolled landing can cause significant damage to both the rocket iteslf, as 
-any people or objects in the surrounding environment. To ensure the rocket is safe, it is essential that the rocket will perform a safe and slowed 
-landing, without drifting too far from the initial launch position.  
-
-3. The rocket fits within a `X*Y*Z`mm enclosure. This hardware requirement is an extension of the usability requirement where the rocket must be consisted of a single kit. The dimensions of the rocket would affect how its internal components are structured. A smaller rocket, ensures promotion of efficient use of space, as well as greater affordability of components.
-
-4. The components of the rocket must be easily accessible to the public. As this rocket is to be open source. It is a requirement that all components can be reasonably obtained or produced by a member of the public. This means that no unreasonably uncommon or expensive components will be used as part of the manufacturing of the rocket. ***TODO*** This includes 3d printers, and ... (What else is essential to produce or assemble the pcb / components of the rocket.
-
-**TODO: ensure these match up with Billy's requirements in intro**<br>
-The Rocket must also meet stakeholder objectives. These functions include:
-- Avionics package shall be controllable
-- The rocket will be no larger than **TODO**
-- All parts of this project, such as documents, blueprints, code, of this project will be open source
-- The rocket will record all flight data
-
+<!--
 #### Summary:
-
 This section should outline each of the required functions that the stakeholder has outlined for the project, how we intend to meet these functions, what the use-cases for out project are. It should break down each of the project requirements into subsections outlining the approach we are taking to implement them.
 
 **Suggested steps to make progress here:**
@@ -332,6 +352,7 @@ This section should outline each of the required functions that the stakeholder 
 - Talk with the customer about what their requirements for the project are.
 - Break down the requirements outlined by the customer into subsections which outline what we need to do to achieve them.
 - Come up with a list of possible use cases for our project outcomes.
+-->
 
 ### 3.3 Usability Requirements
 The goal is to design a user-friendly rocket with sufficient documentation to allow the wider avionics community to successfully launch and operate the product themselves. The product will also remain open source, ensuring the wider community can analyse and develop the product further as they wish.
