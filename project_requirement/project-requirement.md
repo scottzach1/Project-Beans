@@ -15,151 +15,94 @@ All team members are expected to contribute equally to the document and list the
 # ENGR 301 Project *NN* Project Proposal and Requirements Document
 #### Author list, a comma-separated list of the names of each member of the team.
 
-## 1. Introduction - (Can do)
-
+## 1. Introduction
 Requirement: "One page overall introduction including sections 1.1 and 1.2 (ISO/IEC/IEEE 42010:2011(E) clause 5.2)"
 
-Notes: Should contain a more general introduction in this section as well as the below requirements. Since the below requirements are going to only fill about half a page so this part should be around half a page also.
+For rockets ranging from NASAs Saturn V to an amateur rocket enthusiasts first rocket, stability is a desireable. The method in which stable flight is achieved varies to a large degree, but can be divided into two basic categories. The most common being passively stablized rockets. These maintain a stable flight due to passive aerodynamic features, an example being fins that give the rocket a stablizing rotation (similar to the effect of rifling on a bullet).
+The simplicity of a passive system is apealing but any error introduced to the system can cause an unwanted flight trajectory. Some examples of sources of error include, unexpected wind or a fin of differing size that is not accounted for.
+The second category is an active control system. Onboard electonics can be used to achieve active course correction. Error in the rockets trajectory can be mitigated in a way that passive systems cannot. The drawbacks of this are the complexity and large overhead introduced when constructing the rocket.
 
-This general introduction should contain:
-* A small background on existing rocket avionics systems, keep concise though probably not much detail required here, just some context.
-* Perhaps an intro to the project itself.
-* Discuss the active nature of the project (Using a PID controller) rather than a passive.
-  * Perhaps discuss about the fact that active can record data and provide real time info like location.
-    * Difficulty of creating an effective passive rocket, Extreme Precision Required, cannot account for everything.
-    * List some unexpected conditions like wind, or small flaws in parts etc..
+Our customer is one day hoping to launch a rocket from a weather balloon at approximately 70,000ft. This will require an active control system. This project aims to covering the need for an active control system. Existing off-the-shelf avionics packages for amateur rocketry enthusiasts are available, but our customer finds them lacking. This is due to limited functionality and with most packages not open source, so they cannot be reprogrammed. This project aims to improve on an existing attempt at this control system, completed in 2018, and is working along side other teams to ensure all aspects are covered.
 
-##### Ideas
-Amongst the Amateur Rocketry community, two types of rockets are used. Controller and uncontrolled. Both are vaild but each have their specialty. Our customer is one day hoping to launch a rocket from a weather balloon at 70,000ft, this is most definitely the realm of a control system and several electronic packages. What this project will cover is but a stepping stone for that goal. will be open source, done for andre but an the next team working on this, we are working on improving 2018 teams work (mainly improving reliability and ease of use in the field), working alongside two other projects (simulation and ?)
-
-
-Adv
-* Active systems can work with errors and therefore in more conditions
-* Active systems are then preferable
-
-Disadv
-* Active systems are complex and have a greater overhead
-* existing packages are not open source therefore cannot reprogram
-* existing packages are of limited functionality
-
-
-* This project aims to create a package that will improve the body of knowledge in the amateur rockety body of knowledge
-
-
-### Client - (Can do)
+### Client
 
 Our client for this project is Andre Geldenhuis. Andre is a rocket enthusiast who is part of the NZ Rocketry Association. As of writing this, the contact email is "andre.geldenhuis@vuw.ac.nz" and throughout the project, the team can also contact Andre via a live text chat (Mattermost) channel.
 
 
 ### 1.1 Purpose
-
 Requirement: "One sentence describing the purpose of the system(9.5.1)"
 
-Notes: Seems like not enough to describe purpose, so important to construct this sentence carefully.
-
-* Honestly not sure about this.
-  * Need to understand what our project is lol.
-	* Might learn more from lecturers before uni starts again.
-	* Should make some questions to ask the customer and lecturers.
+The purpose of this system is to control a rocket in flight while being opensource and accessible so that it can be used in the amateur rocketry community.
 
 ### 1.2 Scope
 
 Requirement: "One paragraph describing the scope of the system(9.5.2)"
 
-Notes: Run into a similar problem as above, the changes to the course will have definitely changed the scope. Can attempt this but not complete this section.
-
-* Improve on existing 2018 project in the parts we can.
-* Scope might say about the situation or compare what has been changed scope wise
-  * may be a lack of construction.
-* what the package we are creating with must involve.
-  * Aero dynamic Rocket model
-    * smaller
-  * Gimbal able to interface with solid fuel motor and control electric motors.
-  * functioning Circuit schematics and PCB layouts
-    * with Communications aspects and all required functionality
-    * Smaller.
-  * Tuned PID algorithm
-    * Transfer function
-    * Simulation to find correct parameters
-  * Software to communicate with rocket from laptop.
-    * Record and display flight data.
+The objective is to deliver an avionics system that will allow stable controlled flight while simultaneously logging and broadcasting data. This system must improve on the existing avionics package created by a team in 2018 for Andre. There is no requirement on height or flight time, only to demonstrate controlled flight. The flight data must be logged to an onboard SD card, and the broadcast data must be accesed realtime by a onsite personal computer. The broadcast data must include the GPS position of the rocket. The rocket will use C or D class solid fuel engines.
+The improvements on the 2018 avionics package are the reduction in onboard PCB size, and reliability in the field. To be considered more reliable the avionics package will have to initialize and launch on the first attempt, the package must also not have loose wires or bare electronics.
 
 ### 1.3 Product overview
-#### 1.3.1 Product perspective (Can partially do)
+#### 1.3.1 Product perspective
 
 One page defining the system's relationship to other related products
 (9.5.3. but not the subsections in the standard.)
 
-**Can partially do:**
-- talk about how this is related to other related programs (Note: aaron asking about this in project info pdf)
-  - does require some general idea of our end goal   
 
-**Things we need to know:**
-- the actual scope of our program
-- the "why" behind our end goals
-- how we're improving on the 2018 group
+There is no specific larger system that this system will be part of. Rather this is intended to bring the goals of our customer closer and to add to the body of knowledge in the ameture rocketry community.
+Our client is aiming to one day launch rockets from a weather balloon. This will require a system that can launch and achieve stable flight from a platform. This will require an active system. This project is creating and ensuring soundness of active control system that can be adapted in the future for this goal.
 
-**Things needed:**
-- Generic UML Diagram (Started - what we did last meeting)
-- knowledge on how software interacts with each subsection (Can't do)
+This project is opensource, allowing the final product to be tweaked and repuroposed by the community. This adds longevity to the project after it is officially ended. This can benefit the customers as this may result in further developent by the community.
 
-
-> **9.5.3 Product perspective** <br>
-> Define the system's relationship to other related products.
->
-> If the product is an element of a larger system, then relate the requirements of that larger system to the functionality of the product covered by the software requirements specification.
->
-> If the product is an element of a larger system, then identify the interfaces between the product covered by the software requirements specification and the larger system of which the product is an element.
->
-> A block diagram showing the major elements of the larger system, interconnections, and external interfaces can be helpful.
->
-> Describe how the software operates within the following constraints:  
-a) System interfaces;  
-b) User interfaces;  
-c) Hardware interfaces;  
-d) Software interfaces;  
-e) Communications interfaces;  
-f) Memory;  
-g) Operations;  
-h) Site adaptation requirements.
+A similar opensource project has been undertaken in 2018 for our customer. This project will used the existing projects resources and improve the system.
 
 #### 1.3.2 Product functions
 The requirements specified for the clients minimum viable product include:
 
-**Things needed:**
-- A Rocket which achieves flight and implements an active control system.
-- Records and broadcasts radio telemetry during the launch, burn and post-burn phase of flight.
-- The Rocket is able to be safely launched without the use of a launch rail
-- The Rocket reliably deploys a parachute and lands without sustaining significant damage.
+**Base functionality Requirements**
+- A rocket that achieves stable flight with an active control system.
+    - Without the use of a launch rail.
+- Records data from all sensors at a rate where the flight path could be reasonably reconstructed post flight.
+- Broadcasts radio telemetry and battery level during the launch, burn and post-burn phase of flight.
+- The rocket must land without sustaining disabling damage to the electronics.
 
+**Required functionality Improvements**
+- Software can be reliably initialized in the field.
+- Must have protected electronics, wires and PCBs cannot be exposed.
 
-#### 1.3.3 User characteristics (Draft)
+#### 1.3.3 User characteristics
 
-One of the key requests from our client is that the avionic package will be open source, which allows use and/or continuation of this product from anyone in the wider model rocket community. Future users could include but it not limited to students, researchers, programmers and rocket hobbyists.
+One of the key requests from our client is that the avionic package will be open source, which allows use and potential continuation of this product from anyone in the wider amateur rocketry community. Future users could include but it not limited to students, researchers, programmers and rocketry hobbyists.
 
-Users should have an understanding of how this package will be applied to their own specific projects. It's also important that the users are able to fully comply with all of the health and safety regulations of this package.
-
-Parts of this project can be quite technical, and for that reason expertise in the following is recommended:
-- When installing the different components
-- The interaction of software and hardware
-- TODO: more specific to the actual project
-
-If this package is still used for avionics, then experience in these fields is also recommended:
-- Dealing and Complying with Civil Aviation Authority Regulations
+Since there is a wide variation in the potential user, it is reccommened to have experience in certain technical areas before attempting any parts of this project.
+these include:
+- When installing the electrical components.
+- The interaction of software and hardware.
+- Dealing with and Complying with Civil Aviation Authority Regulations
+- understand telemetry operations.
 - Operating aircraft applications
-- TODO: more specific to the actual project
 
-**Original instructions:**
-One page identifying the main classes of users and their characteristics (9.5.5)
+Users should have an understanding of how this package will be applied to their own specific projects. It's also important that the users are able to fully comply with all of the health and safety regulations required by their local Authority body on civil aviation if a rocket is intended to be launched.
 
-#### 1.3.4 Limitations (Can't do)
-
-Essentially a summary of the constraints and limitations of the hardware and software we end up using.
-
-**Need to know:**
-- exact hardware widgets being used
+#### 1.3.4 Limitations
 
 One page on the limitations on the product (9.5.6)
+
+**Sensor Data and broadcasting limitations**
+
+One of the main requirements is to store sensor data. This must be done at a fast enough rate. Not all of the sensors have the same polling speed so the complete state of the rocket (as seen through the sensors), can only be updated at the rate of the slowest sensor.
+
+Terrain, distance and weather conditions will affect the strength and reliability of the broadcast data to the base-station. This will limit the range and conditions in which the rocket can operate in. The rocket should only be operated in line of sight of the base station to ensure a reliable connection.
+
+
+**Conditions**
+
+The rocket is not designed to be waterproof, neither is the control system designed to handle interaction with rain and high wind. Therefore, for protection of the onboard electronics, the rocket should be launched only on clear days with a wind speed less than 10 knots.
+
+**Launch sites**
+
+Due to the dangerous nature of a rocket, places where the rocket can be tested is limited. Open spaces with high visibiliy and with no people within a safe distance are the required constraints.
+
+
 
 ## 2. References
 
