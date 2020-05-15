@@ -212,15 +212,6 @@ The Avionics package will require a gimbal unit to interface with the gimbal har
 The avionics package will be required to facilitate the retrevial of GPS cordinates. This GPS data must be accurate to within 5 meters, and will be passed to the radio antenna unit for broadcast to the base station. This will be used to help locate the rocket after a successful launch. The GPS unit will also log all of its outputs the SD card. 
 
 
-**Suggested steps to make progress here:**
-
-At the current time, we can discuss and outline possible requirements of each of these individual components. This will include discussing things such as reliability, usability, and system lifespan.
-
-**Original Instructions**<br>
-
->See 9.5.10. for most systems this will be around one page.
-
-
 ### 3.2 Functions (can start)
 
 #### Summary:
