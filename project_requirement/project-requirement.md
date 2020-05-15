@@ -164,9 +164,11 @@ One page on the limitations on the product (9.5.6)
 ## 2. References
 
 References to other documents or standards. Follow the IEEE Citation  Reference scheme, available from the [IEEE website](https://ieeexplore-ieee-org.helicon.vuw.ac.nz/stamp/stamp.jsp?tp=&arnumber=6146379&tag=1) (please use the search box). (1 page, longer if required)
-_**TODO**_: Properly format these sources in IEEE standard.
-https://www.nzrocketry.org.nz/rocketry/rocket-safety [1] (Viewed 30/4/2020)
-https://www.aviation.govt.nz/rules/rule-part/show/101/4 [2] (Viewed 6/5/2020)
+
+_**TODO**_: Properly format these sources in IEEE standard.\
+https://www.nzrocketry.org.nz/rocketry/rocket-safety [1] (Viewed 30/4/2020)\
+https://www.aviation.govt.nz/rules/rule-part/show/101/4 [2] (Viewed 6/5/2020)\
+https://www.grc.nasa.gov/WWW/K-12/airplane/vecthrst.html [3] (Viewed 13/5/2020)\
 
 
 ## 3. Specific requirements  
@@ -242,8 +244,7 @@ This Section will go into depth describing every single requirement of the proje
 
 ### 3.1 External interfaces
 
-TODO: come up with an alternative name for the avionics package, unless we want to continue calling it this. 
-#### Radio Antenna
+ #### Radio Antenna
 The radio antenna will facilitate the transfer of data and commands between the avionics package and the base station. This radio antenna must allow for the live broadcast of the packages geographical location data, which will be provided by the GPS unit within the avionics package. This will allow for easier retrieval of the unit as specified by the customer. While in flight, the radio antenna will also facilitate the periodic sending of other sensor data to the base station for use in live monitoring of performance. This data will be sent according to the <b><i>TODO agreed on specification</i></b>, and will include but is not limited too:
 
  - Current gimbal position/angle
@@ -256,19 +257,16 @@ The radio antenna will facilitate the transfer of data and commands between the 
 The avionics package will be required to facilitate the logging of launch and flight data to an external SD card. The SD card will store the outputs of the sensory data provided by the internal measurement unit, as well as the geographical location data from the GPS unit. This data will be compiled into a CSV file and saved to the external SD, This data will be used for analysis of the launch. It will be required that the SD card is capable of writing data at the same rate that it is being polled from the internal measurement unit and the GPS, however this must not impact the performance of the guidance control systems. 
 
 #### Internal Measurement Unit (IMU / Sensors)
-
-
-#### Gimbals
-
-
-#### Servos
-
+To know the relative position of the rocket, the avionics package must track the linear acceleration, and rotational changes of the rocket. This will to performed by the internal measurement unit (IMU) of the avionics package. The IMU will be polled <b><i>TODO insert the required polling rate here</i></b> for 9-axis gyroscopic data, as well as linear acceleration data, which will be used to track the position of the rocket against the launch site reference point in real time. This positional and rotational data will then sent to the guidance system unit of the avionics package for processing, and to the SD card for logging. 
 
 #### Guidance System
+The avionics package will be required to facilitate controlled flight with self correction. To achieve this, the avionics package will contain a guidance system unit consisting of a tuned PID (proportional, differential and integral) controller. This unit will take the IMU data as well as the current position of the gimbal as inputs. It will then output positional information which will be used to alter the current position of the gimbal, in turn altering the position of the rocket via vector thrust [3]. The guidance system will be required to process this data at the same rate it is polled from the IMU, allowing for real time corrections. This guidance system will also log its outputs to the SD card for analysing the performance of the unit, and for tuning the PID controller. 
 
+#### Gimbal
+The Avionics package will require a gimbal unit to interface with the gimbal hardware of the rocket. This unit will be required to apply positional changes to the gimbal, as well as keep track of the current position of the gimbal, accounting for any drift in the positions of the servos due to forces applied by the motor charge.
 
 #### GPS
-
+The avionics package will be required to facilitate the retrevial of GPS cordinates. This GPS data must be accurate to within 5 meters, and will be passed to the radio antenna unit for broadcast to the base station. This will be used to help locate the rocket after a successful launch. The GPS unit will also log all of its outputs the SD card. 
 
 
 **Suggested steps to make progress here:**
