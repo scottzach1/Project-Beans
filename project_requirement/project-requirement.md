@@ -415,7 +415,7 @@ _**TODO:**_ Identify any hardware design constraints imposed by the equipment an
 
 #### 3.6.2 Software Design Constraints
 ##### Open Source Software
-The client has clearly specified that the final result of the project is intended to contribute to the existing body of knowledge for rocket enthusiasts. The best way to ensure that this requirement is met is by making sure that the software produced by the project is open source and can be freely accessed by anyone. The open source nature of our software introduces some constraints, one of which is that the software produced during the project **cannot use non-open source third party libraries**. This limits the number of libraries that can be utilized for the development of the software.
+The client has clearly specified that the final result of the project is intended to contribute to the existing body of knowledge for rocket enthusiasts. The best way to ensure that this requirement is met is by making sure that the software produced by the project is open source and can be freely accessed by anyone. The open source nature of our software introduces some constraints, one of which is that the software produced during the project **cannot use non-open source 3rd party libraries**. This limits the number of libraries that can be utilized for the development of the software. Furthermore, the 3rd party libraries that are used must not have any transitive dependencies with other libraries that are not open source.
 
 _**TODO:**_ Maybe talk about the fact that we have to use a programming language that better caters for the open-source nature of our software? Eg is C better suited to fulfill the open source attribute of our software compared to rust? If so, then a software design constraint is that we have to use C..
 
@@ -598,11 +598,12 @@ The client has provided only a single hardware design constraint: The rocket's a
 _**TODO:**_ If we add any design constraints related to the specific equipment/electronics we use in section 3.6, add how to verify those components in here.
 
 #### 4.6.2 Verifying Software Design Constraints
-One of the primary software design cosntraints that need to be verified would be the fact that the software package must be open source, and in turn, can only use 3rd party libraries/APIs that are also open source. To satisfy this constraint, each 3rd party library to be used by the software must be proven to be open source. This can be achieved by making sure that the library/API is licensed under a license that is consistent with those outlined by the Open Source Initiative [4]. Such licenses include the following but are not limited to:
+One of the primary software design cosntraints that needs to be verified would be the fact that the software package must be open source, and in turn, can only use 3rd party libraries/APIs that are also open source. To satisfy this constraint, each 3rd party library the project team elects to use must be open source. This can be achieved by making sure that the library/API is licensed under a license that is consistent with those outlined by the Open Source Initiative [4]. Such licenses include the following but are not limited to:
 - Apache License 2.0
 - MIT License
 - GNU General Public License (GPL)
 - BSD-3 Clause ("New" or "Revised" License)
+Transitive dependencies (other libraries/APIs used by the 3rd party library/API) must also be open source. If this is not the case, then the project will fail to meet the open source software design constraint of the project.
 
 _**TODO:**_ If we discover any more design constraints are added to section 3.6, add them in here
 
