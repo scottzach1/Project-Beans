@@ -110,8 +110,12 @@ References to other documents or standards. Follow the IEEE Citation  Reference 
 
 _**TODO**_: Properly format these sources in IEEE standard.\
 https://www.nzrocketry.org.nz/rocketry/rocket-safety [1] (Viewed 30/4/2020)\
+
 https://www.aviation.govt.nz/rules/rule-part/show/101/4 [2] (Viewed 6/5/2020)\
+
 https://www.grc.nasa.gov/WWW/K-12/airplane/vecthrst.html [3] (Viewed 13/5/2020)\
+
+https://opensource.org/licenses [4] (Viewed 16/5/2020)
 
 
 ## 3. Specific requirements  
@@ -577,7 +581,30 @@ _**TODO:**_ Assigned to Will
 _**TODO:**_ Start doing this when we have final confirmation that 3.5 has a full draft
 
 ### 4.6 Design Constraints
-_**TODO:**_ Assigned to Ron There migh be gaps in this section regarding hardware related design constraints given that we have not yet written about the design constraints imposed by the specific electronics we are using in section 3.6
+
+#### 4.6.1 Verifying Hardware Design Constraints
+The hardware design constraints of the project will have been satisfied if the final rocket's properties abide by both legal regulations [2], and what the client imposes as a hardware constraint. 
+
+For the legal regulations, the hardware design constraints are satisfied if:
+- The rocket weighs less than or equal to 1.5kg at liftoff
+- The rocket contains no more than 125g of propellant
+- The rocket's body is composed of non-metal materials
+- The rocket has a recovery system in the form of a streamer or parachute
+- The rocket's motor must be for commercial use and officialy certified
+- The rocket must be manually ignited through an electric ignition system
+
+The client has provided only a single hardware design constraint: The rocket's airframe must not exceed a diameter of 29mm. This hardware design constraint is satisfied if the diameter of the rocket's body is less than or equal to 29mm, although preferably less than 29mm for transportability, aerodynamics, and cost-efficiency purposes. To ensure that these hardware design constraints are met, the project team will consult these design constraints regularly during the execution phase of the project. It is important to note that the majority of the hardware constraints are sourced from legal regulations in accordance with the NZCAA [2]. As a result, the team will closely monitor if any changes to the legal regulations occur and update the design constraints as necessary to make sure that the hardware design constraints are verified at the end of the project.
+
+_**TODO:**_ If we add any design constraints related to the specific equipment/electronics we use in section 3.6, add how to verify those components in here.
+
+#### 4.6.2 Verifying Software Design Constraints
+One of the primary software design cosntraints that need to be verified would be the fact that the software package must be open source, and in turn, can only use 3rd party libraries/APIs that are also open source. To satisfy this constraint, each 3rd party library to be used by the software must be proven to be open source. This can be achieved by making sure that the library/API is licensed under a license that is consistent with those outlined by the Open Source Initiative [4]. Such licenses include the following but are not limited to:
+- Apache License 2.0
+- MIT License
+- GNU General Public License (GPL)
+- BSD-3 Clause ("New" or "Revised" License)
+
+_**TODO:**_ If we discover any more design constraints are added to section 3.6, add them in here
 
 ### 4.7 Nonfunctional System Attributes
 _**TODO:**_ Assigned to Ron. There might be gaps in this section regarding hardware non-functional requirements given that there are no determined hardware non functional requirements yet.
