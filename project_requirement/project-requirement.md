@@ -603,12 +603,38 @@ One of the primary software design cosntraints that needs to be verified would b
 - MIT License
 - GNU General Public License (GPL)
 - BSD-3 Clause ("New" or "Revised" License)
+
 Transitive dependencies (other libraries/APIs used by the 3rd party library/API) must also be open source. If this is not the case, then the project will fail to meet the open source software design constraint of the project.
 
 _**TODO:**_ If we discover any more design constraints are added to section 3.6, add them in here
 
 ### 4.7 Nonfunctional System Attributes
-_**TODO:**_ Assigned to Ron. There might be gaps in this section regarding hardware non-functional requirements given that there are no determined hardware non functional requirements yet.
+
+#### 4.7.1 Verifying Hardware Non-Functional System Attributes
+_**TODO:**_ Need to write 3.7.1 first - Do this ASAP!
+
+#### 4.7.2 Verifying Software Non-Functional System Attributes
+
+##### Attribute 1: Correctness and Reliability
+The verification of this attribute requires a large amount of testing. Verifying the correctness and reliability of the software system can be achieved through rigorous unit testing to verify the lower level logic of the code. Unit testing will be conducted on _all_ software modules to verify the overall correctness and reliability of the software. Furthermore, unit testing will be integrated into the regular workflow of the team. _**TODO: Confirm with team**_. This means that at every sprint, a set of test cases will be formed, which the target software module must pass at the end of the sprint. For software tests that require the usage of hardware components or a fully/partially built rocket, testing will be conducted in a highly controlled environment where the project team has full control over what happens to the components, and the outcome is known. This attribute is verified if the software performs as intended and is deemed as sufficient by the client.
+
+##### Attribute 2: Maintainability and Extensibility
+To verify this attribute, the project team members in charge of developing the software must be in **full agreement** that relevant programming techniques that promote maintainable and extensible design were observed to the best ability of the developers. Some of the programming techniques that can facilitate maintainable and extensible software include the following but are not limited to:
+- Observing low coupling - high cohesion where appropriate
+- Adhering to existing coding conventions
+- Commenting 
+- Proper usage of abstraction
+- Observing 'DRY' (Do not repeat yourself)
+- Formal documentation in the form of documentation comments and/or API manuals
+
+Furthermore, personas will also be used in the verification process of this attribute. Each persona will be considered to see if that persona can understand the code-base and the manuals provided in a way that will enable them to make suggestions or apply changes to the code.
+
+##### Attribute 3: Testing
+_**TODO:**_
+- Introduce a testing quota that must be met? And if met, this attribute is verified?
+- Attribute is verified if the target of the tests works as expected in actual performing conditions? (This would mean that the tests are valid)
+- 90% Code coverage for unit tests?
+
 
 ### 4.8 Environmental and Physical Requirements
 _**TODO:**_ Assigned to Will
