@@ -561,6 +561,30 @@ Verification Sections will likely be similar to 2018
 
 This list goes on. Essentially we need to determine what the requirements and goals for our rocket are first. Once we know what we want the rocket to achieve, then we can discuss how we can determine whether these goals/requirements were actually met. As mentioned above, our requirements are likely to be the same as previous years, however with the addition of extra requirements bought about by planned improvements on previous designs.
 
+### 4.1 External Interfaces
+_**TODO:**_ Assigned to Will
+
+### 4.2 Functions
+_**TODO:**_ Start doing this when we have final confirmation that 3.2 has a full draft
+
+### 4.3 Usability Requirements
+_**TODO:**_ Assigned to Ron
+
+### 4.4 Performance Requirements
+_**TODO:**_ Assigned to Will
+
+### 4.5 Logical Database Requirements
+_**TODO:**_ Start doing this when we have final confirmation that 3.5 has a full draft
+
+### 4.6 Design Constraints
+_**TODO:**_ Assigned to Ron There migh be gaps in this section regarding hardware related design constraints given that we have not yet written about the design constraints imposed by the specific electronics we are using in section 3.6
+
+### 4.7 Nonfunctional System Attributes
+_**TODO:**_ Assigned to Ron. There might be gaps in this section regarding hardware non-functional requirements given that there are no determined hardware non functional requirements yet.
+
+### 4.8 Environmental and Physical Requirements
+_**TODO:**_ Assigned to Will
+
 ## 5. Development schedule.
 
 ### 5.1 Schedule
