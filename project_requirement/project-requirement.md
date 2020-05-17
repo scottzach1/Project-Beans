@@ -612,7 +612,7 @@ The following specifies a set of criteria for each important use case/scenario t
 
 ##### Future Development
 - Documentation in the form of manuals is written to enable any potential user to understand the system quickly
-- Software is documented appropriately to enable **support future contributors to adapt the code**
+- Software is documented appropriately to **support the ability of future contributors to adapt the code**
 - The project is open source so any future contributors can easily access the project
 
 ### 4.4 Performance Requirements
