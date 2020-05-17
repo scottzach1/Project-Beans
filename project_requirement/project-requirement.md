@@ -253,16 +253,16 @@ A software platform should be provided to enable the user of the rocket to make 
 During launch, the usability of the system should be centered around reliability and safety. The rocket should feature the following features to ensure this:
 - The rocket should feature manual ignition to minimize the risk of premature ignition
 - Ignition system should feature at least a 10m wire from the motor of the rocket to ensure the safety of the person igniting the rocket
-- Launch critical features of the rocket are clearly marked and labeled
+- Launch critical features of the rocket are clearly marked and labeled for easy identification
 - Hardware features to help mitigate the risk of incorrect operation of product, such as incorrect battery polarity.
 - Software safety checks and pre-flight diagnostics to ensure all systems are operational
-- System can be set up and ready to launch within 10 minutes of activation
+- Launch system should take no more than 10 minutes to setup
 
 ##### Mid-Flight Diagnostics/Readings
 During the flight, the system should:
-- Continually record values that the onboard sensors are reading
-- Readings are stored onto the onboard SD card in a format that enables users to easily analyse the rockets performance and troubleshoot potential issues during flight
-- Broadcast telemetry at regular intervals to the base station to enable the personnel manning the base station to monitor the flight
+- Broadcast telemetry at regular intervals to the base station to enable stakeholders manning the base station to monitor the flight in real-time
+- Readings are stored into the on-board SD to enable project stakeholders to analyse the performance of the rocket throughout the entire flight, after the flight.
+- All logged data (logged to base station and the SD card) must be in a readable format
 
 ##### Recoverability
 The rocket should be in a stable physical form at the end of the flight. This can be achieved by doing the following:
@@ -572,7 +572,48 @@ _**TODO:**_ Assigned to Will
 _**TODO:**_ Start doing this when we have final confirmation that 3.2 has a full draft
 
 ### 4.3 Usability Requirements
-_**TODO:**_ Assigned to Ron
+The usability of the rocket revolves around the idea of how the user will interact with the system to achieve important use cases, and how easy this is to do. To verify the usability requirements, each important scenario/use case must have a set of criteria that must be met to indicate that the usability of the system under that scenario has been verified.
+
+#### Verification Under Specific Scenarios
+The following specifies a set of criteria for each important use case/scenario that must be met in order to consider the usability of the system verified.
+
+##### Transporting
+- The rocket is contained within a **single physical construct or kit**
+- Weighs less than or equal to **1.5kg** [2]
+- Have a diameter of less than or equal to **29mm** at the rocket's widest point
+
+##### Base Station Setup and Interactivity
+- The setup of the base station laptop, USB LoRa, and the software module to enable interaction between the rocket and the base station takes no longer than **5 minutes to setup.** 
+
+##### Pre-Flight Tuning
+- A basic, intuitive input/feedback system is implemented
+- User input is validated
+- **Feedback** is provided to the user if invalid input is detected
+
+##### Launch
+- The stakeholder/s are able to maintain a safe distance from the rocket as the rocket is launched
+- Manual ignition is featured to give stakeholder/s full control over the launch
+- Launch critical features of the rocket are marked and stakeholder/s are able to identify these features intuitively as a result of the marking
+- The setup takes no longer than **10 minutes**
+
+##### Mid-Flight Diagnostics/Readings
+- Logged data is stored into the on-board SD card
+- Logged data is in a **readable format**
+- Data is logged at regular intervals to both the SD card and the base station to enable the stakeholders to easily analyse any part of the flight both in real time, and post flight
+
+##### Recoverability
+- A parachute system is implemented to enable the rocket to land safely
+- GPS system is accurate to within **5m** of the rocket's landing site to enable project stakeholders to quickly locate the rocket upon landing
+
+##### Post-Flight Diagnostics/Analysis
+- On-board SD card is easily accessible and retrievable from the rocket
+- On-board SD card is intact at the end of the flight
+- Rocket disassembly takes no more than **15 minutes**
+
+##### Future Development
+- Documentation in the form of manuals is written to enable any potential user to understand the system quickly
+- Software is documented appropriately to enable **support future contributors to adapt the code**
+- The project is open source so any future contributors can easily access the project
 
 ### 4.4 Performance Requirements
 _**TODO:**_ Assigned to Will
@@ -616,7 +657,7 @@ _**TODO:**_ Need to write 3.7.1 first - Do this ASAP!
 #### 4.7.2 Verifying Software Non-Functional System Attributes
 
 ##### Attribute 1: Correctness and Reliability
-The verification of this attribute requires a large amount of testing. Verifying the correctness and reliability of the software system can be achieved through rigorous unit testing to verify the lower level logic of the code. Unit testing will be conducted on _all_ software modules to verify the overall correctness and reliability of the software. Furthermore, unit testing will be integrated into the regular workflow of the team. _**TODO: Confirm with team**_. This means that at every sprint, a set of test cases will be formed, which the target software module must pass at the end of the sprint. For software tests that require the usage of hardware components or a fully/partially built rocket, testing will be conducted in a highly controlled environment where the project team has full control over what happens to the components, and the outcome is known. This attribute is verified if the software performs as intended and is deemed as sufficient by the client.
+The verification of this attribute requires a large amount of testing. Verifying the correctness and reliability of the software system can be achieved through rigorous unit testing to verify the lower level logic of the code. Unit testing will be conducted on _all_ software modules to verify the overall correctness and reliability of the software. Furthermore, unit testing will be integrated into the regular workflow of the team. _**TODO: Confirm with team**_. This means that at every sprint, a set of test cases will be formed, which the target software module must pass at the end of the sprint. For software tests that require the usage of hardware components or a fully/partially built rocket, testing will be conducted in a highly controlled environment where the project team has full control over what happens to the components, and the outcome is known. This attribute is verified if the software performs as intended and is deemed as sufficient by the project team, and the client.
 
 ##### Attribute 2: Maintainability and Extensibility
 To verify this attribute, the project team members in charge of developing the software must be in **full agreement** that relevant programming techniques that promote maintainable and extensible design were observed to the best ability of the developers. Some of the programming techniques that can facilitate maintainable and extensible software include the following but are not limited to:
@@ -630,10 +671,17 @@ To verify this attribute, the project team members in charge of developing the s
 Furthermore, personas will also be used in the verification process of this attribute. Each persona will be considered to see if that persona can understand the code-base and the manuals provided in a way that will enable them to make suggestions or apply changes to the code.
 
 ##### Attribute 3: Testing
-_**TODO:**_
-- Introduce a testing quota that must be met? And if met, this attribute is verified?
-- Attribute is verified if the target of the tests works as expected in actual performing conditions? (This would mean that the tests are valid)
-- 90% Code coverage for unit tests?
+This attribute can be verified by assessing the attribute against a range of both quantitative and qualitative metrics. From a quantitative point of view, this attribute is verified if the following conditions are met:
+- 90% overall code coverage is achieved by all unit tests
+- A quota of _**[TODO: Insert Number Here]**_ unit testing methods are achieved by the end of the project
+
+From a qualitative point of view, this attribute is verified if the following conditions are met:
+- All tests pass across all software modules by the end of the project
+- Test cases written for a specific software module should lead to the software module working as expected. This will indicate that the tests are valid.
+- A wide range of potential cases are covered, including valid, invalid and edge cases
+- Gitlab's CI/CD feature is used appropriately to facilitate system and integration testing
+
+Note that Attribute 1 (Correctness and Reliability) depends heavily on this attribute. It is important that the verification of this attribute is achieved, and done so comprehensively, given the potentially dangerous nature of the product being developed by the project.
 
 
 ### 4.8 Environmental and Physical Requirements
