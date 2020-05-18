@@ -127,18 +127,18 @@ https://www.grc.nasa.gov/WWW/K-12/airplane/vecthrst.html [3] (Viewed 13/5/2020)\
 >>> - GPS
 > - Software:
 >> - Database
->> - 
+>> -
 
 3.1 External Interfaces: Niels:
-3.2 Functions: 
+3.2 Functions:
 
 Use Cases for MVP:
 - Rocket meets user objectives.
 - Rocket reacts to wind speed.
 - Rocket is safe to transport.
-- Rocket consists of a single kit. (Pelican case) 
+- Rocket consists of a single kit. (Pelican case)
 - Re-usability of rocket (at least 11 times).
-- Post flight analysis. 
+- Post flight analysis.
 - Rocket is tunable / tweakable for optimisation.
 - Rocket can be assembled and ready to launch within 15 minutes.
     - (Once flashed)
@@ -159,21 +159,21 @@ Software Functions: (Zac)
         - Battery
     - Sensor data for control.
         - IMU (Once per meter)
- 
+
 Usability Requirements: (Ron)
 - Continuous battery readouts.
 
 Performance Requirements: (Will)
 - Rocket can get 2m off the ground.
- 
+
  Non-Functional Requirements:
  - Rocket lands in starting spot.
- 
+
  Logical Requirements: (Object-Oriented Domain Analysis).
  - GPS Coordinates
  - IMU Readings
  - Battery readings
- - SD Write 
+ - SD Write
  - <b><i>TODO: Billy's UML Diagram</i></b>
 
 #### Summary:
@@ -214,8 +214,92 @@ The avionics package will be required to facilitate the retrevial of GPS cordina
 
 ### 3.2 Functions (can start)
 
-#### Summary:
+**Original Instructions**<br>
+> This is typically the longest subsection in the document. List up to fifty use cases (in order of priority for development), and for at least top ten focal use cases, write a short goal statement and use case body (up to seven pages).  Identify the use cases that comprise a minimum viable product.
 
+#### 3.2.1 Use Cases
+
+These are not that many unique uses for this project, as this is designed with the sole goal of creating a rocket which one launched is autonomous. As parts of this project contain dangerous goods, it's not advised to use this package for different purposes without making further changes to accomadate your specific use. That being said there are still various interactions between users and the rocket.
+
+**Use Cases:**
+1. Launch the Rocket <br>
+This is the most obvious and important use case, and is the most basic goal of this entire project.
+
+
+2. Transportation of Rocket <br>
+It's important that the rocket is handled safely and for this reason it will be handled by a professional. The specifics of this are outlined further in the safety plan.
+
+
+3. Assembly of rocket <br>
+The rocket is designed with different packages and components which must be put together before launch. This is a task which should take less than 15 minutes, and will be outlined in a supporting assembly document.
+
+
+4. Disassembly of rocket <br>
+This is important as we need the ability to add or remove components for a range of reasons, eg. faulty or outdated components. It also allows both this package and the rocket to be much easier be extended upon by future users. This will also be covered in the supporting assembly document.
+
+
+5. Reading of flight data <br>
+It's extremely important to record all flight data, as gves the team immediate feedback which helps to understand why a launch and/or flight happened the way it did. This data will be sent to the base station during flight, and should be visible to the team at the base station.
+
+
+6. Analysis of flight data <br>
+While its important to read the data its even more important to formally record the data. This gives users the oppurtunity to perform further analysis, and therfore tweak and improve the rocket for future launches.
+
+
+#### 3.2.2 Requirements
+
+This subsection is broken down into three subsections, and aims to cover all of the requirements which must be met to allow use cases to be performed. The functions which make up the Minimum Viable Product are our most important, as if these aren't meant then the rocket can not be considered complete. We've also have additional Hardware and Software sections, which aim to include more specific requirements to their respective section.
+
+**Requirements / functions of the Minimum Viable Product:** <br>
+**TODO:** ensure these match up with Billy's requirements in intro**
+
+1. The Rocket is safe to transport. <br>
+As the motor is classified as a Class 1 dangerous goods (New Zealand Land Transport Rule: Dangerous Goods 2005) it is of high importance that this requirement is met. The in depth safety plan for transportation is laid out in section 2.1 of the Safety Plan document.
+
+
+2. The rocket is re-usable. <br>
+This means that the rocket does not sustain significant damage after any one launch, and ideally sustains none. The rocket should be able to sustain 10 launches at the bare minimum.
+
+
+3. The group is able to conduct a post flight analysis. <br>
+This means that all necessary flight data is recorded and sent to the base station during flight. This means that upon both successful and unsuccessful launches and flights the team is able to further analyse the flight in detail.
+
+
+4. The rocket is tunable/tweakable for optimisation. <br>
+This means that there are no unnecessary dependancies between packages. This should reduce "god objects" and help to make all packages as interchangableas possible for potential optimisation. <br>
+It also means that once built the rocket is able to be disassembled with relative ease.
+
+
+5. Once flashed the rocket can be assembled and ready to launch within 15 minutes.<br>
+Essentially from starting the assembly process of the rocket it should be ready for launch within 15 minutes. This is important for allowing multiple launch oppurtunities as it can be difficult for all launch conditions to be met. It also allows for the potential of small tweaks at the launch site, provided it is safe.
+
+
+6. The rocket consists of a single kit. <br>
+ This means that all seperate components of the rocket can be packaged into one single kit. For example all components could fit into a suitable sized pelican case.
+
+
+ ***Hardware Requirements***
+ 1. Due to the nature of model rockets, all components of the rocket must be able to withstand significant acceleration. It is crucial that no component becomes loose or dislodged during launch as this could cause significant component failure. To be conservative, the rocket must be rated for up to 20 m/s ^2 of acceleration. To ensure the rocket meets this requirement, counter measures such as secure mounting and robust bracing must be implemented on the rocket.
+
+ 2. Due to the potential altitudes of model rockets of this caliber, an uncontrolled landing can cause significant damage to both the rocket iteslf, as
+ any people or objects in the surrounding environment. To ensure the rocket is safe, it is essential that the rocket will perform a safe and slowed
+ landing, without drifting too far from the initial launch position.  
+
+ 3. The rocket fits within a `X*Y*Z`mm enclosure. This hardware requirement is an extension of the usability requirement where the rocket must be consisted of a single kit. The dimensions of the rocket would affect how its internal components are structured. A smaller rocket, ensures promotion of efficient use of space, as well as greater affordability of components.
+
+ 4. The components of the rocket must be easily accessible to the public. As this rocket is to be open source. It is a requirement that all components can be reasonably obtained or produced by a member of the public. This means that no unreasonably uncommon or expensive components will be used as part of the manufacturing of the rocket. ***TODO*** This includes 3d printers, and ... (What else is essential to produce or assemble the pcb / components of the rocket.
+
+
+***Software Requirements***
+1. Rocket's software must react to wind speed within the maximum wind conditions specified within the safety requirements document. This will be in the form of error correction where the rocket will attempt to stabilise based off internal readings from the internal sensors, as well as potentially external readings such as those provided from sensors in the base station or environmental conditions provided by mission control.  
+
+2. The rocket must log all flight data. This will include the logging of all internal sensor data, as well as commands issued to the IMU. The components in particular whose readings should be logged include the IMU, Radio and GPS. The readings must be logged to a file within the SD card for post launch analysis as well as some critical readings broadcast over LoRa.
+
+3. The rocket's software must attempt to perform in air error analysis. This critical component of the rocket is fundamental to the safety of the rocket and any people or objects in the surrounding area. It is critical the rocket can respond correctly to erroneous data. Erroneous data could be observed via any readings from components whose output is part of the integral control system. The components that meet this category is the IMU, the battery and the SD card.
+
+
+<!--
+#### Summary:
 This section should outline each of the required functions that the stakeholder has outlined for the project, how we intend to meet these functions, what the use-cases for out project are. It should break down each of the project requirements into subsections outlining the approach we are taking to implement them.
 
 **Suggested steps to make progress here:**
@@ -223,10 +307,7 @@ This section should outline each of the required functions that the stakeholder 
 - Talk with the customer about what their requirements for the project are.
 - Break down the requirements outlined by the customer into subsections which outline what we need to do to achieve them.
 - Come up with a list of possible use cases for our project outcomes.
-
-**Original Instructions**<br>
-> This is typically the longest subsection in the document. List up to fifty use cases (in order of priority for development), and for at least top ten focal use cases, write a short goal statement and use case body (up to seven pages).  Identify the use cases that comprise a minimum viable product.
-
+-->
 
 ### 3.3 Usability Requirements
 The usability requirements should enable any individual from the wider rocketry community to launch and operate the rocket, and to use its accompanying avionics package with relative ease. To ensure that this is achieved, all scenarios in which the rocket and the avionics package is used in should feature certain properties.
@@ -456,7 +537,7 @@ The client has highlighted that past attempts at the project by other teams had 
 Since the client has outlined that one of the purposes of the project is to contribute to the wider rocket community, the software developed for the project should be easily maintanable and extensible. This is important since these attributes of maintainability and extensibility should facilitate easier contribution to the project by other individuals of the wider rocketry community. To achieve good maintainability, the software needs to follow existing coding conventions. Any 3rd party dependencies introduced to the software should be well-known, easily adaptable, and adheres to a standard of quality and usefulness agreed upon by the project team. From a lower level perspective, maintainability can be achieved by observing the 'low-coupling, high cohesion' relationship between the different modules of the software system. Extensibility can also be achieved by using these techniques and is therefore important if the software is to be added to or improved upon by other individuals after the completion of the project.
 
 ##### Testing
-Testing is crucial in the process of assuring the correctness and reliability of the software. The testing strategy the project team will adopt is a combination of regular unit testing and integration testing. Unit testing will cover technical, lower-level aspects of the software to ensure that the logic is correct. Unit testing should become a regular part of the developer's workflow by running the unit tests before pushing changes to the remote repository. Integration testing will be accommodated by GitLab's CI/CD (Continuous Integration/Continuous Delivery) feature. This will assist in ensuring that code being merged into production meshes well with the existing code base. 
+Testing is crucial in the process of assuring the correctness and reliability of the software. The testing strategy the project team will adopt is a combination of regular unit testing and integration testing. Unit testing will cover technical, lower-level aspects of the software to ensure that the logic is correct. Unit testing should become a regular part of the developer's workflow by running the unit tests before pushing changes to the remote repository. Integration testing will be accommodated by GitLab's CI/CD (Continuous Integration/Continuous Delivery) feature. This will assist in ensuring that code being merged into production meshes well with the existing code base.
 
 Other non-functional requirements from a software perspective include the following:
 - **Documentation** - The software package should have comprehensive documentation to clearly convey the intent and purpose of the code.
@@ -653,7 +734,7 @@ The content below outlines the 10 most important risks that can impact achieving
 
   - **Impact:** Severe
 
-  - **Mitigation Strategy:** Consult mission control software before a rocket launch to determine if the current wind speeds can safely accomodate a flight. Launches will be postponed if wind speeds exceed **32km/h** [1]. 
+  - **Mitigation Strategy:** Consult mission control software before a rocket launch to determine if the current wind speeds can safely accomodate a flight. Launches will be postponed if wind speeds exceed **32km/h** [1].
 
 
 
@@ -730,12 +811,12 @@ The content below outlines the 10 most important risks that can impact achieving
 
   - **Impact:** Moderate
 
-  - **Mitigation Strategy:** Project stakeholders must undertake a health and safety induction prior to the launch In accordance with the NZCAA [1], the selected launch site must be clear of dry grass to lower the risk of causing a fire during a rocket ignition. The project stakeholders involved with the launch will closely inspect the launch site for flammable material to remove them. A rocket launch will be postponed if the fire alert level is high, or if the temperature is unusually high. A fire extuinguisher will be brought by the team at the launch site to counter small fires. 
+  - **Mitigation Strategy:** Project stakeholders must undertake a health and safety induction prior to the launch In accordance with the NZCAA [1], the selected launch site must be clear of dry grass to lower the risk of causing a fire during a rocket ignition. The project stakeholders involved with the launch will closely inspect the launch site for flammable material to remove them. A rocket launch will be postponed if the fire alert level is high, or if the temperature is unusually high. A fire extuinguisher will be brought by the team at the launch site to counter small fires.
 
 
 - #### Risk 10: Wind speeds suddenly exceed the safe wind speed for the rocket during flight
 
-  - **Risk Type:** Health and Safety, Environmental, 
+  - **Risk Type:** Health and Safety, Environmental,
   - **Likelihood:** Unlikely
   - **Impact:** Moderate
   - **Mitigation Strategy:** The rocket launch will only proceed if the current wind speeds are well below the maximum wind speed determined for the rocket. Wind speeds will be continually monitored during the flight to keep the team informed on the safety of the flight. Recovery system will be manually deployed in the event that the wind speed rises to an unsafe level.
