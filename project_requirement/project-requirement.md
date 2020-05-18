@@ -131,18 +131,18 @@ https://opensource.org/licenses [4] (Viewed 16/5/2020)
 >>> - GPS
 > - Software:
 >> - Database
->> - 
+>> -
 
 3.1 External Interfaces: Niels:
-3.2 Functions: 
+3.2 Functions:
 
 Use Cases for MVP:
 - Rocket meets user objectives.
 - Rocket reacts to wind speed.
 - Rocket is safe to transport.
-- Rocket consists of a single kit. (Pelican case) 
+- Rocket consists of a single kit. (Pelican case)
 - Re-usability of rocket (at least 11 times).
-- Post flight analysis. 
+- Post flight analysis.
 - Rocket is tunable / tweakable for optimisation.
 - Rocket can be assembled and ready to launch within 15 minutes.
     - (Once flashed)
@@ -163,21 +163,21 @@ Software Functions: (Zac)
         - Battery
     - Sensor data for control.
         - IMU (Once per meter)
- 
+
 Usability Requirements: (Ron)
 - Continuous battery readouts.
 
 Performance Requirements: (Will)
 - Rocket can get 2m off the ground.
- 
+
  Non-Functional Requirements:
  - Rocket lands in starting spot.
- 
+
  Logical Requirements: (Object-Oriented Domain Analysis).
  - GPS Coordinates
  - IMU Readings
  - Battery readings
- - SD Write 
+ - SD Write
  - <b><i>TODO: Billy's UML Diagram</i></b>
 
 #### Summary:
@@ -196,24 +196,24 @@ The radio antenna will facilitate the transfer of data and commands between the 
 
  - Current gimbal position/angle
  - directional acceleration data
- - Battery voltage 
- 
+ - Battery voltage
+
  This radio antenna will also allow for commands to be sent from the base station and received and processed by the avionics package. The commands will be able to query a range of current settings and readings available the avionics package, as well as altering the current state of the avionics package.
 
 #### SD Card
-The avionics package will be required to facilitate the logging of launch and flight data to an external SD card. The SD card will store the outputs of the sensory data provided by the internal measurement unit, as well as the geographical location data from the GPS unit. This data will be compiled into a CSV file and saved to the external SD, This data will be used for analysis of the launch. It will be required that the SD card is capable of writing data at the same rate that it is being polled from the internal measurement unit and the GPS, however this must not impact the performance of the guidance control systems. 
+The avionics package will be required to facilitate the logging of launch and flight data to an external SD card. The SD card will store the outputs of the sensory data provided by the internal measurement unit, as well as the geographical location data from the GPS unit. This data will be compiled into a CSV file and saved to the external SD, This data will be used for analysis of the launch. It will be required that the SD card is capable of writing data at the same rate that it is being polled from the internal measurement unit and the GPS, however this must not impact the performance of the guidance control systems.
 
 #### Internal Measurement Unit (IMU / Sensors)
-To know the relative position of the rocket, the avionics package must track the linear acceleration, and rotational changes of the rocket. This will to performed by the internal measurement unit (IMU) of the avionics package. The IMU will be polled <b><i>TODO insert the required polling rate here</i></b> for 9-axis gyroscopic data, as well as linear acceleration data, which will be used to track the position of the rocket against the launch site reference point in real time. This positional and rotational data will then sent to the guidance system unit of the avionics package for processing, and to the SD card for logging. 
+To know the relative position of the rocket, the avionics package must track the linear acceleration, and rotational changes of the rocket. This will to performed by the internal measurement unit (IMU) of the avionics package. The IMU will be polled <b><i>TODO insert the required polling rate here</i></b> for 9-axis gyroscopic data, as well as linear acceleration data, which will be used to track the position of the rocket against the launch site reference point in real time. This positional and rotational data will then sent to the guidance system unit of the avionics package for processing, and to the SD card for logging.
 
 #### Guidance System
-The avionics package will be required to facilitate controlled flight with self correction. To achieve this, the avionics package will contain a guidance system unit consisting of a tuned PID (proportional, differential and integral) controller. This unit will take the IMU data as well as the current position of the gimbal as inputs. It will then output positional information which will be used to alter the current position of the gimbal, in turn altering the position of the rocket via vector thrust [3]. The guidance system will be required to process this data at the same rate it is polled from the IMU, allowing for real time corrections. This guidance system will also log its outputs to the SD card for analysing the performance of the unit, and for tuning the PID controller. 
+The avionics package will be required to facilitate controlled flight with self correction. To achieve this, the avionics package will contain a guidance system unit consisting of a tuned PID (proportional, differential and integral) controller. This unit will take the IMU data as well as the current position of the gimbal as inputs. It will then output positional information which will be used to alter the current position of the gimbal, in turn altering the position of the rocket via vector thrust [3]. The guidance system will be required to process this data at the same rate it is polled from the IMU, allowing for real time corrections. This guidance system will also log its outputs to the SD card for analysing the performance of the unit, and for tuning the PID controller.
 
 #### Gimbal
 The Avionics package will require a gimbal unit to interface with the gimbal hardware of the rocket. This unit will be required to apply positional changes to the gimbal, as well as keep track of the current position of the gimbal, accounting for any drift in the positions of the servos due to forces applied by the motor charge.
 
 #### GPS
-The avionics package will be required to facilitate the retrevial of GPS cordinates. This GPS data must be accurate to within 5 meters, and will be passed to the radio antenna unit for broadcast to the base station. This will be used to help locate the rocket after a successful launch. The GPS unit will also log all of its outputs the SD card. 
+The avionics package will be required to facilitate the retrevial of GPS cordinates. This GPS data must be accurate to within 5 meters, and will be passed to the radio antenna unit for broadcast to the base station. This will be used to help locate the rocket after a successful launch. The GPS unit will also log all of its outputs the SD card.
 
 
 ### 3.2 Functions (can start)
@@ -239,7 +239,7 @@ The usability requirements should enable any individual from the wider rocketry 
 ##### Transporting
 The rocket should feature the following properties to make it portable and easy to transport:
 - Contained within a single physical construct or kit
-- Should weigh no more than 1.5kg as per the NZCAA regulations [2] 
+- Should weigh no more than 1.5kg as per the NZCAA regulations [2]
 - Should possess reasonable dimensions (_**TODO:**_ Insert numbers here)
 
 ##### Base Station Setup and Interactivity
@@ -460,7 +460,7 @@ The client has highlighted that past attempts at the project by other teams had 
 Since the client has outlined that one of the purposes of the project is to contribute to the wider rocket community, the software developed for the project should be easily maintanable and extensible. This is important since these attributes of maintainability and extensibility should facilitate easier contribution to the project by other individuals of the wider rocketry community. To achieve good maintainability, the software needs to follow existing coding conventions. Any 3rd party dependencies introduced to the software should be well-known, easily adaptable, and adheres to a standard of quality and usefulness agreed upon by the project team. From a lower level perspective, maintainability can be achieved by observing the 'low-coupling, high cohesion' relationship between the different modules of the software system. Extensibility can also be achieved by using these techniques and is therefore important if the software is to be added to or improved upon by other individuals after the completion of the project.
 
 ##### Testing
-Testing is crucial in the process of assuring the correctness and reliability of the software. The testing strategy the project team will adopt is a combination of regular unit testing and integration testing. Unit testing will cover technical, lower-level aspects of the software to ensure that the logic is correct. Unit testing should become a regular part of the developer's workflow by running the unit tests before pushing changes to the remote repository. Integration testing will be accommodated by GitLab's CI/CD (Continuous Integration/Continuous Delivery) feature. This will assist in ensuring that code being merged into production meshes well with the existing code base. 
+Testing is crucial in the process of assuring the correctness and reliability of the software. The testing strategy the project team will adopt is a combination of regular unit testing and integration testing. Unit testing will cover technical, lower-level aspects of the software to ensure that the logic is correct. Unit testing should become a regular part of the developer's workflow by running the unit tests before pushing changes to the remote repository. Integration testing will be accommodated by GitLab's CI/CD (Continuous Integration/Continuous Delivery) feature. This will assist in ensuring that code being merged into production meshes well with the existing code base.
 
 Other non-functional requirements from a software perspective include the following:
 - **Documentation** - The software package should have comprehensive documentation to clearly convey the intent and purpose of the code.
@@ -533,40 +533,26 @@ The client has communicated that their intention with the project after its comp
 The project is subject to a wide range of legal regulations given the potentially dangerous nature of the product being developed. **It is critical that all legal regulations are followed by the design** of the system as any breaches can pose a real threat to the health and safety of the relevant project stakeholders. Furthermore, the legal repercussions from the breaches will drastically impact the project and its ability to continue.
 
 ## 4. Verification
-
-//3 pages outlining how you will verify that the product meets the most important specific requirements. The format of this section should parallel ////section 3 of your document (see 9.5.18). Wherever possible (especially systemic requirements) you should indicate testable acceptance criteria.
-
-This section will contain criteria used to assess whether the main performance requirements have been met and whether certain components of our design have improved on designs from previous years/
-
-The main components that will be verified for example...
-- Is the rocket capable of successfully being launched under the correct circumstances. This can be measured by observing whether the rocket makes it off of the launchpad.
-
-- Does the rocket successfully deploy it's parachute within the correct time frame during its flight. This will also be measured by observation, does the parachute eject within a 2 second window of the rocket's apogee.
-
-- Does the rocket land within a given radius of the launch site? Measurement based on distance from launch pad to landing site.
-
-- Is the rocket able to be recovered without damage that may compromise future flights. Observation based measurement, assessed after launch and the next launch.
-
-- Has our rocket's form factor improved on previous designs. This could be measured by comparing the dimensions, mass and volume of our rocket designs from previous years.
-
-- Has the gimbal design been improved. This can be measured by performing simulations of stress tests, comparing the angle through which the gimbal can rotate in both directions. How compatible the gimbal is with different motors.
-
-- Does the rocket have an effective active control system for gimballing the motor. This can be assessed by recording measurements from accelerometer, signals sent to gimbal servos, gps location and observation of the flight.
-
-Verification Sections will likely be similar to 2018
-- External interfaces
-- functions
-- Usability requirements
-- Performance requirements
-- Domain Model requirements
-- Design constraints
-- Software System attributes
-- Physical and Environmental requirements
-
-This list goes on. Essentially we need to determine what the requirements and goals for our rocket are first. Once we know what we want the rocket to achieve, then we can discuss how we can determine whether these goals/requirements were actually met. As mentioned above, our requirements are likely to be the same as previous years, however with the addition of extra requirements bought about by planned improvements on previous designs.
+This section outlines how specific requirements of the avionics package will be verified. Where possible this includes testable and measurable acceptance criteria.
 
 ### 4.1 External Interfaces
-_**TODO:**_ Assigned to Will
+#### Radio Antenna
+For the radio antenna to be verified it must meet the following criteria. The radio antenna upon request from the base station should be able to transmit the geograhical location data and be recieved at the base station without error. The radio antenna must also have the capacity to receive and respond to three destinct commands and provide live telemetry of at least one flight critical variable at least twice a second.
+
+#### SD Card
+The SD card storage will be deemed satisfactory if it can store data provided by the IMU and GPS during flight in a format that can be interpreted by the user later. As long as the data can be read and does not contain any corrupted data, it will be verified.
+
+#### Internal Measurement Unit (IMU / Sensors)
+The onboard IMU will be verified, provided that it is able to reliably produce data throughout the duration of the flight. The data must also match the observed flight path of the rocket to a reasonable extent.
+
+#### Guidance System
+In order to verify the guidance system, software testing of the controller must produce evidence that the guidance system is able to offset/correct to any given extent three consecutive deviations in the simulated flight of the rocket.
+
+#### Gimbal
+The Gimbal can be verified granted that it is able to vector the rocket motor on two axis and is observed to change the motors vector atleast once during flight.
+
+#### GPS
+The GPS will be verified if and only if following the flight of the rocket, the geographical location data produced by the unit is accurate to within a 5 metre radius of the rocket.
 
 ### 4.2 Functions
 _**TODO:**_ Start doing this when we have final confirmation that 3.2 has a full draft
@@ -583,7 +569,7 @@ The following specifies a set of criteria for each important use case/scenario t
 - Have a diameter of less than or equal to **29mm** at the rocket's widest point
 
 ##### Base Station Setup and Interactivity
-- The setup of the base station laptop, USB LoRa, and the software module to enable interaction between the rocket and the base station takes no longer than **5 minutes to setup.** 
+- The setup of the base station laptop, USB LoRa, and the software module to enable interaction between the rocket and the base station takes no longer than **5 minutes to setup.**
 
 ##### Pre-Flight Tuning
 - A basic, intuitive input/feedback system is implemented
@@ -624,7 +610,7 @@ _**TODO:**_ Start doing this when we have final confirmation that 3.5 has a full
 ### 4.6 Design Constraints
 
 #### 4.6.1 Verifying Hardware Design Constraints
-The hardware design constraints of the project will have been satisfied if the final rocket's properties abide by both legal regulations [2], and what the client imposes as a hardware constraint. 
+The hardware design constraints of the project will have been satisfied if the final rocket's properties abide by both legal regulations [2], and what the client imposes as a hardware constraint.
 
 For the legal regulations, the hardware design constraints are satisfied if:
 - The rocket weighs less than or equal to 1.5kg at liftoff
@@ -663,7 +649,7 @@ The verification of this attribute requires a large amount of testing. Verifying
 To verify this attribute, the project team members in charge of developing the software must be in **full agreement** that relevant programming techniques that promote maintainable and extensible design were observed to the best ability of the developers. Some of the programming techniques that can facilitate maintainable and extensible software include the following but are not limited to:
 - Observing low coupling - high cohesion where appropriate
 - Adhering to existing coding conventions
-- Commenting 
+- Commenting
 - Proper usage of abstraction
 - Observing 'DRY' (Do not repeat yourself)
 - Formal documentation in the form of documentation comments and/or API manuals
@@ -779,7 +765,7 @@ The content below outlines the 10 most important risks that can impact achieving
 
   - **Impact:** Severe
 
-  - **Mitigation Strategy:** Consult mission control software before a rocket launch to determine if the current wind speeds can safely accomodate a flight. Launches will be postponed if wind speeds exceed **32km/h** [1]. 
+  - **Mitigation Strategy:** Consult mission control software before a rocket launch to determine if the current wind speeds can safely accomodate a flight. Launches will be postponed if wind speeds exceed **32km/h** [1].
 
 
 
@@ -856,12 +842,12 @@ The content below outlines the 10 most important risks that can impact achieving
 
   - **Impact:** Moderate
 
-  - **Mitigation Strategy:** Project stakeholders must undertake a health and safety induction prior to the launch In accordance with the NZCAA [1], the selected launch site must be clear of dry grass to lower the risk of causing a fire during a rocket ignition. The project stakeholders involved with the launch will closely inspect the launch site for flammable material to remove them. A rocket launch will be postponed if the fire alert level is high, or if the temperature is unusually high. A fire extuinguisher will be brought by the team at the launch site to counter small fires. 
+  - **Mitigation Strategy:** Project stakeholders must undertake a health and safety induction prior to the launch In accordance with the NZCAA [1], the selected launch site must be clear of dry grass to lower the risk of causing a fire during a rocket ignition. The project stakeholders involved with the launch will closely inspect the launch site for flammable material to remove them. A rocket launch will be postponed if the fire alert level is high, or if the temperature is unusually high. A fire extuinguisher will be brought by the team at the launch site to counter small fires.
 
 
 - #### Risk 10: Wind speeds suddenly exceed the safe wind speed for the rocket during flight
 
-  - **Risk Type:** Health and Safety, Environmental, 
+  - **Risk Type:** Health and Safety, Environmental,
   - **Likelihood:** Unlikely
   - **Impact:** Moderate
   - **Mitigation Strategy:** The rocket launch will only proceed if the current wind speeds are well below the maximum wind speed determined for the rocket. Wind speeds will be continually monitored during the flight to keep the team informed on the safety of the flight. Recovery system will be manually deployed in the event that the wind speed rises to an unsafe level.
