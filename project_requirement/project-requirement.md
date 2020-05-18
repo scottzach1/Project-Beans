@@ -266,34 +266,38 @@ At the current time, we can discuss and outline possible requirements of each of
 **Original Instructions**<br>
 > This is typically the longest subsection in the document. List up to fifty use cases (in order of priority for development), and for at least top ten focal use cases, write a short goal statement and use case body (up to seven pages).  Identify the use cases that comprise a minimum viable product.
 
-#### 3.2.2 Use Cases
+#### 3.2.1 Use Cases
 
 These are not that many unique uses for this project, as this is designed with the sole goal of creating a rocket which one launched is autonomous. As parts of this project contain dangerous goods, it's not advised to use this package for different purposes without making further changes to accomadate your specific use. That being said there are still various interactions between users and the rocket.
 
 **Use Cases:**
-1. Transportation of Rocket <br>
+1. Launch the Rocket <br>
+This is the most obvious and important use case, and is the most basic goal of this entire project.
+
+
+2. Transportation of Rocket <br>
 It's important that the rocket is handled safely and for this reason it will be handled by a professional. The specifics of this are outlined further in the safety plan.
 
 
-2. Assembly of rocket <br>
+3. Assembly of rocket <br>
 The rocket is designed with different packages and components which must be put together before launch. This is a task which should take less than 15 minutes, and will be outlined in a supporting assembly document.
 
 
-3. Disassembly of rocket <br>
+4. Disassembly of rocket <br>
 This is important as we need the ability to add or remove components for a range of reasons, eg. faulty or outdated components. It also allows both this package and the rocket to be much easier be extended upon by future users. This will also be covered in the supporting assembly document.
 
 
-4. Reading of flight data <br>
+5. Reading of flight data <br>
 It's extremely important to record all flight data, as gves the team immediate feedback which helps to understand why a launch and/or flight happened the way it did. This data will be sent to the base station during flight, and should be visible to the team at the base station.
 
 
-5. Analysis of flight data <br>
+6. Analysis of flight data <br>
 While its important to read the data its even more important to formally record the data. This gives users the oppurtunity to perform further analysis, and therfore tweak and improve the rocket for future launches.
 
 
 #### 3.2.2 Requirements
 
-This subsection is broken down into three subsections. The functions which make up the Minimum Viable Product are our most important, as if these aren't meant then the rocket can not be considered complete. We've also have additional Hardware and Software sections, which aim to include more specific requirements to their respective section.
+This subsection is broken down into three subsections, and aims to cover all of the requirements which must be met to allow use cases to be performed. The functions which make up the Minimum Viable Product are our most important, as if these aren't meant then the rocket can not be considered complete. We've also have additional Hardware and Software sections, which aim to include more specific requirements to their respective section.
 
 **Requirements / functions of the Minimum Viable Product:** <br>
 **TODO:** ensure these match up with Billy's requirements in intro**
