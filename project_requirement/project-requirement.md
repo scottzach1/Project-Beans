@@ -235,7 +235,7 @@ This section should outline each of the required functions that the stakeholder 
 ### 3.3 Usability Requirements
 The usability requirements should enable any individual from the wider rocketry community to launch and operate the rocket, and to use its accompanying avionics package with relative ease. To ensure that this is achieved, all scenarios in which the rocket and the avionics package is used in should feature certain properties.
 
-#### Scenarios
+#### Scenarios and Usecases
 ##### Transporting
 The rocket should feature the following properties to make it portable and easy to transport:
 - Contained within a single physical construct or kit
@@ -263,6 +263,7 @@ During the flight, the system should:
 - Broadcast telemetry at regular intervals to the base station to enable stakeholders manning the base station to monitor the flight in real-time
 - Readings are stored into the on-board SD to enable project stakeholders to analyse the performance of the rocket throughout the entire flight, after the flight.
 - All logged data (logged to base station and the SD card) must be in a readable format
+- Logging rate should be at a sufficient to enable stakeholders to monitor the flight easily
 
 ##### Recoverability
 The rocket should be in a stable physical form at the end of the flight. This can be achieved by doing the following:
@@ -612,7 +613,7 @@ This requirement is verified if all work contributing to the development of the 
 This requirement is verified if the software system correctly guides the rocket to take a safe, upward trajectory despite the influence of external factors such as wind speed and direction. The software system must use a combination of internal sensor readings on-board the rocket, as well as data from mission control software. _**TODO: Confirm if mission control software is to be consulted during the launch/flight**_. <br><br>
 
 2. Logging
-This requirement is verified if the software system succesfully logs important data from the IMU, Radio and GPS to both an on-board SD card and base station during flight. The logged information must be accessible post flight, otherwise this requirement is not verified. This can be verified by creating a dedicated Logger module that logs important data to target components (on-board SD card and base station) during the flight<br><br>
+This requirement is verified if the software system succesfully logs important data from the IMU, Radio and GPS to both an on-board SD card and base station during flight. The logged information must be accessible post flight, otherwise this requirement is not verified. This can be verified by creating a dedicated Logger module that logs important data to target components (on-board SD card and base station) during the flight at a sufficient rate to be useful.<br><br>
 
 3. Mid-Flight Error Analysis
 This requirement is verified if the rocket responds to erroneous data in a way that does not cause the rocket to fail, or enter a state where it can no longer be trusted to take a safe trajectory. This requirement can be verified by conducting extensive software testing. <br><br>
@@ -647,6 +648,7 @@ The following specifies a set of criteria for each important use case/scenario t
 - Logged data is stored into the on-board SD card
 - Logged data is in a **readable format**
 - Data is logged at regular intervals to both the SD card and the base station to enable the stakeholders to easily analyse any part of the flight both in real time, and post flight
+- Logging occurs frequently enough to enable stakeholders to monitor the flight with precision
 
 ##### Recoverability
 - A parachute system is implemented to enable the rocket to land safely
