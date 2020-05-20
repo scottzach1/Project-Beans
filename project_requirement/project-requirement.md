@@ -667,9 +667,9 @@ The following specifies a set of criteria for each important use case/scenario t
 
 ### 4.4 Performance Requirements
 #### In-Flight Verfication
- he avionics package will have met the performace requirements provided the rocket mantains a flight trajectory of no more than 30 degrees from the vertical while the motor is still producing thrust. This is evidence that the onboard controller provided sufficiently accurate and well timed signals to the gimbal in order to achieve controlled flight. If the rocket deviates from the vertical by greater than 30 degrees, the avionics package will not have met the performance requirements. In addition to this the avionics package must achieve an apogee of at least 4 metres and a horizantal displacement upon landing of 25 metres or less to be verified.
+The avionics package will have met the performace requirements provided the rocket maintains a flight trajectory of no more than 30 degrees from the vertical while the motor is still producing thrust. This is evidence that the onboard controller provided sufficiently accurate and well timed signals to the gimbal in order to achieve controlled flight. If the rocket deviates from the vertical by greater than 30 degrees, the avionics package will not have met the performance requirements. In addition to this the avionics package must achieve an apogee of at least 4 metres and a horizantal displacement upon landing of 25 metres or less to be verified.
 
-The avionics package must have in some capacity, stored data collected from the onboard IMU and GPS during flight.
+The avionics package must also have in some capacity, stored data collected from the onboard IMU and GPS during flight to be verified.
 
 #### Phyical Attribute Verification
 Lastly, the avionics is required to be able to perform two consecutive launches. This provides evidence that the package is capable of completing a launch and being recovered in working condition. Minor damage, that is damage requiring no spare parts and less than 30 minutes attention to fix, is permitted. If the package fails to meet this requirement it is evidence that it's physical attributes were not acceptable and hence the package cannot be verified.
@@ -740,9 +740,29 @@ From a qualitative point of view, this attribute is verified if the following co
 Note that Attribute 1 (Correctness and Reliability) depends heavily on this attribute. It is important that the verification of this attribute is achieved, and done so comprehensively, given the potentially dangerous nature of the product being developed by the project.
 
 
-### 4.8 Environmental and Physical Requirements
-_**TODO:**_ Assigned to Will
+### 4.8 Environmental and Physical Verification
+#### 4.8.1 Physical Verification
+_**TODO:**_ Can be written after physical requirements are written (3.8.1)
+#### 4.8.2 Environmental Verification
+The environmental requirements can be verified given:
 
+The environmental conitions meet the requirements of the New Zealand Rocketry Association [1] which specify:
+- The wind speeds do not exceed 32km/hr
+- No dry grass is present near the launch pad
+- No one is situated within 5m of the rocket during the launch sequence
+
+The environmental conditions adhere to the New Zealand Civil Aviation Authority Rules Part 101 [2] which specify:
+- The launch site must be further than 4km from an aerodome boundary unless prior permission is granted by the aerodome operator
+- The rocket cannot fly above 121.92m above ground level
+- The rocket cannot interface with the flight path of an aircraft
+- The rocket cannot be operated over an active runway
+- The rocket cannot be launched into clouds or any other meteorological phenomena which obscures the air space
+- The rocket cannot be launched where horizontal visibility is less than 8km
+- The rocket cannot be launched at night
+
+The rocket adheres to the guidelines presented by the Faculty of Engineering and Computer Science at Victoria University which will be checked at all times throughout the duration of the project.
+
+The rocket is launched at a location permitted by the Wellington City Council and does not damage the surrounding property or the environment.
 ## 5. Development schedule.
 
 ### 5.1 Schedule
