@@ -536,6 +536,7 @@ The project is subject to a wide range of legal regulations given the potentiall
 This section outlines how specific requirements of the avionics package will be verified. Where possible this includes testable and measurable acceptance criteria.
 
 ### 4.1 External Interfaces
+The requirements for assessing whether the individual external interfaces can be verified are listed.
 #### Radio Antenna
 For the radio antenna to be verified it must meet the following criteria. The radio antenna upon request from the base station should be able to transmit the geograhical location data and be recieved at the base station without error. The radio antenna must also have the capacity to receive and respond to three destinct commands and provide live telemetry of at least one flight critical variable at least twice a second.
 
@@ -602,7 +603,11 @@ The following specifies a set of criteria for each important use case/scenario t
 - The project is open source so any future contributors can easily access the project
 
 ### 4.4 Performance Requirements
-_**TODO:**_ Assigned to Will
+The avionics package will have met the performace requirements provided the rocket mantains a flight trajectory of no more than 30 degrees from the vertical while the motor is still producing thrust. This is evidence that the onboard controller provided sufficiently accurate and well timed signals to the gimbal in order to achieve controlled flight. If the rocket deviates from the vertical by greater than 30 degrees, the avionics package will not have met the performance requirements. In addition to this the avionics package must achieve an apogee of at least 4 metres and a horizantal displacement upon landing of 25 metres or less to be verified.
+
+The avionics package must have in some capacity, stored data collected from the onboard IMU and GPS during flight.
+
+Lastly, the avionics is required to be able to perform two consecutive launches. This provides evidence that the package is capable of completing a launch and being recovered in working condition. Minor damage, that is damage requiring no spare parts and less than 30 minutes attention to fix, is permitted. If the package fails to meet this requirement it is evidence that it's physical attributes were not acceptable and hence the package cannot be verified.
 
 ### 4.5 Logical Database Requirements
 _**TODO:**_ Start doing this when we have final confirmation that 3.5 has a full draft
