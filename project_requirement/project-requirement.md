@@ -256,12 +256,12 @@ During launch, the usability of the system should be centered around reliability
 - Launch critical features of the rocket are clearly marked and labeled for easy identification
 - Hardware features to help mitigate the risk of incorrect operation of product, such as incorrect battery polarity.
 - Software safety checks and pre-flight diagnostics to ensure all systems are operational
-- Launch system should take no more than 10 minutes to setup
+- Setting up the rocket should take no more than 15 minutes
 
 ##### Mid-Flight Diagnostics/Readings
 During the flight, the system should:
 - Broadcast telemetry at regular intervals to the base station to enable stakeholders manning the base station to monitor the flight in real-time
-- Readings are stored into the on-board SD to enable project stakeholders to analyse the performance of the rocket throughout the entire flight, after the flight.
+- Readings are stored into the on-board SD card to enable project stakeholders to analyse the performance of the rocket throughout the entire flight, after the flight.
 - All logged data (logged to base station and the SD card) must be in a readable format
 - Logging rate should be at a sufficient to enable stakeholders to monitor the flight easily
 
@@ -391,7 +391,7 @@ This section requires us to do some in-depth modelling  of the software system c
 
 #### 3.6.1 Hardware Design Constraints
 
-For this project, the hardware design constraints are restrictions imposed upon the rocket being built. The primary source of these restrictions will come from legal requirements given that the client has not specified any specific hardware restriction and has given us more control over the design.
+For this project, the hardware design constraints are restrictions imposed upon the rocket being built. The primary source of these restrictions will come from legal requirements, given that the client has specified only a single design constraint and has granted the project team more freedom regarding the hardware design.
 
 ##### Physical Construction of the Rocket
 
@@ -412,6 +412,9 @@ According to the New Zealand Rocketry Association [1], the physical construction
 - Recovery wadding used must be fire-resistant or fire-proof.
 - The rocket must not contain any payload that is intentionally flammable or to cause harm.
 
+In addition to these regulations, the client has specifically stated the following hardware design constraint:
+- The airframe's diameter must not exceed 29mm (preferably, the airframe is less than 29mm for usability and cost-efficiency purposes)
+
 _**TODO:**_ Identify any hardware design constraints imposed by the equipment and electronics we have agreed to use for our rocket. Place them in h5 subheadings here.
 
 #### 3.6.2 Software Design Constraints
@@ -421,36 +424,12 @@ The client has clearly specified that the final result of the project is intende
 _**TODO:**_ Maybe talk about the fact that we have to use a programming language that better caters for the open-source nature of our software? Eg is C better suited to fulfill the open source attribute of our software compared to rust? If so, then a software design constraint is that we have to use C..
 
 
-### 3.7 Nonfunctional system attributes (Can Start)
-
-#### Summary:
-
-In this section, we need to write about the non-functional requirements of our software and hardware systems. This means we need to define the nature of a system through some characteristic. Eg  'The software system is easily extensible'. We need around **20 non-functional requirements** and _**write a description for the ones we think take the top priority.**_
-
-**Suggested Content:**
-
-- 2 further subheadings? - 3.7.1 Hardware Non-Functional Requirements, 3.7.2 Software Non-Functional Requirements
-
-- Adaptibility - Our project is intended for the wider rocket community (clear this up with client?) therefore our codebase should easily adapt into different scenarios or use techniques or libraries that are known.
-- Ensuring safety - This is important given that we are working with equipment that is potentially dangerous. This can be achieved by conducting extensive sofware correctness testing? As for hardware...... strictly adhere to legal/client restrictions hardware restrictions, especially for potential sources of danger?
-- Code Quality? - Since its open source, we need to adhere to programming conventions where possible. Follow design patterns and observe proper coupling/cohesion where possible. Code must be documented!
-- **Simulation part of the project (simulating hardware).... is this a non-functional requirement? Should the concept of simulation be stated under ensuring safety?- Contact course coordinators/client**
-
-Theres a lot more to suggest from a software perspective. We can split some different characteristics into their own descriptions (eg Testing can be in its own paragraph instead of being listed under Ensuring safety description if we see the need to do so.). The  [2018 Project](https://github.com/andre-geldenhuis/team-rocket-2018-handover/blob/master/ENGR302-2019T2_Delivery_Team-12/Assignment1_Requirements.pdf) seems to do this very in-depth but it seems to have combined both hardware and software components into each non-functional requirement.
-
-**Suggested steps to make progress here**:
-
-- Contact client to clarify any more non-functional requirements, **particularly from a hardware perspective**. We can also clarify with the client if they have any specific non-functional requirements.
-
-
-**Original Instructions:**
-
->Present the systemic (aka nonfunctional) requirements of the product (see ISO/IEC 25010). List up to twenty systemic requirements / attributes. Write a short natural language description of the top nonfunctional requirements (approx. five pages).
-
+### 3.7 Nonfunctional system attributes
 #### 3.7.1 Hardware Non-Functional System Attributes
 _**TODO:**_ Try to list approximately 10 hardware non-functional requirements, a few of which need to be written about in detail.
 - Accessiblity (Client made a point about this in a Q&A (see Q&A Session 04 20 2020 in wiki))?
 - Drag?
+- Simulation to verify hardware before producing it physically (could save us a lot of time)?
 
 #### 3.7.2 Software Non-Functional System Attributes
 
@@ -624,12 +603,12 @@ This requirement is verified if the rocket responds to erroneous data in a way t
 The usability of the rocket revolves around the idea of how the user will interact with the system to achieve important use cases, and how easy this is to do. To verify the usability requirements, each important scenario/use case must have a set of criteria that must be met to indicate that the usability of the system under that scenario has been verified.
 
 #### Verification Under Specific Scenarios
-The following specifies a set of criteria for each important use case/scenario that must be met in order to consider the usability of the system verified.
+The following specifies a what must be done for each important use case/scenario in order to vereify the usability of the system.
 
 ##### Transporting
-- The rocket is contained within a **single physical construct or kit**
-- Weighs less than or equal to **1.5kg** [2]
-- Have a diameter of less than or equal to **29mm** at the rocket's widest point
+- The final version of the rocket is contained within a **single physical construct or kit**
+- The total weight of the final rocket and its components weigh less than or equal to **1.5kg** [2]
+- At its widest point, the rocket has a diameter of less than or equal to 29mm
 
 ##### Base Station Setup and Interactivity
 - The setup of the base station laptop, USB LoRa, and the software module to enable interaction between the rocket and the base station takes no longer than **5 minutes to setup.**
@@ -637,26 +616,24 @@ The following specifies a set of criteria for each important use case/scenario t
 ##### Pre-Flight Tuning
 - A basic, intuitive input/feedback system is implemented
 - User input is validated
-- **Feedback** is provided to the user if invalid input is detected
+- Useful **feedback** is provided to the user if invalid input is detected
 
 ##### Launch
-- The stakeholder/s are able to maintain a safe distance from the rocket as the rocket is launched
-- Manual ignition is featured to give stakeholder/s full control over the launch
-- Launch critical features of the rocket are marked and stakeholder/s are able to identify these features intuitively as a result of the marking
-- Assembly of the rocket is easy, and takes no longer than **15 minutes** as required.
+- The stakeholders are able to perform a succesful launch at a safe distance from the rocket
+- Manual ignition is featured as the primary ignition method to assure the safety of the stakeholders
+- Launch critical features are easily identified by stakeholders or by people who are unfamiliar with the rocket as a result of effective marking and labelling
+- The rocket can be assembled by stakeholders in under **15 minutes**
 
 ##### Mid-Flight Diagnostics/Readings
-- Logged data is stored into the on-board SD card
-- Logged data is in a **readable format**
-- Data is logged at regular intervals to both the SD card and the base station to enable the stakeholders to easily analyse any part of the flight both in real time, and post flight
-- Logging occurs frequently enough to enable stakeholders to monitor the flight with precision
+- Stakeholders can easily read the logged data
+- Stakeholders manning the base station can make confident deductions about the flight as a result of a sufficient logging rate and format
 
 ##### Recoverability
-- A parachute system is implemented to enable the rocket to land safely
+- A parachute system is deployed to enable the rocket to land safely
 - GPS system is accurate to within **5m** of the rocket's landing site to enable project stakeholders to quickly locate the rocket upon landing
 
 ##### Post-Flight Diagnostics/Analysis
-- On-board SD card is easily accessible and retrievable from the rocket
+- Stakeholders are able to retrieve the on-board SD card without the need to fully disassemble the rocket
 - On-board SD card is intact at the end of the flight
 - Rocket disassembly takes no more than **15 minutes**
 
