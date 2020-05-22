@@ -430,19 +430,47 @@ This section will define what the base expectation of our of our project outcome
 
 
 ### 3.5 Logical database requirements (Cannot Start)
-#### Summary:
 
-This section requires us to do some in-depth modelling  of the software system conveyed through a UML Class Diagram, and to provide descriptions. This seems difficult to achieve (as of 14 April) given that we need final clarification as to what the client wants and to conduct more planning regarding the software system that we need to implement.
+### 3.5 Logical database requirements
+This section outlines the software system that will be implemented for the rocket.
+![UML Class Diagram](/architecture_design/software-architecture/Yed/rocket.png)
 
-**Suggested steps to make progress here**:
+The software system is split into 3 main parts - Control, Sensors, and Communication.
+#### Control
+The control system is responsible for correctly guiding the rocket during its flight. For this module, the task of controlling the rocket is separated into 3 other sub modules, each of which serving a crucial role for controlling the rocket
 
-- Contact client to finalise software requirements
-- Plan the software system at a _**highly abstract level**_. This can help us understand the different components of the software system and in turn, will allow us to start forming the different classes (If for some reason we are going to use OOP) or define the different modules of the software system and their relationships with one another.
-- After these steps, we can use PlantUML or draw.io to form the UML class diagram.
+- ##### Gimbal
+  - This module is responsible for facilitating the interaction between the Gimbal and the Servos of the rocket. 
 
-**Original Instructions:**
+- ##### Guidance System
+  - The guidance system of the software is where the majority of the PID related calculations will take place during the rocket's flight. The PID class within this module will perform calculations based on PID parameters provided by the user, as well as the current state of the Gimbal and other sensor readings from the Sensors module.
 
-> See 9.5.14. for most systems, a focus on d) and e) is appropriate, such as an object-oriented domain analysis. You should provide an overview domain model (e.g.  a UML class diagram of approximately ten classes) and write a brief description of the responsibilities of each class in the model (3 pages). You should use right tools, preferably PlantUML, to draw your URL diagrams which can be easily embedded into a Markdown file (PlantUML is also supported by GitLab and Foswiki).
+- ##### Landing 
+  - The landing module will serves the purpose of initiating and controlling the landing sequence of the rocket. The Parachute software component will trigger the deployment of the parachute, while the Lander component will determine when to deploy the parachute, and if it is safe to do so.
+
+#### Sensors
+The sensor module is responsible for interfacing with the on-board sensors of the rocket. The modules within this module include:
+
+- ##### Battery
+  - A simple software module that tracks the voltage and remaining capacity on the on-board battery
+
+- ##### IMU
+  - This module will take readings from the IMUs on-board the rocket to obtain crucial information regarding the accelerometer, gyro and other sensors for the control system module.
+
+- ##### SensorManager
+  - The SensorManager module serves as a reader of all sensor readings of the rocket. This module interfaces with the communication module of the rocket to send the sensor readings from the rocket, to the base station. Note that this module will maintain a collection of all on-board sensors but will read the sensors and cannot mutate the state of the sensors in any way.
+
+- ##### GPS
+  - The GPS module will read the coordinates of the rocket and send it back to the base station. This contributes to the recoverability use case of the rocket since it will assist the project stakeholders in recovering the rocket after a flight.
+
+#### Communication
+The communication module is the software interface that will enable bi-directional communication between the rocket and the base station. The purpose of the communication module is centered around the establishing a connection with the rocket's antenna and the USB LoRa on the base station, and logging information about the state of the rocket during a flight.
+
+  - ##### Radio
+    - The Radio module serves the purpose of establishing a connection between the rocket's antenna and the base station, as well as the control of what information should be retrieved from the rocket.
+  
+  - ##### Logging
+    - This module is responsible for logging the data retrieved from the sensors into the on-board SD card, as well as to a location within the base station laptop specified by the user. This module is also responsible for transforming the sensor data into a human readable format to contribute the usability of the logging system.
 
 ### 3.6 Design constraints (Can Start)
 
