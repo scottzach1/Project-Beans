@@ -9,15 +9,16 @@
 **Blurb:** Richard is a retired man who has a deep passion for his family and dry humor. Richard is now in his 70s and has been married happily for 30 years. Back in the days, he used to be a broadcasting technician. Richard initially got interested in this rocketing project as a plea to spend more time with his grandchildren. Although Richard isn’t particularly knowledgeable with the technology in this hobby, his passion has been reignited from the youthful memories of the 60s. 
 
 ***Background Knowledge and Skills:***
-From his old years in broadcast engineering, Richard has a great understanding of the lower level science behind radio. This knowledge also extends to a good understanding of physics from his youth.
-Richard has little to no experience with programming. This project will definitely be testing his capabilities with modern technology.
+- From his old years in broadcast engineering, Richard has a great understanding of the lower level science behind radio. This knowledge also extends to a good understanding of physics from his youth.
+- Richard has little to no experience with programming. This project will definitely be testing his capabilities with modern technology.
 
 ***Motivations:***
-The main motivation for this project is to allow him to spend more time bonding with his grandchildren. Now that they both attend school, sadly he doesn’t get to look after them during the day like he used to.
-Although not the main motivation, part of the excitement with this project stems from the nostalgia from his youthful years of the astronomy club back in the 1960s. 
-Information Processing Style:
-Although relatively proficient with science, dealing with technology on the computer is definitely going to test his patience.
-Although computers are not his forte, Richard will eat up all of the science as it is a fun and great opportunity to teach the grand kids some valuable skills.
+- The main motivation for this project is to allow him to spend more time bonding with his grandchildren. Now that they both attend school, sadly he doesn’t get to look after them during the day like he used to.
+- Although not the main motivation, part of the excitement with this project stems from the nostalgia from his youthful years of the astronomy club back in the 1960s. 
+
+***Information Processing Style:***
+- Although relatively proficient with science, dealing with technology on the computer is definitely going to test his patience.
+- Although computers are not his forte, Richard will eat up all of the science as it is a fun and great opportunity to teach the grand kids some valuable skills.
 
 ***Attitude to technology:***
 
