@@ -443,7 +443,7 @@ The control system is responsible for correctly guiding the rocket during its fl
   - The guidance system of the software is where the majority of the PID related calculations will take place during the rocket's flight. The PID class within this module will perform calculations based on PID parameters provided by the user, as well as the current state of the Gimbal and other sensor readings from the Sensors module.
 
 - ##### Landing 
-  - The landing module will serves the purpose of initiating and controlling the landing sequence of the rocket. The Parachute software component will trigger the deployment of the parachute, while the Lander component will determine when to deploy the parachute, and if it is safe to do so.
+  - The landing module will serve the purpose of initiating and controlling the landing sequence of the rocket. The Parachute software component will trigger the deployment of the parachute, while the Lander component will determine when to deploy the parachute, and if it is safe to do so.
 
 #### Sensors
 The sensor module is responsible for interfacing with the on-board sensors of the rocket. The modules within this module include:
@@ -513,13 +513,13 @@ According to the New Zealand Rocketry Association [1], the physical construction
 - The rocket must be ignited through an electric ignition system with electric motor igniters with a removable safety interlock.
 - The rocket cannot contain more than 125g of propellant.
 - The rocket must not weight more than 1500g at liftoff.
-- The rocket cannot produce more than 320N-secs of total impulse.
+- The rocket cannot produce more than 320 N-secs of total impulse.
 - The rocket must have a recovery system in the form of a streamer or a parachute so it can land safely.
 - Recovery wadding used must be fire-resistant or fire-proof.
 - The rocket must not contain any payload that is intentionally flammable or to cause harm.
 
 In addition to these regulations, the client has specifically stated the following hardware design constraint:
-- The airframe's diameter must not exceed 29mm (preferably, the airframe is less than 29mm for usability and cost-efficiency purposes)
+- The airframe's diameter must not exceed 29 mm (preferably, the airframe is less than 29 mm for usability and cost-efficiency purposes)
 
 _**TODO:**_ Identify any hardware design constraints imposed by the equipment and electronics we have agreed to use for our rocket. Place them in h5 subheadings here.
 
@@ -527,13 +527,13 @@ _**TODO:**_ Identify any hardware design constraints imposed by the equipment an
 ##### Open Source Software
 The client has clearly specified that the final result of the project is intended to contribute to the existing body of knowledge for rocket enthusiasts. The best way to ensure that this requirement is met is by making sure that the software produced by the project is open source and can be freely accessed by anyone. The open source nature of our software introduces some constraints, one of which is that the software produced during the project **cannot use non-open source 3rd party libraries**. This limits the number of libraries that can be utilized for the development of the software. Furthermore, the 3rd party libraries that are used must not have any transitive dependencies with other libraries that are not open source.
 
-_**TODO:**_ Maybe talk about the fact that we have to use a programming language that better caters for the open-source nature of our software? Eg is C better suited to fulfill the open source attribute of our software compared to rust? If so, then a software design constraint is that we have to use C..
+_**TODO:**_ Maybe talk about the fact that we have to use a programming language that better caters for the open-source nature of our software? Eg is C better suited to fulfill the open source attribute of our software compared to rust? If so, then a software design constraint is that we have to use C.
 
 
 ### 3.7 Nonfunctional system attributes
 #### 3.7.1 Hardware Non-Functional System Attributes
 _**TODO:**_ Try to list approximately 10 hardware non-functional requirements, a few of which need to be written about in detail.
-- Accessiblity (Client made a point about this in a Q&A (see Q&A Session 04 20 2020 in wiki))?
+- Accessibility (Client made a point about this in a Q&A (see Q&A Session 04 20 2020 in the wiki))?
 - Drag?
 - Simulation to verify hardware before producing it physically (could save us a lot of time)?
 
@@ -543,7 +543,7 @@ _**TODO:**_ Try to list approximately 10 hardware non-functional requirements, a
 The client has highlighted that past attempts at the project by other teams had issues regarding the correctness and reliability of the software. This is especially important given that the project itself has elements that is potentially dangerous. Through these factors, it is paramount that the software works correctly and reliably. To assure the correctness of the software, the project team will continually discuss what is defined as correct behaviour as the project enters the execution phase. The software will be packaged with extensive unit testing suites to prove that the software is performing as intended. Continuous Integration will be setup in the GitLab repository of the project to ensure that features merged into production does not cause errors with the existing code base. From a coding perspective, the developers of the software should apply programming techniques such as error handling, pre/post condition checking and the maintenance of invariants. Observing these techniques should mitigate the risk of the software entering an incorrect state and can help assure its correctness and reliability.  
 
 ##### Maintainability and Extensibility
-Since the client has outlined that one of the purposes of the project is to contribute to the wider rocket community, the software developed for the project should be easily maintanable and extensible. This is important since these attributes of maintainability and extensibility should facilitate easier contribution to the project by other individuals of the wider rocketry community. To achieve good maintainability, the software needs to follow existing coding conventions. Any 3rd party dependencies introduced to the software should be well-known, easily adaptable, and adheres to a standard of quality and usefulness agreed upon by the project team. From a lower level perspective, maintainability can be achieved by observing the 'low-coupling, high cohesion' relationship between the different modules of the software system. Extensibility can also be achieved by using these techniques and is therefore important if the software is to be added to or improved upon by other individuals after the completion of the project.
+Since the client has outlined that one of the purposes of the project is to contribute to the wider rocket community, the software developed for the project should be easily maintainable and extensible. This is important since these attributes of maintainability and extensibility should facilitate easier contribution to the project by other individuals of the wider rocketry community. To achieve good maintainability, the software needs to follow existing coding conventions. Any 3rd party dependencies introduced to the software should be well-known, easily adaptable, and adheres to a standard of quality and usefulness agreed upon by the project team. From a lower level perspective, maintainability can be achieved by observing the 'low-coupling, high cohesion' relationship between the different modules of the software system. Extensibility can also be achieved by using these techniques and is therefore important if the software is to be added to or improved upon by other individuals after the completion of the project.
 
 ##### Testing
 Testing is crucial in the process of assuring the correctness and reliability of the software. The testing strategy the project team will adopt is a combination of regular unit testing and integration testing. Unit testing will cover technical, lower-level aspects of the software to ensure that the logic is correct. Unit testing should become a regular part of the developer's workflow by running the unit tests before pushing changes to the remote repository. Integration testing will be accommodated by GitLab's CI/CD (Continuous Integration/Continuous Delivery) feature. This will assist in ensuring that code being merged into production meshes well with the existing code base.
@@ -736,7 +736,7 @@ The following specifies a what must be done for each important use case/scenario
 
 ##### Recoverability
 - A parachute system is deployed to enable the rocket to land safely
-- GPS system is accurate to within **5m** of the rocket's landing site to enable project stakeholders to quickly locate the rocket upon landing
+- GPS system is accurate to within **5 m** of the rocket's landing site to enable project stakeholders to quickly locate the rocket upon landing
 
 ##### Post-Flight Diagnostics/Analysis
 - Stakeholders are able to retrieve the on-board SD card without the need to fully disassemble the rocket
@@ -744,18 +744,18 @@ The following specifies a what must be done for each important use case/scenario
 - Rocket disassembly takes no more than **15 minutes**
 
 ##### Future Development
-- Documentation in the form of manuals is written to enable any potential user to understand the system quickly
+- Documentation in the form of manuals are written to enable any potential user to understand the system quickly
 - Software is documented appropriately to **support the ability of future contributors to adapt the code**
 - The project is open source so any future contributors can easily access the project
 
 ### 4.4 Performance Requirements
-#### In-Flight Verfication
-The avionics package will have met the performace requirements provided the rocket maintains a flight trajectory of no more than 30 degrees from the vertical while the motor is still producing thrust. This is evidence that the onboard controller provided sufficiently accurate and well timed signals to the gimbal in order to achieve controlled flight. If the rocket deviates from the vertical by greater than 30 degrees, the avionics package will not have met the performance requirements. In addition to this the avionics package must achieve an apogee of at least 4 metres and a horizantal displacement upon landing of 25 metres or less to be verified.
+#### In-Flight Verification
+The avionics package will have met the performance requirements provided the rocket maintains a flight trajectory of no more than 30 degrees from the vertical while the motor is still producing thrust. This is evidence that the onboard controller provided sufficiently accurate and well-timed signals to the gimbal in order to achieve controlled flight. If the rocket deviates from the vertical by greater than 30 degrees, the avionics package will not have met the performance requirements. In addition to this the avionics package must achieve an apogee of at least 4 meters, and a horizontal displacement upon landing of at least 25 metres to be verified.
 
 The avionics package must also have in some capacity, stored data collected from the onboard IMU and GPS during flight to be verified.
 
-#### Phyical Attribute Verification
-Lastly, the avionics is required to be able to perform two consecutive launches. This provides evidence that the package is capable of completing a launch and being recovered in working condition. Minor damage, that is damage requiring no spare parts and less than 30 minutes attention to fix, is permitted. If the package fails to meet this requirement it is evidence that it's physical attributes were not acceptable and hence the package cannot be verified.
+#### Physical Attribute Verification
+Lastly, the avionics are required to be able to perform two consecutive launches. This provides evidence that the package is capable of completing a launch and being recovered in working condition. Minor damage, that is damage requiring no spare parts and less than 30 minutes of attention to fix, is permitted. If the package fails to meet this requirement it is evidence that its physical attributes were not acceptable and hence the package cannot be verified.
 
 ### 4.5 Logical Database Requirements
 The logical database requirements are focused around the idea of how the software developed will be laid out, as well as the connections and dependencies that exist between the software modules to enable each other's functionality. This is verified as a whole if the final software system achieves the core functionality outlined in each of the software modules, but still retaining overall architecture of the system. This means that the separation of duties must be enforced as the software system is developed. By doing this, the software system will achieve high cohesion, maintainability and good modularity.
