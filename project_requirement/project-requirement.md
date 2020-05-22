@@ -428,9 +428,6 @@ This section will define what the base expectation of our of our project outcome
 >>
 >> NOTE Numerical limits applied to one specific function are normally specified as part of the processing subparagraph description of that function.
 
-
-### 3.5 Logical database requirements (Cannot Start)
-
 ### 3.5 Logical database requirements
 This section outlines the software system that will be implemented for the rocket.
 ![UML Class Diagram](/architecture_design/software-architecture/Yed/rocket.png)
@@ -761,7 +758,11 @@ The avionics package must also have in some capacity, stored data collected from
 Lastly, the avionics is required to be able to perform two consecutive launches. This provides evidence that the package is capable of completing a launch and being recovered in working condition. Minor damage, that is damage requiring no spare parts and less than 30 minutes attention to fix, is permitted. If the package fails to meet this requirement it is evidence that it's physical attributes were not acceptable and hence the package cannot be verified.
 
 ### 4.5 Logical Database Requirements
-_**TODO:**_ Start doing this when we have final confirmation that 3.5 has a full draft
+The logical database requirements are focused around the idea of how the software developed will be laid out, as well as the connections and dependencies that exist between the software modules to enable each other's functionality. This is verified as a whole if the final software system achieves the core functionality outlined in each of the software modules, but still retaining overall architecture of the system. This means that the separation of duties must be enforced as the software system is developed. By doing this, the software system will achieve high cohesion, maintainability and good modularity.
+
+To verify these requirements, the developers of the software system should make a conscious effort to become familiar with the desired architecture of the software system and the different modules that needs to be implemented before actually coding it. The project team should regularly consider if changes can be made to the logical database requirements that will have a beneficial impact to the software system. 
+
+The logical database requirements will fail to meet verification standards if the software system's architecture has deteriorated beyond recognition. This can potentially happen due to poor execution and failure to follow the outlined software architecture/layout as outlined in section 3.5.
 
 ### 4.6 Design Constraints
 
