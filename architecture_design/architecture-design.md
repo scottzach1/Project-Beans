@@ -50,6 +50,7 @@ If the requirement have changed significantly since the requirements document, o
 ## 2. References
 
 References to other documents or standards. Follow the IEEE Citation Reference scheme, available from the [IEEE website](https://ieee-dataport.org/sites/default/files/analysis/27/IEEE%20Citation%20Guidelines.pdf) (PDF; 20 KB). (1 page, longer if required)
+https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf [1] (Viewed 27/5/2020) 
 
 ## 3. Architecture
 
@@ -97,7 +98,27 @@ Each architectural view should include at least one architectural model. If arch
 ...
 
 ### 4.2 Development
-The development architectural viewpoint centers around the static organization of the software system that needs to be developed. This viewpoint targets the project stakeholders that are involved with the development of the software. This viewpoint illustrates the different software components that will be developed at an abstract level through a UML component diagram.
+The development architectural viewpoint centers around the static organization of the software system that needs to be developed, and specifying the set of practices to be applied in the development of the software [1]. This viewpoint targets the project stakeholders that are involved with the development of the software.
+
+#### 4.2.1 Software Module Organization
+![UML Component Diagram](software_architecture/Draw_IO/development-viewpoint-uml-component-diagram.png)
+**Figure 1: UML Component Diagram of Software Module Organization**
+
+Figure 1 describes the target software structure at an abstract level in the form of a UML component diagram. The diagram conveys 3 central high-level components, Control, Communication and Sensors. These 3 components serve as an abstraction of what the software system is capable of doing. Within each high-level component, there are modules that each represent some feature or functionality logically related to the higher level component.
+
+##### Control
+The Control component comprises of 3 main modules, the landing, gimbal and guidance system module. The landing module is independent of the gimbal module and vice versa, however, both modules require some input from the guidance system module to operate correctly. The guidance system will be responsible for calculations related to the flight of the rocket, and determining when the landing sequence should initiate, hence the 2 other modules depending on the guidance system module. At a higher level, the control component provides a service to the communication module to satisfy the requirement of stakeholders being able to monitor the flight at the base station.
+
+##### Sensors
+The Sensors component contains 4 submodules, Battery, IMU, GPS, and Sensor Manager. The Battery, IMU, and GPS will each interface with the corresponding on-board sensors of the rocket, whereas the Sensor Manager module serves as the access point of these sensors from a software perspective. Figure 1 shows that the Sensor Manager requires a service from the 3 other modules, but this relationship is one-directional, with none of the other modules requiring Sensor Manager to operate. This is due to the fact that the Sensor Manager will perform read-only operations on the other modules to send it to the Communication component for analysis and monitoring (as required by the client).
+
+##### Communication
+The Communication component contains 2 modules, the Radio module to enable communication between the base station and the 2 other components (Control and Sensors), and a Logger module to log data from the Control and Sensors components to locations where they are needed. The Communication component relies on the 2 other components, and as a result, this component may be the most instable of the 3 components.
+
+##### Modularity and Reliability
+In section 3.7 of the requirements document, it has been outlined that maintainability and extensibility of the software is a desired non-functional requirement to make it easy for future individuals to contribute to the project. To work towards this objective, it is important that the organization of the software system accomodates for the idea of modularity. Steps were taken to minimize the number of dependencies that need to exist between the components, however, it is simply unavoidable for dependencies to exist between modules that are logically related to each other. The components were arranged in a way that minimizes the dependencies that exist between them without compromising the reliability of the software system. The Communication component has the highest number of dependencies which means it is the most instable. Despite this, it is important to note that the Communication component should not affect the rocket's flight and physical state because this component does not provide any services to the 2 other components. This means that even when the Communication component fails, the failure should not propagate to the 2 other components, enabling the rocket to maintain a safe flight trajectory despite the failure.
+
+#### 4.2.2 Development Environment and Practices
 
 ### 4.3 Process
 ...
