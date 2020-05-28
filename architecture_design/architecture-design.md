@@ -103,7 +103,26 @@ Each architectural view should include at least one architectural model. If arch
 ...
 
 ### 4.4 Physical
-...
+
+#### 4.4.1 Circuit
+The circuit architecture viewpoint details the physical components of the avionics package and how these interact on the printed circuit board (PCB).
+
+The main blocks the circuit can be split up into are the power supply, control, communications, ignition system and data. The central block is the control block which encompasses the microcontroller, gimbal and IMU. The control block is concerned with sending adjustments to the gimbal in response to input signals provided by the IMU during flight. The IMU signal is frequently polled by the microcontroller which then processes the subsequent data. This involves the microcontroller performing the necessary calculations and operations as specified by the digital control system stored in the microcontroller's flash memory. Following this an output signal is produced which is then passed to the gimbal servos. This adjusts the vector of the rocket in order to sustain a near vertical flight during the rocket's burn phase.
+
+The communications block includes the antenna and amplifier interface. This block sends and receives various signals between the base station and the microcontroller. The most notable signals are the prompts from the base station to initialize the launch sequence and query the GPS as well as transmission of in-flight telemetry. In addition to the communications block, the data block is an alternative method of transferring data between the rocket and base station. The data block is comprised of the SD card and interface and receives signals carrying information regarding system status throughout flight. This information is then written to the SD card for retrieval post-flight.
+
+The ignition system block contains the ignition circuit. This block is intended to only receive a signal from the microcontroller once per launch, occurring at the end of the launch sequence. Once received, the ignition circuit ignites the motor.
+
+The power supply block significant includes the battery, voltage regulators and hardware fail safes. It is responsible for providing power to all systems on the circuit. The negative terminal of the battery also provide the ground reference point. The <_**TODO:**_ Insert Battery Type> is connected to the other systems in series with the power switch and protective circuitry. The protective circuitry ensures that incorrect battery polarity does not produce potentially damaging reverse currents. It also includes a circuit breaker in case of a short-circuit. The voltage regulator then regulates the batteries voltage to provide the correct power requirements to all the other blocks.
+
+The circuit also incorporates additional ports to facilitate further development of the product. These ports could be used to interface with additional hardware such as, sensors, active control components or system recovery devices such as a parachute charge.
+
+For ease of development and troubleshooting, LEDs and test points are also included in the circuit which aids in quickly identify the status of the system.
+
+![image](https://app.diagrams.net/js/viewer.min.js)
+
+#### 4.4.2 Hardware
+
 
 ### 4.5 Scenarios
 ...
