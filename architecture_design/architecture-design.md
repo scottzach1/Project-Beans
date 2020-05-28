@@ -103,6 +103,10 @@ Each architectural view should include at least one architectural model. If arch
 ...
 
 ### 4.4 Physical
+This viewpoint extends to the physical hardware that the system will be implemented on. For the avionics package the view of the physical system includes two major blocks, the rocket an the base station. Interaction between these two systems is fairly limited as the rocket's operation is entirely autonomous during flight. However, radio communication still occurs throughout operation. Pre-flight, the system status of the rocket must be verified before the launch sequence is initiated remotely. During flight, telemetry is broadcasted and received by the base station, this is to ensure that in the event the rocket is not recovered, flight data can still be reviewed. Post-flight, the base station is to query the location of the rocket with the use of the onboard GPS.
+
+The function of the base station is to act as a remote control and data collection platform...
+
 
 #### 4.4.1 Circuit
 The circuit architecture viewpoint details the physical components of the avionics package and how these interact on the printed circuit board (PCB).
