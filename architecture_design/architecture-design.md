@@ -101,7 +101,7 @@ Each architectural view should include at least one architectural model. If arch
 The development architectural viewpoint centers around the static organization of the software system that needs to be developed, and specifying the set of practices to be applied in the development of the software [1]. This viewpoint targets the project stakeholders that are involved with the development of the software.
 
 #### 4.2.1 Software Module Organization
-![UML Component Diagram](software_architecture/Draw_IO/development-viewpoint-uml-component-diagram.png)
+![UML Component Diagram](software_architecture/Draw_IO/development-viewpoint-uml-component-diagram.png)<br>
 **Figure 1: UML Component Diagram of Software Module Organization**
 
 Figure 1 describes the target software structure at an abstract level in the form of a UML component diagram. The diagram conveys 3 central high-level components, Control, Communication and Sensors. These 3 components serve as an abstraction of what the software system is capable of doing. Within each high-level component, there are modules that each represent some feature or functionality logically related to the higher level component.
