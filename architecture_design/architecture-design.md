@@ -100,12 +100,11 @@ Each architectural view should include at least one architectural model. If arch
 ...
 
 ### 4.3 Process
-Appears to be the FSM of rocket
+***TODO: ensure logging process is correct with team***
 
 Draft of what section needs:
 - Concise sentence which outlines this overall viewpoint
 - FSM diagram
-  - ydl?
 - explanation of key states
   - initialisation of rocket
   - pre flight analysis
@@ -116,8 +115,6 @@ Draft of what section needs:
     - communicate over radio
   - landing system
   - store overall flight data in sd
-  - ***TODO: ensure logging system is correct***
-
 - explanation of how states are maintained
   - Control package (mainly guidance system package) will monitor and maintain states
 - concerns:
@@ -126,6 +123,10 @@ Draft of what section needs:
     - can't be async as this can lead to same variables being read and overwritten
     - trading worse performance for safety
 - mapping of key tasks to software elements/packages
+
+
+---
+![FSM](software_architecture/process-4.3.png)
 
 
 ### 4.4 Physical
