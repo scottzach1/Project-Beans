@@ -127,6 +127,32 @@ For ease of development and troubleshooting, LEDs and test points are also inclu
 
 #### 4.4.2 Hardware
 
+* One or more concerns framed by this viewpoint
+* typical stakeholders for concerns framed by this viewpoints
+* one or more model kinds used in this viewpoint;
+* concern = Topic of interest pertaining to the system
+* Stakeholders of a system hold these concerns e.g. controller flight.
+
+The hardware architecture is specifically related to the interaction between software and the hardware systems onboard the rocket. The purpose of this viewpoint it to address the main concerns within the hardware system to software relations that are held by the stakeholders. An intention of this viewpoint is to assist users in integrating their own hardware or software designs into the hardware aspects of the product while being aware of where these major concerns lie. A mapping of dependencies between hardware and systems is shown below.
+
+< cool new image here >
+
+One or more of the project aims will not be achieved if any of the concerns below are not met by the system.
+
+- Power system
+
+The power system is the most important system within the rocket. All Hardware components (excluding non-electrical components) will not function if this system malfunctions.
+
+- Communications system
+  - A requirement is that Data must be saved transferred to base station. data comes through the microcontroller where it is packaged. The packaged data is from the IMU, and the other sensors(what sensors?). The software on the microcontroller is what polls the sensors at a rate (What rate?). A failure in the sensors will be handled by the software and data may still be sent. However, if the microcontroller, Antenna, or the signal amplifier fails, the communications requirement will not be met.
+
+- Control system
+  - Software on the microcontroller takes polls the IMU and runs the data through software of a controller giving an outputs. This output is applied to the motors on the gimbal for a correction to the rocket. All components in this chain are required for this process, including the software if any fail, controlled flight will not happen.
+
+
+- Ignition system
+  - The ignition system requires a high one off voltage. This has to remain isolated from the power system as not to damage the components within that are operating at lower voltages(?).
+-
 
 ### 4.5 Scenarios
 ...
