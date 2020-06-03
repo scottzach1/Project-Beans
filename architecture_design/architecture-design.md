@@ -103,10 +103,12 @@ Each architectural view should include at least one architectural model. If arch
 ...
 
 ### 4.4 Physical
-This viewpoint extends to the physical hardware that the system will be implemented on. For the avionics package the view of the physical system includes two major blocks, the rocket an the base station. Interaction between these two systems is fairly limited as the rocket's operation is entirely autonomous during flight. However, radio communication still occurs throughout operation. Pre-flight, the system status of the rocket must be verified before the launch sequence is initiated remotely. During flight, telemetry is broadcasted and received by the base station, this is to ensure that in the event the rocket is not recovered, flight data can still be reviewed. Post-flight, the base station is to query the location of the rocket with the use of the onboard GPS.
+This viewpoint extends to the physical hardware that the system will be implemented on. For the avionics package the view of the physical system includes two major blocks, the rocket and the base station. Interaction between these two systems is fairly limited as the rocket's operation is entirely autonomous during flight. However, radio communication still occurs throughout operation. Pre-flight, the system status of the rocket must be verified before the launch sequence is initiated remotely. During flight, telemetry is broadcasted and received by the base station, this is to ensure that in the event the rocket is not recovered, flight data can still be reviewed. Post-flight, the base station is able to query the location of the rocket should its location be unknown after landing. During operation the rockets functions are to take measurements from on-board sensors, actively control flight through the gimbal and store as well as broadcast data pertaining to sensor measurements and controller response. The Base Station actively monitors the radio channel and stores the received telemetry data into a local database.
 
-The function of the base station is to act as a remote control and data collection platform...
+In terms of scalability, the physical hardware could be improved in a few aspects. The processor onboard the avionics package could be improved to support greater data logging resolution. There could be more than one base station communicating with the rocket to ensure a more stable connection. The flight data could also be stored across more than one SD card or hard drive in the event that one or more of the drives is corrupted or damaged.
 
+
+![Physical Deployment Diagram](hardware_architecture/PhysDeploymentDiagram.png)
 
 #### 4.4.1 Circuit
 The circuit architecture viewpoint details the physical components of the avionics package and how these interact on the printed circuit board (PCB).
@@ -123,7 +125,7 @@ The circuit also incorporates additional ports to facilitate further development
 
 For ease of development and troubleshooting, LEDs and test points are also included in the circuit which aids in quickly identify the status of the system.
 
-![image](https://app.diagrams.net/js/viewer.min.js)
+<Insert: Hardware Architecture UML Diagram>
 
 #### 4.4.2 Hardware
 
