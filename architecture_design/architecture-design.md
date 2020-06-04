@@ -95,7 +95,25 @@ As appropriate you should include the following viewpoints:
 Each architectural view should include at least one architectural model. If architectural models are shared across views, refer back to the first occurrence of that model in your document, rather than including a separate section for the architectural models.
 
 ### 4.1 Logical
-...
+- Structural breakdown of responsibilities of system
+  - computational
+  - communication
+  - heuristic
+- Diagrams required to fully encapsulate the information
+
+**Overview**
+
+The logical view is concerned with the functionality that the system
+provides to the end-users. This encapsulates different characteristics
+and responsibilities of the system such as those concerned with the
+systems computation, communication and heuristic.
+
+To help represent this, UML diagrams will be used to represent the
+logical view, including both state and class diagrams. By reading these
+diagrams, the reader should have a reasonable level of understanding of
+the basic design and structure of the system. This representation will
+only provide a rough overview and to reduce noise individual
+implementations will be omitted.
 
 ### 4.2 Development
 The development architectural viewpoint centers around the static organization of the software system that needs to be developed, and specifying the set of practices to be applied in the development of the software [1]. This viewpoint targets the project stakeholders that are involved with the development of the software.
