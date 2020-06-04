@@ -430,7 +430,7 @@ This section will define what the base expectation of our of our project outcome
 
 ### 3.5 Logical database requirements
 This section outlines the software system that will be implemented for the rocket.
-![UML Class Diagram](/architecture_design/software-architecture/Yed/rocket.png)
+![UML Class Diagram](/architecture_design/software_architecture/Yed/rocket.png)
 
 The software system is split into 3 main parts - Control, Sensors, and Communication.
 #### Control

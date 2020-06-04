@@ -50,6 +50,7 @@ If the requirement have changed significantly since the requirements document, o
 ## 2. References
 
 References to other documents or standards. Follow the IEEE Citation Reference scheme, available from the [IEEE website](https://ieee-dataport.org/sites/default/files/analysis/27/IEEE%20Citation%20Guidelines.pdf) (PDF; 20 KB). (1 page, longer if required)
+https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf [1] (Viewed 27/5/2020) 
 
 ## 3. Architecture
 
@@ -97,7 +98,55 @@ Each architectural view should include at least one architectural model. If arch
 ...
 
 ### 4.2 Development
-...
+The development architectural viewpoint centers around the static organization of the software system that needs to be developed, and specifying the set of practices to be applied in the development of the software [1]. This viewpoint targets the project stakeholders that are involved with the development of the software.
+
+#### 4.2.1 Software Module Organization
+![UML Component Diagram](software_architecture/Draw_IO/development-viewpoint-uml-component-diagram.png)<br>
+**Figure 1: UML Component Diagram of Software Module Organization**
+
+Figure 1 describes the target software structure at an abstract level in the form of a UML component diagram. The diagram conveys 3 central high-level components, Control, Communication and Sensors. These 3 components serve as an abstraction of what the software system is capable of doing. Within each high-level component, there are modules that each represent some feature or functionality logically related to the higher level component.
+
+##### Control
+The Control component comprises of 3 main modules, the landing, gimbal and guidance system module. The landing module is independent of the gimbal module and vice versa, however, both modules require some input from the guidance system module to operate correctly. The guidance system will be responsible for calculations related to the flight of the rocket, and determining when the landing sequence should initiate, hence the 2 other modules depending on the guidance system module. At a higher level, the control component provides a service to the communication module. This was done to satisfy the requirement of stakeholders being able to monitor the flight at the base station.
+
+##### Sensors
+The Sensors component contains 4 submodules, Battery, IMU, GPS, and Sensor Manager. The Battery, IMU, and GPS will each interface with the corresponding on-board sensors of the rocket, whereas the Sensor Manager module serves as the access point of these sensors from a software perspective. Figure 1 shows that the Sensor Manager requires a service from the 3 other modules, but this relationship is one-directional, with none of the other modules requiring Sensor Manager to operate. This is due to the fact that the Sensor Manager will perform read-only operations on the other modules to send it to the Communication component for analysis and monitoring (as required by the client).
+
+##### Communication
+The Communication component contains 2 modules, the Radio module to enable communication between the base station and the 2 other components (Control and Sensors), and a Logger module to log data from the Control and Sensors components to locations where they are needed. The Communication component relies on the 2 other components, and as a result, this component may be the most instable of the 3 components.
+
+##### Modularity and Reliability
+In section 3.7 of the requirements document, it has been outlined that maintainability and extensibility of the software is a desired non-functional requirement to make it easy for future individuals to contribute to the project. To work towards this objective, it is important that the organization of the software system accomodates for the idea of modularity. Steps were taken to minimize the number of dependencies that need to exist between the components. However, it is simply unavoidable for dependencies to exist between modules that are logically related to each other. Furthermore, forcing a small number of dependencies should not compromise the reliability of the software system. The Communication component has the highest number of dependencies which means it is the most instable. Despite this, it is important to note that the Communication component should not affect the rocket's flight and physical state because this component does not provide any services to the 2 other components. This means that even when the Communication component fails, the failure should not propagate to the 2 other components, enabling the rocket to maintain a safe flight trajectory despite the failure.
+
+#### 4.2.2 Development Environment and Practices
+
+##### Gitlab Workflow
+Git and GitLab are used in conjunction for the version control aspect of the project. The benefits of a platform such as GitLab is that in addition to version control, it provides a platform for project management and CI/CD.
+
+- **Project Managing through GitLab**<br>
+GitLab gives the ability to break down projects into well defined pieces in the form of **epics, sub-epics, milestones, and issues**. In the context of this project, the project team decided that each of these components corresponds to the following:<br><br>
+    - **Epics** - Represents a phase in the project.
+    - **Sub-epics** (An epic assigned as a child epic to another epic) - Represents a feature or user story relevant to the corresponding parent epic (Project Phase)
+    - **Issues** - Specific, narrowly-scoped objectives that contribute to achieving its assigned subepic. Subepics should be associated with a collection of issues. Issues are assigned to 1 or more team members on a voluntary basis (as per the Scrum principles).
+    - **Milestones** - Represents an iteration/sprint within a project. Each milestone will be assigned a start date, and a due date 2 weeks from the starting date. In each milestone, At least 1 sub-epic will be addressed, which in turn will address a range of issues. Each milestone will be assigned a board through GitLab. The board serves as a visual representation of the tasks that need to be undertaken for a sprint, and their current status (eg Open, To Do, Doing, Review, Closed)
+    <br>
+- **Branching Strategy and Merge Requests**<br>
+ The branching strategy adopted by the team involves the creation of a branch and merge request for every issue a team member decides to do. **The branch created must be branching off the master branch.** If more than 1 team member is assigned to an issue, those team members can decide if they want to create further individual branches that branch off the newly created branch. <br><br>
+
+  ![Branching Strategy Diagram](software_architecture/Draw_IO/branching-strategy-diagram.png) <br>**Figure 2: Branching Strategy Diagram**<br><br>
+  
+  The diagram in figure 2 follows a small example of only 3 issues being addressed in the sprint. Each issue has a branch and should be composed of multiple commits as represented by multiple nodes of the same color in the diagram. When the issue has been completed, the branch should be merged into the master branch via the merge request. After merging, the branch created for the issue will be closed, so should the corresponding issue.<br><br>
+  
+- **Completing an Issue and Merge Request**
+  When the issue has been completed, it is the responsibility of the issue assignee to move the issue to the **review stage** via the sprint board, and assigning the issue the 'review' label. The merge request should be assigned the review label to indicate to other team members that the merge request is ready for reviewing. Relevant team members will be responsible for inspecting the changes applied through the merge request, and will have to provide an approval. **Each merge request must receive a certain number of approvals** before being able to merge its contents with the master branch. It is the responsibility of the team members to provide feedback and suggestions to the merge request as they see fit. After receiving the required number of approvals, the merge request can be completed by merging its corresponding branch to master and closing the merge request. The sourcce branch has the option to be closed with the merge request, however it is up to individual team members to make use of this feature. <br><br>
+
+- _**TODO:**_ Write about CI/CD as more details become available
+
+
+##### Agile Project Management
+The project will be managed by observing agile project management principles. In particular, the Scrum agile project management methodology is used as a template on how to conduct the project. The project is conducted in 2-week sprints, with each sprint addressing at least 1 epic defined for the project. Sprint planning meetings will be conducted to obtain a sprint backlog, and to officially initiate the sprint. Brief sprint reviews will be conducted at the end of sprints to give the project team some insight on how the sprint progressed, and what could be improved.The usage of issue boards and limiting the number of tasks that can be in a single phase are inspired from the Kanban methodology of agile project management. This assists the project team in determining the status of issues, and finding out what still needs to be addressed. Regular meetings are also conducted to monitor and encourage the progress of each individual towards the issues they are aassigned to. By observing these ideas, team members are able to collaborate effectively, enabling the project the reach its goals in a systematic fashion.
+
+_**TODO:**_ Write about any potential conventions with the selected programming language and tools used
 
 ### 4.3 Process
 ...
