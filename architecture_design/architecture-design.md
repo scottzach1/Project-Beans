@@ -115,6 +115,26 @@ the basic design and structure of the system. This representation will
 only provide a rough overview and to reduce noise individual
 implementations will be omitted.
 
+**Class Diagrams**
+
+The class diagrams will contain nodes that represent components within
+the system. Some components of the system by nature have a lot of
+inherent complexity. To provide better encapsulation of the system
+entirely, the use of components within a system may be represented in
+more depth via subcomponents. An example of how this may can be observed
+by the use of subcomponents (Radio, Logger) within the Communication
+component in Figure 1.
+
+<b><i>FIXME: This may or may not be our desired implementation!</b><i>
+
+For all leaf nodes (no sub-modules) within the class diagram, there will
+be internal attributes that map characteristics of the respective
+components.
+
+![Example of node](project_architecture/node.png)
+
+**State Diagrams**
+
 ### 4.2 Development
 The development architectural viewpoint centers around the static organization of the software system that needs to be developed, and specifying the set of practices to be applied in the development of the software [1]. This viewpoint targets the project stakeholders that are involved with the development of the software.
 
