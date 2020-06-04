@@ -135,6 +135,22 @@ components.
 
 **State Diagrams**
 
+To represent the different states and modes that the node may be in a
+state diagram will be used. This diagram will follow traditional state
+chart diagrams. Namely, different states will be represented within a
+rounded oblong. Arrows will point between different nodes to indicate
+transitions. These arrow will contain any relevant trigger / action that
+causes the change in state. These will be in the form of text.
+
+To indicate the starting state of the system, a solid black circle will
+be used. To indicate the end state of the system a solid black circle
+with an outer black ring around it will be used.
+
+A full list of the other available ruleset for the project can be found
+at the following link:
+
+[https://www.uml-diagrams.org/state-machine-diagrams.html](https://www.uml-diagrams.org/state-machine-diagrams.html)
+
 ### 4.2 Development
 The development architectural viewpoint centers around the static organization of the software system that needs to be developed, and specifying the set of practices to be applied in the development of the software [1]. This viewpoint targets the project stakeholders that are involved with the development of the software.
 
