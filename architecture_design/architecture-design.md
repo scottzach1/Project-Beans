@@ -137,24 +137,33 @@ For ease of development and troubleshooting, LEDs and test points are also inclu
 
 The hardware architecture is specifically related to the interaction between software and the hardware systems onboard the rocket. The purpose of this viewpoint it to address the main concerns within the hardware system to software relations that are held by the stakeholders. An intention of this viewpoint is to assist users in integrating their own hardware or software designs into the hardware aspects of the product while being aware of where these major concerns lie. A mapping of dependencies between hardware and systems is shown below.
 
-< cool new image here >
+![Physical Deployment Diagram](hardware_architecture/hardware_architecture.png)
+The arrow directions point to what is depend on the system where the arrow originates from. The red arrows indicate the transfer or dependency on power, whereas the green indicate data transfer. This diagram can be used to see dependencies between the software and hardware systems within the rocket. This diagram omits the base station receiver.
 
-One or more of the project aims will not be achieved if any of the concerns below are not met by the system.
+One or more of the project aims will not be achieved if any of the concerns below are not met by the system. Therefore, when integrating any new hardware or software systems into this system, the following concerns must be addressed.
 
-- Power system
+###### Power system
 
-The power system is the most important system within the rocket. All Hardware components (excluding non-electrical components) will not function if this system malfunctions.
+The power system is the most important system within the rocket. All Hardware components (excluding non-electrical components) will not function if this system malfunctions. There are several concerns regarding the power supply. Each component added to this system, like the exiting components, need to be connected to the correct voltage line. The existing lines are (? what volages) with max currents (?) respectively. The voltage must and max current must be abided by, else the power supply with shut off or fail. If these are not sufficient for the new hardware a new voltage line must be added. A concern reguarding adding a new voltage line is the portion of the total battery current it will draw. This must not exceed (?) and must still allow enough for the required current draw on the other lines, else other components will malfunction.
 
-- Communications system
-  - A requirement is that Data must be saved transferred to base station. data comes through the microcontroller where it is packaged. The packaged data is from the IMU, and the other sensors(what sensors?). The software on the microcontroller is what polls the sensors at a rate (What rate?). A failure in the sensors will be handled by the software and data may still be sent. However, if the microcontroller, Antenna, or the signal amplifier fails, the communications requirement will not be met.
+###### Communications and Storage systems
+A requirement is that Data must be saved transferred to base station. All saved and transmitted data is processed in the microcontroller where it is packaged. The packaged data is from the IMU, and the other sensors(what sensors?). The software on the microcontroller is what polls the sensors at a rate (What rate?). A failure in the sensors will be handled by the software and data may still be sent missing the failed components data. However, if the microcontroller, Antenna, or the signal amplifier fails, the communications requirement will not be met. There is hardware to interface with the SD card for onboard storage of data, if this fails or data will not be saved onboard and may cause a halt on the microcontroller causing the system to fail.
 
-- Control system
-  - Software on the microcontroller takes polls the IMU and runs the data through software of a controller giving an outputs. This output is applied to the motors on the gimbal for a correction to the rocket. All components in this chain are required for this process, including the software if any fail, controlled flight will not happen.
+The rocket acceleration will not allow some components to work properly. The onboard GPS (? what GPS) is not accurate for the acceleration phase of the rockets flight. This must be noted when adding new hardware and software system. new software should not rely on the GPS during the acceleration phase. Caution should be employed when adding new hardware, that is intended to be used during acceleration phase as the acceleration may effect function.
+
+###### Control system
+The microcontroller is at the center of the Control System, it contains the software that polls the IMU and the transfer function that take the desired flight angles (? what this called) and outputs the gimbal motor voltage signals to adjust the flight path. All components in this chain are required for this process, including the software if any fail, controlled flight will not happen.
 
 
-- Ignition system
-  - The ignition system requires a high one off voltage. This has to remain isolated from the power system as not to damage the components within that are operating at lower voltages(?).
--
+###### Ignition system
+The ignition system requires a high one off voltage to ignite the powder fuel. This has to remain isolated from the power system as not to damage the components within that are operating at lower voltages(?). (? specifications of this voltage signal and how it is implemented in our rocket. e.g. Power supply slowly charges a large capacitor then is discharged at ignition, this would then require a note of how long this will take to charge, how much battery charge this takes initially? (if significant))
+
+###### Base Station
+Key data is sent to the base station, the rest is stored on the rocket to save the computing resource available. Sent data includes the Battery level, GPS position (For locating after the acceleration phase), (? other indicators of system status).
+
+###### Software
+The microcontrollers onboard flash memory is where the control system parameters are stored along with (? Timing intervals for certain triggers, large sections of software that wont fit in the program memory? Subroutines for interrupts). Triggers include: Ignition, Base station triggers?. Continuious data flows include: Control system (receiving from IMU, sending to Gimbal), Data storage (Polling Sensors, sending data to SD), Communications (Sending to amplifier).
+
 
 ### 4.5 Scenarios
 ...
