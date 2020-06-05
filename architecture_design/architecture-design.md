@@ -95,16 +95,10 @@ As appropriate you should include the following viewpoints:
 Each architectural view should include at least one architectural model. If architectural models are shared across views, refer back to the first occurrence of that model in your document, rather than including a separate section for the architectural models.
 
 ### 4.1 Logical
-- Structural breakdown of responsibilities of system
-  - computational
-  - communication
-  - heuristic
-- Diagrams required to fully encapsulate the information
-
 **Overview**
 
 The logical view is concerned with the functionality that the system
-provides to the end-users. This encapsulates different characteristics
+provides to the end-users from a heavily software oriented perspective. This encapsulates different characteristics
 and responsibilities of the system such as those concerned with the
 systems computation, communication and heuristic.
 
@@ -131,7 +125,9 @@ For all leaf nodes (no sub-modules) within the class diagram, there will
 be internal attributes that map characteristics of the respective
 components.
 
-![Example of node](logical_architecture/ClassNode.png)
+***Figure ?: UML Class Diagram of Software Module Organization***
+
+![Example UML class diagram](software_architecture/Yed/rocket.png)
 
 **State Diagrams**
 
@@ -150,6 +146,8 @@ A full list of the other available ruleset for the project can be found
 at the following link:
 
 [https://www.uml-diagrams.org/state-machine-diagrams.html](https://www.uml-diagrams.org/state-machine-diagrams.html)
+
+***Figure ?: UML State Diagram of rocket***
 
 ![Example of state diagram](logical_architecture/StateDiagram.png)
 
