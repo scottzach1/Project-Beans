@@ -114,12 +114,12 @@ One key consideration around the system is the choice for concurrency when readi
 One of the concerns that comes with concurrency is that the speed at which positions are being read and updated may be faster than the speed at which this data is sent via radio. This opens up the issue of position data being overwritten before it has been sent. To avoid this the data is stored first with the help of the Logging package. This allows for the data to be sent at both slower speeds, as well as after the flight is complete.
 
 ##### State Management
-The current state of the system will be managed via the Control Package. The Radio Interface will be used for initialisation, which will communicate with the control package for running pre-flight diagnostics. The Guidance System  sub-package will be in control for the flight phase, with the Landing sub-package taking control post flight.
+The current state of the system will be managed via the Control Package. The Radio Interface will be used for initialisation, which will communicate with the control package for running pre-flight diagnostic. The Guidance System sub-package will be in control for the flight phase, with the Landing sub-package taking control post flight.
 
 As is common with flow control, almost all of the activities in this diagram are dependent on the successful completion of the prior activities. This logic must also be reflected in the code. The activities have a strong association with the different states of the rocket. The current state will be stored and managed via the Control package to ensure that this flow is stuck to throughout run time.
 
 ##### Error Propagation
-Error Propagation is a key concern when managing the control flow of the system. Its crucial that errors don't get passed down from action to action, as it can become impossible to tell where the fault initially occurred. For example, if there's an error in the initialisation of the components then we don't want the launch sequence to be able to continue with this error. All errors need to be isolated and either corrected, or put the system in a failure state. This isolation approach has been implemented via the guards (eg. [Initiliased]) and decision nodes of the UML activity diagram, which aim to catch any errors in the higher risk activities.
+Error Propagation is a key concern when managing the control flow of the system. Its crucial that errors don't get passed down from action to action, as it can become impossible to tell where the fault initially occurred. For example, if there's an error in the initialisation of the components then we don't want the launch sequence to be able to continue with this error. All errors need to be isolated and either corrected, or put the system in a failure state. This isolation approach has been implemented via the guards (eg. \[Initialised]) and decision nodes of the UML activity diagram, which aim to catch any errors in the higher risk activities.
 
 
 
