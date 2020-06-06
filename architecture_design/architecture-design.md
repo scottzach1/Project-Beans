@@ -107,6 +107,7 @@ logical view, including both state and class diagrams. By reading these
 diagrams, the reader should have a reasonable level of understanding of
 the basic design and structure of the system. This representation will
 only provide a rough overview and to reduce noise individual
+
 implementations will be omitted.
 
 **Class Diagrams**
