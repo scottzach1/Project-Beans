@@ -519,7 +519,7 @@ _**TODO:**_ Maybe talk about the fact that we have to use a programming language
 #### 3.7.1 Hardware Non-Functional System Attributes
 _**TODO:**_ Try to list approximately 10 hardware non-functional requirements, a few of which need to be written about in detail.
 
-##### Accessibility (Client made a point about this in a Q&A (see Q&A Session 04 20 2020 in wiki))?
+##### Accessibility
 The client has outlined that in previous iterations of this project, the final product had issues with the accessibility of the physical rocket hardware. It is imperative these issues are resolved as the client has outlined that one of the purposes of this project is to contribute to the wider rocket building community. Accessibility of the rocket in this context means that the rocket will be relatively easy to assessable and disassemble before and after launches. There must also be easy access to all external interfaces on the rocket, including but not limited too:
 
 - Power switch
@@ -532,7 +532,6 @@ The client has outlined that in previous iterations of this project, the final p
 #####  Reliability
 It is crucial the hardware of the rocket is reliable as we are dealing with potentially dangerous and harmful equipment. It was also specified by the client that the hardware should not be able to be damaged though simple actions like plugging in the battery or the sensors into the main-board incorrectly. To assure that the features are met, we can take measure to assure that incorrect use of the rocket will not result in the destruction of the hardware, or harm to the user. To protect the hardware, we can ensure that components such as sensors are either attached through non-reversible connectors, or directly connected to the main-board of the rocked. We can also ensure that all power systems are connected to the main-board with non-reversible connectors, and that there are reverse polarity protections present on the board. 
  
-- Drag?
 - Simulation to verify hardware before producing it physically (could save us a lot of time)?
 
 #### 3.7.2 Software Non-Functional System Attributes
