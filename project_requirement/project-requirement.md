@@ -117,6 +117,10 @@ https://www.grc.nasa.gov/WWW/K-12/airplane/vecthrst.html [3] (Viewed 13/5/2020)\
 
 https://opensource.org/licenses [4] (Viewed 16/5/2020)
 
+http://www.legislation.govt.nz/regulation/public/2001/0240/latest/DLM71513.html [5] (Viewed 2/5/2020)
+
+https://gazette.govt.nz/notice/id/2019-go1588 [6] (Viewed 2/5/2020)
+
 
 ## 3. Specific requirements  
 
@@ -503,7 +507,7 @@ For this project, the hardware design constraints are restrictions imposed upon 
 
 According to the New Zealand Rocketry Association [1], the physical construction of a rocket with a motor class ranging from A-F  must adhere to the following rules:
 
-- The rocket's body, nose, and fins are made of lightweight, non-metal parts only. The following materials are approved:
+- The rocket's body, nose, and fins are made of lightweight, non-metal parts only. The following materials have been approved:
   - Paper
   - Wood
   - Rubber
@@ -512,16 +516,22 @@ According to the New Zealand Rocketry Association [1], the physical construction
 - The motor used must be commercially manufactured and certified.
 - The rocket must be ignited through an electric ignition system with electric motor igniters with a removable safety interlock.
 - The rocket cannot contain more than 125g of propellant.
-- The rocket must not weight more than 1500g at liftoff.
-- The rocket cannot produce more than 320 N-secs of total impulse.
-- The rocket must have a recovery system in the form of a streamer or a parachute so it can land safely.
+- The rocket must not weight more than 1500g at lift off.
+- The rocket cannot produce more than 320N-secs of total impulse.
+- The rocket must have a recovery system in the form of a streamer, or a parachute, so it can land safely.
 - Recovery wadding used must be fire-resistant or fire-proof.
 - The rocket must not contain any payload that is intentionally flammable or to cause harm.
 
+The rocket must also conform to regulation 9 of the Radiocommunications Regulations 2001[5][6]. Regulation 9 defines the available frequencies for broadcast on a general user radio licence, it also as the maximum broadcast power in DBW (Decibel Watts). We must also ensure that we chose to broadcast on a frequency that doesn't have heavy traffic inorder to negate the affects of interference. 
+
+
 In addition to these regulations, the client has specifically stated the following hardware design constraint:
-- The airframe's diameter must not exceed 29 mm (preferably, the airframe is less than 29 mm for usability and cost-efficiency purposes)
+- The airframe's diameter must not exceed 29mm (preferably, the airframe is less than 29mm for usability and cost-efficiency purposes)
+- The rocket must use the QFN package type for any integrated chips it uses. 
 
 _**TODO:**_ Identify any hardware design constraints imposed by the equipment and electronics we have agreed to use for our rocket. Place them in h5 subheadings here.
+
+
 
 #### 3.6.2 Software Design Constraints
 ##### Open Source Software
@@ -533,8 +543,20 @@ _**TODO:**_ Maybe talk about the fact that we have to use a programming language
 ### 3.7 Nonfunctional system attributes
 #### 3.7.1 Hardware Non-Functional System Attributes
 _**TODO:**_ Try to list approximately 10 hardware non-functional requirements, a few of which need to be written about in detail.
-- Accessibility (Client made a point about this in a Q&A (see Q&A Session 04 20 2020 in the wiki))?
-- Drag?
+
+##### Accessibility
+The client has outlined that in previous iterations of this project, the final product had issues with the accessibility of the physical rocket hardware. It is imperative these issues are resolved as the client has outlined that one of the purposes of this project is to contribute to the wider rocket building community. Accessibility of the rocket in this context means that the rocket will be relatively easy to assessable and disassemble before and after launches. There must also be easy access to all external interfaces on the rocket, including but not limited too:
+
+- Power switch
+- Launch Safety Switch
+- USB Programming Port
+- SD Card
+- Battery Connector
+- Parachute deployment charges
+
+#####  Reliability
+It is crucial the hardware of the rocket is reliable as we are dealing with potentially dangerous and harmful equipment. It was also specified by the client that the hardware should not be able to be damaged though simple actions like plugging in the battery or the sensors into the main-board incorrectly. To assure that the features are met, we can take measure to assure that incorrect use of the rocket will not result in the destruction of the hardware, or harm to the user. To protect the hardware, we can ensure that components such as sensors are either attached through non-reversible connectors, or directly connected to the main-board of the rocked. We can also ensure that all power systems are connected to the main-board with non-reversible connectors, and that there are reverse polarity protections present on the board. 
+ 
 - Simulation to verify hardware before producing it physically (could save us a lot of time)?
 
 #### 3.7.2 Software Non-Functional System Attributes
