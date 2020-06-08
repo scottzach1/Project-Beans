@@ -130,7 +130,7 @@ The remaining wiring is involved in providing power to the components which requ
 
 For development, the circuit incorporates several test points and LEDs to aid in quickly identifying the status of the system as well and troubleshooting any issues. The microcontroller also offers additional ports for any extra peripherals required. This may include additional sensors or devices involved in the active control of the rocket. This may include wiring to a remote charge for ejecting a parachute for example.
 
-<Insert: Hardware Architecture UML Diagram>
+![Circuit Block Diagram](hardware_architecture/CircuitBlockDiagram.png)
 
 #### 4.4.2 Hardware
 
