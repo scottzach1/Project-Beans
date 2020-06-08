@@ -105,7 +105,61 @@ As appropriate you should include the following viewpoints:
 Each architectural view should include at least one architectural model. If architectural models are shared across views, refer back to the first occurrence of that model in your document, rather than including a separate section for the architectural models.
 
 ### 4.1 Logical
-...
+**Overview**
+
+The logical view is concerned with the functionality that the system
+provides to the end-users from a heavily software oriented perspective. This encapsulates different characteristics
+and responsibilities of the system such as those concerned with the
+systems computation, communication and heuristic.
+
+To help represent this, UML diagrams will be used to represent the
+logical view, including both state and class diagrams. By reading these
+diagrams, the reader should have a reasonable level of understanding of
+the basic design and structure of the system. This representation will
+only provide a rough overview, and to reduce noise, individual
+implementations will be omitted.
+
+**Class Diagrams**
+
+The class diagrams will contain nodes that represent components within
+the system. Some components of the system by nature have a lot of
+inherent complexity. To provide better encapsulation of the system
+entirely, the use of components within a system may be represented in
+more depth via subcomponents. An example of how this may can be observed
+by the use of subcomponents (Radio, Logger) within the Communication
+component in Figure 1.
+
+<b><i>FIXME: This may or may not be our desired implementation!</b></i>
+
+For all leaf nodes (no sub-modules) within the class diagram, there will
+be internal attributes that map characteristics of the respective
+components.
+
+***Figure ?: UML Class Diagram of Software Module Organization***
+
+![Example UML class diagram](software_architecture/Yed/rocket.png)
+
+**State Diagrams**
+
+To represent the different states and modes that the node may be in a
+state diagram will be used. This diagram will follow traditional state
+chart diagrams. Namely, different states will be represented within a
+rounded oblong. Arrows will point between different nodes to indicate
+transitions. These arrow will contain any relevant trigger / action that
+causes the change in state. These will be in the form of text.
+
+To indicate the starting state of the system, a solid black circle will
+be used. To indicate the end state of the system a solid black circle
+with an outer black ring around it will be used.
+
+A full list of the other available ruleset for the project can be found
+at the following link:
+
+[https://www.uml-diagrams.org/state-machine-diagrams.html](https://www.uml-diagrams.org/state-machine-diagrams.html)
+
+***Figure ?: UML State Diagram of rocket***
+
+![Example of state diagram](logical_architecture/StateDiagram.png)
 
 ### 4.2 Development
 The development architectural viewpoint centers around the static organization of the software system that needs to be developed, and specifying the set of practices to be applied in the development of the software [1]. This viewpoint targets the project stakeholders that are involved with the development of the software.
