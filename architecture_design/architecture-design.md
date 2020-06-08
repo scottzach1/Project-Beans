@@ -28,20 +28,30 @@ All team members are expected to contribute equally to the document and list the
 **Authors:** a comma-separated list of the names of each member of the team.
 
 ## 1. Introduction
+Requirement: "One page overall introduction including sections 1.1 and 1.2 (ISO/IEC/IEEE 42010:2011(E) clause 5.2)"
 
-One page overall introduction including sections 1.1 and 1.2 (ISO/IEC/IEEE 42010:2011(E) clause 5.2)
+For rockets ranging from NASAs Saturn V to an amateur rocket enthusiasts first rocket, stability is a desireable. The method in which stable flight is achieved varies to a large degree, but can be divided into two basic categories. The most common being passively stablized rockets. These maintain a stable flight due to passive aerodynamic features, an example being fins that give the rocket a stablizing rotation (similar to the effect of rifling on a bullet).
+The simplicity of a passive system is apealing but any error introduced to the system can cause an unwanted flight trajectory. Some examples of sources of error include, unexpected wind or a fin of differing size that is not accounted for.
+The second category is an active control system. Onboard electonics can be used to achieve active course correction. Error in the rockets trajectory can be mitigated in a way that passive systems cannot. The drawbacks of this are the complexity and large overhead introduced when constructing the rocket.
+
+Our customer is one day hoping to launch a rocket from a weather balloon at approximately 70,000ft. This will require an active control system. This project aims to covering the need for an active control system. Existing off-the-shelf avionics packages for amateur rocketry enthusiasts are available, but our customer finds them lacking. This is due to limited functionality and with most packages not open source, so they cannot be reprogrammed. This project aims to improve on an existing attempt at this control system, completed in 2018, and is working along side other teams to ensure all aspects are covered.
 
 ### Client
 
-Identify the client and their contact details.
+Our client for this project is Andre Geldenhuis. Andre is a rocket enthusiast who is part of the NZ Rocketry Association. As of writing this, the contact email is "andre.geldenhuis@vuw.ac.nz" and throughout the project, the team can also contact Andre via a live text chat (Mattermost) channel.
+
 
 ### 1.1 Purpose
+Requirement: "One sentence describing the purpose of the system(9.5.1)"
 
-One sentence describing the purpose of the system.
+The purpose of this system is to control a rocket in flight while being opensource and accessible so that it can be used in the amateur rocketry community.
 
 ### 1.2 Scope
 
-One paragraph describing the scope of the system.
+Requirement: "One paragraph describing the scope of the system(9.5.2)"
+
+The objective is to deliver an avionics system that will allow stable controlled flight while simultaneously logging and broadcasting data. This system must improve on the existing avionics package created by a team in 2018 for Andre. There is no requirement on height or flight time, only to demonstrate controlled flight. The flight data must be logged to an onboard SD card, and the broadcast data must be accesed realtime by a onsite personal computer. The broadcast data must include the GPS position of the rocket. The rocket will use C or D class solid fuel engines.
+The improvements on the 2018 avionics package are the reduction in onboard PCB size, and reliability in the field. To be considered more reliable the avionics package will have to initialize and launch on the first attempt, the package must also not have loose wires or bare electronics.
 
 ### 1.3 Changes to requirements
 
@@ -173,7 +183,62 @@ Error Propagation is a key concern when managing the control flow of the system.
 
 
 ### 4.4 Physical
-...
+This viewpoint extends to the physical hardware that the system will be implemented on. For the avionics package the view of the physical system includes two major blocks, the rocket and the base station. Interaction between these two systems is fairly limited as the rocket's operation is entirely autonomous during flight. However, radio communication still occurs throughout operation. Pre-flight, the system status of the rocket must be verified before the launch sequence is initiated remotely. During flight, telemetry is broadcasted and received by the base station, this is to ensure that in the event the rocket is not recovered, flight data can still be reviewed. Post-flight, the base station is able to query the location of the rocket should its location be unknown after landing. During operation the rockets functions are to take measurements from on-board sensors, actively control flight through the gimbal and store as well as broadcast data pertaining to sensor measurements and controller response. The Base Station actively monitors the radio channel and stores the received telemetry data into a local database.
+
+In terms of scalability, the physical hardware could be improved in a few aspects. The processor onboard the avionics package could be improved to support greater data logging resolution. There could be more than one base station communicating with the rocket to ensure a more stable connection. The flight data could also be stored across more than one SD card or hard drive in the event that one or more of the drives is corrupted or damaged.
+
+
+![Physical Deployment Diagram](hardware_architecture/PhysDeploymentDiagram.png)
+
+#### 4.4.1 Circuit
+<_**TODO:**_ Make this section a bit more detailed on the physical circuit, which requires designing the circuit>
+The circuit architecture viewpoint details the physical components of the avionics package and how these interact on the printed circuit board (PCB).
+
+The wiring on the circuit board can be split into two categories, those that carry signals between components and those that provide power to the components. Beginning with wiring between components, all signals either originate from or are sent to the microcontroller. During operation, the IMU and GPS both pass analogue signals to ports on the microcontroller. During flight the microcontroller frequently polls the port wired to the IMU and digitizes the signal for use in the active control of the rocket. The port wired to the GPS is simply polled when the location of the rocket (post-flight) is required. The microcontroller then generates control signals on the port wired to the gimbal servos to adjust the rockets vector. During the ignition sequence the microcontroller outputs an ignition signal on the port wired to the ignition system to ignite the motor. In terms of communications, the microcontroller both polls and outputs signals to the radio interface in order to receive and transmit data to the base station. The radio interface modulates/demodulates signals passed to and received from the antenna. Lastly, the microcontroller also outputs signals on the port wired to the SD Card reader/writer. This signal is then transcribed onto the SD card for retrieval post-flight.
+
+The remaining wiring is involved in providing power to the components which require it. In this case, all the components require power including the radio antenna and SD card. The power supply circuitry begins with the battery. <Insert further details regarding battery configuration> The batteries are wired in series with a diode and a circuit breaker. The diode ensures that incorrect battery polarity does not result in potentially damaging reverse currents. Meanwhile the circuit breaker ensures that in the event of a short-circuit, power is cut to protect all of the hardware. Following these, the electrical signal is passed into a series of voltage regulators. The voltage regulators regulate the batteries' output to the voltages required by all the components. Once this is achieved power is delivered to all the components via the rails outputted by the voltage regulator. In addition to providing the power, the batteries' negative terminal is also used as the ground reference for all of the components.
+
+For development, the circuit incorporates several test points and LEDs to aid in quickly identifying the status of the system as well and troubleshooting any issues. The microcontroller also offers additional ports for any extra peripherals required. This may include additional sensors or devices involved in the active control of the rocket. This may include wiring to a remote charge for ejecting a parachute for example.
+
+![Circuit Block Diagram](hardware_architecture/CircuitBlockDiagram.png)
+
+#### 4.4.2 Hardware
+
+* One or more concerns framed by this viewpoint
+* typical stakeholders for concerns framed by this viewpoints
+* one or more model kinds used in this viewpoint;
+* concern = Topic of interest pertaining to the system
+* Stakeholders of a system hold these concerns e.g. controller flight.
+
+The hardware architecture is specifically related to the interaction between software and the hardware systems onboard the rocket. The purpose of this viewpoint it to address the main concerns within the hardware system to software relations that are held by the stakeholders. An intention of this viewpoint is to assist users in integrating their own hardware or software designs into the hardware aspects of the product while being aware of where these major concerns lie. A mapping of dependencies between hardware and systems is shown below.
+
+![Physical Deployment Diagram](hardware_architecture/hardware_architecture.png)
+The arrow directions point to what is depend on the system where the arrow originates from. The red arrows indicate the transfer or dependency on power, whereas the green indicate data transfer. This diagram can be used to see dependencies between the software and hardware systems within the rocket. This diagram omits the base station receiver.
+
+One or more of the project aims will not be achieved if any of the concerns below are not met by the system. Therefore, when integrating any new hardware or software systems into this system, the following concerns must be addressed.
+
+###### Power system
+
+The power system is the most important system within the rocket. All Hardware components (excluding non-electrical components) will not function if this system malfunctions. There are several concerns regarding the power supply. Each component added to this system, like the exiting components, need to be connected to the correct voltage line. The existing lines are (? what volages) with max currents (?) respectively. The voltage must and max current must be abided by, else the power supply with shut off or fail. If these are not sufficient for the new hardware a new voltage line must be added. A concern reguarding adding a new voltage line is the portion of the total battery current it will draw. This must not exceed (?) and must still allow enough for the required current draw on the other lines, else other components will malfunction.
+
+###### Communications and Storage systems
+A requirement is that Data must be saved transferred to base station. All saved and transmitted data is processed in the microcontroller where it is packaged. The packaged data is from the IMU, and the other sensors(what sensors?). The software on the microcontroller is what polls the sensors at a rate (What rate?). A failure in the sensors will be handled by the software and data may still be sent missing the failed components data. However, if the microcontroller, Antenna, or the signal amplifier fails, the communications requirement will not be met. There is hardware to interface with the SD card for onboard storage of data, if this fails or data will not be saved onboard and may cause a halt on the microcontroller causing the system to fail.
+
+The rocket acceleration will not allow some components to work properly. The onboard GPS (? what GPS) is not accurate for the acceleration phase of the rockets flight. This must be noted when adding new hardware and software system. new software should not rely on the GPS during the acceleration phase. Caution should be employed when adding new hardware, that is intended to be used during acceleration phase as the acceleration may effect function.
+
+###### Control system
+The microcontroller is at the center of the Control System, it contains the software that polls the IMU and the transfer function that take the desired flight angles (? what this called) and outputs the gimbal motor voltage signals to adjust the flight path. All components in this chain are required for this process, including the software if any fail, controlled flight will not happen.
+
+
+###### Ignition system
+The ignition system requires a high one off voltage to ignite the powder fuel. This has to remain isolated from the power system as not to damage the components within that are operating at lower voltages(?). (? specifications of this voltage signal and how it is implemented in our rocket. e.g. Power supply slowly charges a large capacitor then is discharged at ignition, this would then require a note of how long this will take to charge, how much battery charge this takes initially? (if significant))
+
+###### Base Station
+Key data is sent to the base station, the rest is stored on the rocket to save the computing resource available. Sent data includes the Battery level, GPS position (For locating after the acceleration phase), (? other indicators of system status).
+
+###### Software
+The microcontrollers onboard flash memory is where the control system parameters are stored along with (? Timing intervals for certain triggers, large sections of software that wont fit in the program memory? Subroutines for interrupts). Triggers include: Ignition, Base station triggers?. Continuious data flows include: Control system (receiving from IMU, sending to Gimbal), Data storage (Polling Sensors, sending data to SD), Communications (Sending to amplifier).
+
 
 ### 4.5 Scenarios
 ...
