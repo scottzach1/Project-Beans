@@ -149,7 +149,28 @@ The project will be managed by observing agile project management principles. In
 _**TODO:**_ Write about any potential conventions with the selected programming language and tools used
 
 ### 4.3 Process
-...
+
+The Process view aims to visually explain and represent the interaction and communication between the different system processes during the run time of this package. Below is a high level UML Activity Diagram which showcases the control flow and different states.
+
+![FSM](software_architecture/process-4.3.png)
+
+#### 4.3.1 Concerns
+
+##### Concurrency
+One key consideration around the system is the choice for concurrency when reading and writing data from the sensors. When data is read from the sensors there are two tasks which must be completed: sending the data over radio to mission control, and using this data to update the position of the rocket. While it is important for the rocket to communicate via radio with the base station, the flight controller should not be dependent on the success of this. Without these tasks running parallel if it were unable to send data to the base station then it would also be unable to update the position of the rocket, putting the rocket in a failure state while it is in flight. This is something which would just not be acceptable. As this data is important for post flight analysis it will still be stored, which means any data potentially lost with a communication error can be recovered once the rocket has left the flight stage and its less of a risk.
+
+##### Accuracy of data sent via radio
+One of the concerns that comes with concurrency is that the speed at which positions are being read and updated may be faster than the speed at which this data is sent via radio. This opens up the issue of position data being overwritten before it has been sent. To avoid this the data is stored first with the help of the Logging package. This allows for the data to be sent at both slower speeds, as well as after the flight is complete.
+
+##### State Management
+The current state of the system will be managed via the Control Package. The Radio Interface will be used for initialisation, which will communicate with the control package for running pre-flight diagnostic. The Guidance System sub-package will be in control for the flight phase, with the Landing sub-package taking control post flight.
+
+As is common with flow control, almost all of the activities in this diagram are dependent on the successful completion of the prior activities. This logic must also be reflected in the code. The activities have a strong association with the different states of the rocket. The current state will be stored and managed via the Control package to ensure that this flow is stuck to throughout run time.
+
+##### Error Propagation
+Error Propagation is a key concern when managing the control flow of the system. Its crucial that errors don't get passed down from action to action, as it can become impossible to tell where the fault initially occurred. For example, if there's an error in the initialisation of the components then we don't want the launch sequence to be able to continue with this error. All errors need to be isolated and either corrected, or put the system in a failure state. This isolation approach has been implemented via the guards (eg. \[Initialised]) and decision nodes of the UML activity diagram, which aim to catch any errors in the higher risk activities.
+
+
 
 ### 4.4 Physical
 ...
