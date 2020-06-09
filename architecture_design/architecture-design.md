@@ -62,6 +62,10 @@ If the requirement have changed significantly since the requirements document, o
 References to other documents or standards. Follow the IEEE Citation Reference scheme, available from the [IEEE website](https://ieee-dataport.org/sites/default/files/analysis/27/IEEE%20Citation%20Guidelines.pdf) (PDF; 20 KB). (1 page, longer if required)
 https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf [1] (Viewed 27/5/2020)
 
+https://riccardogiorato.com/blog/2019/2019-10-02_The-Power-of-10---NASA-s-Rules-for-Coding-43ae1764f73d/ [2]
+
+https://www.perforce.com/resources/qac/misra-c-cpp [3]
+
 1. https://github.com/nimble-code/Cobra
 2. https://spinroot.com/cobra/index.html
 
@@ -209,18 +213,18 @@ GitLab gives the ability to break down projects into well defined pieces in the 
 
 - _**TODO:**_ Write about CI/CD as more details become available / MD linter
 - **Continuous Integration / Continuous Delivery**<br>
-  The Gitlab repository will use multiple linters to enforce that all documents are syntactically correct, as well as enforce safe and readable code which can be compiled. By conforming to these conventions we can also expect future users to be able to pick up our code easier, given that they can understand these conventions.
-  One of these linters is [Cobra](https://github.com/nimble-code/Cobra), an open source C/C++ linter which was developed by NASA/JPL. This linter performs a static analysis which enforces all of our code complies with both
-  "The Power of 10" rules and the "MISRA C" safety guidelines.
+
 
 
 ##### Agile Project Management
 The project will be managed by observing agile project management principles. In particular, the Scrum agile project management methodology is used as a template on how to conduct the project. The project is conducted in 2-week sprints, with each sprint addressing at least 1 epic defined for the project. Sprint planning meetings will be conducted to obtain a sprint backlog, and to officially initiate the sprint. Brief sprint reviews will be conducted at the end of sprints to give the project team some insight on how the sprint progressed, and what could be improved. The usage of issue boards and limiting the number of tasks that can be in a single phase are inspired from the Kanban methodology of agile project management. This assists the project team in determining the status of issues, and finding out what still needs to be addressed. Regular meetings are also conducted to monitor and encourage the progress of each individual towards the issues they are assigned to. By observing these ideas, team members are able to collaborate effectively, enabling the project the reach its goals in a systematic fashion.
 
 _**TODO:**_ Write about any potential conventions with the selected programming language and tools used
+
 ##### Coding Conventions
-- https://riccardogiorato.com/blog/2019/2019-10-02_The-Power-of-10---NASA-s-Rules-for-Coding-43ae1764f73d/
-All of our code must meet "The power of 10" rules. This is done to ensure maximum safety in our code, which is critical given the nature of this project and the risks that come with using class **C - TODO** motors. These rules are:
+Due to the safety-critical nature of the product being developed, it is imperative that the software system is written in a way that assures reliability, security and safety. To achieve this, the software is written in accordance with the "Power Of 10" which is a widely used ruleset for writing safety-critical software [2]. Another commonly used coding standard that places emphasis on safety-critical software development is the MISRA C/C++ coding standard [3]. Of the 157 rules that exist within MISRA C/C++ 2016, only a small subset are followed in the development of the software.
+
+**Power of 10** - All these rules are adhered to in the development of the software
 - Avoid complex flow constructs, such as "goto" and recursion.
 - All loops must have fixed bounds (this prevents runaway code).
 - Avoid heap memory allocation.
@@ -232,7 +236,14 @@ All of our code must meet "The power of 10" rules. This is done to ensure maximu
 - Limit pointer use to a single dereference, and do not use function pointers.
 - Compile with all possible warnings active; all warnings should then be addressed before the release of the software.
 
-MISRA C - **TODO**
+**MISRA C/C++** - These are the rules within the MISRA C/C++ 2016 coding standard that are adhered to
+- Do not use `<stdlib.h>`
+- _**TODO**_: Discuss if following MISRA is overkill
+
+##### Linting
+The Gitlab repository will use multiple linters to enforce that all documents are syntactically correct, safe, and readable. By conforming to these conventions, future users are given the ability to contribute to the software system much easier, given that they can understand the conventions followed.
+
+One linter used is [Cobra](https://github.com/nimble-code/Cobra), an open source C/C++ linter which was developed by NASA/JPL. This linter performs static analysis which verifies if the software system complies with both "The Power of 10" rules and the MISRA C/C++ safety guidelines.
 
 ### 4.3 Process
 
