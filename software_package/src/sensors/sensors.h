@@ -1,5 +1,6 @@
 #include <time.h>
 static const int NUM_SENSORS = 5; // TODO: Determine actual number of sensors being managed
+static int recent_sensor_index = 0;
 
 struct sensor{
     // TODO: Determine members
@@ -33,7 +34,7 @@ struct sensor_reading read_value(char * sensor_name);
 int register_sensor(char * name); // TODO: Determine other required parameters
 
 /**
- * Initiates all sensors of the pacakge
+ * Initializes all sensors of the package
 */
 void init_sensors();
 
