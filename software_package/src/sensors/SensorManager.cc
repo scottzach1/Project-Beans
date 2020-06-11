@@ -1,4 +1,4 @@
-#include "sensors.hh"
+#include "SensorManager.hh"
 
 using namespace sensors;
 
