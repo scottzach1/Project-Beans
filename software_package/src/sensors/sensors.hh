@@ -1,3 +1,6 @@
+#ifndef sensors_h
+#define sensors_h
+
 #include <time.h>
 #include <vector>
 #include <string>
@@ -23,3 +26,5 @@ namespace sensors{
             std::vector<SensorReading> readings;
     };
 }
+
+#endif // !sensors_h

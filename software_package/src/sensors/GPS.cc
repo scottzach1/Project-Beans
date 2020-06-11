@@ -1,8 +1,9 @@
 #include "GPS.hh"
 
-using namespace sensors;
+GPS::GPS(string name){
 
-struct SensorReading GPS::read(){
 }
 
-
+struct SensorReading GPS::read(){
+    
+}

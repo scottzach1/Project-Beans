@@ -1,9 +1,14 @@
+#ifndef IMU_H
+#define IMU_H
 #include "sensors.hh"
 
-namespace sensors{
-    class IMU : public AbstractSensor{
-        public:
-            struct SensorReading read();
+using namespace sensors;
+using std::string;
 
-    };
-}
+class IMU : public sensors::AbstractSensor{
+    public:
+        IMU(string name);
+        struct sensors::SensorReading read();
+};
+
+#endif // !IMU_H

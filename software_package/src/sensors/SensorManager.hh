@@ -1,3 +1,4 @@
+#ifndef SensorManager_H
 #include "sensors.hh"
 namespace sensors{
     class SensorManager{
@@ -34,3 +35,4 @@ namespace sensors{
 
     };
 }
+#endif // !SensorManager_H

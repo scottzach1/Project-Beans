@@ -1,8 +1,7 @@
 #include "IMU.hh"
 
-using namespace sensors;
+IMU::IMU(string name){}
 
 struct SensorReading IMU::read(){
+
 }
-
-

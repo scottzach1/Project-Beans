@@ -1,7 +1,9 @@
 #include "Battery.hh"
 
-using namespace sensors;
+Battery::Battery(string name){
+
+}
 
 struct SensorReading Battery::read(){
-
+    
 }
