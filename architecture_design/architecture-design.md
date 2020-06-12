@@ -225,16 +225,17 @@ _**TODO:**_ Write about any potential conventions with the selected programming 
 Due to the safety-critical nature of the product being developed, it is imperative that the software system is written in a way that assures reliability, security and safety. To achieve this, the software is written in accordance with the "Power Of 10" which is a widely used ruleset for writing safety-critical software [2]. Another commonly used coding standard that places emphasis on safety-critical software development is the MISRA C/C++ coding standard [3]. Of the 157 rules that exist within MISRA C/C++ 2016, only a small subset are followed in the development of the software.
 
 **Power of 10** - All these rules are adhered to in the development of the software
-- Avoid complex flow constructs, such as "goto" and recursion.
-- All loops must have fixed bounds (this prevents runaway code).
-- Avoid heap memory allocation.
-- Restrict functions to a single printed page.
-- Use a minimum of two runtime assertions per function.
-- Restrict the scope of data to the smallest possible.
-- Check the return value of all nonvoid functions, or cast to void to indicate the return value is useless.
-- Use the preprocessor sparingly.
-- Limit pointer use to a single dereference, and do not use function pointers.
-- Compile with all possible warnings active; all warnings should then be addressed before the release of the software.
+
+1. Avoid complex flow constructs, such as "goto" and recursion.
+2. All loops must have fixed bounds (this prevents runaway code).
+3. Avoid heap memory allocation.
+4. Restrict functions to a single printed page.
+5. Use a minimum of two runtime assertions per function.
+6. Restrict the scope of data to the smallest possible.
+7. Check the return value of all non void functions, or cast to void to indicate the return value is useless.
+8. Use the preprocessor sparingly.
+9. Limit pointer use to a single dereference, and do not use function pointers.
+10. Compile with all possible warnings active; all warnings should then be addressed before the release of the software.
 
 **MISRA C/C++** - These are the rules within the MISRA C/C++ 2016 coding standard that are adhered to
 - Do not use `<stdlib.h>`
