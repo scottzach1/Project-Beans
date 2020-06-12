@@ -328,7 +328,7 @@ Present a table of goods or services that will be required to deliver project go
 
 ### 5.3 Risks
 
-Identify the ten most important project risks: their type, likelihood, impact, and mitigation strategies (3 pages).
+Please refer to section 5.3 of the [requirements document](https://gitlab.ecs.vuw.ac.nz/course-work/engr300/2020/group3/group-3/-/blob/master/project_requirement/project-requirement.md) for further information.
 
 ### 5.4 Health and Safety
 
