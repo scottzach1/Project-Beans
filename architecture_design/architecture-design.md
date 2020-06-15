@@ -378,12 +378,11 @@ Please refer to section 5.3 of the [requirements document](https://gitlab.ecs.vu
 
 ### 5.4 Health and Safety
 
-Document here project requirements for Health and Safety.
+Information regarding health and safety provided in section 5.4 of the [requirements document](https://gitlab.ecs.vuw.ac.nz/course-work/engr300/2020/group3/group-3/-/blob/master/project_requirement/project-requirement.md).
 
 #### 5.4.1 Safety Plans
 
-Safety Plans may be required for some projects, depending on project requirements.
-
+Detailed safety plan regarding operation can be found here: [safety plan](https://gitlab.ecs.vuw.ac.nz/course-work/engr300/2020/group3/group-3/-/blob/master/project_requirement/safety-plan-analysis.md)
 
 ## 6. Appendices
 
