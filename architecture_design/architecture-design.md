@@ -224,7 +224,7 @@ _**TODO:**_ Write about any potential conventions with the selected programming 
 ##### Coding Conventions
 Due to the safety-critical nature of the product being developed, it is imperative that the software system is written in a way that assures reliability, security and safety. To achieve this, the software is written in accordance with the "Power Of 10" which is a widely used ruleset for writing safety-critical software [2]. Another commonly used coding standard that places emphasis on safety-critical software development is the MISRA C/C++ coding standard [3]. Of the 157 rules that exist within MISRA C/C++ 2016, only a small subset are followed in the development of the software.
 
-**Power of 10** - All these rules are adhered to in the development of the software
+***Power of 10*** - All these rules are adhered to in the development of the software
 
 1. Avoid complex flow constructs, such as "goto" and recursion.
 2. All loops must have fixed bounds (this prevents runaway code).
@@ -237,9 +237,14 @@ Due to the safety-critical nature of the product being developed, it is imperati
 9. Limit pointer use to a single dereference, and do not use function pointers.
 10. Compile with all possible warnings active; all warnings should then be addressed before the release of the software.
 
-**MISRA C/C++** - These are the rules within the MISRA C/C++ 2016 coding standard that are adhered to
+***MISRA C/C++*** - These are the rules within the MISRA C/C++ 2016 coding standard that are adhered to
 - Do not use `<stdlib.h>`
-- _**TODO**_: Discuss if following MISRA is overkill
+- Following all of the rules laid out by MISRA may add too much complication to this project, which aims to develop tidy and readable code that is easily extendable. As such, for this project we have decided to stick with just the Power of 10 rules as they are the ideal balance.
+
+***Style Guide***
+- To accompany the coding standard to laid out above, there will also be a C++ style guide. For this project, we intend to use the [Google C++ Sytle Guide](https://google.github.io/styleguide/cppguide.html).
+- This style guide specifies rules to be followed such as variable, struct and file naming conventions.
+- To accompany this style guide, a C++ linter will also be configured to check for any violations in Continuous Integration (CI). The linter chosen will be [cpplint](https://github.com/cpplint/cpplint) as it is fully open source and pre-configured to comply with the aforementioned Google Style guide.
 
 ##### Linting
 The Gitlab repository will use multiple linters to enforce that all documents are syntactically correct, safe, and readable. By conforming to these conventions, future users are given the ability to contribute to the software system much easier, given that they can understand the conventions followed.
