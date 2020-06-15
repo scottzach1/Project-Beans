@@ -19,15 +19,14 @@ private:
 public:
 
     /**
-     * Construtor
+     * Constructor
     **/
-    Gimbal(/* args */);
+    Gimbal(...);
 
     /**
      * Destructor
     **/
     ~Gimbal();
-
 
     /**
      * Updates the position of the servo off readings from the PID/Guidance system.

@@ -19,10 +19,10 @@ public:
     /**
      * Constructor
     **/
-   Servo();
+   Servo(...);
 
     /**
-    * Destructor
+     * Destructor
     **/
    ~Servo();
 
