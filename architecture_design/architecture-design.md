@@ -242,14 +242,18 @@ Due to the safety-critical nature of the product being developed, it is imperati
 - Following all of the rules laid out by MISRA may add too much complication to this project, which aims to develop tidy and readable code that is easily extendable. As such, for this project we have decided to stick with just the Power of 10 rules as they are the ideal balance.
 
 ***Style Guide***
-- To accompany the coding standard to laid out above, there will also be a C++ style guide. For this project, we intend to use the [Google C++ Sytle Guide](https://google.github.io/styleguide/cppguide.html).
+- To accompany the coding standard to laid out above, there will also be a C++ style guide. For this project, we intend to use the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
 - This style guide specifies rules to be followed such as variable, struct and file naming conventions.
-- To accompany this style guide, a C++ linter will also be configured to check for any violations in Continuous Integration (CI). The linter chosen will be [cpplint](https://github.com/cpplint/cpplint) as it is fully open source and pre-configured to comply with the aforementioned Google Style guide.
+- To accompany this style guide, a C++ linter will also be configured to check for any violations in Continuous Integration (CI). The linter chosen is [cpplint](https://github.com/cpplint/cpplint) as it is fully open source and pre-configured to comply with the aforementioned Google Style guide.
 
 ##### Linting
-The Gitlab repository will use multiple linters to enforce that all documents are syntactically correct, safe, and readable. By conforming to these conventions, future users are given the ability to contribute to the software system much easier, given that they can understand the conventions followed.
+The Gitlab repository will use multiple linters to enforce that all documents are syntactically correct, consistent, safe, and readable. By conforming to these conventions, future users are given the ability to contribute to the software system much easier, given that they can understand the conventions followed.
 
 One linter used is [Cobra](https://github.com/nimble-code/Cobra), an open source C/C++ linter which was developed by NASA/JPL. This linter performs static analysis which verifies if the software system complies with both "The Power of 10" rules and the MISRA C/C++ safety guidelines.
+
+Another linter used is [cpplint](https://github.com/cpplint/cpplint). This open source C/C++ linter will be integrated as part of the CI component of the project's GitLab repository to enforce the Google C++ Style Guide. Being a command-line tool, this linter is ideal for deployment on the CI system of GitLab.
+
+For the markdown documents in the project, the linter being used is [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli). Like cpplint, this is also a command-line focused tool, making it an ideal tool for integration within GitLab's CI system. This linter will enforce a set of predefined markdown formatting rules specified [here](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md).
 
 ### 4.3 Process
 
