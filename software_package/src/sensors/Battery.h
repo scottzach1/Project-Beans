@@ -7,10 +7,10 @@
 #include "sensors.h"
 using namespace sensors;
 
-class Battery {
+class Battery : public AbstractSensor{
     public:
-        Battery(std::string name);
-        struct sensors::SensorReading read();
+        Battery();
+        sensors::SensorReading read() const override ;
 };
 
 

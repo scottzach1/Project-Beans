@@ -8,10 +8,10 @@
 #include "sensors.h"
 using namespace sensors;
 
-class GPS {
+class GPS : public AbstractSensor{
 public:
-    GPS(std::string name);
-    struct sensors::SensorReading read();
+    GPS();
+    sensors::SensorReading read() const override ;
 };
 
 

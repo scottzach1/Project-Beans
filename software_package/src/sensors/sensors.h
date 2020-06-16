@@ -23,7 +23,10 @@ namespace sensors{
          * Reads the value of the given sensor and returns it. Used for sending the sensor reading.
          * @return A SensorReading structure
         */
-        virtual struct SensorReading read() = 0;
+        virtual SensorReading read() const = 0;
+
+        inline std::string getName() const {return name;}
+        inline std::vector<SensorReading> getSensorReadings(){return readings;}
 
     protected:
         std::string name;

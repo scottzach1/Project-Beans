@@ -6,16 +6,16 @@
 #define SENSORMANAGER_H
 
 #include "sensors.h"
+#include "Battery.h"
+#include "IMU.h"
+#include "GPS.h"
+
+using std::string;
+using std::vector;
 namespace sensors {
     class SensorManager {
     public:
-        static const int NUM_SENSORS = 5; //TODO:
-
-        /**
-         * Associates a sensor to this SensorManager instance
-         * @return true if the sensor registration was succesful
-        */
-        bool registerSensor();
+        static const int NUM_SENSORS = 3; //TODO:
 
         /**
          * Entry point of SensorManager. This will perform any necessary setup for all sensors
@@ -23,21 +23,29 @@ namespace sensors {
         void initSensors();
 
         /**
-         * Obtains a SensorReading instance of the sensor with the given name
-         * @param sensorName Name of the sensor to read the value of
-         * @return A SensorReading structure instance
-        */
-        SensorReading readSensor(std::string sensorName) const;
+         * Obtains the current reading on the battery sensor
+         * @return A SensorReading structure instance with a timestamp and reading
+         */
+        SensorReading readBattery() const;
 
         /**
-         * Obtains a SensorReading instance of the sensor associated with the given AbstractSensor instance
-         * This serves as an alternative way of obtaining a sensor reading from a given sensor (see sensors::SensorManager::readSensor(std::string))
-         * @return a SensorReading structure instance
-        */
-         SensorReading readSensor(AbstractSensor sensor) const;
+         * Obtains the current reading on the IMU sensor
+         * @return A SensorReading instance with a timestamp and reading
+         */
+        SensorReading readIMU() const;
+
+        /**
+         * Obtains the current reading on the GPS sensor
+         * @return A SensorReading instance with a timestamp and reading
+         */
+        SensorReading readGPS() const;
 
     private:
-        std::vector<AbstractSensor> sensors;
+        vector<AbstractSensor> sensors;
+
+        Battery * batterySensor;
+        IMU * imuSensor;
+        GPS * gpsSensor;
 
     };
 }

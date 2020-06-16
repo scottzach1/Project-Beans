@@ -8,10 +8,10 @@
 #include "sensors.h"
 using namespace sensors;
 
-class IMU {
+class IMU : public AbstractSensor{
 public:
-    IMU(std::string name);
-    struct sensors::SensorReading read();
+    IMU();
+    sensors::SensorReading read() const override ;
 };
 
 

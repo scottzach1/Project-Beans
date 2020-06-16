@@ -5,11 +5,17 @@
 #include "Battery.h"
 #include <iostream>
 
-Battery::Battery(std::string name){
-    std::cout << "Initializing Battery" << std::endl;
-
+Battery::Battery() {
+    std::cout << "Initializing Battery Sensor" << std::endl;
 }
 
-struct SensorReading Battery::read(){
+SensorReading Battery::read() const {
     std::cout << "Called read() on battery" << std::endl;
+
+    // Obtaining timestamp and random value
+    auto currentTime = std::chrono::system_clock::now();
+    time_t timestamp = std::chrono::system_clock::to_time_t(currentTime);
+    int value = rand() % 1001; // Generates a random number from 1 to 1000
+    return SensorReading{timestamp, value};
+
 }
