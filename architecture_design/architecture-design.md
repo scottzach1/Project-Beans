@@ -357,11 +357,11 @@ We didn't cover any scenarios here as we instead prioritised progress on the Arc
 This was our first sprint where we even considered use cases. Again we had a higher priority on getting our project up to speed, and as such the only scenario we truly aimed to address was:
 - As Richard, I want to be able to easily read and understand all of the code, so that I am able to understand and contribute to it myself.
 
-This involved us cementing both coding styles and practices which we shall use throughout development of this project. Keeping this consistent means that users and future users should have as simple a time as possible understanding the code.
+This involved us cementing both coding styles and practices which we shall use throughout development of this project. Keeping this consistent means that users and future users should have as simple a time as possible reading through and understanding the code.
 
 
-### 4.5.2 Future Scenarios
-Below is a list of scenarios currently divided into different categories, which we aim to cover in future sprints. This list is not definite, and is likely to be expanded on throughout development.
+#### 4.5.2 Future Scenarios
+Below is a list of scenarios currently divided into different categories, which we aim to cover in future sprints. This list is by no means definite, and is likely to be expanded on throughout development.
 
 ###### Base Station Setup
 - As a novice user, I want the ability to setup the base station software quickly, so that the overall setup time to launch the rocket is less than or equal to 15 minutes.
