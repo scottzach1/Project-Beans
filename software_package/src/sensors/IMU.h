@@ -9,9 +9,9 @@
 using namespace sensors;
 
 class IMU : public AbstractSensor{
-public:
-    IMU();
-    sensors::SensorReading read() const override ;
+    public:
+        IMU(std::string sensorName);
+        SensorReading read() const override ;
 };
 
 

@@ -9,8 +9,8 @@ using namespace sensors;
 
 class Battery : public AbstractSensor{
     public:
-        Battery();
-        sensors::SensorReading read() const override ;
+        Battery(std::string sensorName);
+        SensorReading read() const override ;
 };
 
 

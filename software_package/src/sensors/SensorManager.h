@@ -40,9 +40,22 @@ namespace sensors {
          */
         SensorReading readGPS() const;
 
+        inline Battery * getBatterySensor() const {
+            return batterySensor;
+        };
+
+        inline IMU * getIMUSensor() const {
+            return imuSensor;
+        };
+
+        inline GPS * getGPSSensor() const {
+            return gpsSensor;
+        };
+
     private:
         vector<AbstractSensor> sensors;
 
+        // Note that these are pointers to AbstractSensor instances - This was done on purpose to control when each sensor is initialized
         Battery * batterySensor;
         IMU * imuSensor;
         GPS * gpsSensor;

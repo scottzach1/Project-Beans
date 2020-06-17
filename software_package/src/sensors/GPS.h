@@ -9,9 +9,9 @@
 using namespace sensors;
 
 class GPS : public AbstractSensor{
-public:
-    GPS();
-    sensors::SensorReading read() const override ;
+    public:
+        GPS(std::string sensorName);
+        SensorReading read() const override ;
 };
 
 

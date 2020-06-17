@@ -17,9 +17,9 @@ using std::string;
 
 void SensorManager::initSensors() {
     cout << "Initializing Sensors...." << endl;
-    batterySensor = new Battery();
-    imuSensor = new IMU();
-    gpsSensor = new GPS();
+    batterySensor = new Battery("batterySensor");
+    imuSensor = new IMU("imuSensor");
+    gpsSensor = new GPS("gpsSensor");
 
     // Ensuring none of the sensor instances are null
     assert(batterySensor != nullptr);
@@ -30,14 +30,20 @@ void SensorManager::initSensors() {
 }
 
 SensorReading SensorManager::readBattery() const {
-    return batterySensor->read();
+    SensorReading sensorReading = batterySensor -> read();
+    batterySensor -> addReading(sensorReading);
+    return sensorReading;
 }
 
 SensorReading SensorManager::readIMU() const {
+    SensorReading sensorReading = imuSensor -> read();
+    imuSensor -> addReading(sensorReading);
     return imuSensor->read();
 }
 
 SensorReading SensorManager::readGPS() const {
+    SensorReading sensorReading = gpsSensor -> read();
+    gpsSensor -> addReading(sensorReading);
     return gpsSensor->read();
 }
 
