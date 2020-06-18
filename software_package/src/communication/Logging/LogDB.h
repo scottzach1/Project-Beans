@@ -1,31 +1,20 @@
 #ifndef LOGDB_H
 #define LOGDB_H
 
+extern char *databaseStore[];
+
 class LogDB {
 public:
     //constructor / destructor
     LogDB();
-
     ~LogDB();
 
     //fields
     //Some Kind kind of concrete storage of events
-
     //methods
-    int getData() {
-        //TODO
-        return 0;
-    }
-
-    int writeToSD() {
-        //TODO
-        return 0;
-    }
-
-    int addToDB(/*Data type here*/) {
-        //TODO
-        return 0;
-    }
+    static int getData();
+    static int writeToSD();
+    static int addToDB(char*); //TODO: data type
 };
 
 #endif //LOGDB_H

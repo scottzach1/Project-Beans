@@ -18,10 +18,10 @@ public:
 
 
 private:
-    int pollSensors();
-    int pollServos();
-    int getCurrentPos();
-    int getRocketState();
+    static int pollSensors();
+    static int pollServos();
+    static int getCurrentPos();
+    static int getRocketState();
 
 };
 

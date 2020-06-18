@@ -5,25 +5,15 @@ class Logger {
 public:
     //constructor / destructor
     Logger();
-
+    Logger(LogDB*);
     ~Logger();
 
     //fields
 
     //methods
-    int readSensor() {
-        //TODO
-        return 0;
-    }
-
-    int storeData() {
-        //TODO
-        return 0;
-    }
-
-    int readData() {
-        //TODO
-    }
+    static int readSensor();
+    static int readData();
+    static int storeData(char*); //TODO: data type
 };
 
 #endif //LOGGER_H

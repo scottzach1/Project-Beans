@@ -4,45 +4,57 @@
 */
 #include "RadioImpl.h"
 
-RadioImpl::RadioImpl() {
+using namespace std;
 
-}
-
-RadioImpl::~RadioImpl() {
-
-}
+RadioImpl::RadioImpl() = default;
+RadioImpl::~RadioImpl() = default;
 
 int RadioImpl::getPostFlightData() {
-    std::cout << "This is a summary of your post flight data...\n";
+    cout << "This is a summary of your post flight data..." << endl;
+    RadioImpl::getRocketState();
+    RadioImpl::getCurrentPos();
+    RadioImpl::pollSensors();
+    RadioImpl::pollServos();
+    cout << "------------------------" << endl;
     return 0;
 }
 
 int RadioImpl::runDiagnostics() {
-    std::cout << "Running Diagnostics...\n";
+    cout << "Running Diagnostics..." << endl;
+    RadioImpl::getRocketState();
+    RadioImpl::getCurrentPos();
+    RadioImpl::pollSensors();
+    RadioImpl::pollServos();
+    cout << "------------------------" << endl;
     return 0;
 }
 
 int RadioImpl::getInflightData() {
-    std::cout << "This is inflight data...\n";
+    cout << "Getting data at current time..." << endl;
+    RadioImpl::getRocketState();
+    RadioImpl::getCurrentPos();
+    RadioImpl::pollSensors();
+    RadioImpl::pollServos();
+    cout << "------------------------" << endl;
     return 0;
 }
 
 int RadioImpl::pollSensors() {
-    std::cout << "Calling sensors.\n";
+    cout << "Calling Sensors."<< endl;
     return 0;
 }
 
 int RadioImpl::pollServos() {
-    std::cout << "Calling servos.\n";
+    cout << "Calling Servos." << endl;
     return 0;
 }
 
 int RadioImpl::getCurrentPos() {
-    std::cout << "Getting Current Pos.\n";
+    cout << "Getting Current Pos." << endl;
     return 0;
 }
 
 int RadioImpl::getRocketState() {
-    std::cout << "Getting Current Rocket State.\n";
+    cout << "Getting Current Rocket State." << endl;
     return 0;
 }
