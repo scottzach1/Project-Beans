@@ -20,7 +20,7 @@ cpplint:
     - pip install cpplint
     - cpplint --recursive */*
   tags:
-    -docker
+    - docker
   allow_failure: true
 
 build:
