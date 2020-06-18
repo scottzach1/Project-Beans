@@ -379,6 +379,9 @@ Below is a list of scenarios currently divided into different categories, which 
 
 - As a hardware enthusiast, I want the ability to deconstruct the rocket easily, so that I can examine the state of each individual hardware component after the flight and make changes if needed.
 
+##### Safety
+- As a [safety conscious user] I want my launch system to be safe, so that I can ensure that the rocket will not launch until I have physically told it to.
+
 ###### Recovery
 - As Richard, I want to use GPS data to give me the position of the rocket's landing site, so that I can locate the rocket easily after its flight
 
@@ -389,7 +392,12 @@ Below is a list of scenarios currently divided into different categories, which 
 
 - As a rocket enthusiast, I want the launch-critical components of the rocket to be clearly labeled, so that I know exactly what components of the rocket need activation to be launched
 
-- As a rocket enthusiast, I need the rocket to feature manual ignition with physical safety interlocks, so that I can launch it from a safe distance
+- As a rocket enthusiast, I need the rocket to feature manual ignition with physical safety interlocks, so that I can launch it from a safe distance.
+
+- As a novice user, I want the hardware to be robust against incorrect installation procedure of the motor and battery, so that components aren't accidentally damaged.
+
+##### Landing
+- As a rocket enthusiast I want to have support for both smaller and larger parachutes, so that the rocket can handle launches from extreme heights. (further iterations)
 
 ###### Transportation
 - As a novice user, I want the rocket to be light, so that I can bring it anywhere with ease.
