@@ -1,7 +1,27 @@
 stages:
+  - Lint
   - Build
   - Test
   - Deploy
+
+markdownlint:
+  stage: Lint
+  tags:
+    - docker
+  image: pipelinecomponents/markdownlint:latest
+  script:
+    - mdl --style all --warnings --rules ~MD001,~MD004,~MD005,~MD006,~MD007,~MD009,~MD012,~MD013,~MD022,~MD024,~MD025,~MD029,~MD032,~MD033,~MD034,~MD036 .
+  allow_failure: true
+
+cpplint:
+  image: python:latest
+  stage: Lint
+  script:
+    - pip install cpplint
+    - cpplint --recursive */*
+  tags:
+    -docker
+  allow_failure: true
 
 build:
   stage: Build
