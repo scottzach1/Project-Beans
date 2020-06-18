@@ -1,44 +1,28 @@
 #ifndef RADIOIMPL_H
 #define RADIOIMPL_H
 
-class RadioImpl: public RadioInterface {
-  public:
+#include "RadioInterface.h"
+
+class RadioImpl : RadioInterface {
+public:
     //constructor / destructor
-    RadioImpl()
-    ~RadioImpl()
+    RadioImpl();
+    ~RadioImpl();
 
     //fields
 
     //inherited methods
-    int runDiagnostics(){
-      //TODO
-    }
+    int runDiagnostics() override;
+    int getPostFlightData() override;
+    int getInflightData() override;
 
-    int getPostFlightData(){
-      //TODO
-    }
 
-    int getInflightData(){
-      //TODO:
-    }
+private:
+    int pollSensors();
+    int pollServos();
+    int getCurrentPos();
+    int getRocketState();
 
-    
-  private:
-    int pollSensors(){
-      //TODO
-    }
-
-    int pollServos(){
-      //TODO
-    }
-
-    int getCurrentPos(){
-      //TODO
-    }
-
-    int getRocketState(){
-      //TODO
-    }
-}
+};
 
 #endif //RADIOIMPL_H

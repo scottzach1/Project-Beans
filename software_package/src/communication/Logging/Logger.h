@@ -2,25 +2,28 @@
 #define LOGGER_H
 
 class Logger {
-  public:
+public:
     //constructor / destructor
-    Logger()
-    ~Logger()
+    Logger();
+
+    ~Logger();
 
     //fields
 
     //methods
-    int readSensor(){
-      //TODO
+    int readSensor() {
+        //TODO
+        return 0;
     }
 
-    int storeData(){
-      //TODO
+    int storeData() {
+        //TODO
+        return 0;
     }
 
-    int readData(){
-      //TODO
+    int readData() {
+        //TODO
     }
-}
+};
 
 #endif //LOGGER_H
