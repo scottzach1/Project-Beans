@@ -313,8 +313,7 @@ respective section.
    components can be reasonably obtained or produced by a member of the
    public. This means that no unreasonably uncommon or expensive
    components will be used as part of the manufacturing of the rocket.
-   ***TODO*** This includes 3d printers, and ... (What else is essential
-   to produce or assemble the pcb / components of the rocket.
+   This also includes any parts used to produce or assemble the PCB / components of the rocket. We will also avoid use of 3d printers, for the same reasons.
 
 ***Software Requirements***
 
@@ -347,7 +346,7 @@ accompanying avionics package with relative ease. To ensure that this is
 achieved, all scenarios in which the rocket and the avionics package is
 used in should feature certain properties.
 
-#### Scenarios and Usecases
+#### Scenarios and Use Cases
 
 ##### Usability: Transporting
 
@@ -367,7 +366,7 @@ flight of the rocket, and a USB LoRa to enable bi-directional
 communication between the rocket and the laptop. Base station setup
 should take 5 minutes maximum.
 
-##### Usability: PreUsability: -Flight Tuning
+##### Usability: Pre-Usability: Flight Tuning
 
 A software platform should be provided to enable the user of the rocket
 to make quick changes to any aspect of the rocket, launch, and its
@@ -622,7 +621,7 @@ Regulations 2001\[5]\[6]. Regulation 9 defines the available frequencies
 for broadcast on a general user radio licence, it also as the maximum
 broadcast power in DBW (Decibel Watts). We must also ensure that we
 chose to broadcast on a frequency that doesn't have heavy traffic
-inorder to negate the affects of interference.
+in order to negate the affects of interference.
 
 In addition to these regulations, the client has specifically stated the
 following hardware design constraint:
@@ -894,8 +893,7 @@ to within a 5 metre radius of the rocket.
    successfully transmits critical telemetry data to the base station
    during launch and its flight to enable project stakeholders to
    monitor the flight.
-6. Analysis of Flight Data This use case is verified if the the
-   broadcast telemetry data is recorded and stored in a way that
+6. Analysis of Flight Data This use case is verified if the broadcast telemetry data is recorded and stored in a way that
    enables the project stakeholders to analyse the flight.
 
 #### 4.2.2 Verifying Requirements
@@ -1376,8 +1374,8 @@ levels:
   from any buildings, cars and roads. Ensure that a parachute deployment
   system is implemented to minimize the damage done by an impact with an
   object during landing.
-- _**TODO:**_ One potential mitigation strategy is to limit the altitude
-  the rocket can reach? Customer specifically said that the priority of
+- One potential mitigation strategy is to limit the altitude
+  the rocket can reach. Customer specifically said that the priority of
   the project is control and that the rocket reaching high altitudes is
   not the goal/desired. This mitigation strategy can also apply to Risk
   1\.
@@ -1457,10 +1455,10 @@ levels:
   software to validate its correctness before proceeding with a rocket
   launch. An alert system implemented by the software will trigger to
   inform the relevant stakeholders of the impending situation so that
-  stakeholders are able to act appropriately. (_**TODO:**_ In a meeting
+  stakeholders are able to act appropriately. This is a feature that came up during a meeting
   with the client, they stated that it would be a nice feature to have
   the ability to manually deploy the drogues in the event a situation
-  like this happens)
+  like this happens.
 
 **Risk 9: Rocket ignition causes a fire**
 
