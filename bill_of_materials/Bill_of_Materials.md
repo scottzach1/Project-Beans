@@ -6,4 +6,6 @@
 |GPS|$8.62500 NZD|RF ANT 1.575GHZ CER PATCH PIN [BUY](https://www.digikey.co.nz/product-detail/en/taoglas-limited/GP-1575-25-4-A-02/931-1015-ND/2332642), [Datasheet](https://cdn.taoglas.com/datasheets/GP.1575.25.4.A.02.pdf)|Cheap, Small and Meets requirments|
 |Transceivers|$19.95 USD|Adafruit RFM96W LoRa Radio Transceiver Breakout - 433 MHz - RadioFruit [BUY](https://www.adafruit.com/product/3073), [Overview](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts?fbclid=IwAR35VbMkCNa8vlXsCGSQ_aMt7WncGXr0NET0dsGQH1ARlQAluhj9rdhM1OQ), [Datasheet](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts.pdf?timestamp=1592280787)|SPI, Pins for extra antenna|
 |Gimbal Servos|$12.305 NZD|	Positional Rotation DC Motor Servomotor, RC (Hobby) 5VDC [BUY](https://www.digikey.com/products/en?mpart=169&v=1528)|Light, Small, Cheap|
-||Approx = $150 NZD||||
+|Battery|$12 NZD| ZIPPY Compact 500mAh 2S 35C Lipo Pack [Buy](https://hobbyking.com/en_us/zippy-compact-500mah-2s-35c-lipo-pack.html?queryID=daa4b6898932867645b366984b5914b9&objectID=24762&indexName=hbk_live_magento_en_us_products)|-Available in Australia, - Sufficient Charge, Voltage and Current discharge specifications, - Cheap, -Light for a battery|
+|Power supply| $3.62 USD | See power_supply.md | See power_supply.md |
+|-|Approx = $150 NZD|-|-|
