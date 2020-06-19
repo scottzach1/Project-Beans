@@ -194,10 +194,10 @@ within a safe distance are the required constraints.
 
 ### 3.1 External interfaces
 
-#### Radio Antenna The radio antenna will facilitate the transfer of
-
-data and commands between the avionics package and the base station.
-This radio antenna must allow for the live broadcast of the packages
+#### Radio Antenna 
+The radio antenna will facilitate the transfer of data and commands 
+between the avionics package and the base station. This radio antenna 
+must allow for the live broadcast of the packages
 geographical location data, which will be provided by the GPS unit
 within the avionics package. This will allow for easier retrieval of the
 unit as specified b External:y the customer. While in flight, the radio antenna
@@ -272,7 +272,7 @@ be passed to the radio antenna unit for broadcast to the base station.
 This will be used to help locate the rocket after a successful launch.
 The GPS unit will also log all of its outputs the SD card.
 
-### 3.2 Functions (can start)
+### 3.2 Functions
 
 #### 3.2.1 Use Cases
 
@@ -1250,7 +1250,7 @@ that prevents physical damage to its components.
 
 #### 4.7.2 Verifying Software Non-Functional System Attributes
 
-##### Attribute 1: Correctness and Reliability
+**Attribute 1: Correctness and Reliability**
 
 The verification of this attribute requires a large amount of testing.
 Verifying the correctness and reliability of the software system can be
@@ -1268,7 +1268,7 @@ components, and the outcome is known. This attribute is verified if the
 software performs as intended and is deemed as sufficient by the project
 team, and the client.
 
-##### Attribute 2: Maintainability and Extensibility
+**Attribute 2: Maintainability and Extensibility**
 
 To verify this attribute, the project team members in charge of
 developing the software must be in **full agreement** that relevant
@@ -1290,7 +1290,7 @@ this attribute. Each persona will be considered to see if that persona
 can understand the code-base and the manuals provided in a way that will
 enable them to make suggestions or apply changes to the code.
 
-##### Attribute 3: Testing
+**Attribute 3: Testing**
 
 This attribute can be verified by assessing the attribute against a
 range of both quantitative and qualitative metrics. From a quantitative
@@ -1386,7 +1386,7 @@ Council and does not damage the surrounding property or the environment.
 
 ### 5.2 Budget
 
-Present a budget covering the cost of all of the component? Are we going
+_**TODO:**_ Present a budget covering the cost of all of the component? Are we going
 to use hardware next tri? Perhaps we are paying for some of the software
 for simulation?
 
@@ -1399,7 +1399,6 @@ levels:
 
  - Likelihood: - Unlikely, Likely, Very Likely 
  - Impact - Mild, Moderate, Severe
-
 
 **Risk 1: Rocket falls on a person causing injury**
 
