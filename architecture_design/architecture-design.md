@@ -60,10 +60,22 @@ If the requirement have changed significantly since the requirements document, o
 ## 2. References
 
 References to other documents or standards. Follow the IEEE Citation Reference scheme, available from the [IEEE website](https://ieee-dataport.org/sites/default/files/analysis/27/IEEE%20Citation%20Guidelines.pdf) (PDF; 20 KB). (1 page, longer if required)
+<<<<<<< architecture_design/architecture-design.md
+https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf [1] (Viewed 27/5/2020)
+https://www.aviation.govt.nz/assets/rules/consolidations/Part_101_Consolidation.pdf [2] (Viewed 12/06/2020)
+
+
+https://riccardogiorato.com/blog/2019/2019-10-02_The-Power-of-10---NASA-s-Rules-for-Coding-43ae1764f73d/ [3]
+
+
+1. https://github.com/nimble-code/Cobra
+2. https://spinroot.com/cobra/index.html
+=======
 
 
 https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf [1] (Viewed 27/5/2020) 
 https://www.aviation.govt.nz/assets/rules/consolidations/Part_101_Consolidation.pdf [2] (Viewed 12/06/2020)
+>>>>>>> architecture_design/architecture-design.md
 
 ## 3. Architecture
 
@@ -244,19 +256,51 @@ GitLab gives the ability to break down projects into well defined pieces in the 
  The branching strategy adopted by the team involves the creation of a branch and merge request for every issue a team member decides to do. **The branch created must be branching off the master branch.** If more than 1 team member is assigned to an issue, those team members can decide if they want to create further individual branches that branch off the newly created branch. <br><br>
 
   ![Branching Strategy Diagram](software_architecture/Draw_IO/branching-strategy-diagram.png) <br>**Figure 2: Branching Strategy Diagram**<br><br>
-  
-  The diagram in figure 2 follows a small example of only 3 issues being addressed in the sprint. Each issue has a branch and should be composed of multiple commits as represented by multiple nodes of the same color in the diagram. When the issue has been completed, the branch should be merged into the master branch via the merge request. After merging, the branch created for the issue will be closed, so should the corresponding issue.<br><br>
-  
-- **Completing an Issue and Merge Request**
-  When the issue has been completed, it is the responsibility of the issue assignee to move the issue to the **review stage** via the sprint board, and assigning the issue the 'review' label. The merge request should be assigned the review label to indicate to other team members that the merge request is ready for reviewing. Relevant team members will be responsible for inspecting the changes applied through the merge request, and will have to provide an approval. **Each merge request must receive a certain number of approvals** before being able to merge its contents with the master branch. It is the responsibility of the team members to provide feedback and suggestions to the merge request as they see fit. After receiving the required number of approvals, the merge request can be completed by merging its corresponding branch to master and closing the merge request. The sourcce branch has the option to be closed with the merge request, however it is up to individual team members to make use of this feature. <br><br>
 
-- _**TODO:**_ Write about CI/CD as more details become available
+  The diagram in figure 2 follows a small example of only 3 issues being addressed in the sprint. Each issue has a branch and should be composed of multiple commits as represented by multiple nodes of the same color in the diagram. When the issue has been completed, the branch should be merged into the master branch via the merge request. After merging, the branch created for the issue will be closed, so should the corresponding issue.<br><br>
+
+- **Completing an Issue and Merge Request**<br>
+  When the issue has been completed, it is the responsibility of the issue assignee to move the issue to the **review stage** via the sprint board, and assigning the issue the 'review' label. The merge request should be assigned the review label to indicate to other team members that the merge request is ready for reviewing. Relevant team members will be responsible for inspecting the changes applied through the merge request, and will have to provide an approval.  Once the review stage has been completed, issues should then be automatically closed via Merge Requests. This is done by commenting "Fixes #Issue-Number" (eg. "Fixes #2"). this will link the issue to this merge request, so that upon merge these issues will be automatically closed.  **Each merge request must receive a certain number of approvals** before being able to merge its contents with the master branch. It is the responsibility of the team members to provide feedback and suggestions to the merge request as they see fit. After receiving the required number of approvals, the merge request can be completed by merging its corresponding branch to master and closing the merge request. The source branch has the option to be closed with the merge request, however it is up to individual team members to make use of this feature. <br><br>
+
+- _**TODO:**_ Write about CI/CD as more details become available / MD linter
+- **Continuous Integration / Continuous Delivery**<br>
+
 
 
 ##### Agile Project Management
-The project will be managed by observing agile project management principles. In particular, the Scrum agile project management methodology is used as a template on how to conduct the project. The project is conducted in 2-week sprints, with each sprint addressing at least 1 epic defined for the project. Sprint planning meetings will be conducted to obtain a sprint backlog, and to officially initiate the sprint. Brief sprint reviews will be conducted at the end of sprints to give the project team some insight on how the sprint progressed, and what could be improved.The usage of issue boards and limiting the number of tasks that can be in a single phase are inspired from the Kanban methodology of agile project management. This assists the project team in determining the status of issues, and finding out what still needs to be addressed. Regular meetings are also conducted to monitor and encourage the progress of each individual towards the issues they are aassigned to. By observing these ideas, team members are able to collaborate effectively, enabling the project the reach its goals in a systematic fashion.
+The project will be managed by observing agile project management principles. In particular, the Scrum agile project management methodology is used as a template on how to conduct the project. The project is conducted in 2-week sprints, with each sprint addressing at least 1 epic defined for the project. Sprint planning meetings will be conducted to obtain a sprint backlog, and to officially initiate the sprint. Brief sprint reviews will be conducted at the end of sprints to give the project team some insight on how the sprint progressed, and what could be improved. The usage of issue boards and limiting the number of tasks that can be in a single phase are inspired from the Kanban methodology of agile project management. This assists the project team in determining the status of issues, and finding out what still needs to be addressed. Regular meetings are also conducted to monitor and encourage the progress of each individual towards the issues they are assigned to. By observing these ideas, team members are able to collaborate effectively, enabling the project the reach its goals in a systematic fashion.
 
 _**TODO:**_ Write about any potential conventions with the selected programming language and tools used
+
+##### Coding Conventions
+Due to the safety-critical nature of the product being developed, it is imperative that the software system is written in a way that assures reliability, security and safety. To achieve this, the software is written in accordance with the "Power Of 10" which is a widely used ruleset for writing safety-critical software [3].
+
+***Power of 10*** - All these rules are adhered to in the development of the software
+
+1. Avoid complex flow constructs, such as "goto" and recursion.
+2. All loops must have fixed bounds (this prevents runaway code).
+3. Avoid heap memory allocation.
+4. Restrict functions to a single printed page.
+5. Use a minimum of two runtime assertions per function.
+6. Restrict the scope of data to the smallest possible.
+7. Check the return value of all non void functions, or cast to void to indicate the return value is useless.
+8. Use the preprocessor sparingly.
+9. Limit pointer use to a single dereference, and do not use function pointers.
+10. Compile with all possible warnings active; all warnings should then be addressed before the release of the software.
+
+***Style Guide***
+- To accompany the coding standard to laid out above, there will also be a C++ style guide. For this project, we intend to use the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
+- This style guide specifies rules to be followed such as variable, struct and file naming conventions.
+- To accompany this style guide, a C++ linter will also be configured to check for any violations in Continuous Integration (CI). The linter chosen is [cpplint](https://github.com/cpplint/cpplint) as it is fully open source and pre-configured to comply with the aforementioned Google Style guide.
+
+##### Linting
+The Gitlab repository will use multiple linters to enforce that all documents are syntactically correct, consistent, safe, and readable. By conforming to these conventions, future users are given the ability to contribute to the software system much easier, given that they can understand the conventions followed.
+
+One linter used is [Cobra](https://github.com/nimble-code/Cobra), an open source C/C++ linter which was developed by NASA/JPL. This linter performs static analysis which verifies if the software system complies with "The Power of 10" rules.
+
+Another linter used is [cpplint](https://github.com/cpplint/cpplint). This open source C/C++ linter will be integrated as part of the CI component of the project's GitLab repository to enforce the Google C++ Style Guide. Being a command-line tool, this linter is ideal for deployment on the CI system of GitLab.
+
+For the markdown documents in the project, the linter being used is [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli). Like cpplint, this is also a command-line focused tool, making it an ideal tool for integration within GitLab's CI system. This linter will enforce a set of predefined markdown formatting rules specified [here](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md).
 
 ### 4.3 Process
 
