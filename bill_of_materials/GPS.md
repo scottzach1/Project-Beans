@@ -39,3 +39,9 @@ The STA8090WG & GP.1575.25.4.A.02, are even cheaper options. The STA8090WG is mo
 - Link (Digi-key): https://www.digikey.co.nz/product-detail/en/taoglas-limited/GP-1575-25-4-A-02/931-1015-ND/2332642
 - Datasheet: https://www.taoglas.com/images/product_images/original_images/GP.1575.25.4.A.02%20GPS%20Patch%20Antenna%201575MHz%20190410.pdf
 - Price NZD: $7.50
+
+### Best option:
+#### Adafruit Mini GPS PA1010D Module
+- [Adafruit](https://learn.adafruit.com/adafruit-mini-gps-pa1010d-module)
+- [Digikey](https://www.digikey.co.nz/products/en?keywords=PA1010D)
+- [Library]()
