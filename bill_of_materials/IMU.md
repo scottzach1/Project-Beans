@@ -21,6 +21,7 @@ There is also a large selection of available breakout boards for this IMU, which
 - Link to product store: [Mouser](https://nz.mouser.com/ProductDetail/TDK-InvenSense/MPU-6050?qs=sGAEpiMZZMs29kr3d%252BndIw9GjDKvhDTrDi0Wq22t2QQ%3D)
 - [Data sheet](https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf)
 - [Library](https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050)
+- [adafruit library](https://github.com/adafruit/Adafruit_MPU6050)
 - [Arduino description page](https://playground.arduino.cc/Main/MPU-6050/)
 - Price $12.73
 
