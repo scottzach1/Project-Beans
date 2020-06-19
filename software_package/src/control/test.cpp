@@ -28,6 +28,7 @@ int main() {
     }
 
     GuidanceSystem::Position position = guidance->getCurrentPosition();
+    delete guidance;
 
     // Lander
     std::cout << std::endl << "Creating Lander:" << std::endl;
@@ -36,6 +37,7 @@ int main() {
     lander->isSafeToDeploy(position);
     position.altitude = 51;
     lander->isSafeToDeploy(position);
+    delete lander;
 
     // Gimbal
     std::cout << std::endl << "Creating Gimbal:" << std::endl;
@@ -47,6 +49,7 @@ int main() {
         int16_t servo_reading = gimbal->readServo(i);
         std::cout << "Value: " << servo_reading << std::endl;
     }
+    delete gimbal;
 
     return 0;
 }
