@@ -1,5 +1,5 @@
-#ifndef LANDER_H
-#define LANDER_H
+#ifndef SOFTWARE_PACKAGE_SRC_CONTROL_LANDER_H_
+#define SOFTWARE_PACKAGE_SRC_CONTROL_LANDER_H_
 
 #include "Parachute.h"
 
@@ -7,9 +7,7 @@
  * Handles landing of the rocket.
 **/
 class Lander {
-
-private:
-
+ private:
     /**
      * Represents a trajectory of the rocket.
     **/
@@ -20,12 +18,11 @@ private:
     **/
     Parachute parachute;
 
-public:
-
+ public:
     /**
      * Constructor
     **/
-    Lander(...);
+    Lander();
 
     /**
      * Destructor
@@ -37,19 +34,19 @@ public:
      * @param TODO
      * @return TODO
     **/
-    void calculateWhenToDeploy(...);
+    void calculateWhenToDeploy();
 
     /**
      * Calculates if it is safe to deploy the parachute.
      * @return bool true if safe, false otherwise
     **/
-   bool isSafeToDeploy();
+    bool isSafeToDeploy();
 
     /**
      * Attemps to deploy the parachute.
      * @throw TODO (on failure)
     **/
-   void deployParachute();
+    void deployParachute();
 };
 
-#endif //LANDER_H
+#endif  // SOFTWARE_PACKAGE_SRC_CONTROL_LANDER_H_

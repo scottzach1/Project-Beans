@@ -1,25 +1,21 @@
-#ifndef PARACHUTE_H
-#define PARACHUTE_H
+#ifndef SOFTWARE_PACKAGE_SRC_CONTROL_PARACHUTE_H_
+#define SOFTWARE_PACKAGE_SRC_CONTROL_PARACHUTE_H_
 
 /**
  * Represents the parachute of the rocket
 **/
-class Parachute
-{
-
-private:
-
+class Parachute {
+ private:
     /**
      * Remember state of parachute
     **/
     bool depoyed;
 
-public:
-    
+ public:
     /**
      * Constructor
     **/
-    Parachute(...);
+    Parachute();
 
     /**
      * Destructor
@@ -36,7 +32,6 @@ public:
      * @throw TODO
     **/
     bool callHardware();
-    
 };
 
-#endif //PARACHUTE_H
+#endif  // SOFTWARE_PACKAGE_SRC_CONTROL_PARACHUTE_H_

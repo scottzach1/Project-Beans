@@ -1,30 +1,26 @@
-#ifndef SERVO_H
-#define SERVO_H
+#ifndef SOFTWARE_PACKAGE_SRC_CONTROL_SERVO_H_
+#define SOFTWARE_PACKAGE_SRC_CONTROL_SERVO_H_
 
 /**
  * Interfaces for the servo(s) on the rocket.
 **/
-class Servo
-{
-
-private:
-
+class Servo {
+ private:
     /**
      * Represents the position of hte servo.
     **/
     struct Position;
 
-public:
-
+ public:
     /**
      * Constructor
     **/
-   Servo(...);
+    Servo();
 
     /**
      * Destructor
     **/
-   ~Servo();
+    ~Servo();
 
     /**
      * Gets current position of the servo
@@ -40,7 +36,6 @@ public:
      * Sets the position of the servo.
     **/
     void setPosition(Position position);
-
 };
 
-#endif //SERVO_H
+#endif  // SOFTWARE_PACKAGE_SRC_CONTROL_SERVO_H_
