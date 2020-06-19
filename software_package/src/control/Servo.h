@@ -1,15 +1,18 @@
 #ifndef SOFTWARE_PACKAGE_SRC_CONTROL_SERVO_H_
 #define SOFTWARE_PACKAGE_SRC_CONTROL_SERVO_H_
 
+#include <iostream>
+#include <limits>
+
 /**
  * Interfaces for the servo(s) on the rocket.
 **/
 class Servo {
  private:
     /**
-     * Represents the position of hte servo.
+     * The position of the servo (-127 -> 127).
     **/
-    struct Position;
+    int16_t current_position = std::numeric_limits<float>::signaling_NaN();
 
  public:
     /**
@@ -25,17 +28,12 @@ class Servo {
     /**
      * Gets current position of the servo
     **/
-    Position getPosition();
+    int16_t getPosition();
 
     /**
      * Sets the position of the servo.
     **/
-    void setPosition(int value);
-
-    /**
-     * Sets the position of the servo.
-    **/
-    void setPosition(Position position);
+    void setPosition(int16_t value);
 };
 
 #endif  // SOFTWARE_PACKAGE_SRC_CONTROL_SERVO_H_

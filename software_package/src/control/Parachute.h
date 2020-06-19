@@ -9,7 +9,7 @@ class Parachute {
     /**
      * Remember state of parachute
     **/
-    bool depoyed;
+    bool deployed = false;
 
  public:
     /**
@@ -29,7 +29,6 @@ class Parachute {
 
     /**
      * Calls hardware to physically deploy the hardware.
-     * @throw TODO
     **/
     bool callHardware();
 };

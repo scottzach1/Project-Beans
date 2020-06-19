@@ -1,15 +1,29 @@
 #ifndef SOFTWARE_PACKAGE_SRC_CONTROL_GUIDANCESYSTEM_H_
 #define SOFTWARE_PACKAGE_SRC_CONTROL_GUIDANCESYSTEM_H_
 
+#include <iostream>
+#include <limits>
+
 /**
  * Describes the PID for the rocket.
 **/
 class GuidanceSystem {
- private:
+ public:
     /**
      * Represents a position of the rocket.
     **/
-    struct Position;
+    struct Position {
+      // Defaults to illegal values.
+      float longitude = std::numeric_limits<float>::signaling_NaN();
+      float latitude = std::numeric_limits<float>::signaling_NaN();
+      float altitude = std::numeric_limits<float>::signaling_NaN();
+    };
+
+ private:
+    /**
+     * The latest calculated position of the rocket.
+    **/
+    struct Position current_position;
 
  public:
     /**
@@ -23,20 +37,14 @@ class GuidanceSystem {
     ~GuidanceSystem();
 
     /**
-     * Default constructor
-     * @param TODO (Likely none)
+     * Calculates a new position based off the latest readings
+     * @param TODO(ALL): Decide what parameters to use.
     **/
-    GuidanceSystem();
+    Position calculatePosition();
 
     /**
      * Calculates a new position based off the latest readings
-     * @param TODO
-    **/
-    void calculatePosition();
-
-    /**
-     * Calculates a new position based off the latest readings
-     * @param TODO
+     * @param TODO(ALL): Decide what parameters to use.
     **/
     void updatePosition();
 

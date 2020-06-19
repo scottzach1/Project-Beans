@@ -2,16 +2,33 @@
 #define SOFTWARE_PACKAGE_SRC_CONTROL_LANDER_H_
 
 #include "Parachute.h"
+#include "GuidanceSystem.h"
+
+#include <iostream>
+#include <limits>
 
 /**
  * Handles landing of the rocket.
 **/
 class Lander {
- private:
+ public:
     /**
      * Represents a trajectory of the rocket.
     **/
-    struct Trajectory;
+    struct Trajectory {
+      // 3 Dimensional Axis
+      float x = std::numeric_limits<float>::signaling_NaN();
+      float y = std::numeric_limits<float>::signaling_NaN();
+      float z = std::numeric_limits<float>::signaling_NaN();
+      // Speed
+      float s = std::numeric_limits<float>::signaling_NaN();
+    };
+
+ private:
+    /**
+     * The current trajectory of the rocket.
+    **/
+    struct Trajectory current_trajectory;
 
     /**
      * Represents the parachute.
@@ -30,21 +47,16 @@ class Lander {
     ~Lander();
 
     /**
-     * Calculates when to deploy the rocket
-     * @param TODO
-     * @return TODO
-    **/
-    void calculateWhenToDeploy();
-
-    /**
      * Calculates if it is safe to deploy the parachute.
+     * @param position of the rocket.
+     * @param TODO(ALL): Decide what other parameters to use.
      * @return bool true if safe, false otherwise
     **/
-    bool isSafeToDeploy();
+    bool isSafeToDeploy(GuidanceSystem::Position position);
 
     /**
      * Attemps to deploy the parachute.
-     * @throw TODO (on failure)
+     * @throw TODO(ALL): On failure.
     **/
     void deployParachute();
 };
