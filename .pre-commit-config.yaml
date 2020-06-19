@@ -9,10 +9,10 @@ repos:
     -   id: end-of-file-fixer
     -   id: check-yaml
     -   id: check-added-large-files
-#  - repo: https://github.com/jumanjihouse/pre-commit-hooks
-#    sha: 1.11.0
-#    hooks:
-#      - id: markdownlint # Configure in .mdlrc
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    sha: 1.11.0
+    hooks:
+      - id: markdownlint # Configure in .mdlrc
 #  - repo: https://github.com/psf/black
 #    rev: stable
 #    hooks:
@@ -22,5 +22,3 @@ repos:
 #    rev: v2.4.3  # Use the sha / tag you want to point at
 #    hooks:
 #      - id: pylint
-
-

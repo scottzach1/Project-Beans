@@ -1,7 +1,19 @@
 stages:
+  - Lint
   - Build
   - Test
   - Deploy
+
+# https://github.com/markdownlint/markdownlint/blob/master/docs/configuration.md
+# https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md
+markdownlint:
+  stage: Lint
+  tags:
+    - docker
+  image: pipelinecomponents/markdownlint:latest
+  script:
+    - mdl --style all --warnings --rules ~MD001,~MD004,~MD005,~MD006,~MD007,~MD009,~MD012,~MD013,~MD022,~MD024,~MD025,~MD029,~MD032,~MD033,~MD034,~MD036 .
+  allow_failure: true
 
 build:
   stage: Build
@@ -10,6 +22,16 @@ build:
   script:
     - echo "static analysis"
     - exit 0
+  allow_failure: true
+  
+test-drc:
+  stage: Test
+  tags:
+    - docker
+  image: productize/kicad-automation-scripts:latest
+  script:
+    - export DISPLAY=:0
+    - python -m kicad-automation.pcbnew_automation.run_drc electronics/KiCad/KiCad.kicad_pcb output
   allow_failure: true
 
 unittest:
