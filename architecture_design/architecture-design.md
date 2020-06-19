@@ -373,24 +373,25 @@ The microcontrollers onboard flash memory is where the control system parameters
 
 
 ### 4.5 Scenarios
+
 Throughout our development we are aiming to tackle a couple of scenarios (or user stories) for each sprint. These will assist us in developing specific extensions, features, and functionalities within our package, while keeping a focus on our user's needs. This is met by following the general template: "As a [type of user / persona], I want [feature], so that [achievement/justification]".
 
 We aim to use scenarios to cover interactions between our package and both personas and user types. Each of our personas can be found in depth inside the /personas/ directory. The user types is for representing a specific group of potential users, eg. a 'Mission Control Member'.
 
-There is a slight exception to our approach to scenarios within the first two sprints, where we are placing a higher priority on just achieving a base product. Due to the extension based nature of scenarios we felt that the majority of the uses cases required us to have our project up to a certain level.  
-
+There is a slight exception to our approach to scenarios within the first two sprints, where we are placing a higher priority on just achieving a base product. Due to the extension based nature of scenarios we felt that the majority of the uses cases required us to have our project up to a certain level.
 
 #### 4.5.1 Sprint Specific Scenarios
 
 ##### Sprint 1
+
 We didn't cover any scenarios here as we instead prioritised progress on the Architecture Document as well as starting to plan out the base product.
 
 ##### Sprint 2
+
 This was our first sprint where we even considered use cases. Again we had a higher priority on getting our project up to speed, and as such the only scenario we truly aimed to address was:
 - As Richard, I want to be able to easily read and understand all of the code, so that I am able to understand and contribute to it myself.
 
 This involved us cementing both coding styles and practices which we shall use throughout development of this project. Keeping this consistent means that users and future users should have as simple a time as possible reading through and understanding the code.
-
 
 #### 4.5.2 Future Scenarios
 Below is a list of scenarios currently divided into different categories, which we aim to cover in future sprints. This list is by no means definite, and is likely to be expanded on throughout development.
@@ -438,17 +439,44 @@ Below is a list of scenarios currently divided into different categories, which 
 
 ## 5. Development Schedule
 
-_For each subsection, make clear what (if anything) has changed from the requirements document._ If unchanged, these sections should be copied over from the requirements document, not simply cross-referenced.
-
-Schedules must be justified and supported by evidences; they must be either direct client requirements or direct consequences of client requirements. If the requirements document did not contain justifications or supporting evidences, then both must be provided here.
+> _For each subsection, make clear what (if anything) has changed from
+> the requirements document._
+>
+> If unchanged, these sections should be copied over from the
+> requirements document, not simply cross-referenced.
+>
+> Schedules must be justified and supported by evidences; they must be
+> either direct client requirements or direct consequences of client
+> requirements. If the requirements document did not contain
+> justifications or supporting evidences, then both must be provided
+> here.
 
 ### 5.1 Schedule
 
 Identify dates for key project deliverables:
 
-1. prototype(s).
-1. first deployment to the client.
-1. further improvements required or specified by the client.
+#### Demos
+
+- **TODO DATE** - This demo will enable the software team to ensure that
+  software is logged correctly.
+- **TODO DATE** - This demo will be used to verify safety critical
+  components of the rocket such as ensure the parachute launches as
+  expected.
+- **TODO DATE** - This demo will be used to ensure communication with
+  the rocket over LoRa performs as expected. In this demo, we will be
+  testing how far we can reliably communicate with the rocket.
+- **TODO DATE** - This demo will be testing usability and introduce a
+  prospective user with the rocket. The rocket will be defused before
+  the demo and is strictly to observer user behaviour.
+
+#### Releases
+
+- Architectural Prototypes
+   - The architectural prototype will be completed my **TODO**.
+- Minimum Viable Product
+   - The minimum viable product will be completed by **TODO**.
+- Final Revision
+   - The final revision will be completed by **TODO**.
 
 (1 page).
 
