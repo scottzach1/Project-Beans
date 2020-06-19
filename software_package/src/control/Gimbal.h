@@ -19,7 +19,7 @@ class Gimbal {
     /**
      * The servos on the rocket.
     **/
-    Servo servos[];
+    Servo* servos[];
 
  public:
     /**
@@ -41,6 +41,11 @@ class Gimbal {
      * Reads the servo at a given index.
     **/
     int16_t readServo(int16_t servo_num);
+
+    /**
+     * Gets the number of servos in the Gimbal.
+    **/
+    int16_t getNumServos();
 };
 
 #endif  // SOFTWARE_PACKAGE_SRC_CONTROL_GIMBAL_H_

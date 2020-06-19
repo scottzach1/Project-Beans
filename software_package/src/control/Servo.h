@@ -12,7 +12,7 @@ class Servo {
     /**
      * The position of the servo (-127 -> 127).
     **/
-    int16_t current_position = std::numeric_limits<float>::signaling_NaN();
+    int16_t current_position = std::numeric_limits<int16_t>::signaling_NaN();
 
  public:
     /**

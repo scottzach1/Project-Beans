@@ -10,6 +10,13 @@
 GuidanceSystem::GuidanceSystem() = default;
 GuidanceSystem::~GuidanceSystem() = default;
 
+/**
+ * Arbitrary function as place holder for calculating values
+**/
+float calculateValue(float value) {
+    return isnan(value) ? -10 : value + 1;
+}
+
 void GuidanceSystem::updatePosition() {
     std::cout << "Updated position" << std::endl;
     current_position = calculatePosition();
@@ -31,12 +38,4 @@ GuidanceSystem::Position GuidanceSystem::getCurrentPosition() {
     // Return a copy of the current position.
     std::cout << "Getting position" << std::endl;
     return current_position;
-}
-
-
-/**
- * Arbitrary function as place holder for calculating values
-**/
-float calculateValue(float value) {
-    return isnan(value) ? -10 : value + 1;
 }

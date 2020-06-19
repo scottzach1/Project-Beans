@@ -18,5 +18,7 @@ bool Parachute::isDeployed() {
 bool Parachute::callHardware() {
     std::cout << "Attempting to deploy parachute...\t";
     // TODO(ALL): Interract with hardware
-    std::cout << (true ? "Success" : "Failure") << std::endl;
+    bool status = true;
+    std::cout << (status ? "Success" : "Failure") << std::endl;
+    return status;
 }
