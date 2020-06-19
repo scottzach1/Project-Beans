@@ -15,6 +15,16 @@ markdownlint:
     - mdl --style all --warnings --rules ~MD001,~MD004,~MD005,~MD006,~MD007,~MD009,~MD012,~MD013,~MD022,~MD024,~MD025,~MD029,~MD032,~MD033,~MD034,~MD036 .
   allow_failure: true
 
+cpplint:
+  image: python:latest
+  stage: Lint
+  script:
+    - pip install cpplint
+    - cpplint --filter=-legal --recursive */*
+  tags:
+    - docker
+  allow_failure: true
+
 build:
   stage: Build
   tags:
@@ -23,7 +33,7 @@ build:
     - echo "static analysis"
     - exit 0
   allow_failure: true
-  
+
 test-drc:
   stage: Test
   tags:
