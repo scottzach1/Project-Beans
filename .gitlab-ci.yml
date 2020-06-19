@@ -41,7 +41,7 @@ test-drc:
   image: productize/kicad-automation-scripts:latest
   script:
     - export DISPLAY=:0
-    - python -m kicad-automation.pcbnew_automation.run_drc electronics/KiCad/KiCad.kicad_pcb output
+    - python -m kicad-automation.pcbnew_automation.run_drc hardware_package/avionics_pcb/testing/KiCad.kicad_pcb output
   allow_failure: true
 
 unittest:
