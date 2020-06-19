@@ -62,7 +62,7 @@ If the requirement have changed significantly since the requirements document, o
 References to other documents or standards. Follow the IEEE Citation Reference scheme, available from the [IEEE website](https://ieee-dataport.org/sites/default/files/analysis/27/IEEE%20Citation%20Guidelines.pdf) (PDF; 20 KB). (1 page, longer if required)
 
 
-https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf [1] (Viewed 27/5/2020) 
+https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf [1] (Viewed 27/5/2020)
 https://www.aviation.govt.nz/assets/rules/consolidations/Part_101_Consolidation.pdf [2] (Viewed 12/06/2020)
 
 ## 3. Architecture
@@ -87,44 +87,44 @@ This means that you should refer to information (e.g. risks, requirements, model
     - Interface with and control a gimbal
     - Log all flight data and calculations for later analysis
     - Communicate with the base station, relaying real time flight data
-    - All code and schematics will be completely open source 
+    - All code and schematics will be completely open source
 
 - Designed PCB should be accessible to the wider rocket building community:
     - Easy to order from sites such as JLC-PCB
     - Parts will be accessible within New Zealand
     - Software will be easy to flash to the BCP, and will be well documented
-       
+
 - Designed PCB must be smaller than the previous years attempt
 
 #### Software developers / Testers
 - The avionics package development environment will allow for easy deployment of software to the package hardware
-- The avionics package development environment will allow for feedback from the avionics package, used to monitor performance of the package while in use. 
-- The avionics package will consist of a series of modules, each with defined responsibilities. 
+- The avionics package development environment will allow for feedback from the avionics package, used to monitor performance of the package while in use.
+- The avionics package will consist of a series of modules, each with defined responsibilities.
 
 #### School of Engineering and Computer Science (ECS)
 - ECS requires that all aspects of the avionics package are correctly licenced
-- ECS requires that we follow all guidelines specified by them 
+- ECS requires that we follow all guidelines specified by them
 
 #### Wider Rocketry Community
-- The avionics package is required to be open source so that it can be implemented and edited by the wider rocketry community. 
+- The avionics package is required to be open source so that it can be implemented and edited by the wider rocketry community.
 -The avionics package is required to be well documented.
 
-#### Civil Aviation Authority 
+#### Civil Aviation Authority
 - The avionics package must conform to the regulations specified in the CAA Regulations Part 101 [2]
 
 ### 3.2 Architectural Viewpoints
 
 #### Logical
-The logical viewpoint will describe the functionality that the system provides to the end user. This viewpoint will break the system down into its key concepts, this can be visualised as a class and state diagram. 
+The logical viewpoint will describe the functionality that the system provides to the end user. This viewpoint will break the system down into its key concepts, this can be visualised as a class and state diagram.
 
 #### Development
-The development viewpoint will describe the architecture that supports the processes involved in the software development cycle, and aims to address concerns regarding the management of the software. 
+The development viewpoint will describe the architecture that supports the processes involved in the software development cycle, and aims to address concerns regarding the management of the software.
 
 #### Process
 The process viewpoint will describe the dynamic and non-functional requirements of the system. *TODO I currently dont know what we should put here as it dosent seem to fit with the hardware aspect of our project*
 
-#### Physical 
-The physical viewpoint details how the software will integrate with the hardware, mapping individual packages within the avionics package to their respective hardware. This viewpoint will discuss the availability, reliability, and performance of both the hardware and software system. 
+#### Physical
+The physical viewpoint details how the software will integrate with the hardware, mapping individual packages within the avionics package to their respective hardware. This viewpoint will discuss the availability, reliability, and performance of both the hardware and software system.
 
 #### Scenarios
 The scenarios viewpoint will detail use cases that describe the interactions between users and the system. This will then allow for qualitative reviews of our given architecture.
@@ -244,9 +244,9 @@ GitLab gives the ability to break down projects into well defined pieces in the 
  The branching strategy adopted by the team involves the creation of a branch and merge request for every issue a team member decides to do. **The branch created must be branching off the master branch.** If more than 1 team member is assigned to an issue, those team members can decide if they want to create further individual branches that branch off the newly created branch. <br><br>
 
   ![Branching Strategy Diagram](software_architecture/Draw_IO/branching-strategy-diagram.png) <br>**Figure 2: Branching Strategy Diagram**<br><br>
-  
+
   The diagram in figure 2 follows a small example of only 3 issues being addressed in the sprint. Each issue has a branch and should be composed of multiple commits as represented by multiple nodes of the same color in the diagram. When the issue has been completed, the branch should be merged into the master branch via the merge request. After merging, the branch created for the issue will be closed, so should the corresponding issue.<br><br>
-  
+
 - **Completing an Issue and Merge Request**
   When the issue has been completed, it is the responsibility of the issue assignee to move the issue to the **review stage** via the sprint board, and assigning the issue the 'review' label. The merge request should be assigned the review label to indicate to other team members that the merge request is ready for reviewing. Relevant team members will be responsible for inspecting the changes applied through the merge request, and will have to provide an approval. **Each merge request must receive a certain number of approvals** before being able to merge its contents with the master branch. It is the responsibility of the team members to provide feedback and suggestions to the merge request as they see fit. After receiving the required number of approvals, the merge request can be completed by merging its corresponding branch to master and closing the merge request. The sourcce branch has the option to be closed with the merge request, however it is up to individual team members to make use of this feature. <br><br>
 
@@ -345,17 +345,44 @@ The microcontrollers onboard flash memory is where the control system parameters
 
 ## 5. Development Schedule
 
-_For each subsection, make clear what (if anything) has changed from the requirements document._ If unchanged, these sections should be copied over from the requirements document, not simply cross-referenced.
-
-Schedules must be justified and supported by evidences; they must be either direct client requirements or direct consequences of client requirements. If the requirements document did not contain justifications or supporting evidences, then both must be provided here.
+> _For each subsection, make clear what (if anything) has changed from
+> the requirements document._
+>
+> If unchanged, these sections should be copied over from the
+> requirements document, not simply cross-referenced.
+>
+> Schedules must be justified and supported by evidences; they must be
+> either direct client requirements or direct consequences of client
+> requirements. If the requirements document did not contain
+> justifications or supporting evidences, then both must be provided
+> here.
 
 ### 5.1 Schedule
 
 Identify dates for key project deliverables:
 
-1. prototype(s).
-1. first deployment to the client.
-1. further improvements required or specified by the client.
+#### Demos
+
+- **TODO DATE** - This demo will enable the software team to ensure that
+  software is logged correctly.
+- **TODO DATE** - This demo will be used to verify safety critical
+  components of the rocket such as ensure the parachute launches as
+  expected.
+- **TODO DATE** - This demo will be used to ensure communication with
+  the rocket over LoRa performs as expected. In this demo, we will be
+  testing how far we can reliably communicate with the rocket.
+- **TODO DATE** - This demo will be testing usability and introduce a
+  prospective user with the rocket. The rocket will be defused before
+  the demo and is strictly to observer user behaviour.
+
+#### Releases
+
+- Architectural Prototypes
+   - The architectural prototype will be completed my **TODO**.
+- Minimum Viable Product
+   - The minimum viable product will be completed by **TODO**.
+- Final Revision
+   - The final revision will be completed by **TODO**.
 
 (1 page).
 
