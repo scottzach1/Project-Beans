@@ -60,7 +60,10 @@ If the requirement have changed significantly since the requirements document, o
 ## 2. References
 
 References to other documents or standards. Follow the IEEE Citation Reference scheme, available from the [IEEE website](https://ieee-dataport.org/sites/default/files/analysis/27/IEEE%20Citation%20Guidelines.pdf) (PDF; 20 KB). (1 page, longer if required)
-https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf [1] (Viewed 27/5/2020) 
+
+
+https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf [1] (Viewed 27/5/2020)
+https://www.aviation.govt.nz/assets/rules/consolidations/Part_101_Consolidation.pdf [2] (Viewed 12/06/2020)
 
 ## 3. Architecture
 
@@ -74,14 +77,57 @@ This means that you should refer to information (e.g. risks, requirements, model
 
 ### 3.1 Stakeholders
 
-See ISO/IEC/IEEE 42010 clause 5.3 and ISO/IEC/IEEE 12207 clause 6.4.4.3(2).
+> See ISO/IEC/IEEE 42010 clause 5.3 and ISO/IEC/IEEE 12207 clause 6.4.4.3(2).
+> For most systems this will be about 2 pages, including a table mapping concerns to
+> stakeholder.
 
-For most systems this will be about 2 pages, including a table mapping concerns to stakeholder.
+##### Client
+- Avionics package must maintain the same functionality as was required last year:
+    - Implement some form of control system, guiding the rocket
+    - Interface with and control a gimbal
+    - Log all flight data and calculations for later analysis
+    - Communicate with the base station, relaying real time flight data
+    - All code and schematics will be completely open source
+
+- Designed PCB should be accessible to the wider rocket building community:
+    - Easy to order from sites such as JLC-PCB
+    - Parts will be accessible within New Zealand
+    - Software will be easy to flash to the BCP, and will be well documented
+
+- Designed PCB must be smaller than the previous years attempt
+
+#### Software developers / Testers
+- The avionics package development environment will allow for easy deployment of software to the package hardware
+- The avionics package development environment will allow for feedback from the avionics package, used to monitor performance of the package while in use.
+- The avionics package will consist of a series of modules, each with defined responsibilities.
+
+#### School of Engineering and Computer Science (ECS)
+- ECS requires that all aspects of the avionics package are correctly licenced
+- ECS requires that we follow all guidelines specified by them
+
+#### Wider Rocketry Community
+- The avionics package is required to be open source so that it can be implemented and edited by the wider rocketry community.
+-The avionics package is required to be well documented.
+
+#### Civil Aviation Authority
+- The avionics package must conform to the regulations specified in the CAA Regulations Part 101 [2]
 
 ### 3.2 Architectural Viewpoints
-(1 page, 42010 5.4)
 
-Identify the architectural viewpoints you will use to present your system's architecture. Write one sentence to outline each viewpoint. Show which viewpoint frames which architectural concern.
+#### Logical
+The logical viewpoint will describe the functionality that the system provides to the end user. This viewpoint will break the system down into its key concepts, this can be visualised as a class and state diagram.
+
+#### Development
+The development viewpoint will describe the architecture that supports the processes involved in the software development cycle, and aims to address concerns regarding the management of the software.
+
+#### Process
+The process viewpoint will describe the dynamic and non-functional requirements of the system. *TODO I currently dont know what we should put here as it dosent seem to fit with the hardware aspect of our project*
+
+#### Physical
+The physical viewpoint details how the software will integrate with the hardware, mapping individual packages within the avionics package to their respective hardware. This viewpoint will discuss the availability, reliability, and performance of both the hardware and software system.
+
+#### Scenarios
+The scenarios viewpoint will detail use cases that describe the interactions between users and the system. This will then allow for qualitative reviews of our given architecture.
 
 ### 4. Architectural Views
 
@@ -198,19 +244,51 @@ GitLab gives the ability to break down projects into well defined pieces in the 
  The branching strategy adopted by the team involves the creation of a branch and merge request for every issue a team member decides to do. **The branch created must be branching off the master branch.** If more than 1 team member is assigned to an issue, those team members can decide if they want to create further individual branches that branch off the newly created branch. <br><br>
 
   ![Branching Strategy Diagram](software_architecture/Draw_IO/branching-strategy-diagram.png) <br>**Figure 2: Branching Strategy Diagram**<br><br>
-  
-  The diagram in figure 2 follows a small example of only 3 issues being addressed in the sprint. Each issue has a branch and should be composed of multiple commits as represented by multiple nodes of the same color in the diagram. When the issue has been completed, the branch should be merged into the master branch via the merge request. After merging, the branch created for the issue will be closed, so should the corresponding issue.<br><br>
-  
-- **Completing an Issue and Merge Request**
-  When the issue has been completed, it is the responsibility of the issue assignee to move the issue to the **review stage** via the sprint board, and assigning the issue the 'review' label. The merge request should be assigned the review label to indicate to other team members that the merge request is ready for reviewing. Relevant team members will be responsible for inspecting the changes applied through the merge request, and will have to provide an approval. **Each merge request must receive a certain number of approvals** before being able to merge its contents with the master branch. It is the responsibility of the team members to provide feedback and suggestions to the merge request as they see fit. After receiving the required number of approvals, the merge request can be completed by merging its corresponding branch to master and closing the merge request. The sourcce branch has the option to be closed with the merge request, however it is up to individual team members to make use of this feature. <br><br>
 
-- _**TODO:**_ Write about CI/CD as more details become available
+  The diagram in figure 2 follows a small example of only 3 issues being addressed in the sprint. Each issue has a branch and should be composed of multiple commits as represented by multiple nodes of the same color in the diagram. When the issue has been completed, the branch should be merged into the master branch via the merge request. After merging, the branch created for the issue will be closed, so should the corresponding issue.<br><br>
+
+- **Completing an Issue and Merge Request**<br>
+  When the issue has been completed, it is the responsibility of the issue assignee to move the issue to the **review stage** via the sprint board, and assigning the issue the 'review' label. The merge request should be assigned the review label to indicate to other team members that the merge request is ready for reviewing. Relevant team members will be responsible for inspecting the changes applied through the merge request, and will have to provide an approval.  Once the review stage has been completed, issues should then be automatically closed via Merge Requests. This is done by commenting "Fixes #Issue-Number" (eg. "Fixes #2"). this will link the issue to this merge request, so that upon merge these issues will be automatically closed.  **Each merge request must receive a certain number of approvals** before being able to merge its contents with the master branch. It is the responsibility of the team members to provide feedback and suggestions to the merge request as they see fit. After receiving the required number of approvals, the merge request can be completed by merging its corresponding branch to master and closing the merge request. The source branch has the option to be closed with the merge request, however it is up to individual team members to make use of this feature. <br><br>
+
+- _**TODO:**_ Write about CI/CD as more details become available / MD linter
+- **Continuous Integration / Continuous Delivery**<br>
+
 
 
 ##### Agile Project Management
-The project will be managed by observing agile project management principles. In particular, the Scrum agile project management methodology is used as a template on how to conduct the project. The project is conducted in 2-week sprints, with each sprint addressing at least 1 epic defined for the project. Sprint planning meetings will be conducted to obtain a sprint backlog, and to officially initiate the sprint. Brief sprint reviews will be conducted at the end of sprints to give the project team some insight on how the sprint progressed, and what could be improved.The usage of issue boards and limiting the number of tasks that can be in a single phase are inspired from the Kanban methodology of agile project management. This assists the project team in determining the status of issues, and finding out what still needs to be addressed. Regular meetings are also conducted to monitor and encourage the progress of each individual towards the issues they are aassigned to. By observing these ideas, team members are able to collaborate effectively, enabling the project the reach its goals in a systematic fashion.
+The project will be managed by observing agile project management principles. In particular, the Scrum agile project management methodology is used as a template on how to conduct the project. The project is conducted in 2-week sprints, with each sprint addressing at least 1 epic defined for the project. Sprint planning meetings will be conducted to obtain a sprint backlog, and to officially initiate the sprint. Brief sprint reviews will be conducted at the end of sprints to give the project team some insight on how the sprint progressed, and what could be improved. The usage of issue boards and limiting the number of tasks that can be in a single phase are inspired from the Kanban methodology of agile project management. This assists the project team in determining the status of issues, and finding out what still needs to be addressed. Regular meetings are also conducted to monitor and encourage the progress of each individual towards the issues they are assigned to. By observing these ideas, team members are able to collaborate effectively, enabling the project the reach its goals in a systematic fashion.
 
 _**TODO:**_ Write about any potential conventions with the selected programming language and tools used
+
+##### Coding Conventions
+Due to the safety-critical nature of the product being developed, it is imperative that the software system is written in a way that assures reliability, security and safety. To achieve this, the software is written in accordance with the "Power Of 10" which is a widely used ruleset for writing safety-critical software [3].
+
+***Power of 10*** - All these rules are adhered to in the development of the software
+
+1. Avoid complex flow constructs, such as "goto" and recursion.
+2. All loops must have fixed bounds (this prevents runaway code).
+3. Avoid heap memory allocation.
+4. Restrict functions to a single printed page.
+5. Use a minimum of two runtime assertions per function.
+6. Restrict the scope of data to the smallest possible.
+7. Check the return value of all non void functions, or cast to void to indicate the return value is useless.
+8. Use the preprocessor sparingly.
+9. Limit pointer use to a single dereference, and do not use function pointers.
+10. Compile with all possible warnings active; all warnings should then be addressed before the release of the software.
+
+***Style Guide***
+- To accompany the coding standard to laid out above, there will also be a C++ style guide. For this project, we intend to use the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
+- This style guide specifies rules to be followed such as variable, struct and file naming conventions.
+- To accompany this style guide, a C++ linter will also be configured to check for any violations in Continuous Integration (CI). The linter chosen is [cpplint](https://github.com/cpplint/cpplint) as it is fully open source and pre-configured to comply with the aforementioned Google Style guide.
+
+##### Linting
+The Gitlab repository will use multiple linters to enforce that all documents are syntactically correct, consistent, safe, and readable. By conforming to these conventions, future users are given the ability to contribute to the software system much easier, given that they can understand the conventions followed.
+
+One linter used is [Cobra](https://github.com/nimble-code/Cobra), an open source C/C++ linter which was developed by NASA/JPL. This linter performs static analysis which verifies if the software system complies with "The Power of 10" rules.
+
+Another linter used is [cpplint](https://github.com/cpplint/cpplint). This open source C/C++ linter will be integrated as part of the CI component of the project's GitLab repository to enforce the Google C++ Style Guide. Being a command-line tool, this linter is ideal for deployment on the CI system of GitLab.
+
+For the markdown documents in the project, the linter being used is [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli). Like cpplint, this is also a command-line focused tool, making it an ideal tool for integration within GitLab's CI system. This linter will enforce a set of predefined markdown formatting rules specified [here](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md).
 
 ### 4.3 Process
 
@@ -291,25 +369,114 @@ The ignition system requires a high one off voltage to ignite the powder fuel. T
 Key data is sent to the base station, the rest is stored on the rocket to save the computing resource available. Sent data includes the Battery level, GPS position (For locating after the acceleration phase), (? other indicators of system status).
 
 ###### Software
-The microcontrollers onboard flash memory is where the control system parameters are stored along with (? Timing intervals for certain triggers, large sections of software that wont fit in the program memory? Subroutines for interrupts). Triggers include: Ignition, Base station triggers?. Continuious data flows include: Control system (receiving from IMU, sending to Gimbal), Data storage (Polling Sensors, sending data to SD), Communications (Sending to amplifier).
+The microcontrollers onboard flash memory is where the control system parameters are stored along with (? Timing intervals for certain triggers, large sections of software that wont fit in the program memory? Subroutines for interrupts). Triggers include: Ignition, Base station triggers?. Continuous data flows include: Control system (receiving from IMU, sending to Gimbal), Data storage (Polling Sensors, sending data to SD), Communications (Sending to amplifier).
 
 
 ### 4.5 Scenarios
-...
+
+Throughout our development we are aiming to tackle a couple of scenarios (or user stories) for each sprint. These will assist us in developing specific extensions, features, and functionalities within our package, while keeping a focus on our user's needs. This is met by following the general template: "As a [type of user / persona], I want [feature], so that [achievement/justification]".
+
+We aim to use scenarios to cover interactions between our package and both personas and user types. Each of our personas can be found in depth inside the /personas/ directory. The user types is for representing a specific group of potential users, eg. a 'Mission Control Member'.
+
+There is a slight exception to our approach to scenarios within the first two sprints, where we are placing a higher priority on just achieving a base product. Due to the extension based nature of scenarios we felt that the majority of the uses cases required us to have our project up to a certain level.
+
+#### 4.5.1 Sprint Specific Scenarios
+
+##### Sprint 1
+
+We didn't cover any scenarios here as we instead prioritised progress on the Architecture Document as well as starting to plan out the base product.
+
+##### Sprint 2
+
+This was our first sprint where we even considered use cases. Again we had a higher priority on getting our project up to speed, and as such the only scenario we truly aimed to address was:
+- As Richard, I want to be able to easily read and understand all of the code, so that I am able to understand and contribute to it myself.
+
+This involved us cementing both coding styles and practices which we shall use throughout development of this project. Keeping this consistent means that users and future users should have as simple a time as possible reading through and understanding the code.
+
+#### 4.5.2 Future Scenarios
+Below is a list of scenarios currently divided into different categories, which we aim to cover in future sprints. This list is by no means definite, and is likely to be expanded on throughout development.
+
+###### Base Station Setup
+- As a novice user, I want the ability to setup the base station software quickly, so that the overall setup time to launch the rocket is less than or equal to 15 minutes.
+
+- As a base station member, I want the ability to run diagnostic tests on the rocket before launch.
+
+###### Pre-Flight Tuning of PID parameters
+- As a novice user, I want the ability to make changes to the parameters of the PID, so that the rocket can fly correctly under a wide range of conditions.
+
+###### Mid-Flight monitoring
+- As a user of the base station, I want the ability to see data about the rocket during its flight, so that I can find out whether or not the rocket is performing as expected.
+
+###### Post-Flight Analysis
+- As a novice user, I want the ability to review the data after the flight of the rocket, so that I can examine the performance of the rocket in finer detail.
+
+- As a hardware enthusiast, I want the ability to deconstruct the rocket easily, so that I can examine the state of each individual hardware component after the flight and make changes if needed.
+
+##### Safety
+- As a [safety conscious user] I want my launch system to be safe, so that I can ensure that the rocket will not launch until I have physically told it to.
+
+###### Recovery
+- As Richard, I want to use GPS data to give me the position of the rocket's landing site, so that I can locate the rocket easily after its flight
+
+- As Molly, I want the rocket to land with a parachute safely, so that the rocket can be used for more flights.
+
+###### Launch
+- As a rocket enthusiast, I want the rocket to be contained within a single kit, so that it can be constructed and ready to launch within 15 minutes
+
+- As a rocket enthusiast, I want the launch-critical components of the rocket to be clearly labeled, so that I know exactly what components of the rocket need activation to be launched
+
+- As a rocket enthusiast, I need the rocket to feature manual ignition with physical safety interlocks, so that I can launch it from a safe distance.
+
+- As a novice user, I want the hardware to be robust against incorrect installation procedure of the motor and battery, so that components aren't accidentally damaged.
+
+##### Landing
+- As a rocket enthusiast I want to have support for both smaller and larger parachutes, so that the rocket can handle launches from extreme heights. (further iterations)
+
+###### Transportation
+- As a novice user, I want the rocket to be light, so that I can bring it anywhere with ease.
+
+- As a novice user, I want the rocket to be contained within a single kit, so that I can bring it anywhere easily without the potential of losing important parts.
 
 ## 5. Development Schedule
 
-_For each subsection, make clear what (if anything) has changed from the requirements document._ If unchanged, these sections should be copied over from the requirements document, not simply cross-referenced.
-
-Schedules must be justified and supported by evidences; they must be either direct client requirements or direct consequences of client requirements. If the requirements document did not contain justifications or supporting evidences, then both must be provided here.
+> _For each subsection, make clear what (if anything) has changed from
+> the requirements document._
+>
+> If unchanged, these sections should be copied over from the
+> requirements document, not simply cross-referenced.
+>
+> Schedules must be justified and supported by evidences; they must be
+> either direct client requirements or direct consequences of client
+> requirements. If the requirements document did not contain
+> justifications or supporting evidences, then both must be provided
+> here.
 
 ### 5.1 Schedule
 
 Identify dates for key project deliverables:
 
-1. prototype(s).
-1. first deployment to the client.
-1. further improvements required or specified by the client.
+#### Demos
+
+- **TODO DATE** - This demo will enable the software team to ensure that
+  software is logged correctly.
+- **TODO DATE** - This demo will be used to verify safety critical
+  components of the rocket such as ensure the parachute launches as
+  expected.
+- **TODO DATE** - This demo will be used to ensure communication with
+  the rocket over LoRa performs as expected. In this demo, we will be
+  testing how far we can reliably communicate with the rocket.
+- **TODO DATE** - This demo will be testing usability and introduce a
+  prospective user with the rocket. The rocket will be defused before
+  the demo and is strictly to observer user behaviour.
+
+#### Releases
+
+- Architectural Prototypes
+   - The architectural prototype will be completed my **TODO**.
+- Minimum Viable Product
+   - The minimum viable product will be completed by **TODO**.
+- Final Revision
+   - The final revision will be completed by **TODO**.
 
 (1 page).
 
@@ -319,25 +486,36 @@ Identify dates for key project deliverables:
 
 Present a budget for the project (as a table), showing the amount of expenditure the project requires and the date(s) on which it will be incurred. Substantiate each budget item by reference to fulfilment of project goals (one paragraph per item).
 
+| COMPONENT | COST  | NAME/DESCRIPTION/LINK | REASONS FOR CHOICE |
+|---------|----------|----|---------------|
+|Micro-Controller|$24.95 USD|Adafruit Feather STM32F405 (168MHz) [BUY](https://www.adafruit.com/product/4382), [Github](https://github.com/adafruit/Adafruit-Feather-STM32F405-Express-PCB), [Documentation](https://www.digikey.co.nz/en/videos/a/adafruit/programming-the-adafruit-feather-stm32f405-express-with-stm32cubeide-maker-io)| Small, Light, Good Opensource Libraries & Good Documentation|
+|IMU|$17.59 NZD|BNO055 [BUY](https://nz.mouser.com/ProductDetail/Bosch-Sensortec/BNO055?qs=QhAb4EtQfbV8Z2YmISucWw%3D%3D), [Datasheet](https://nz.mouser.com/datasheet/2/783/BST-BNO055-DS000-1509603.pdf), [Adafruit library](https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/arduino-code)|  Good Libraries, quaternions, Better Documentation|
+|GPS|$61.93 NZD| Adafruit Mini GPS PA1010D [BUY](https://www.digikey.co.nz/products/en?keywords=PA1010D), [Datasheet](https://cdn.taoglas.com/datasheets/GP.1575.25.4.A.02.pdf)|Cheap, Small and Meets requirments|
+|Transceivers|$19.95 USD|Adafruit RFM96W LoRa Radio Transceiver Breakout - 433 MHz - RadioFruit [BUY](https://www.adafruit.com/product/3073), [Overview](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts?fbclid=IwAR35VbMkCNa8vlXsCGSQ_aMt7WncGXr0NET0dsGQH1ARlQAluhj9rdhM1OQ), [Datasheet](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts.pdf?timestamp=1592280787)|SPI, Pins for extra antenna|
+|Gimbal Servos| $6.97 NZD each|	SERVOMOTOR RC 6V MICR METAL GEAR [BUY](https://www.digikey.com/product-detail/en/dfrobot/SER0011/1738-1232-ND/7087129?fbclid=IwAR3tHvFKb_L4hPvRHZ3XCM0uWsSMUwFsVYjAItaNuxh1T_yVfbpZaJRjYQQ)|15grams Small, Cheap, Has dimension specifications|
+|Battery|$12 NZD| ZIPPY Compact 500mAh 2S 35C Lipo Pack [Buy](https://hobbyking.com/en_us/zippy-compact-500mah-2s-35c-lipo-pack.html?queryID=daa4b6898932867645b366984b5914b9&objectID=24762&indexName=hbk_live_magento_en_us_products)|-Available in Australia, - Sufficient Charge, Voltage and Current discharge specifications, - Cheap, -Light for a battery|
+|Power supply| $3.62 USD | See power_supply.md | See power_supply.md |
+|-| ~ $230 NZD|-|-|
+
+
 (1 page).
 
 #### 5.2.2 Procurement
 
-Present a table of goods or services that will be required to deliver project goals and specify how they are to be procured (e.g. from the School or from an external organisation). These may be software applications, libraries, training or other infrastructure, including open source software. Justify and substantiate procurement with reference to fulfilment of project goals, one paragraph per item.
+Present a table of goods or services that will be required to deliver project goals and specify how they are to be procured (e.g. from the School or from an external organization). These may be software applications, libraries, training or other infrastructure, including open source software. Justify and substantiate procurement with reference to fulfilment of project goals, one paragraph per item.
 (1 page).
 
 ### 5.3 Risks
 
-Identify the ten most important project risks: their type, likelihood, impact, and mitigation strategies (3 pages).
+Please refer to section 5.3 of the [requirements document](https://gitlab.ecs.vuw.ac.nz/course-work/engr300/2020/group3/group-3/-/blob/master/project_requirement/project-requirement.md) for further information.
 
 ### 5.4 Health and Safety
 
-Document here project requirements for Health and Safety.
+Information regarding health and safety provided in section 5.4 of the [requirements document](https://gitlab.ecs.vuw.ac.nz/course-work/engr300/2020/group3/group-3/-/blob/master/project_requirement/project-requirement.md).
 
 #### 5.4.1 Safety Plans
 
-Safety Plans may be required for some projects, depending on project requirements.
-
+Detailed safety plan regarding operation can be found here: [safety plan](https://gitlab.ecs.vuw.ac.nz/course-work/engr300/2020/group3/group-3/-/blob/master/project_requirement/safety-plan-analysis.md)
 
 ## 6. Appendices
 

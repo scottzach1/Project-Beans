@@ -4,6 +4,8 @@ stages:
   - Test
   - Deploy
 
+# https://github.com/markdownlint/markdownlint/blob/master/docs/configuration.md
+# https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md
 markdownlint:
   stage: Lint
   tags:
@@ -30,6 +32,16 @@ build:
   script:
     - echo "static analysis"
     - exit 0
+  allow_failure: true
+
+test-drc:
+  stage: Test
+  tags:
+    - docker
+  image: productize/kicad-automation-scripts:latest
+  script:
+    - export DISPLAY=:0
+    - python -m kicad-automation.pcbnew_automation.run_drc electronics/KiCad/KiCad.kicad_pcb output
   allow_failure: true
 
 unittest:
