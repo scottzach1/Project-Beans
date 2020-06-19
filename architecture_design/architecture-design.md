@@ -60,22 +60,10 @@ If the requirement have changed significantly since the requirements document, o
 ## 2. References
 
 References to other documents or standards. Follow the IEEE Citation Reference scheme, available from the [IEEE website](https://ieee-dataport.org/sites/default/files/analysis/27/IEEE%20Citation%20Guidelines.pdf) (PDF; 20 KB). (1 page, longer if required)
-<<<<<<< architecture_design/architecture-design.md
+
+
 https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf [1] (Viewed 27/5/2020)
 https://www.aviation.govt.nz/assets/rules/consolidations/Part_101_Consolidation.pdf [2] (Viewed 12/06/2020)
-
-
-https://riccardogiorato.com/blog/2019/2019-10-02_The-Power-of-10---NASA-s-Rules-for-Coding-43ae1764f73d/ [3]
-
-
-1. https://github.com/nimble-code/Cobra
-2. https://spinroot.com/cobra/index.html
-=======
-
-
-https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf [1] (Viewed 27/5/2020) 
-https://www.aviation.govt.nz/assets/rules/consolidations/Part_101_Consolidation.pdf [2] (Viewed 12/06/2020)
->>>>>>> architecture_design/architecture-design.md
 
 ## 3. Architecture
 
@@ -99,44 +87,44 @@ This means that you should refer to information (e.g. risks, requirements, model
     - Interface with and control a gimbal
     - Log all flight data and calculations for later analysis
     - Communicate with the base station, relaying real time flight data
-    - All code and schematics will be completely open source 
+    - All code and schematics will be completely open source
 
 - Designed PCB should be accessible to the wider rocket building community:
     - Easy to order from sites such as JLC-PCB
     - Parts will be accessible within New Zealand
     - Software will be easy to flash to the BCP, and will be well documented
-       
+
 - Designed PCB must be smaller than the previous years attempt
 
 #### Software developers / Testers
 - The avionics package development environment will allow for easy deployment of software to the package hardware
-- The avionics package development environment will allow for feedback from the avionics package, used to monitor performance of the package while in use. 
-- The avionics package will consist of a series of modules, each with defined responsibilities. 
+- The avionics package development environment will allow for feedback from the avionics package, used to monitor performance of the package while in use.
+- The avionics package will consist of a series of modules, each with defined responsibilities.
 
 #### School of Engineering and Computer Science (ECS)
 - ECS requires that all aspects of the avionics package are correctly licenced
-- ECS requires that we follow all guidelines specified by them 
+- ECS requires that we follow all guidelines specified by them
 
 #### Wider Rocketry Community
-- The avionics package is required to be open source so that it can be implemented and edited by the wider rocketry community. 
+- The avionics package is required to be open source so that it can be implemented and edited by the wider rocketry community.
 -The avionics package is required to be well documented.
 
-#### Civil Aviation Authority 
+#### Civil Aviation Authority
 - The avionics package must conform to the regulations specified in the CAA Regulations Part 101 [2]
 
 ### 3.2 Architectural Viewpoints
 
 #### Logical
-The logical viewpoint will describe the functionality that the system provides to the end user. This viewpoint will break the system down into its key concepts, this can be visualised as a class and state diagram. 
+The logical viewpoint will describe the functionality that the system provides to the end user. This viewpoint will break the system down into its key concepts, this can be visualised as a class and state diagram.
 
 #### Development
-The development viewpoint will describe the architecture that supports the processes involved in the software development cycle, and aims to address concerns regarding the management of the software. 
+The development viewpoint will describe the architecture that supports the processes involved in the software development cycle, and aims to address concerns regarding the management of the software.
 
 #### Process
 The process viewpoint will describe the dynamic and non-functional requirements of the system. *TODO I currently dont know what we should put here as it dosent seem to fit with the hardware aspect of our project*
 
-#### Physical 
-The physical viewpoint details how the software will integrate with the hardware, mapping individual packages within the avionics package to their respective hardware. This viewpoint will discuss the availability, reliability, and performance of both the hardware and software system. 
+#### Physical
+The physical viewpoint details how the software will integrate with the hardware, mapping individual packages within the avionics package to their respective hardware. This viewpoint will discuss the availability, reliability, and performance of both the hardware and software system.
 
 #### Scenarios
 The scenarios viewpoint will detail use cases that describe the interactions between users and the system. This will then allow for qualitative reviews of our given architecture.
@@ -381,11 +369,72 @@ The ignition system requires a high one off voltage to ignite the powder fuel. T
 Key data is sent to the base station, the rest is stored on the rocket to save the computing resource available. Sent data includes the Battery level, GPS position (For locating after the acceleration phase), (? other indicators of system status).
 
 ###### Software
-The microcontrollers onboard flash memory is where the control system parameters are stored along with (? Timing intervals for certain triggers, large sections of software that wont fit in the program memory? Subroutines for interrupts). Triggers include: Ignition, Base station triggers?. Continuious data flows include: Control system (receiving from IMU, sending to Gimbal), Data storage (Polling Sensors, sending data to SD), Communications (Sending to amplifier).
+The microcontrollers onboard flash memory is where the control system parameters are stored along with (? Timing intervals for certain triggers, large sections of software that wont fit in the program memory? Subroutines for interrupts). Triggers include: Ignition, Base station triggers?. Continuous data flows include: Control system (receiving from IMU, sending to Gimbal), Data storage (Polling Sensors, sending data to SD), Communications (Sending to amplifier).
 
 
 ### 4.5 Scenarios
-...
+Throughout our development we are aiming to tackle a couple of scenarios (or user stories) for each sprint. These will assist us in developing specific extensions, features, and functionalities within our package, while keeping a focus on our user's needs. This is met by following the general template: "As a [type of user / persona], I want [feature], so that [achievement/justification]".
+
+We aim to use scenarios to cover interactions between our package and both personas and user types. Each of our personas can be found in depth inside the /personas/ directory. The user types is for representing a specific group of potential users, eg. a 'Mission Control Member'.
+
+There is a slight exception to our approach to scenarios within the first two sprints, where we are placing a higher priority on just achieving a base product. Due to the extension based nature of scenarios we felt that the majority of the uses cases required us to have our project up to a certain level.  
+
+
+#### 4.5.1 Sprint Specific Scenarios
+
+##### Sprint 1
+We didn't cover any scenarios here as we instead prioritised progress on the Architecture Document as well as starting to plan out the base product.
+
+##### Sprint 2
+This was our first sprint where we even considered use cases. Again we had a higher priority on getting our project up to speed, and as such the only scenario we truly aimed to address was:
+- As Richard, I want to be able to easily read and understand all of the code, so that I am able to understand and contribute to it myself.
+
+This involved us cementing both coding styles and practices which we shall use throughout development of this project. Keeping this consistent means that users and future users should have as simple a time as possible reading through and understanding the code.
+
+
+#### 4.5.2 Future Scenarios
+Below is a list of scenarios currently divided into different categories, which we aim to cover in future sprints. This list is by no means definite, and is likely to be expanded on throughout development.
+
+###### Base Station Setup
+- As a novice user, I want the ability to setup the base station software quickly, so that the overall setup time to launch the rocket is less than or equal to 15 minutes.
+
+- As a base station member, I want the ability to run diagnostic tests on the rocket before launch.
+
+###### Pre-Flight Tuning of PID parameters
+- As a novice user, I want the ability to make changes to the parameters of the PID, so that the rocket can fly correctly under a wide range of conditions.
+
+###### Mid-Flight monitoring
+- As a user of the base station, I want the ability to see data about the rocket during its flight, so that I can find out whether or not the rocket is performing as expected.
+
+###### Post-Flight Analysis
+- As a novice user, I want the ability to review the data after the flight of the rocket, so that I can examine the performance of the rocket in finer detail.
+
+- As a hardware enthusiast, I want the ability to deconstruct the rocket easily, so that I can examine the state of each individual hardware component after the flight and make changes if needed.
+
+##### Safety
+- As a [safety conscious user] I want my launch system to be safe, so that I can ensure that the rocket will not launch until I have physically told it to.
+
+###### Recovery
+- As Richard, I want to use GPS data to give me the position of the rocket's landing site, so that I can locate the rocket easily after its flight
+
+- As Molly, I want the rocket to land with a parachute safely, so that the rocket can be used for more flights.
+
+###### Launch
+- As a rocket enthusiast, I want the rocket to be contained within a single kit, so that it can be constructed and ready to launch within 15 minutes
+
+- As a rocket enthusiast, I want the launch-critical components of the rocket to be clearly labeled, so that I know exactly what components of the rocket need activation to be launched
+
+- As a rocket enthusiast, I need the rocket to feature manual ignition with physical safety interlocks, so that I can launch it from a safe distance.
+
+- As a novice user, I want the hardware to be robust against incorrect installation procedure of the motor and battery, so that components aren't accidentally damaged.
+
+##### Landing
+- As a rocket enthusiast I want to have support for both smaller and larger parachutes, so that the rocket can handle launches from extreme heights. (further iterations)
+
+###### Transportation
+- As a novice user, I want the rocket to be light, so that I can bring it anywhere with ease.
+
+- As a novice user, I want the rocket to be contained within a single kit, so that I can bring it anywhere easily without the potential of losing important parts.
 
 ## 5. Development Schedule
 
