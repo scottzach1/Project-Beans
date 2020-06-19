@@ -11,83 +11,40 @@ Crisostomo, Zac Scott.
 
 ## 1. Introduction
 
-For rockets ranging from NASAs Saturn V to an amateur rocket enthusiasts
-first rocket, stability is a desirable. The method in which stable
-flight is achieved varies to a large degree, but can be divided into two
-basic categories. The most common being passively stabilized rockets.
-These maintain a stable flight due to passive aerodynamic features, an
-example being fins that give the rocket a stabilizing rotation (similar
-to the effect of rifling on a bullet). The simplicity of a passive
-system is appealing but any error introduced to the system can cause an
-unwanted flight trajectory. Some examples of sources of error include,
-unexpected wind or a fin of differing size that is not accounted for.
-The second category is an active control system. Onboard electronics can
-be used to achieve active course correction. Error in the rockets
-trajectory can be mitigated in a way that passive systems cannot. The
-drawbacks of this are the complexity and large overhead introduced when
-constructing the rocket.
+For rockets ranging from NASAs Saturn V to an amateur rocket enthusiasts first rocket, stability is a desirable. The method in which stable flight is achieved varies to a large degree, but can be divided into two basic categories. The most common being passively stabilized rockets. These maintain a stable flight due to passive aerodynamic features, an example being fins that give the rocket a stabilizing rotation (similar to the effect of rifling on a bullet). The simplicity of a passive system is appealing but any error introduced to the system can cause an unwanted flight trajectory. Some examples of sources of error include, unexpected wind or a fin of differing size that is not accounted for. The second category is an active control system. Onboard electronics can be used to achieve active course correction. Error in the rockets trajectory can be mitigated in a way that passive systems cannot. The drawbacks of this are the complexity and large overhead introduced when constructing the rocket.
 
-Our customer is one day hoping to launch a rocket from a weather balloon
-at approximately 70,000ft. This will require an active control system.
-This project aims to covering the need for an active control system.
-Existing off-the-shelf avionics packages for amateur rocketry
-enthusiasts are available, but our customer finds them lacking. This is
-due to limited functionality and with most packages not open source, so
-they cannot be reprogrammed. This project aims to improve on an existing
-attempt at this control system, completed in 2018, and is working along
-side other teams to ensure all aspects are covered.
+Our customer is one day hoping to launch a rocket from a weather balloon at approximately 70,000ft. This will require an active control system. This project aims to covering the need for an active control system. Existing off-the-shelf avionics packages for amateur rocketry enthusiasts are available, but our customer finds them lacking. This is due to limited functionality and with most packages not open source, so they cannot be reprogrammed. This project aims to improve on an existing attempt at this control system, completed in 2018, and is working along side other teams to ensure all aspects are covered.
 
 ### Client
 
 Our client for this project is Andre Geldenhuis. Andre is a rocket
 enthusiast who is part of the NZ Rocketry Association. As of writing
-this, the contact email is "andre.geldenhuis@vuw.ac.nz" and throughout
-the project, the team can also contact Andre via a live text chat
-(Mattermost) channel.
+this this contact email is "andre.geldenhuis@vuw.ac.nz", and throughout the project the team can also contact Andre via a live text chat (Mattermost Customer channel).
 
 ### 1.1 Purpose
 
-The purpose of this system is to control a rocket in flight while being
-open source and accessible so that it can be used in the amateur rocketry
-community.
+The purpose of this system is to create a rocket which can be controlled in flight while being open source and accessible, so that it can be further used in the amateur rocketry community.
 
 ### 1.2 Scope
 
 The objective is to deliver an avionics system that will allow stable
 controlled flight while simultaneously logging and broadcasting data.
-This system must improve on the existing avionics package created by a
-team in 2018 for Andre. There is no requirement on height or flight
+This system must improve on the existing avionics package created by a team in 2018 for Andre. There is no requirement on height or flight
 time, only to demonstrate controlled flight. The flight data must be
-logged to an onboard SD card, and the broadcast data must be accessed
-realtime by a onsite personal computer. The broadcast data must include
-the GPS position of the rocket. The rocket will use C or D class solid
-fuel engines. The improvements on the 2018 avionics package are the
-reduction in onboard PCB size, and reliability in the field. To be
-considered more reliable the avionics package will have to initialize
-and launch on the first attempt, the package must also not have loose
-wires or bare electronics.
+logged to an onboard SD card, and the broadcast data must be accessed in real-time by an onsite personal computer. The broadcast data must include the GPS position of the rocket. The rocket will use C or D class solid fuel engines. The improvements on the 2018 avionics package are the reduction in onboard PCB size, and reliability in the field. To be considered more reliable the avionics package will have to initialize and launch on the first attempt, the package must also not have loose wires or bare electronics. This also involves having a robust code package to support this.
 
 ### 1.3 Product overview
 
 #### 1.3.1 Product perspective
 
 There is no specific larger system that this system will be part of.
-Rather this is intended to bring the goals of our customer closer and to
-add to the body of knowledge in the amateur rocketry community. Our
-client is aiming to one day launch rockets from a weather balloon. This
-will require a system that can launch and achieve stable flight from a
-platform. This will require an active system. This project is creating
-and ensuring soundness of active control system that can be adapted in
-the future for this goal.
+Rather this is intended to bring the goals of our customer closer and to add to the body of knowledge in the amateur rocketry community. Our client is aiming to one day launch rockets from a weather balloon. This will require a system that can launch and achieve stable flight from a platform. This will require an active system. This project is creating and ensuring soundness of active control system that can be adapted in the future for this goal.
 
-This project is open source, allowing the final product to be tweaked and
-repurposed by the community. This adds longevity to the project after
-it is officially ended. This can benefit the customers as this may
-result in further development by the community.
+This project is open source, allowing the final product to be tweaked and repurposed by the community. This adds longevity to the project after it is officially ended. This can benefit the customers as this may result in further development by the community.
 
 A similar open source project has been undertaken in 2018 for our
-customer. This project will used the existing projects resources and
-improve the system.
+customer. This project will use the existing projects resources and
+improve on the system.
 
 #### 1.3.2 Product functions
 
@@ -98,10 +55,8 @@ include:
 
 - A rocket that achieves stable flight with an active control system
   without the use of a launch rail.
-- Records data from all sensors at a rate where the flight path could be
-  reasonably reconstructed post flight.
-- Broadcasts radio telemetry and battery level during the launch, burn
-  and post-burn phase of flight.
+- Records data from all sensors at a rate where the flight path could be reasonably reconstructed post flight.
+- Broadcasts radio telemetry and battery level during the launch, burn and post-burn phase of flight.
 - The rocket must land without sustaining disabling damage to the
   electronics.
 
@@ -113,15 +68,9 @@ include:
 
 #### 1.3.3 User characteristics
 
-One of the key requests from our client is that the avionic package will
-be open source, which allows use and potential continuation of this
-product from anyone in the wider amateur rocketry community. Future
-users could include but it not limited to students, researchers,
-programmers and rocketry hobbyists.
+One of the key requests from our client is that the avionic package will be open source, which allows use and potential continuation of this product from anyone in the wider amateur rocketry community. Future users could include but it not limited to students, researchers, programmers and rocketry hobbyists.
 
-Since there is a wide variation in the potential user, it is recommended
-to have experience in certain technical areas before attempting any
-parts of this project. these include:
+Since there is a wide variation in the potential user, it is recommended to have experience in certain technical areas before attempting any parts of this project. these include:
 
 - When installing the electrical components.
 - The interaction of software and hardware.
@@ -129,34 +78,25 @@ parts of this project. these include:
 - understand telemetry operations.
 - Operating aircraft applications
 
-Users should have an understanding of how this package will be applied
-to their own specific projects. It's also important that the users are
-able to fully comply with all of the health and safety regulations
-required by their local Authority body on civil aviation if a rocket is
-intended to be launched.
+Users should have an understanding of how this package will be applied to their own specific projects. It's also important that the users are able to fully comply with all of the health and safety regulations required by their local Authority body on civil aviation if a rocket is intended to be launched.
 
 #### 1.3.4 Limitations
 
 
 **Sensor Data and broadcasting limitations**
 
-One of the main requirements is to store sensor data. This must be done
-at a fast enough rate. Not all of the sensors have the same polling
-speed so the complete state of the rocket (as seen through the sensors),
-can only be updated at the rate of the slowest sensor.
+One of the main requirements is to store sensor data. This must be done at a fast enough rate. Not all of the sensors have the same polling speed so the complete state of the rocket (as seen through the sensors), can only be updated at the rate of the slowest sensor.
 
 Terrain, distance and weather conditions will affect the strength and
-reliability of the broadcast data to the base-station. This will limit
-the range and conditions in which the rocket can operate in. The rocket
-should only be operated in line of sight of the base station to ensure a
-reliable connection.
+reliability of the broadcast data to the base-station. This will limit the range and conditions in which the rocket can operate in. The rocket should only be operated in line of sight of the base station to ensure a reliable connection.
+
+GPS data is also extremely likely to become inaccessible during launch, so we cannot rely on this at any point when the rocket is in flight.
 
 **Conditions**
 
 The rocket is not designed to be waterproof, neither is the control
 system designed to handle interaction with rain and high wind.
-Therefore, for protection of the onboard electronics, the rocket should
-be launched only on clear days with a wind speed less than 10 knots.
+Therefore, for protection of the onboard electronics, the rocket should be launched only on clear days with a wind speed less than 10 knots.
 
 **Launch sites**
 
@@ -197,14 +137,8 @@ within a safe distance are the required constraints.
 #### Radio Antenna
 The radio antenna will facilitate the transfer of data and commands
 between the avionics package and the base station. This radio antenna
-must allow for the live broadcast of the packages
-geographical location data, which will be provided by the GPS unit
-within the avionics package. This will allow for easier retrieval of the
-unit as specified b External:y the customer. While in flight, the radio antenna
-will also facilitate the periodic sending of other sensor data to the
-base station for use in live monitoring of performance. This data will
-be sent according to the **TODO agreed on specification**, and
-will include but is not limited too:
+must allow for the live broadcast of the packages geographical location data, which will be provided by the GPS unit
+within the avionics package. This will allow for easier retrieval of the unit as specified b Externally the customer. While in flight, the radio antenna will also facilitate the periodic sending of other sensor data to the base station for use in live monitoring of performance. This data will be sent according to the **TODO agreed on specification**, and will include but is not limited to:
 
 - Current gimbal position/angle
 - directional acceleration data
