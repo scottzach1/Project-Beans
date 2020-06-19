@@ -389,17 +389,44 @@ The microcontrollers onboard flash memory is where the control system parameters
 
 ## 5. Development Schedule
 
-_For each subsection, make clear what (if anything) has changed from the requirements document._ If unchanged, these sections should be copied over from the requirements document, not simply cross-referenced.
-
-Schedules must be justified and supported by evidences; they must be either direct client requirements or direct consequences of client requirements. If the requirements document did not contain justifications or supporting evidences, then both must be provided here.
+> _For each subsection, make clear what (if anything) has changed from
+> the requirements document._
+>
+> If unchanged, these sections should be copied over from the
+> requirements document, not simply cross-referenced.
+>
+> Schedules must be justified and supported by evidences; they must be
+> either direct client requirements or direct consequences of client
+> requirements. If the requirements document did not contain
+> justifications or supporting evidences, then both must be provided
+> here.
 
 ### 5.1 Schedule
 
 Identify dates for key project deliverables:
 
-1. prototype(s).
-1. first deployment to the client.
-1. further improvements required or specified by the client.
+#### Demos
+
+- **TODO DATE** - This demo will enable the software team to ensure that
+  software is logged correctly.
+- **TODO DATE** - This demo will be used to verify safety critical
+  components of the rocket such as ensure the parachute launches as
+  expected.
+- **TODO DATE** - This demo will be used to ensure communication with
+  the rocket over LoRa performs as expected. In this demo, we will be
+  testing how far we can reliably communicate with the rocket.
+- **TODO DATE** - This demo will be testing usability and introduce a
+  prospective user with the rocket. The rocket will be defused before
+  the demo and is strictly to observer user behaviour.
+
+#### Releases
+
+- Architectural Prototypes
+   - The architectural prototype will be completed my **TODO**.
+- Minimum Viable Product
+   - The minimum viable product will be completed by **TODO**.
+- Final Revision
+   - The final revision will be completed by **TODO**.
 
 (1 page).
 
