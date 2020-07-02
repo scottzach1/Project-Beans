@@ -1,4 +1,4 @@
-# ENGR 301 Project *NN* Project Proposal and Requirements Document
+# ENGR 301 Project Beans Project Proposal and Requirements Document
 
 [[_TOC_]]
 
@@ -11,93 +11,40 @@ Crisostomo, Zac Scott.
 
 ## 1. Introduction
 
-Requirement: "One page overall introduction including sections 1.1 and
-1.2 (ISO/IEC/IEEE 42010:2011(E) clause 5.2)"
+For rockets ranging from NASAs Saturn V to an amateur rocket enthusiasts first rocket, stability is a desirable. The method in which stable flight is achieved varies to a large degree, but can be divided into two basic categories. The most common being passively stabilized rockets. These maintain a stable flight due to passive aerodynamic features, an example being fins that give the rocket a stabilizing rotation (similar to the effect of rifling on a bullet). The simplicity of a passive system is appealing but any error introduced to the system can cause an unwanted flight trajectory. Some examples of sources of error include, unexpected wind or a fin of differing size that is not accounted for. The second category is an active control system. Onboard electronics can be used to achieve active course correction. Error in the rockets trajectory can be mitigated in a way that passive systems cannot. The drawbacks of this are the complexity and large overhead introduced when constructing the rocket.
 
-For rockets ranging from NASAs Saturn V to an amateur rocket enthusiasts
-first rocket, stability is a desirable. The method in which stable
-flight is achieved varies to a large degree, but can be divided into two
-basic categories. The most common being passively stabilized rockets.
-These maintain a stable flight due to passive aerodynamic features, an
-example being fins that give the rocket a stabilizing rotation (similar
-to the effect of rifling on a bullet). The simplicity of a passive
-system is appealing but any error introduced to the system can cause an
-unwanted flight trajectory. Some examples of sources of error include,
-unexpected wind or a fin of differing size that is not accounted for.
-The second category is an active control system. Onboard electronics can
-be used to achieve active course correction. Error in the rockets
-trajectory can be mitigated in a way that passive systems cannot. The
-drawbacks of this are the complexity and large overhead introduced when
-constructing the rocket.
-
-Our customer is one day hoping to launch a rocket from a weather balloon
-at approximately 70,000ft. This will require an active control system.
-This project aims to covering the need for an active control system.
-Existing off-the-shelf avionics packages for amateur rocketry
-enthusiasts are available, but our customer finds them lacking. This is
-due to limited functionality and with most packages not open source, so
-they cannot be reprogrammed. This project aims to improve on an existing
-attempt at this control system, completed in 2018, and is working along
-side other teams to ensure all aspects are covered.
+Our customer is one day hoping to launch a rocket from a weather balloon at approximately 70,000ft. This will require an active control system. This project aims to covering the need for an active control system. Existing off-the-shelf avionics packages for amateur rocketry enthusiasts are available, but our customer finds them lacking. This is due to limited functionality and with most packages not open source, so they cannot be reprogrammed. This project aims to improve on an existing attempt at this control system, completed in 2018, and is working along side other teams to ensure all aspects are covered.
 
 ### Client
 
 Our client for this project is Andre Geldenhuis. Andre is a rocket
 enthusiast who is part of the NZ Rocketry Association. As of writing
-this, the contact email is "andre.geldenhuis@vuw.ac.nz" and throughout
-the project, the team can also contact Andre via a live text chat
-(Mattermost) channel.
+this this contact email is "andre.geldenhuis@vuw.ac.nz", and throughout the project the team can also contact Andre via a live text chat (Mattermost Customer channel).
 
 ### 1.1 Purpose
 
-Requirement: "One sentence describing the purpose of the system(9.5.1)"
-
-The purpose of this system is to control a rocket in flight while being
-open source and accessible so that it can be used in the amateur rocketry
-community.
+The purpose of this system is to create a rocket which can be controlled in flight while being open source and accessible, so that it can be further used in the amateur rocketry community.
 
 ### 1.2 Scope
 
-Requirement: "One paragraph describing the scope of the system(9.5.2)"
-
 The objective is to deliver an avionics system that will allow stable
 controlled flight while simultaneously logging and broadcasting data.
-This system must improve on the existing avionics package created by a
-team in 2018 for Andre. There is no requirement on height or flight
+This system must improve on the existing avionics package created by a team in 2018 for Andre. There is no requirement on height or flight
 time, only to demonstrate controlled flight. The flight data must be
-logged to an onboard SD card, and the broadcast data must be accessed
-realtime by a onsite personal computer. The broadcast data must include
-the GPS position of the rocket. The rocket will use C or D class solid
-fuel engines. The improvements on the 2018 avionics package are the
-reduction in onboard PCB size, and reliability in the field. To be
-considered more reliable the avionics package will have to initialize
-and launch on the first attempt, the package must also not have loose
-wires or bare electronics.
+logged to an onboard SD card, and the broadcast data must be accessed in real-time by an onsite personal computer. The broadcast data must include the GPS position of the rocket. The rocket will use C or D class solid fuel engines. The improvements on the 2018 avionics package are the reduction in onboard PCB size, and reliability in the field. To be considered more reliable the avionics package will have to initialize and launch on the first attempt, the package must also not have loose wires or bare electronics. This also involves having a robust code package to support this.
 
 ### 1.3 Product overview
 
 #### 1.3.1 Product perspective
 
-One page defining the system's relationship to other related products
-(9.5.3. but not the subsections in the standard.)
-
 There is no specific larger system that this system will be part of.
-Rather this is intended to bring the goals of our customer closer and to
-add to the body of knowledge in the amateur rocketry community. Our
-client is aiming to one day launch rockets from a weather balloon. This
-will require a system that can launch and achieve stable flight from a
-platform. This will require an active system. This project is creating
-and ensuring soundness of active control system that can be adapted in
-the future for this goal.
+Rather this is intended to bring the goals of our customer closer and to add to the body of knowledge in the amateur rocketry community. Our client is aiming to one day launch rockets from a weather balloon. This will require a system that can launch and achieve stable flight from a platform. This will require an active system. This project is creating and ensuring soundness of active control system that can be adapted in the future for this goal.
 
-This project is open source, allowing the final product to be tweaked and
-repurposed by the community. This adds longevity to the project after
-it is officially ended. This can benefit the customers as this may
-result in further development by the community.
+This project is open source, allowing the final product to be tweaked and repurposed by the community. This adds longevity to the project after it is officially ended. This can benefit the customers as this may result in further development by the community.
 
 A similar open source project has been undertaken in 2018 for our
-customer. This project will used the existing projects resources and
-improve the system.
+customer. This project will use the existing projects resources and
+improve on the system.
 
 #### 1.3.2 Product functions
 
@@ -108,29 +55,22 @@ include:
 
 - A rocket that achieves stable flight with an active control system
   without the use of a launch rail.
-- Records data from all sensors at a rate where the flight path could be
-  reasonably reconstructed post flight.
-- Broadcasts radio telemetry and battery level during the launch, burn
-  and post-burn phase of flight.
+- Records data from all sensors at a rate where the flight path could be reasonably reconstructed post flight.
+- Broadcasts radio telemetry and battery level during the launch, burn and post-burn phase of flight.
 - The rocket must land without sustaining disabling damage to the
   electronics.
 
 ##### Required functionality Improvement
 
 - Software can be reliably initialized in the field.
+- Software is held to a high level of quality and robustness
 - Must have protected electronics, wires and PCBs cannot be exposed.
 
 #### 1.3.3 User characteristics
 
-One of the key requests from our client is that the avionic package will
-be open source, which allows use and potential continuation of this
-product from anyone in the wider amateur rocketry community. Future
-users could include but it not limited to students, researchers,
-programmers and rocketry hobbyists.
+One of the key requests from our client is that the avionic package will be open source, which allows use and potential continuation of this product from anyone in the wider amateur rocketry community. Future users could include but it not limited to students, researchers, programmers and rocketry hobbyists.
 
-Since there is a wide variation in the potential user, it is recommended
-to have experience in certain technical areas before attempting any
-parts of this project. these include:
+Since there is a wide variation in the potential user, it is recommended to have experience in certain technical areas before attempting any parts of this project. these include:
 
 - When installing the electrical components.
 - The interaction of software and hardware.
@@ -138,37 +78,27 @@ parts of this project. these include:
 - understand telemetry operations.
 - Operating aircraft applications
 
-Users should have an understanding of how this package will be applied
-to their own specific projects. It's also important that the users are
-able to fully comply with all of the health and safety regulations
-required by their local Authority body on civil aviation if a rocket is
-intended to be launched.
+Users should have an understanding of how this package will be applied to their own specific projects. It's also important that the users are able to fully comply with all of the health and safety regulations required by their local Authority body on civil aviation if a rocket is intended to be launched.
 
 #### 1.3.4 Limitations
 
-One page on the limitations on the product (9.5.6)
 
-***Sensor Data and broadcasting limitations***
+**Sensor Data and broadcasting limitations**
 
-One of the main requirements is to store sensor data. This must be done
-at a fast enough rate. Not all of the sensors have the same polling
-speed so the complete state of the rocket (as seen through the sensors),
-can only be updated at the rate of the slowest sensor.
+One of the main requirements is to store sensor data. This must be done at a fast enough rate. Not all of the sensors have the same polling speed so the complete state of the rocket (as seen through the sensors), can only be updated at the rate of the slowest sensor.
 
 Terrain, distance and weather conditions will affect the strength and
-reliability of the broadcast data to the base-station. This will limit
-the range and conditions in which the rocket can operate in. The rocket
-should only be operated in line of sight of the base station to ensure a
-reliable connection.
+reliability of the broadcast data to the base-station. This will limit the range and conditions in which the rocket can operate in. The rocket should only be operated in line of sight of the base station to ensure a reliable connection.
 
-***Conditions***
+GPS data is also extremely likely to become inaccessible during launch, so we cannot rely on this at any point when the rocket is in flight.
+
+**Conditions**
 
 The rocket is not designed to be waterproof, neither is the control
 system designed to handle interaction with rain and high wind.
-Therefore, for protection of the onboard electronics, the rocket should
-be launched only on clear days with a wind speed less than 10 knots.
+Therefore, for protection of the onboard electronics, the rocket should be launched only on clear days with a wind speed less than 10 knots.
 
-***Launch sites***
+**Launch sites**
 
 Due to the dangerous nature of a rocket, places where the rocket can be
 tested is limited. Open spaces with high visibility and with no people
@@ -178,12 +108,7 @@ within a safe distance are the required constraints.
 
 ## 2. References
 
-References to other documents or standards. Follow the IEEE Citation
-Reference scheme, available from the
 [IEEE website](https://ieeexplore-ieee-org.helicon.vuw.ac.nz/stamp/stamp.jsp?tp=&arnumber=6146379&tag=1)
-(please use the search box). (1 page, longer if required)
-
-_**TODO**_: Properly format these sources in IEEE standard.
 
 \[1] [www.nzrocketry.org.nz/rocketry/rocket-safety](https://www.nzrocketry.org.nz/rocketry/rocket-safety)
 (Viewed 30/4/2020)
@@ -207,99 +132,13 @@ _**TODO**_: Properly format these sources in IEEE standard.
 
 ## 3. Specific requirements
 
-> Planing:
->
-> - Hardware:
->
-> > - Should be controlled (Some sort of control system).
-> >
-> > > - Radio Antenna
-> > > - SD Card
-> > > - Internal Measurement Unit (IMU / Sensors)
-> > > - Gimbal
-> > > - Servos
-> > > - GPS
->
-> - Software:
->
-> > - Database
-
-3.1 External Interfaces: Niels: 3.2 Functions:
-
-Use Cases for MVP:
-
-- Rocket meets user objectives.
-- Rocket reacts to wind speed.
-- Rocket is safe to transport.
-- Rocket consists of a single kit. (Pelican case)
-- Re-usability of rocket (at least 11 times).
-- Post flight analysis.
-- Rocket is tunable / tweakable for optimisation.
-- Rocket can be assembled and ready to launch within 15 minutes.
-  - (Once flashed)
-- Rocket is structurally sound.
-  - Components can withstand 20 m/s -2.
-
-Software Functions: (Zac)
-
-- Connecting and communicating data between the base station and the
-  rocket.
-- Processing of sensor data.
-  - Logging sensor data
-    - IMU (Once per meter)
-    - Radio (Radio range of > 81m.
-    - GPS accurate into at least 9m.
-  - Checking validity of respective data.
-    - Radio (Once every 11 sensor readings).
-    - GPS
-    - Write to SD card.
-    - Battery
-  - Sensor data for control.
-    - IMU (Once per meter)
-
-Usability Requirements: (Ron)
-
-- Continuous battery readouts.
-
-Performance Requirements: (Will)
-
-- Rocket can get 2m off the ground.
-
-Non-Functional Requirements:
-
-- Rocket lands in starting spot.
-
-Logical Requirements: (Object-Oriented Domain Analysis).
-
-- GPS Coordinates
-- IMU Readings
-- Battery readings
-- SD Write
-- ***TODO: Billy's UML Diagram***
-
-This Section will go into depth describing every single requirement of
-the project, these requirements will then be expanded upon in the
-subheadings below.
-
-***Original Instructions***
-
-> 20 pages outlining the requirements of the system. You should
-> apportion these pages across the following subsections to focus on the
-> most important parts of your product.
-
 ### 3.1 External interfaces
 
-#### Radio Antenna The radio antenna will facilitate the transfer of
-
-data and commands between the avionics package and the base station.
-This radio antenna must allow for the live broadcast of the packages
-geographical location data, which will be provided by the GPS unit
-within the avionics package. This will allow for easier retrieval of the
-unit as specified b External:y the customer. While in flight, the radio antenna
-will also facilitate the periodic sending of other sensor data to the
-base station for use in live monitoring of performance. This data will
-be sent according to the **TODO agreed on specification**, and
-will include but is not limited too:
+#### Radio Antenna
+The radio antenna will facilitate the transfer of data and commands
+between the avionics package and the base station. This radio antenna
+must allow for the live broadcast of the packages geographical location data, which will be provided by the GPS unit
+within the avionics package. This will allow for easier retrieval of the unit as specified b Externally the customer. While in flight, the radio antenna will also facilitate the periodic sending of other sensor data to the base station for use in live monitoring of performance. This data will be sent according to the **TODO agreed on specification**, and will include but is not limited to:
 
 - Current gimbal position/angle
 - directional acceleration data
@@ -367,15 +206,7 @@ be passed to the radio antenna unit for broadcast to the base station.
 This will be used to help locate the rocket after a successful launch.
 The GPS unit will also log all of its outputs the SD card.
 
-### 3.2 Functions (can start)
-
-***Original Instructions***
-
-> This is typically the longest subsection in the document. List up to
-> fifty use cases (in order of priority for development), and for at
-> least top ten focal use cases, write a short goal statement and use
-> case body (up to seven pages). Identify the use cases that comprise a
-> minimum viable product.
+### 3.2 Functions
 
 #### 3.2.1 Use Cases
 
@@ -424,7 +255,6 @@ sections, which aim to include more specific requirements to their
 respective section.
 
 ***Requirements / functions of the Minimum Viable Product:***
-**TODO:** ensure these match up with Billy's requirements in intro**
 
 1. **The Rocket is safe to transport:** As the motor is classified as a
    Class 1 dangerous goods (New Zealand Land Transport Rule: Dangerous
@@ -483,8 +313,7 @@ respective section.
    components can be reasonably obtained or produced by a member of the
    public. This means that no unreasonably uncommon or expensive
    components will be used as part of the manufacturing of the rocket.
-   ***TODO*** This includes 3d printers, and ... (What else is essential
-   to produce or assemble the pcb / components of the rocket.
+   This also includes any parts used to produce or assemble the PCB / components of the rocket. We will also avoid use of 3d printers, for the same reasons.
 
 ***Software Requirements***
 
@@ -509,23 +338,6 @@ respective section.
    whose output is part of the integral control system. The components
    that meet this category is the IMU, the battery and the SD card.
 
-<!--
-#### Summary:
-This section should outline each of the required functions that the
-stakeholder has outlined for the project, how we intend to meet these
-functions, what the use-cases for out project are. It should break down
-each of the project requirements into subsections outlining the approach
-we are taking to implement them.
-
-**Suggested steps to make progress here:**
-
-- Talk with the customer about what their requirements for the project
-are.
-- Break down the requirements outlined by the customer into subsections
-which outline what we need to do to achieve them.
-- Come up with a list of possible use cases for our project outcomes.
--->
-
 ### 3.3 Usability Requirements
 
 The usability requirements should enable any individual from the wider
@@ -534,7 +346,7 @@ accompanying avionics package with relative ease. To ensure that this is
 achieved, all scenarios in which the rocket and the avionics package is
 used in should feature certain properties.
 
-#### Scenarios and Usecases
+#### Scenarios and Use Cases
 
 ##### Usability: Transporting
 
@@ -554,7 +366,7 @@ flight of the rocket, and a USB LoRa to enable bi-directional
 communication between the rocket and the laptop. Base station setup
 should take 5 minutes maximum.
 
-##### Usability: PreUsability: -Flight Tuning
+##### Usability: Pre-Usability: Flight Tuning
 
 A software platform should be provided to enable the user of the rocket
 to make quick changes to any aspect of the rocket, launch, and its
@@ -562,9 +374,7 @@ flight that can be reasonably altered by means of software. This
 pre-flight tuning platform should be in the form of a basic input/output
 system to minimize the time required to make changes. **It is crucial
 that user input is validated** to prevent the system from entering an
-incorrect state. (_**TODO:**_ State specific parts of the system that
-can be altered by means of software as they become clearer. _Any_ aspect
-of the system seems a bit too ambitious)
+incorrect state.
 
 ##### Usability: Launch
 
@@ -606,9 +416,8 @@ This can be achieved by doing the following:
 
 - A parachute system is deployed after a specific amount time provided
   by the user by means of software
-- _**TODO:**_ Client has also stated that another criterion that would
-  constitute the deployment of the parachute is if the on-board
-  barometer detects a decrease in pressure levels.
+- Alternatively, the parachute system is deployed when an onboard
+  barometer detects a decrease in air pressure
 
 ##### Usability: Post-Flight Diagnostics/Analysis
 
@@ -678,48 +487,6 @@ accelerations in excess of 120 metres per second per second. This is an
 important factor as the rocket's target demographic is the budget
 conscious hobbyist. It also ensures, that the user is able to tune the
 rocket over multiple consecutive launches to their preference.
-
-#### Summary: (Can't Start)
-
-This section will define what the base expectation of our of our project
-outcome will be. This section requires that we talk to the customer
-before anything can be done as it is the very general overview of the
-project.
-
-***Suggested steps to make progress here:*** -talk to the customer and
-find out what their requirements are.
-
-***Original Instructions***
-
->See 9.5.13. for most systems this will be around one page. Hardware
->projects also see section 9.4.6.
->
->> ***9.5.13 Performance requirements*** Specify both the static and
->> the dynamic numerical requirements placed on the software or on human
->> interaction with the software as a whole.
->>
->> Static numerical requirements may include the following:
->>
->> a) The number of terminals to be supported
->> b) The number of simultaneous users to be supported
->> c) Amount and type of information to be handled.
->>
->> Static numerical requirements are sometimes identified under a
->> separate section entitled Capacity.
->>
->> Dynamic numerical requirements may include, for example, the numbers
->> of transactions and tasks and the amount of data to be processed
->> within certain time periods for both normal and peak workload
->> conditions. The performance requirements should be stated in
->> measurable terms.
->>
->> For example, "_95 % of the transactions shall be processed in less
->> than 1 second._" rather than, "An operator shall not have to wait for
->> the transaction to complete."
->>
->> NOTE Numerical limits applied to one specific function are normally
->> specified as part of the processing subparagraph description of that
->> function.
 
 ### 3.5 Logical database requirements
 
@@ -814,43 +581,7 @@ during a flight.
   responsible for transforming the sensor data into a human readable
   format to contribute the usability of the logging system.
 
-### 3.6 Design constraints (Can Start)
-
-***Suggested Content:***
-
-- Two further subheadings - 3.6.1 Hardware Design Constraints, 3.6.2
-  Software Design Constraints
-- We can also write about the restrictions of each specific hardware
-  component once we decide what equipment we are going to use (Eg. is
-  there a limitation of the specific hardware component we are going to
-  use).
-
-***Suggested steps to make progress here:***
-
-- Contact client about further software design constraints.
-
-***Original Instructions***
-
-> 9.5.15 Design constraints:
-> Specify constraints on the system design
-> imposed by external standards, regulatory requirements, or project
-> limitations.
->
-> 9.5.16 Standards compliance:
-> Specify the requirements derived from
-> existing standards or regulations, including:
->
-> a) Report format.
-> b) Data naming.
-> c) Accounting procedures.
-> d) Audit tracing.
->
-> For example, this could specify the requirement for software to trace
-> processing activity. Such traces are needed for some applications to
-> meet minimum regulatory or financial standards. An audit trace
-> requirement may, for example, state that all changes to a payroll
-> database shall be recorded in a trace file with before and after
-> values.
+### 3.6 Design constraints
 
 #### 3.6.1 Hardware Design Constraints
 
@@ -890,7 +621,7 @@ Regulations 2001\[5]\[6]. Regulation 9 defines the available frequencies
 for broadcast on a general user radio licence, it also as the maximum
 broadcast power in DBW (Decibel Watts). We must also ensure that we
 chose to broadcast on a frequency that doesn't have heavy traffic
-inorder to negate the affects of interference.
+in order to negate the affects of interference.
 
 In addition to these regulations, the client has specifically stated the
 following hardware design constraint:
@@ -899,10 +630,6 @@ following hardware design constraint:
   is less than 29mm for usability and cost-efficiency purposes)
 - The rocket must use the QFN package type for any integrated chips it
   uses.
-
-_**TODO:**_ Identify any hardware design constraints imposed by the
-equipment and electronics we have agreed to use for our rocket. Place
-them in h5 subheadings here.
 
 #### 3.6.2 Software Design Constraints
 
@@ -920,18 +647,9 @@ development of the software. Furthermore, the 3rd party libraries that
 are used must not have any transitive dependencies with other libraries
 that are not open source.
 
-_**TODO:**_ Maybe talk about the fact that we have to use a programming
-language that better caters for the open-source nature of our software?
-Eg is C better suited to fulfill the open source attribute of our
-software compared to rust? If so, then a software design constraint is
-that we have to use C.
-
 ### 3.7 Nonfunctional system attributes
 
 #### 3.7.1 Hardware Non-Functional System Attributes
-
-_**TODO:**_ Try to list approximately 10 hardware non-functional
-requirements, a few of which need to be written about in detail.
 
 ##### Accessibility
 
@@ -966,8 +684,6 @@ main-board of the rocked. We can also ensure that all power systems are
 connected to the main-board with non-reversible connectors, and that
 there are reverse polarity protections present on the board.
 
-- Simulation to verify hardware before producing it physically (could
-  save us a lot of time)?
 
 #### 3.7.2 Software Non-Functional System Attributes
 
@@ -1039,42 +755,7 @@ the following:
   how to use it, and to describe any important parts of the software the
   user should be made aware of.
 
-### 3.8 Physical and Environmental Requirements (Can Start)
-
-***Suggested Content:***
-
-- 2 Subheadings - 3.8.1 Physical Requirements and 3.8.2 Environmental
-  Requirements
-- Environmental Requirements
-  - Legal restrictions as to where we can launch rockets. (Conduct
-    research and cite them)
-  - Weather restrictions and how this can impact rocket launches/flight.
-    What weather is acceptable/unacceptable for commencing with a
-    launch.
-  - 2018 Project also seems to cover obligations to the wider community
-    and stakeholders. Eg rocket should be safe for residents of
-    wellington region.
-  - How the station will look like on launch day (eg setup of the base
-    station)
-- Physical Requirements
-  - State the legal restrictions (There may be some repetition from
-    hardware design constraints)
-  - Identify the specific components that will be used to build the
-    rocket and their purpose
-  - Describe the rocket and its composition. Include info about
-    dimensions, weight, height, volume, general shape
-  - Describe where the parts come from and how they were procured
-
-We need to get to a point where we can confidently say what hardware
-components we are going to use. That way, we can start listing them in
-this section and state their features and characteristics.
-
-***Original Instructions:***
-
-> For systems with hardware components, identify the physical
-> characteristics of that hardware (9.4.10) and environment conditions
-> in which it must operate (9.4.11). Depending on the project, this
-> section may be from one page up to 5 pages.
+### 3.8 Physical and Environmental Requirements
 
 #### 3.8.1 Physical Requirements
 
@@ -1112,22 +793,7 @@ Association, the New Zealand Civil Aviation Authority (NZCAA) Rules Part
 - A rocket cannot be launched if horizontal visibility is less than 8km
 - Rockets cannot be launched at night under any circumstance
 
-_**TODO:**_ Make a statement about the actual wind speed our rocket can
-safely fly in once we can make this assessment confidently. Also state
-the required setup at the launch site if there are any.
-
 ### 3.9 Supporting information
-
-#### Summary
-
-This section declares any additional information that could justify why
-we have listed any particular specific requirement for all of section 3.
-We can start this section, but not much.
-
-***Suggested Content:***
-
-- State that it could potentially pave way for launching a rocket from a
-  diverse range of launch sites, including from a balloon.
 
 ##### Open Source
 
@@ -1227,8 +893,7 @@ to within a 5 metre radius of the rocket.
    successfully transmits critical telemetry data to the base station
    during launch and its flight to enable project stakeholders to
    monitor the flight.
-6. Analysis of Flight Data This use case is verified if the the
-   broadcast telemetry data is recorded and stored in a way that
+6. Analysis of Flight Data This use case is verified if the broadcast telemetry data is recorded and stored in a way that
    enables the project stakeholders to analyse the flight.
 
 #### 4.2.2 Verifying Requirements
@@ -1260,7 +925,7 @@ to within a 5 metre radius of the rocket.
 
 ***Hardware Requirements***
 
-1. Withstanding Significant Acceleration The rocket and its components
+1. Withstanding Significant Acceleration - The rocket and its components
    must be able to withstand at least 20ms<sup>-2</sup> of acceleration
    during its flight in order for this requirement to be verified. If
    components are unintentionally separated from the rocket, or is
@@ -1268,24 +933,23 @@ to within a 5 metre radius of the rocket.
    requirement will fail to meet the verification standards. Verifying
    this requirement can be achieved by ensuring secure mounting of
    components within the rocket.
-2. Safe Landing This requirement is verified if the rocket is able to
+2. Safe Landing - This requirement is verified if the rocket is able to
    perform a safe and slow landing as a result of deploying a recovery
    system after a set amount of time during its flight. **TODO:** (Or
    when an on-board barometer detects a drop in air pressure). A landing
    that causes noticeable damage to any person or property despite the
    deployment of the recovery system will mean that this requirement
    will fail to meet the verification standard.
-3. Fits within X*Y*Z enclosure This requirement is verified if the
+3. Fits within X*Y*Z enclosure - This requirement is verified if the
    entire rocket posses a width, height and depth of no more than
    `TODO`, `TODO`, `TODO` respectively. The rocket must also fit within
    an airframe whose maximum width does not exceed 29mm. Exceeding any
    of the specified dimensions fails the verification of this
    requirement.
-4. Open Source and Accessible This requirement is verified if all work
+4. Open Source and Accessible - This requirement is verified if all work
    contributing to the development of the hardware system of the rocket
    is openly visible to the public, and that the total cost of all
-   components is less than or equal to $300 NZD. _**TODO: Check this
-   once we have the final budget**_ To verify this requirement, all
+   components is less than or equal to $300 NZD. To verify this requirement, all
    schematics, plans and diagrams related to the hardware system of the
    rocket will be available on GitLab. Tools used to create schematics,
    plans and diagrams will be open source, or free to use.
@@ -1297,8 +961,7 @@ to within a 5 metre radius of the rocket.
    trajectory despite the influence of external factors such as wind
    speed and direction. The software system must use a combination of
    internal sensor readings on-board the rocket, as well as data from
-   mission control software. _**TODO: Confirm if mission control
-   software is to be consulted during the launch/flight**_.
+   mission control software.
 2. Logging This requirement is verified if the software system
    successfully logs important data from the IMU, Radio and GPS to both
    an on-board SD card and base station during flight. The logged
@@ -1476,10 +1139,6 @@ the legal regulations occur and update the design constraints as
 necessary to make sure that the hardware design constraints are verified
 at the end of the project.
 
-_**TODO:**_ If we add any design constraints related to the specific
-equipment/electronics we use in section 3.6, add how to verify those
-components in here.
-
 #### 4.6.2 Verifying Software Design Constraints
 
 One of the primary software design constraints that needs to be verified
@@ -1501,18 +1160,29 @@ library/API) must also be open source. If this is not the case, then the
 project will fail to meet the open source software design constraint of
 the project.
 
-_**TODO:**_ If we discover any more design constraints are added to
-section 3.6, add them in here
-
 ### 4.7 Nonfunctional System Attributes
 
 #### 4.7.1 Verifying Hardware Non-Functional System Attributes
 
-_**TODO:**_ Need to write 3.7.1 first - Do this ASAP!
+**Attribute 1: Accessibility**
+
+The client has specified that previous attempts at the physical design
+of the rocket suffered from accessibility issues. As a result, it is
+important that the rocket is built to facilitate easy access to its
+components. This non-functional requirement is verified if the client
+can make the assessment that all external interfaces on the rocket
+are accessible with minimal effort.
+
+**Attribute 2: Reliability**
+The verification of this attribute will rely on the fact that the
+rocket and its components does not sustain any significant damage
+during normal use. The rocket is considered reliable if it is
+able to undertake several flights, and is constructed in a way
+that prevents physical damage to its components.
 
 #### 4.7.2 Verifying Software Non-Functional System Attributes
 
-##### Attribute 1: Correctness and Reliability
+**Attribute 1: Correctness and Reliability**
 
 The verification of this attribute requires a large amount of testing.
 Verifying the correctness and reliability of the software system can be
@@ -1520,7 +1190,7 @@ achieved through rigorous unit testing to verify the lower level logic
 of the code. Unit testing will be conducted on _all_ software modules to
 verify the overall correctness and reliability of the software.
 Furthermore, unit testing will be integrated into the regular workflow
-of the team. _**TODO: Confirm with team**_. This means that at every
+of the team. This means that at every
 sprint, a set of test cases will be formed, which the target software
 module must pass at the end of the sprint. For software tests that
 require the usage of hardware components or a fully/partially built
@@ -1530,7 +1200,7 @@ components, and the outcome is known. This attribute is verified if the
 software performs as intended and is deemed as sufficient by the project
 team, and the client.
 
-##### Attribute 2: Maintainability and Extensibility
+**Attribute 2: Maintainability and Extensibility**
 
 To verify this attribute, the project team members in charge of
 developing the software must be in **full agreement** that relevant
@@ -1552,7 +1222,7 @@ this attribute. Each persona will be considered to see if that persona
 can understand the code-base and the manuals provided in a way that will
 enable them to make suggestions or apply changes to the code.
 
-##### Attribute 3: Testing
+**Attribute 3: Testing**
 
 This attribute can be verified by assessing the attribute against a
 range of both quantitative and qualitative metrics. From a quantitative
@@ -1648,46 +1318,30 @@ Council and does not damage the surrounding property or the environment.
 
 ### 5.2 Budget
 
-***Original Instructions***
+Present a budget for the project (as a table), showing the amount of expenditure the project requires and the date(s) on which it will be incurred. Substantiate each budget item by reference to fulfilment of project goals (one paragraph per item).
 
-> Present a budget for the project (table), and justify each budget item
-> (one paragraph per item, one page overall).
-
-Present a budget covering the cost of all of the component? Are we going
-to use hardware next tri? Perhaps we are paying for some of the software
-for simulation?
-
-- We should make a list of the hardware that we might need. (ie, micro
-  controllers and sensors etc.)
-- Ie, "This is our theoretical budget." Treat it as a grocery list.
+| COMPONENT | COST  | NAME/DESCRIPTION/LINK | REASONS FOR CHOICE |
+|---------|----------|----|---------------|
+|Micro-Controller|$24.95 USD|Adafruit Feather STM32F405 (168MHz) [BUY](https://www.adafruit.com/product/4382), [Github](https://github.com/adafruit/Adafruit-Feather-STM32F405-Express-PCB), [Documentation](https://www.digikey.co.nz/en/videos/a/adafruit/programming-the-adafruit-feather-stm32f405-express-with-stm32cubeide-maker-io)| Small, Light, Good Opensource Libraries & Good Documentation|
+|IMU|$17.59 NZD|BNO055 [BUY](https://nz.mouser.com/ProductDetail/Bosch-Sensortec/BNO055?qs=QhAb4EtQfbV8Z2YmISucWw%3D%3D), [Datasheet](https://nz.mouser.com/datasheet/2/783/BST-BNO055-DS000-1509603.pdf), [Adafruit library](https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/arduino-code)|  Good Libraries, quaternions, Better Documentation|
+|GPS|$61.93 NZD| Adafruit Mini GPS PA1010D [BUY](https://www.digikey.co.nz/products/en?keywords=PA1010D), [Datasheet](https://cdn.taoglas.com/datasheets/GP.1575.25.4.A.02.pdf)|Cheap, Small and Meets requirments|
+|Transceivers|$19.95 USD|Adafruit RFM96W LoRa Radio Transceiver Breakout - 433 MHz - RadioFruit [BUY](https://www.adafruit.com/product/3073), [Overview](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts?fbclid=IwAR35VbMkCNa8vlXsCGSQ_aMt7WncGXr0NET0dsGQH1ARlQAluhj9rdhM1OQ), [Datasheet](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts.pdf?timestamp=1592280787)|SPI, Pins for extra antenna|
+|Gimbal Servos| $6.97 NZD each|	SERVOMOTOR RC 6V MICR METAL GEAR [BUY](https://www.digikey.com/product-detail/en/dfrobot/SER0011/1738-1232-ND/7087129?fbclid=IwAR3tHvFKb_L4hPvRHZ3XCM0uWsSMUwFsVYjAItaNuxh1T_yVfbpZaJRjYQQ)|15grams Small, Cheap, Has dimension specifications|
+|Battery|$12 NZD| ZIPPY Compact 500mAh 2S 35C Lipo Pack [Buy](https://hobbyking.com/en_us/zippy-compact-500mah-2s-35c-lipo-pack.html?queryID=daa4b6898932867645b366984b5914b9&objectID=24762&indexName=hbk_live_magento_en_us_products)|-Available in Australia, - Sufficient Charge, Voltage and Current discharge specifications, - Cheap, -Light for a battery|
+|Power supply| $3.62 USD | See power_supply.md | See power_supply.md |
+|-| ~ $230 NZD|-|-|
 
 ### 5.3 Risks
-
-***Original Instructions***
-
-> Identify the ten most important project risks to achieving project
-> goals: their type, likelihood, impact, and mitigation strategies (3
-> pages).
->
-> If the project will involve any work outside the ECS laboratories,
-> i.e. off-campus activities, these should be included in the following
-> section.
-
-Identify top 10 most important risks affecting the project goals.
-
-- Global pandemic.
-- Injury of team mates
-- Distractions?
 
 The content below outlines the 10 most important risks that can impact
 achieving project goals. Attributes of each risk such as the likelihood
 of the risk occurring and its impact is described using the following
 levels:
 
-> Likelihood: - Unlikely, Likely, Very Likely Impact - Mild, Moderate,
-> Severe
+ - Likelihood: - Unlikely, Likely, Very Likely
+ - Impact - Mild, Moderate, Severe
 
-#### Risk 1: Rocket falls on a person causing injury
+**Risk 1: Rocket falls on a person causing injury**
 
 - **Risk Type:** Health and Safety
 - **Likelihood:** Unlikely
@@ -1706,7 +1360,7 @@ levels:
   maintain a minimum distance of 5m from the rocket during a launch, as
   required by the NZRA \[1].
 
-#### Risk 2: Rocket contacts object causing damage
+**Risk 2: Rocket contacts object causing damage**
 
 - **Description:** Rocket unintentionally makes contact with an object
   during flight or when it lands, causing damage to property
@@ -1720,13 +1374,13 @@ levels:
   from any buildings, cars and roads. Ensure that a parachute deployment
   system is implemented to minimize the damage done by an impact with an
   object during landing.
-- _**TODO:**_ One potential mitigation strategy is to limit the altitude
-  the rocket can reach? Customer specifically said that the priority of
+- One potential mitigation strategy is to limit the altitude
+  the rocket can reach. Customer specifically said that the priority of
   the project is control and that the rocket reaching high altitudes is
   not the goal/desired. This mitigation strategy can also apply to Risk
   1\.
 
-#### Risk 3: Rocket takes unsafe path due to wind causing damage
+**Risk 3: Rocket takes unsafe path due to wind causing damage**
 
 - **Description:** Rocket's trajectory affected by winds, causing it to
   take an unsafe flight path and in turn, causing injury to people or
@@ -1739,7 +1393,7 @@ levels:
   accommodate a flight. Launches will be postponed if wind speeds exceed
   **32km/h** \[1].
 
-#### Risk 4: Rocket disassembles mid air
+**Risk 4: Rocket disassembles during flight**
 
 - **Description:** Rocket parts unexpectedly disassembles during flight
   debris emitted causes damage to people and property.
@@ -1748,7 +1402,7 @@ levels:
 - **Impact:** Moderate
 - **Mitigation Strategy:**
 
-#### Risk 5: Cavil-19 pandemic causes lock-down hindering progress
+**Risk 5: Covid-19 pandemic causes lock-down hindering progress**
 
 - **Risk Type:** Legal/Health and Safety/Environmental
 - **Likelihood:** Very Likely
@@ -1762,9 +1416,8 @@ levels:
   components of the project will be simulated. Project members will
   closely monitor the situation and decide on the achievability of
   certain project objectives in a reactive manner.
-- Note: This is an ongoing issue as of 23/4/2020
 
-#### Risk 6: Covid-19 pandemic affects global logistics
+**Risk 6: Covid-19 pandemic affects global logistics**
 
 - **Description:** Covid-19 pandemic affects global logistics, making it
   difficult to procure equipment and parts.
@@ -1778,7 +1431,7 @@ levels:
   The project team will discuss with the client if certain parts can be
   recycled from previous attempts at the project by other teams.
 
-#### Risk 7: Rocket ignites prematurely causing injury to people
+**Risk 7: Rocket ignites prematurely causing injury to people**
 
 - **Risk Type:** Health and Safety
 - **Likelihood:** Unlikely
@@ -1787,14 +1440,11 @@ levels:
   stakeholders involved with the launch must maintain a safe distance of
   at least 5m. Manual ignition system must be electric, and have a
   safety interlock in place \[1]. A first aid kit will be brought to the
-  launch site to treat any injuries immediately. _**TODO:**_ (Mention
-  10m wire connected to motor for manual ignition. Alternatively, we can
-  ignite by means of software which would mean that we can be far away
-  from the rocket for a long time. Although the client did say this is
-  not the preferred method due to a number of safety precautions.
-  Mention fire extinguisher)
+  launch site to treat any injuries immediately. A comprehensive physical
+  interlock system will be implemented such that a conscious effort has
+  to be made by a stakeholder to initiate a launch.
 
-#### Risk 8: Rocket takes unsafe path due to software failure
+**Risk 8: Rocket takes unsafe path due to software failure**
 
 - **Description:** Rocket takes an unsafe trajectory mid-flight due to
   software error, causing damage to people or objects.
@@ -1803,13 +1453,14 @@ levels:
 - **Impact:** Severe
 - **Mitigation Strategy:** The project team will extensively test the
   software to validate its correctness before proceeding with a rocket
-  launch.
-- _**TODO:**_ Is there a way of developing some sort of manual kill
-  switch so if we ever see the rocket taking an unsafe path (eg heading
-  towards the ground or a person), we can kill its thrust to minimize
-  impact damage?
+  launch. An alert system implemented by the software will trigger to
+  inform the relevant stakeholders of the impending situation so that
+  stakeholders are able to act appropriately. This is a feature that came up during a meeting
+  with the client, they stated that it would be a nice feature to have
+  the ability to manually deploy the drogues in the event a situation
+  like this happens.
 
-#### Risk 9: Rocket ignition causes a fire
+**Risk 9: Rocket ignition causes a fire**
 
 - **Risk Type:** Health and Safety/Environmental
 - **Likelihood:** Unlikely
@@ -1824,7 +1475,7 @@ levels:
   unusually high. A fire extinguisher will be brought by the team at
   the launch site to counter small fires.
 
-#### Risk 10: Sudden change in wind speed mid flight
+**Risk 10: Sudden change in wind speed mid flight**
 
 - **Description:** Wind speeds suddenly exceed the safe wind speed for
   the rocket during flight
@@ -1840,40 +1491,7 @@ levels:
 
 ### 5.4 Health and Safety
 
-***Original Instructions***
-> Document here project requirements for Health and Safety. All teams
-> must state in this section:
->
-> 1. How teams will manage computer-related risks such as Occupational
->    Over Use, Cable management, etc.
-> 2. Whether project work requires work or testing at any external
->    (off-campus) workplaces/sites. If so, state the team's plans for
->    receiving a Health and Safety induction for the external
->    workplaces/sites. If the team has already received such an
->    induction, state the date it was received.
-> 3. Whether project work requires the team test with human or animal
->    subjects? If so, explain why there is no option but for the team to
->    perform this testing, and state the team's plans for receiving
->    Ethics Approval _prior_ to testing.
->
-> Also document in this section any additional discussions with the
-> School Safety Officer regarding Health and Safety risks. Give any
-> further information on relevant health and safety regulations, risks,
-> and mitigation, etc.
->
-> Planning:
->
->- Computer related risks such as occupational overuse, cable
->  management? Perhaps a couple points might tie in with 5.3? Mental
->  health concerns are part of scope here.
->- Requirements for work or testing at external workplaces/sites.
->  Discuss virtual testing? Perhaps we are going to be using hardware
->  next tri?
->- Ethically concerned requirements for testing Human or animals? Not
->  very relevant. Explain why? Discuss ethics?
-
-1. How teams will manage computer-related risks such as Occupational
-   Over Use, Cable management, etc.
+**1. Managing computer related risks**
 
    - It is the responsibility of the individual to make sure they have
       done he best they personally can to ensure they have a healthy,
@@ -1913,11 +1531,8 @@ levels:
       monitor), and the team member only had access to a small laptop
       screen. The team member could ask for a reassessment of work such
       that they can find something that suits their means.
-2. Whether project work requires work or testing at any external
-   (off-campus) workplaces/sites. If so, state the team's plans for
-   receiving a Health and Safety induction for the external
-   workplaces/sites. If the team has already received such an induction,
-   state the date it was received.
+
+**2. External Testing Sites**
 
    - In the event that the team decides to perform work or testing at
       any external (off-campus) workplaces/sites, it is paramount that
@@ -1935,10 +1550,8 @@ levels:
       and safety officer. Any industrial locations must require an
       induction, whether this is official, or provided unofficially by a
       member with strong knowledge of the environment.
-3. Whether project work requires the team test with human or animal
-   subjects? If so, explain why there is no option but for the team to
-   perform this testing, and state the team's plans for receiving Ethics
-   Approval _prior_ to testing.
+
+**3. Test Subjects and Ethics**
 
    - The team as a whole has stated that they have strong objections
       with any work or testing on any animal subjects. The scope of this
@@ -1953,66 +1566,7 @@ levels:
 
 #### 5.4.1 Safety Plans
 
-***Original Instructions***
-
-> Safety Plans may be required for some projects, depending on project
-> requirements. Safety Plan templates are available on the course Health
-> & Safety page. Two questions all teams must answer are:
->
-> ***Do project requirements involve anything that can cause serious harm
-> or death?***
->
-> Examples: building/modifying devices using voltages > 60 V, chemicals,
-> large moving machinery, flying devices, bodies of water.
->
-> If so, you will have to write a separate Safety Plan as part of
-> project requirements, and the Safety Plan must be referenced in this
-> section. For health and safety risks involving serious harm or death,
-> you must first contact the School Safety Officer and Course
-> Coordinator first to discuss the Safety Plan and project requirements.
->
-> ***Do project requirements involve anything that can cause harm or
-> injury?***
->
-> Examples: building/modifying things with voltages <= 60V, small moving
-> machinery, wearable devices.
->
-> If so, you will have to write a separate Safety Plan as part of
-> project requirements, and the Safety Plan must be referenced in this
-> section. For health and safety risks involving harm or injury, you
-> should write a draft of the Safety Plan before contacting the School
-> Safety Officer and Course Coordinator to discuss the Safety Plan and
-> project requirements.
->
-> If a safety plan is required, list in this section the date the School
-> Safety officer accepted your Health and Safety plan (if accepted by
-> submission date).
-
-_If the project is purely software and requires no contact risks
-involving physical harm, then state "Project requirements do not involve
-risk of death, serious harm, harm or injury." in this section._
-
-May be required depending on previously stated project requirements.
-
-Do project requirements involve anything that can cause serious harm or
-death?
-
-> Hardware yeah? Risks of projectiles perhaps. incendiaries?. Will have
-> to write individual safety plan as part of project requirements. Must
-> contact School Safety officer and coordinator to discuss safety plan
-> and project requirements.
-
-Do project requirements involve anything that can cause harm of injury?
-
-***TODO perhaps this should be formatted as a table? - Z***
-
-> Hardware electrocution / chemical incendiaries - is this still a risk?
-> Write safety plan as part of project requirements. For H&S risks write
-> a draft for safety officer and coordinator to discuss the plan and
-> project requirements.
-
-Otherwise, if all software. We can state "Project requirements do not
-involve risk of death, serious harm, harm or injury."
+Refer to the project's [Safety Plan Analysis](https://gitlab.ecs.vuw.ac.nz/course-work/engr300/2020/group3/group-3/-/blob/72-proofread-requirements-doc/project_requirement/safety-plan-analysis.md) document for further information.
 
 ---
 
@@ -2032,42 +1586,5 @@ One page glossary _as required_.
 
 A one page statement of contributions, including a list of each member
 of the group and what they contributed to this document.
-
----
-
-## Formatting Rules
-
-- Write your document using
-  [Markdown](https://gitlab.ecs.vuw.ac.nz/help/user/markdown#gitlab-flavored-markdown-gfm)
-  and ensure you commit your work to your team's GitLab repository.
-- Major sections should be separated by a horizontal rule.
-
-## Assessment
-
-The goal of a requirements document is the problem you are attempting to
-solve: not a first attempt at a solution to that problem. The most
-important factor in the assessment of the document is how will it meet
-that goal. The document will be assessed for both presentation and
-content.
-
-The presentation will be based on how easy it is to read, correct
-spelling, grammar, punctuation, clear diagrams, and so on.
-
-The content will be assessed according to its clarity, consistency,
-relevance, critical engagement and a demonstrated understanding of the
-material in the course. We look for evidence these traits are
-represented and assess the level of performance against these traits.
-While being comprehensive and easy to understand, this document must be
-reasonably concise too. You will be affected negatively by writing a
-report with too many pages (far more than what has been suggested for
-each section above).
-
-We aim to evaluate ENGR301 documents and projects as if they were real
-projects rather than academic exercises &mdash; especially as they are
-real projects with real clients. The best way to get a good mark in a
-document is to do the right thing for your project, your client, and
-your team. We encourage you to raise questions with your tutor or course
-staff, as soon as possible, so you can incorporate their feedback into
-your work.
 
 ---
