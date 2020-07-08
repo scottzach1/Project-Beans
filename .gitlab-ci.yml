@@ -37,7 +37,7 @@ build:
 test-drc:
   stage: Test
   tags:
-    - docker
+    - drc
   image: productize/kicad-automation-scripts:latest
   script:
     - export DISPLAY=:0
