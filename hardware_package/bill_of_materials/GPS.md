@@ -8,7 +8,7 @@ The STA8090WG & GP.1575.25.4.A.02, are even cheaper options. The STA8090WG is mo
 ### Option 1:
 #### M20048-1
 - "RADIONOVA® RF Receiver GPS 1.575GHz -165dBm On-Board, Trace Module"
-- Link to store (Digi-Key): https://www.digikey.co.nz/product-detail/en/antenova/M20048-1/627-1099-1-ND/7931498
+- Link to store {Digi-Key): https://www.digikey.co.nz/product-detail/en/antenova/M20048-1/627-1099-1-ND/7931498
 - Datasheet: http://antenova.com/wp-content/uploads/2017/10/M20048-1-PS-1.0.pdfhttp://antenova.com/wp-content/uploads/2017/10/M20048-1-PS-1.0.pdf
 - Ports: UART
 - Price NZD: $26.36
