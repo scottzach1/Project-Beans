@@ -2,8 +2,7 @@
   This will handle all non sd related storage.
 */
 #include "Logger.h"
-
-using namespace std;
+#include <iostream>
 
 LogDB* loggerDatabase;
 
@@ -13,18 +12,18 @@ Logger::Logger(LogDB* database){
 Logger::~Logger() = default;
 
 int Logger::readSensor() {
-    cout << "(L) The value in X sensor is Y." << endl;
+    std::cout << "(L) The value in X sensor is Y." << std::endl;
     return 0;
 }
 
 int Logger::readData() {
-    cout << "(L) Reading data from X." << endl;
+    std::cout << "(L) Reading data from X." << std::endl;
     return 0;
 }
 
 int Logger::storeData(char* data) {
     loggerDatabase->addToDB(data);
-    cout << "Logger storing \"" << data << "\" in database." << endl;
+    std::cout << "Logger storing \"" << data << "\" in database." << std::endl;
     return 0;
 }
 

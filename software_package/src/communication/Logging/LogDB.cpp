@@ -3,8 +3,7 @@
   TODO: decide if this is necessary.
 */
 #include "LogDB.h"
-
-using namespace std;
+#include <iostream>
 
 char *databaseStore[5];
 
@@ -16,7 +15,7 @@ LogDB::~LogDB() = default;
 int LogDB::getData() {
     for (int i = 0; i < sizeof(databaseStore); i++) {
         if (databaseStore[i] != nullptr){
-            cout << databaseStore[i] << endl;
+            std::cout << databaseStore[i] << std::endl;
         } else {
             break;
         }

@@ -3,58 +3,57 @@
   This will communicate with other packages to get info where appropriate.
 */
 #include "RadioImpl.h"
-
-using namespace std;
+#include <iostream>
 
 RadioImpl::RadioImpl() = default;
 RadioImpl::~RadioImpl() = default;
 
 int RadioImpl::getPostFlightData() {
-    cout << "This is a summary of your post flight data..." << endl;
+    std::cout << "This is a summary of your post flight data..." << std::endl;
     RadioImpl::getRocketState();
     RadioImpl::getCurrentPos();
     RadioImpl::pollSensors();
     RadioImpl::pollServos();
-    cout << "------------------------" << endl;
+    std::cout << "------------------------" << std::endl;
     return 0;
 }
 
 int RadioImpl::runDiagnostics() {
-    cout << "Running Diagnostics..." << endl;
+    std::cout << "Running Diagnostics..." << std::endl;
     RadioImpl::getRocketState();
     RadioImpl::getCurrentPos();
     RadioImpl::pollSensors();
     RadioImpl::pollServos();
-    cout << "------------------------" << endl;
+    std::cout << "------------------------" << std::endl;
     return 0;
 }
 
 int RadioImpl::getInflightData() {
-    cout << "Getting data at current time..." << endl;
+    std::cout << "Getting data at current time..." << std::endl;
     RadioImpl::getRocketState();
     RadioImpl::getCurrentPos();
     RadioImpl::pollSensors();
     RadioImpl::pollServos();
-    cout << "------------------------" << endl;
+    std::cout << "------------------------" << std::endl;
     return 0;
 }
 
 int RadioImpl::pollSensors() {
-    cout << "Calling Sensors."<< endl;
+    std::cout << "Calling Sensors."<< std::endl;
     return 0;
 }
 
 int RadioImpl::pollServos() {
-    cout << "Calling Servos." << endl;
+    std::cout << "Calling Servos." << std::endl;
     return 0;
 }
 
 int RadioImpl::getCurrentPos() {
-    cout << "Getting Current Pos." << endl;
+    std::cout << "Getting Current Pos." << std::endl;
     return 0;
 }
 
 int RadioImpl::getRocketState() {
-    cout << "Getting Current Rocket State." << endl;
+    std::cout << "Getting Current Rocket State." << std::endl;
     return 0;
 }

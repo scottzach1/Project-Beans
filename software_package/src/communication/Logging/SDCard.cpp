@@ -2,8 +2,7 @@
   This will hand all sd card read and writing.
 */
 #include "SDCard.h"
-
-using namespace std;
+#include <iostream>
 
 LogDB* sdDatabase;
 
@@ -14,17 +13,17 @@ SDCard::SDCard() = default;
 SDCard::~SDCard() = default;
 
 int SDCard::readData() {
-    cout << "(S) Reading data from X." << endl;
+    std::cout << "(S) Reading data from X." << std::endl;
     return 0;
 }
 
 int SDCard::readSensor() {
-    cout << "(S) The value in X sensor is Y." << endl;
+    std::cout << "(S) The value in X sensor is Y." << std::endl;
     return 0;
 }
 
 int SDCard::storeData(char* data) {
     sdDatabase->addToDB(data);
-    cout << "SDCard storing \"" << data << "\" in database." << endl;
+    std::cout << "SDCard storing \"" << data << "\" in database." << std::endl;
     return 0;
 }
