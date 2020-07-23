@@ -1,15 +1,15 @@
 #include <iostream>
-#include "SensorManager.h"
-#include "assert.h"
 #include <ctime>
 #include <unistd.h>
-using namespace sensors;
+#include "assert.h"
+#include "/SensorManager.h"
 
+using namespace sensors;
 using std::cout;
 using std::endl;
 
-
-void printReadings(SensorManager sensorManager, AbstractSensor * sensor, int numReadingsToDisplay){
+void printReadings(SensorManager sensorManager, AbstractSensor * sensor, 
+int numReadingsToDisplay) {
 
     // Displaying some readings samples
     cout << "---------------------------- Displaying " << numReadingsToDisplay << " readings for " << sensor->getName() << "----------------------------" << endl;

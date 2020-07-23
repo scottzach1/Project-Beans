@@ -2,17 +2,17 @@
 // Created by Ron Crisostomo on 12/06/20.
 //
 
-#ifndef IMU_H
-#define IMU_H
-
-#include "sensors.h"
-using namespace sensors;
+#ifndef SOFTWARE_PACKAGE_SRC_SENSORS_IMU_H_
+#define SOFTWARE_PACKAGE_SRC_SENSORS_IMU_H_
+#include <string>
+#include "/sensors.h"
+using sensors::AbstractSensor;
 
 class IMU : public AbstractSensor{
-    public:
-        IMU(std::string sensorName);
-        SensorReading read() const override ;
+ public:
+        explicit IMU(std::string sensorName);
+        SensorReading read() const override;
 };
 
 
-#endif //IMU_H
+#endif  // SOFTWARE_PACKAGE_SRC_SENSORS_IMU_H_
