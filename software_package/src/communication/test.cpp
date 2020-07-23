@@ -1,16 +1,13 @@
 #include <iostream>
-#include "Logging/LogDB.cpp"
-#include "Logging/Logger.cpp"
-#include "Logging/SDCard.cpp"
-#include "Radio/RadioImpl.cpp"
-#include "Radio/RadioInterface.cpp"
-
-using namespace::std;
+#include "RadioImpl.h"
+#include "SDCard.h"
+#include "Logger.h"
+#include "LogDB.h"
 
 int main() {
-    cout << "------------------------" << endl;
-    cout << " RADIO INTERFACE TESTS  " << endl;
-    cout << "------------------------" << endl;
+    std::cout << "------------------------" << std::endl;
+    std::cout << " RADIO INTERFACE TESTS  " << std::endl;
+    std::cout << "------------------------" << std::endl;
     RadioImpl* radio = new RadioImpl();
     radio->runDiagnostics();
     radio->getInflightData();
@@ -18,28 +15,28 @@ int main() {
     delete radio;
 
 //    cout << "------------------------" << endl;
-    cout << "      LOGGER TESTS      " << endl;
-    cout << "------------------------" << endl;
+    std::cout << "      LOGGER TESTS      " << std::endl;
+    std::cout << "------------------------" << std::endl;
 
     LogDB* database = new LogDB();
 
-    cout << "Logger: " <<endl;
+    std::cout << "Logger: " << std::endl;
     Logger* logger = new Logger(database);
     logger->readData();
     logger->readSensor();
     logger->storeData("exampleValueFromLogger");
     delete logger;
 
-    cout << "------------------------" << endl;
-    cout << "SD Card: " <<endl;
+    std::cout << "------------------------" << std::endl;
+    std::cout << "SD Card: " << std::endl;
     SDCard* sdCard = new SDCard(database);
     sdCard->readData();
     sdCard->readSensor();
     sdCard->storeData("exampleSD");
     delete sdCard;
 
-    cout << "------------------------" << endl;
-    cout << "Data Stored:" << endl;
+    std::cout << "------------------------" << std::endl;
+    std::cout << "Data Stored:" << std::endl;
     database->getData();
     delete database;
 
