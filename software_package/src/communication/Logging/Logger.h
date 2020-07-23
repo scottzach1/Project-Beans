@@ -2,18 +2,18 @@
 #define LOGGER_H
 
 class Logger {
-public:
-    //constructor / destructor
+ public:
+    // constructor / destructor
     Logger();
     Logger(LogDB*);
     ~Logger();
 
-    //fields
+    // fields
 
-    //methods
+    // methods
     static int readSensor();
     static int readData();
-    static int storeData(char*); //TODO: data type
+    static int storeData(char*);  // TODO: data type
 };
 
-#endif //LOGGER_H
+#endif  // LOGGER_H

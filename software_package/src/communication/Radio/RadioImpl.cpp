@@ -3,6 +3,7 @@
   This will communicate with other packages to get info where appropriate.
 */
 #include "RadioImpl.h"
+
 #include <iostream>
 
 RadioImpl::RadioImpl() = default;
@@ -39,7 +40,7 @@ int RadioImpl::getInflightData() {
 }
 
 int RadioImpl::pollSensors() {
-    std::cout << "Calling Sensors."<< std::endl;
+    std::cout << "Calling Sensors." << std::endl;
     return 0;
 }
 

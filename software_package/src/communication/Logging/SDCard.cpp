@@ -2,13 +2,12 @@
   This will hand all sd card read and writing.
 */
 #include "SDCard.h"
+
 #include <iostream>
 
 LogDB* sdDatabase;
 
-SDCard::SDCard(LogDB* database){
-    sdDatabase = database;
-}
+SDCard::SDCard(LogDB* database) { sdDatabase = database; }
 SDCard::SDCard() = default;
 SDCard::~SDCard() = default;
 

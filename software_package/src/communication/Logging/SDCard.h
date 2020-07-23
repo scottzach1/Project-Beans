@@ -2,18 +2,18 @@
 #define SDCARD_H
 
 class SDCard {
-public:
-    //constructor / destructor
+ public:
+    // constructor / destructor
     SDCard();
-    SDCard(LogDB*);
+    SDCard(LogDB *);
     ~SDCard();
 
-    //fields
+    // fields
 
-    //methods
+    // methods
     static int readSensor();
     static int readData();
-    static int storeData(char *); //TODO: data type
+    static int storeData(char *);  // TODO: data type
 };
 
-#endif //SDCARD_H
+#endif  // SDCARD_H

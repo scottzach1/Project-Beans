@@ -2,13 +2,13 @@
 #define RADIOINTERFACE_H
 
 class RadioInterface {
-public:
-    //constructor / destructor
+ public:
+    // constructor / destructor
     RadioInterface();
 
     ~RadioInterface();
 
-    //methods
+    // methods
     virtual int runDiagnostics() = 0;
 
     virtual int getPostFlightData() = 0;
@@ -16,4 +16,4 @@ public:
     virtual int getInflightData() = 0;
 };
 
-#endif //RADIOINTERFACE_H
+#endif  // RADIOINTERFACE_H
