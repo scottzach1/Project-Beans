@@ -1,5 +1,5 @@
-#ifndef RADIOIMPL_H
-#define RADIOIMPL_H
+#ifndef SOFTWARE_PACKAGE_SRC_COMMUNICATION_RADIO_RADIOIMPL_H_
+#define SOFTWARE_PACKAGE_SRC_COMMUNICATION_RADIO_RADIOIMPL_H_
 
 #include "RadioInterface.h"
 
@@ -23,4 +23,4 @@ class RadioImpl : RadioInterface {
     static int getRocketState();
 };
 
-#endif  // RADIOIMPL_H
+#endif  // SOFTWARE_PACKAGE_SRC_COMMUNICATION_RADIO_RADIOIMPL_H_
