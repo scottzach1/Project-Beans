@@ -11,7 +11,7 @@
 #include "Battery.h"
 #include "GPS.h"
 #include "IMU.h"
-#include "/sensors.h"
+#include "./sensors.h"
 
 using std::string;
 using std::vector;

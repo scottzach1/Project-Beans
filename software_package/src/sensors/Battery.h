@@ -5,8 +5,10 @@
 #ifndef SOFTWARE_PACKAGE_SRC_SENSORS_BATTERY_H_
 #define SOFTWARE_PACKAGE_SRC_SENSORS_BATTERY_H_
 #include <string>
-#include "/sensors.h"
+#include "./sensors.h"
+
 using sensors::AbstractSensor;
+using sensors::SensorReading;
 
 class Battery : public AbstractSensor{
  public:

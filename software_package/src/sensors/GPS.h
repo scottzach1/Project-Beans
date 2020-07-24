@@ -5,8 +5,9 @@
 #ifndef SOFTWARE_PACKAGE_SRC_SENSORS_GPS_H_
 #define SOFTWARE_PACKAGE_SRC_SENSORS_GPS_H_
 #include <string>
-#include "/sensors.h"
+#include "./sensors.h"
 using sensors::AbstractSensor;
+using sensors::SensorReading;
 
 class GPS : public AbstractSensor{
  public:

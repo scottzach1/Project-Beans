@@ -6,6 +6,8 @@
 #include <iostream>
 #include <string>
 
+using sensors::SensorReading;
+
 GPS::GPS(std::string sensorName) {
     std::cout << "Initializing GPS sensor" << std::endl;
     name = sensorName;
@@ -14,10 +16,9 @@ GPS::GPS(std::string sensorName) {
 SensorReading GPS::read() const {
     std::cout << "Called read() on GPS" << std::endl;
 
-    // Obtaining timestamp and random value
+    // Obtaining timestamp value
     auto currentTime = std::chrono::system_clock::now();
     time_t timestamp = std::chrono::system_clock::to_time_t(currentTime);
-    int value = rand_r() % 1001;  // Generates a random number from 1 to 1000
-    SensorReading sensorReading = {timestamp, value};
+    SensorReading sensorReading = {timestamp, 1000};
     return sensorReading;
 }

@@ -3,13 +3,15 @@
 #include <ctime>
 #include <iostream>
 #include <cassert>
-#include "/SensorManager.h"
+#include "SensorManager.h"
 
 using sensors::AbstractSensor;
+using sensors::SensorReading;
+using sensors::SensorManager;
 using std::cout;
 using std::endl;
 
-void printReadings(SensorManager sensorManager, AbstractSensor* sensor,
+void printReadings(sensors::SensorManager sensorManager, AbstractSensor* sensor,
                    int numReadingsToDisplay) {
   // Displaying some readings samples
   cout << "---------------------------- Displaying " << numReadingsToDisplay

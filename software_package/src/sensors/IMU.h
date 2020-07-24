@@ -5,8 +5,9 @@
 #ifndef SOFTWARE_PACKAGE_SRC_SENSORS_IMU_H_
 #define SOFTWARE_PACKAGE_SRC_SENSORS_IMU_H_
 #include <string>
-#include "/sensors.h"
+#include "./sensors.h"
 using sensors::AbstractSensor;
+using sensors::SensorReading;
 
 class IMU : public AbstractSensor{
  public:

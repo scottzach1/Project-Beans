@@ -16,6 +16,7 @@ using sensors::AbstractSensor;
 using std::cout;
 using std::endl;
 using std::string;
+using sensors::SensorManager;
 
 void SensorManager::initSensors() {
   cout << "Initializing Sensors...." << endl;
