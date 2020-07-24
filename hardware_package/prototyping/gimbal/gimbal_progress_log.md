@@ -2,7 +2,7 @@
 
 This document will contain progress images of the gimbal and any important decisions made at each stage. Measurements and requirement will be included also.
 
-|C class motor spec.| 2018 Team spec.| Our gimbal spec. |
-|-|-|-|
-|Diameter = 18mm|Motor holder internal diameter = | |
-|Length = 70mm|M.H. Length = ||
+|| C class | D class | E class | F class |
+|-|---------|---------|---------|---------|
+| **Diameter (min)** | 18mm | 24mm | 24mm | 29mm |
+| **Length (min)** | 70mm | 70mm | 95mm | 114mm |
