@@ -4,7 +4,6 @@
 #include <Adafruit_Sensor.h>
 #include <Wire.h>
 
-// #include "Arduino.h"
 #include <Arduino.h>
 
 Adafruit_MPU6050 mpu;
