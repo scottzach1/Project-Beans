@@ -11,9 +11,9 @@ Crisostomo, Zac Scott.
 
 ## 1. Introduction
 
-Rockets ranging from NASAs Saturn V to an amateur rocket enthusiasts first rocket, stability is a desirable. The method in which stable flight is achieved varies to a large degree, but can be divided into two basic categories. The most common being passively stabilised rockets. These maintain a stable flight due to passive aerodynamic features, an example being fins that give the rocket a stabilising rotation (similar to the effect of rifling on a bullet). The simplicity of a passive system is appealing but any error introduced to the system can cause an unwanted flight trajectory. Some examples of sources of error include, unexpected wind or a fin of differing size that is not accounted for. The second category is an active control system. Onboard electronics can be used to achieve active course correction. Error in the rocket's trajectory can be mitigated in a way that passive systems cannot. The drawbacks of this are the complexity and large overhead introduced when constructing the rocket.
+Rockets ranging from NASAs Saturn V to an amateur's first model rocket require stability in order to perform as intended. The method in which stable flight is achieved varies to a large degree, but can be divided into two basic categories. The most common being passively stabilized rockets. These maintain a stable flight due to passive aerodynamic features, an example being fins that give the rocket a stabilizing rotation (similar to the effect of rifling on a bullet). The simplicity of a passive system is appealing but any error introduced to the system can cause an unwanted flight trajectory. Some examples of such errors include, unexpected wind or differences in fin sizes which are not accounted for in the design. The second category is an active control system. Onboard electronics can be used to achieve active course correction. Error in the rocket's trajectory can then be mitigated in a way that passive systems cannot. The drawbacks of this are the complexity and large overhead introduced when constructing the rocket.
 
-Our customer has plans to eventually launch a rocket from a weather balloon at approximately 70,000ft. This will require an active control system. Therefore, this project aims to implement an active control system. Existing off-the-shelf avionics packages for amateur rocketry enthusiasts are available, however, do not meet the full requirements of our customer. This is due to limited functionality and the need for software to be open source to allow for further development of the package down the track. This project aims to improve on a previous design, completed in 2018. This project will run in parallel with two additional projects (mission control and simulation) to provide the customer with a comprehensive solution.
+Our customer has plans to eventually launch a rocket from a weather balloon at approximately 70,000ft. This application requires the use of an active control system. Existing off-the-shelf avionics packages for amateur rocketry enthusiasts are available, however, do not meet the full requirements of our customer. This is due to limited functionality and the need for software to be open source to allow for further development of the package at a later date. In conjunction with implementing an active control system this project also aims to improve on a previous design provided by a team in 2018. This project will also be running in parallel with two additional projects (mission control and simulation) to provide the customer with a comprehensive solution.
 
 ### Client
 
@@ -31,24 +31,23 @@ The objective is to deliver an avionics system that will allow stable
 controlled flight while simultaneously logging and broadcasting data.
 This system should improve on the existing avionics package created by a team in 2018 for Andre. There is no requirement on height or flight
 time, only to demonstrate controlled flight. The flight data must be
-logged to an onboard SD card, and the broadcast data must be accessed in real-time by an onsite personal computer (base station). The rocket must also, upon request, be capable of broadcasting its current location via GPS. The rocket is expected to support C or D class solid fuel engines. The key improvements as compared with the 2018 avionics package are, a reduction in onboard PCB size and reliability in the field. To be considered more reliable the avionics package should initialize and launch on the first attempt. The package must also not have loose wires, exposed electronics and implement robust code to support this.
+logged to an onboard SD card, and the broadcast data must be accessed in real-time by an onsite personal computer (base station). The rocket must also, upon request, be capable of broadcasting its current location via GPS. The rocket is expected to support C or D class solid fuel rocket motors. The key improvements as compared with the 2018 avionics package are, a reduction in onboard PCB size and reliability in the field. To be considered more reliable the avionics package should initialize and launch on the first attempt. The package must also not have loose wires, exposed electronics and implement robust code to support this.
 
 ### 1.3 Product overview
 
 #### 1.3.1 Product perspective
 
-There is no specific larger system that this system will be part of.
-Rather this is intended to bring the goals of our customer closer and to add to the body of knowledge in the amateur rocketry community. Our client is aiming to one day launch rockets from a weather balloon. This will require a system that can launch and achieve stable flight from a platform. This will require an active system. This project is creating and ensuring soundness of active control system that can be adapted in the future for this goal.
+There is no specific larger project that this system will be integrated into,
+rather it is intended to contribute to our customer's long term ambitions and the body of knowledge in the amateur rocketry community alike. Our client is aiming to one day launch rockets from a weather balloon. This will require a system that can launch and achieve stable flight from a platform with active control. Due to this the project's main focus is on designing a robust active control system that can be adapted later on to help the client reach their goa.
 
 This project is open source, allowing the final product to be tweaked and repurposed by the community. This adds longevity to the project after it is officially ended. This can benefit the customers as this may result in further development by the community.
 
-A similar open source project has been undertaken in 2018 for our
-customer. This project will use the existing projects resources and
-improve on the system.
+A similar open source project was produced in 2018 for our
+customer. Therefore, this project, where needed, will make use of existing resources to ensure an improved solution is provided to the customer.
 
 #### 1.3.2 Product functions
 
-The requirements specified for the clients minimum viable product
+The requirements specified for the client's minimum viable product
 include:
 
 ##### Base functionality Requirements
@@ -57,28 +56,28 @@ include:
   without the use of a launch rail.
 - Records data from all sensors at a rate where the flight path could be reasonably reconstructed post flight.
 - Broadcasts radio telemetry and battery level during the launch, burn and post-burn phase of flight.
-- The rocket must land without sustaining disabling damage to the
+- Recovered post flight without sustaining significant damage to the
   electronics.
 
 ##### Required functionality Improvement
 
 - Software can be reliably initialized in the field.
-- Software is held to a high level of quality and robustness
+- Software is held to a high level of quality and robustness.
 - Must have protected electronics, wires and PCBs cannot be exposed.
 
 #### 1.3.3 User characteristics
 
 One of the key requests from our client is that the avionic package will be open source, which allows use and potential continuation of this product from anyone in the wider amateur rocketry community. Future users could include but it not limited to students, researchers, programmers and rocketry hobbyists.
 
-Since there is a wide variation in the potential user, it is recommended to have experience in certain technical areas before attempting any parts of this project. these include:
+Since there is a wide variation in potential users, it is recommended to have experience in certain technical areas prior to developing parts of this project. These include:
 
-- When installing the electrical components.
-- The interaction of software and hardware.
-- Dealing with and Complying with Civil Aviation Authority Regulations
-- understand telemetry operations.
+- When installing the electronic components.
+- Interfacing between the software and hardware.
+- Complying with Civil Aviation Authority Regulations.
+- Configuring telemetry functionality.
 - Operating aircraft applications
 
-Users should have an understanding of how this package will be applied to their own specific projects. It's also important that the users are able to fully comply with all of the health and safety regulations required by their local Authority body on civil aviation if a rocket is intended to be launched.
+Users should have an understanding of how this package will be applied to their own specific projects. It's also important that the users are able to fully comply with all of the health and safety regulations required by their local Authority on civil aviation if a rocket is intended to be launched.
 
 #### 1.3.4 Limitations
 
@@ -88,19 +87,19 @@ Users should have an understanding of how this package will be applied to their 
 One of the main requirements is to store sensor data. This must be done at a fast enough rate. Not all of the sensors have the same polling speed so the complete state of the rocket (as seen through the sensors), can only be updated at the rate of the slowest sensor.
 
 Terrain, distance and weather conditions will affect the strength and
-reliability of the broadcast data to the base-station. This will limit the range and conditions in which the rocket can operate in. The rocket should only be operated in line of sight of the base station to ensure a reliable connection.
+reliability of the broadcast data to the base-station. This will limit the range and conditions in which the rocket can operate in. The rocket should only be operated granted line of sight to the base station to ensure a reliable connection.
 
-GPS data is also extremely likely to become inaccessible during launch, so we cannot rely on this at any point when the rocket is in flight.
+GPS data is also likely to become inaccessible during flight. This means that there should be no in flight dependencies placed on this data.
 
 **Conditions**
 
 The rocket is not designed to be waterproof, neither is the control
-system designed to handle interaction with rain and high wind.
+system designed to handle interaction with rain and high wind speed.
 Therefore, for protection of the onboard electronics, the rocket should be launched only on clear days with a wind speed less than 10 knots.
 
 **Launch sites**
 
-Due to the dangerous nature of a rocket, places where the rocket can be
+Due to the dangerous nature of a rocket, locations where the rocket can be
 tested is limited. Open spaces with high visibility and with no people
 within a safe distance are the required constraints.
 
@@ -137,43 +136,36 @@ within a safe distance are the required constraints.
 #### Radio Antenna
 The radio antenna will facilitate the transfer of data and commands
 between the avionics package and the base station. This radio antenna
-must allow for the live broadcast of the packages geographical location data, which will be provided by the GPS unit
-within the avionics package. This will allow for easier retrieval of the unit as specified b Externally the customer. While in flight, the radio antenna will also facilitate the periodic sending of other sensor data to the base station for use in live monitoring of performance. This data will be sent according to the **TODO agreed on specification**, and will include but is not limited to:
+must allow for the live broadcast of the package's geographical location data which will be provided by the GPS unit post flight. This will allow for easier retrieval of the unit by the customer. While in flight, the radio antenna will also facilitate the periodic sending of other sensor data to the base station for use in live monitoring of performance. This data will be sent according to the **TODO agreed on specification**, and will include but is not limited to:
 
 - Current gimbal position/angle
-- directional acceleration data
+- Directional acceleration data
 - Battery voltage
 
 This radio antenna will also allow for commands to be sent from the base
-station and received and processed by the avionics package. The commands
-will be able to query a range of current settings and readings available
-the avionics package, as well as altering the current state of the
-avionics package.
+station to be received and processed by the avionics package. These commands
+will be able to query a range of settings and readings pertaining to the status of the avionics package as well as alter them.
 
 #### External: SD Card
 
 The avionics package will be required to facilitate the logging of
-launch and flight data to an external SD card. The SD card will store
-the outputs of the sensory data provided by the internal measurement
-unit, as well as the geographical location data from the GPS unit. This
-data will be compiled into a CSV file and saved to the external SD, This
-data will be used for analysis of the launch. It will be required that
-the SD card is capable of writing data at the same rate that it is being
-polled from the internal measurement unit and the GPS, however this must
-not impact the performance of the guidance control systems.
+launch and flight data to an onboard SD card. The SD card will store data provided by the inertial measurement unit, as well as the geographical location data from the GPS unit. Following the retrieval of the SD card, the data will then be compiled into a CSV file and saved to the external drive.
+There the data can be used to analyze the performance of the system during launch and flight.
+
+Due to this functionality the SD card must be capable of writing data at the same rate (or faster) than the rate it is
+polled from the sensors. At the same time this process must
+not impact the performance of the active control system.
 
 #### External: Internal Measurement Unit (IMU / Sensors)
 
-To know the relative position of the rocket, the avionics package must
-track the linear acceleration, and rotational changes of the rocket.
-This will to performed by the internal measurement unit (IMU) of the
+In order to identify the relative position, momentum and orientation of the rocket throughout flight, the avionics package needs to
+track its linear and angular acceleration.
+
+This is performed by the internal measurement unit (IMU) of the
 avionics package. The IMU will be polled **TODO insert the required
 polling rate here** for 9-axis gyroscopic data, as well as linear
 acceleration data, which will be used to track the position of the
-rocket against the launch site reference point in real time. This
-positional and rotational data will then sent to the guidance system
-unit of the avionics package for processing, and to the SD card for
-logging.
+rocket relative to the launch site in real time. This is required by the active control system and is also written to the SD card for analysis and troubleshooting.
 
 #### External: Guidance System
 
