@@ -4,8 +4,11 @@
 
 #include "IMU.h"
 #include <iostream>
+#include <string>
 
-IMU::IMU(std::string sensorName){
+using sensors::SensorReading;
+
+IMU::IMU(std::string sensorName) {
     std::cout << "Initializing IMU sensor" << std::endl;
     name = sensorName;
 }
@@ -13,9 +16,9 @@ IMU::IMU(std::string sensorName){
 SensorReading IMU::read() const {
     std::cout << "Called read() on IMU" << std::endl;
 
-    // Obtaining timestamp and random value
+    // Obtaining timestamp
     auto currentTime = std::chrono::system_clock::now();
     time_t timestamp = std::chrono::system_clock::to_time_t(currentTime);
-    int value = rand() % 1001; // Generates a random number from 1 to 1000
-    SensorReading sensorReading = {timestamp, value};
-    return sensorReading;}
+    SensorReading sensorReading = {timestamp, 1000};
+    return sensorReading;
+}
