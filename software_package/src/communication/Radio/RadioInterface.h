@@ -1,14 +1,14 @@
-#ifndef RADIOINTERFACE_H
-#define RADIOINTERFACE_H
+#ifndef SOFTWARE_PACKAGE_SRC_COMMUNICATION_RADIO_RADIOINTERFACE_H_
+#define SOFTWARE_PACKAGE_SRC_COMMUNICATION_RADIO_RADIOINTERFACE_H_
 
 class RadioInterface {
-public:
-    //constructor / destructor
+ public:
+    // constructor / destructor
     RadioInterface();
 
     ~RadioInterface();
 
-    //methods
+    // methods
     virtual int runDiagnostics() = 0;
 
     virtual int getPostFlightData() = 0;
@@ -16,4 +16,4 @@ public:
     virtual int getInflightData() = 0;
 };
 
-#endif //RADIOINTERFACE_H
+#endif  // SOFTWARE_PACKAGE_SRC_COMMUNICATION_RADIO_RADIOINTERFACE_H_

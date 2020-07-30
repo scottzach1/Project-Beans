@@ -1,28 +1,26 @@
-#ifndef RADIOIMPL_H
-#define RADIOIMPL_H
+#ifndef SOFTWARE_PACKAGE_SRC_COMMUNICATION_RADIO_RADIOIMPL_H_
+#define SOFTWARE_PACKAGE_SRC_COMMUNICATION_RADIO_RADIOIMPL_H_
 
 #include "RadioInterface.h"
 
 class RadioImpl : RadioInterface {
-public:
-    //constructor / destructor
+ public:
+    // constructor / destructor
     RadioImpl();
     ~RadioImpl();
 
-    //fields
+    // fields
 
-    //inherited methods
+    // inherited methods
     int runDiagnostics() override;
     int getPostFlightData() override;
     int getInflightData() override;
 
-
-private:
+ private:
     static int pollSensors();
     static int pollServos();
     static int getCurrentPos();
     static int getRocketState();
-
 };
 
-#endif //RADIOIMPL_H
+#endif  // SOFTWARE_PACKAGE_SRC_COMMUNICATION_RADIO_RADIOIMPL_H_

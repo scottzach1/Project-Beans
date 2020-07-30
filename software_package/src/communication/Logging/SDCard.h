@@ -1,19 +1,19 @@
-#ifndef SDCARD_H
-#define SDCARD_H
+#ifndef SOFTWARE_PACKAGE_SRC_COMMUNICATION_LOGGING_SDCARD_H_
+#define SOFTWARE_PACKAGE_SRC_COMMUNICATION_LOGGING_SDCARD_H_
 
 class SDCard {
-public:
-    //constructor / destructor
+ public:
+    // constructor / destructor
     SDCard();
-    SDCard(LogDB*);
+    explicit SDCard(LogDB *);
     ~SDCard();
 
-    //fields
+    // fields
 
-    //methods
+    // methods
     static int readSensor();
     static int readData();
-    static int storeData(char *); //TODO: data type
+    static int storeData(char *);  // TODO(sargisfinl): data type
 };
 
-#endif //SDCARD_H
+#endif  // SOFTWARE_PACKAGE_SRC_COMMUNICATION_LOGGING_SDCARD_H_
