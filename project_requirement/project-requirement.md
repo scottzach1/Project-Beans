@@ -1234,10 +1234,10 @@ dangerous nature of the product being developed by the project.
 
 The physical requirements placed on the rocket can be verified provided that:
 
-- The system hardware is verified according
-
-- The airframe does not exceed 29mm in diameter.
-- The mass of the rocket does not exceed 1.5kg
+- The rocket's airframe is less than 29mm in diameter.
+- The overall dimensions do not exceed 220mm in length and 50mm in diameter.
+- The mass of the rocket does not exceed 1.5kg.
+- The rocket is small enough to fit inside of a portable container.
 
 The environmental requirements can be verified given:
 
