@@ -909,7 +909,7 @@ to within a 5 metre radius of the rocket.
    components required to assemble the rocket are small enough to fit
    into a suitable sized container.
 
-***Hardware Requirements***
+***Hardware***
 
 1. Withstanding significant acceleration: The rocket and its components
    must be able to withstand at least 20ms<sup>-2</sup> of acceleration
@@ -939,7 +939,7 @@ to within a 5 metre radius of the rocket.
    rocket will be available on GitLab. Tools used to create schematics,
    plans and diagrams will be open source, or free to use.
 
-***Software Requirements***
+***Software***
 
 1. Error Correction and Control: This requirement is verified if the
    software system correctly guides the rocket to take a safe, upward
@@ -1205,13 +1205,12 @@ enable them to make suggestions or apply changes to the code.
 
 **Attribute 3: Testing**
 
-This attribute can be verified by assessing the attribute against a
-range of both quantitative and qualitative metrics. From a quantitative
+This attribute can be verified by assessing the package against quantitative and qualitative metrics. From a quantitative
 point of view, this attribute is verified if the following conditions
 are met:
 
 - 90% overall code coverage is achieved by all unit tests
-- A quota of _**\[TODO: Insert Number Here]**_ unit testing methods are
+- A quota of 25 unit testing methods are
   achieved by the end of the project
 
 From a qualitative point of view, this attribute is verified if the
@@ -1231,37 +1230,22 @@ this attribute. It is important that the verification of this attribute
 is achieved, and done so comprehensively, given the potentially
 dangerous nature of the product being developed by the project.
 
-### 4.8 Environmental and Physical Verification
+### 4.8 Physical and Environmental Verification
 
-#### 4.8.1 Physical Verification
+The physical requirements placed on the rocket can be verified provided that:
 
-_**TODO:**_ Can be written after physical requirements are written
-(3.8.1)
+- The system hardware is verified according
 
-#### 4.8.2 Environmental Verification
+- The airframe does not exceed 29mm in diameter.
+- The mass of the rocket does not exceed 1.5kg
 
 The environmental requirements can be verified given:
 
 The environmental conditions meet the requirements of the New Zealand
 Rocketry Association \[1] which specify:
 
-- The wind speeds do not exceed 32km/hr
-- No dry grass is present near the launch pad
-- No one is situated within 5m of the rocket during the launch sequence
-
 The environmental conditions adhere to the New Zealand Civil Aviation
 Authority Rules Part 101 \[2] which specify:
-
-- The launch site must be further than 4km from an aerodrome boundary
-  unless prior permission is granted by the aerodrome operator
-- The rocket cannot fly above 121.92m above ground level
-- The rocket cannot interface with the flight path of an aircraft
-- The rocket cannot be operated over an active runway
-- The rocket cannot be launched into clouds or any other meteorological
-  phenomena which obscures the air space
-- The rocket cannot be launched where horizontal visibility is less than
-  8km
-- The rocket cannot be launched at night
 
 The rocket adheres to the guidelines presented by the Faculty of
 Engineering and Computer Science at Victoria University which will be
@@ -1270,36 +1254,25 @@ checked at all times throughout the duration of the project.
 The rocket is launched at a location permitted by the Wellington City
 Council and does not damage the surrounding property or the environment.
 
----
-
 ## 5. Development schedule
 
 ### 5.1 Schedule
 
-***Original Instructions***
+**Architectural Prototype**
+Completed by June 19th
 
-> Identify dates for key project deliverables:
->
-> 1. architectural prototype
-> 2. minimum viable product
-> 3. further releases
->
-> (1 page).
+**Minimum Viable Product**
+Completed by September 11th
 
-- 5.1 Schedule
-- 5.1.1 Architectural Prototype
-  - Set out a date that we want to have the architectural prototype done by.
-- 5.1.2 Minimum Viable Product
-  - Set out a date that we want to have the minimum viable product done by.
-  - Section 1.3
-- 5.1.3 Further Releases.
-  - Final prototype due, as well as any other planned significant releases.
-  (Perhaps improvements) Will software and hardware be published
-  differently? This will be announced in Section 1.3 as well.
+**Further Releases**
+Final prototype due, as well as any other planned significant releases.
+Published by October 18th.
 
 ### 5.2 Budget
 
-Present a budget for the project (as a table), showing the amount of expenditure the project requires and the date(s) on which it will be incurred. Substantiate each budget item by reference to fulfilment of project goals (one paragraph per item).
+In total the project has an allocated budget of $300.00 NZD.
+
+Presented here is a table outlining the expenditure on key components. All links and prices valid as of the 15th of June 2020.
 
 | COMPONENT | COST  | NAME/DESCRIPTION/LINK | REASONS FOR CHOICE |
 |---------|----------|----|---------------|
@@ -1314,10 +1287,8 @@ Present a budget for the project (as a table), showing the amount of expenditure
 
 ### 5.3 Risks
 
-The content below outlines the 10 most important risks that can impact
-achieving project goals. Attributes of each risk such as the likelihood
-of the risk occurring and its impact is described using the following
-levels:
+The content below outlines the 10 most important risks that threaten
+the completion of the project goals. Attributes of each risk such as the likelihood of occurrance and extent of impact are described as follows:
 
  - Likelihood: - Unlikely, Likely, Very Likely
  - Impact - Mild, Moderate, Severe
@@ -1358,14 +1329,13 @@ levels:
 - One potential mitigation strategy is to limit the altitude
   the rocket can reach. Customer specifically said that the priority of
   the project is control and that the rocket reaching high altitudes is
-  not the goal/desired. This mitigation strategy can also apply to Risk
+  not the goal or desired. This mitigation strategy can also apply to Risk
   1\.
 
 **Risk 3: Rocket takes unsafe path due to wind causing damage**
 
 - **Description:** Rocket's trajectory affected by winds, causing it to
-  take an unsafe flight path and in turn, causing injury to people or
-  damaging
+  take an unsafe flight path causing injury or damge to property.
 - **Risk Type:** Environmental
 - **Likelihood:** Unlikely
 - **Impact:** Severe
@@ -1381,7 +1351,8 @@ levels:
 - **Risk Type:** Health and Safety/Environmental
 - **Likelihood:** Unlikely
 - **Impact:** Moderate
-- **Mitigation Strategy:**
+- **Mitigation Strategy:** During assembly, team needs to ensure all components of the rocket are securely fastened. The design should ensure that the majority of components are contained within the airframe. Inspection of the assembly will be required prior to launch.
+
 
 **Risk 5: Covid-19 pandemic causes lock-down hindering progress**
 
@@ -1421,7 +1392,7 @@ levels:
   stakeholders involved with the launch must maintain a safe distance of
   at least 5m. Manual ignition system must be electric, and have a
   safety interlock in place \[1]. A first aid kit will be brought to the
-  launch site to treat any injuries immediately. A comprehensive physical
+  launch site to treat any minor injuries on site. A comprehensive physical
   interlock system will be implemented such that a conscious effort has
   to be made by a stakeholder to initiate a launch.
 
@@ -1496,22 +1467,20 @@ levels:
       the sum of work assigned to the individual. However, it might also
       look like changing the type of work assigned in order to meet the
       means of the affected individual. An example of this might be if a
-      team member was tasked with a computationally demanding task such
-      as that requires running a heavy simulation on their device. If
+      team member was tasked with a computationally demanding task that requires running a heavy simulation on their device. If
       the team member did not have access to a sufficiently powerful
       machine, then they are obliged to notify the team of their current
       situation. The team is then obliged to consider the members
-      request and discuss rescheduling work appropriately. This might
-      also look like the individual has a computer that is not
+      request and discuss rescheduling work appropriately. Another potential issue is whether the individual has a computer that is not
       physically compatible with the assigned tasks, or their device
       requires an exceptional amount of work to configure (software
       incompatible -> such as wrong operating system). What is
       considered physically incompatible may also be vague. For example,
       another interpretation of this might be, if a pending task
-      required creating large state diagrams (requiring a bigger
+      requires creating large state diagrams (requiring a bigger
       monitor), and the team member only had access to a small laptop
       screen. The team member could ask for a reassessment of work such
-      that they can find something that suits their means.
+      that they can find something that better suits their means.
 
 **2. External Testing Sites**
 
@@ -1523,7 +1492,7 @@ levels:
       first as a group brainstorm or discuss any health and safety risks
       that might be applicable to the location. It is important to note
       that mental health is also a vital consideration. Once these risks
-      have been accessed, both the likelihood and what mitigation can /
+      have been assessed, both the likelihood and what mitigation can /
       will be undertaken to reduce the risks. If any individual has
       concerns conflicting with the team about any offsite locations,
       then they can either express their stance with the team, or
@@ -1547,9 +1516,7 @@ levels:
 
 #### 5.4.1 Safety Plans
 
-Refer to the project's [Safety Plan Analysis](https://gitlab.ecs.vuw.ac.nz/course-work/engr300/2020/group3/group-3/-/blob/72-proofread-requirements-doc/project_requirement/safety-plan-analysis.md) document for further information.
-
----
+Please refer to the project's [Safety Plan Analysis](https://gitlab.ecs.vuw.ac.nz/course-work/engr300/2020/group3/group-3/-/blob/72-proofread-requirements-doc/project_requirement/safety-plan-analysis.md) document for further information.
 
 ## 6. Appendices
 
