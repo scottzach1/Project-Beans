@@ -44,7 +44,7 @@ test-drc:
     - python -m kicad-automation.pcbnew_automation.run_drc ./hardware_package/avionics_pcb/testing/KiCad.kicad_pcb .output
   allow_failure: true
 
-test:
+unit-test:
     stage: Test
     image: gcc
     script:
