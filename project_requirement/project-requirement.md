@@ -477,14 +477,12 @@ Communication.
 #### Logical: Control
 
 The control system is responsible for correctly guiding the rocket
-during its flight. For this module, the task of controlling the rocket
-is separated into 3 other sub modules, each of which serving a crucial
-role for controlling the rocket
+during its flight. This module is separated into 3 sub modules, each of which serves a crucial role in thecontrol of the rocket.
 
 ##### Logical: Gimbal
 
 - This module is responsible for facilitating the interaction between
-  the Gimbal and the Servos of the rocket.
+  the microcontroller and the Servos of the rocket.
 
 ##### Logical: Guidance System
 
@@ -510,13 +508,12 @@ sensors of the rocket. The modules within this module include:
 ##### Logical: Battery
 
 - A simple software module that tracks the voltage and remaining
-  capacity on the on-board battery
+  capacity of the on-board battery
 
 ##### Logical: IMU
 
-- This module will take readings from the IMUs on-board the rocket to
-  obtain crucial information regarding the accelerometer, gyro and other
-  sensors for the control system module.
+- This module will take readings from the IMU on-board the rocket to
+  obtain information regarding the angular and linear acceleration.
 
 ##### Logical: SensorManager
 
@@ -524,7 +521,7 @@ sensors of the rocket. The modules within this module include:
   the rocket. This module interfaces with the communication module of
   the rocket to send the sensor readings from the rocket, to the base
   station. Note that this module will maintain a collection of all
-  on-board sensors but will read the sensors and cannot mutate the state
+  on-board sensors but will read the sensors and cannot change the state
   of the sensors in any way.
 
 ##### Logical: GPS
@@ -539,9 +536,8 @@ sensors of the rocket. The modules within this module include:
 The communication module is the software interface that will enable
 bi-directional communication between the rocket and the base station.
 The purpose of the communication module is centered around the
-establishing a connection with the rocket's antenna and the USB LoRa on
-the base station, and logging information about the state of the rocket
-during a flight.
+establishing a connection with the rocket's antenna and the USB LoRa interface at
+the base station. This is required forlogging information about the state of the rocket during flight.
 
 ##### Logical: Radio
 
@@ -552,7 +548,7 @@ during a flight.
 ##### Logical: Logging
 
 - This module is responsible for logging the data retrieved from the
-  sensors into the on-board SD card, as well as to a location within the
+  sensors into the on-board SD card, as well the location within the
   base station laptop specified by the user. This module is also
   responsible for transforming the sensor data into a human readable
   format to contribute the usability of the logging system.
@@ -585,25 +581,24 @@ to the following rules:
   electric motor igniters with a removable safety interlock.
 - The rocket cannot contain more than 125g of propellant.
 - The rocket must not weight more than 1500g at lift off.
-- The rocket cannot produce more than 320N-secs of total impulse.
+- The rocket cannot produce more than 320 Ns of total impulse.
 - The rocket must have a recovery system in the form of a streamer, or a
   parachute, so it can land safely.
 - Recovery wadding used must be fire-resistant or fire-proof.
 - The rocket must not contain any payload that is intentionally
-  flammable or to cause harm.
+  flammable or could cause harm.
 
 The rocket must also conform to regulation 9 of the Radio communications
 Regulations 2001\[5]\[6]. Regulation 9 defines the available frequencies
-for broadcast on a general user radio licence, it also as the maximum
-broadcast power in DBW (Decibel Watts). We must also ensure that we
-chose to broadcast on a frequency that doesn't have heavy traffic
-in order to negate the affects of interference.
+for broadcast on a general user radio licence, it also specifies the maximum broadcast power in dBW (Decibel Watts). We must also ensure that we
+choose to broadcast on a frequency that doesn't have heavy traffic
+to reduce the potential for interference.
 
 In addition to these regulations, the client has specifically stated the
 following hardware design constraint:
 
 - The airframe's diameter must not exceed 29mm (preferably, the airframe
-  is less than 29mm for usability and cost-efficiency purposes)
+  is less than 29mm for usability and cost-effective purposes)
 - The rocket must use the QFN package type for any integrated chips it
   uses.
 
@@ -612,8 +607,7 @@ following hardware design constraint:
 ##### Open Source Software
 
 The client has clearly specified that the final result of the project is
-intended to contribute to the existing body of knowledge for rocket
-enthusiasts. The best way to ensure that this requirement is met is by
+intended to contribute to the existing body of knowledge available to the rocket enthusiasts. The best way to ensure that this requirement is met is by
 making sure that the software produced by the project is open source and
 can be freely accessed by anyone. The open source nature of our software
 introduces some constraints, one of which is that the software produced
@@ -636,13 +630,13 @@ outlined that one of the purposes of this project is to contribute to
 the wider rocket building community. Accessibility of the rocket in this
 context means that the rocket will be relatively easy to assessable and
 disassemble before and after launches. There must also be easy access to
-all external interfaces on the rocket, including but not limited too:
+all external interfaces on the rocket, including but not limited to:
 
 - Power switch
-- Launch Safety Switch
-- USB Programming Port
-- SD Card
-- Battery Connector
+- Launch safety interlock switch
+- USB port for programming
+- SD card
+- Battery connector
 - Parachute deployment charges
 
 ##### Reliability
@@ -651,12 +645,10 @@ It is crucial the hardware of the rocket is reliable as we are dealing
 with potentially dangerous and harmful equipment. It was also specified
 by the client that the hardware should not be able to be damaged though
 simple actions like plugging in the battery or the sensors into the
-main-board incorrectly. To assure that the features are met, we can take
-measure to assure that incorrect use of the rocket will not result in
-the destruction of the hardware, or harm to the user. To protect the
-hardware, we can ensure that components such as sensors are either
+main-board incorrectly. Therefore the reliability and accuracy of components needs to be measured via testing to ensure that incorrect use of certain components will not damage the hardware, or harm the user. To protect the
+hardware, components such as sensors can be
 attached through non-reversible connectors, or directly connected to the
-main-board of the rocked. We can also ensure that all power systems are
+main-board of the rocket. We can also ensure that all power systems are
 connected to the main-board with non-reversible connectors, and that
 there are reverse polarity protections present on the board.
 
@@ -668,19 +660,19 @@ there are reverse polarity protections present on the board.
 The client has highlighted that past attempts at the project by other
 teams had issues regarding the correctness and reliability of the
 software. This is especially important given that the project itself has
-elements that is potentially dangerous. Through these factors, it is
+elements that are potentially dangerous. This means it is
 paramount that the software works correctly and reliably. To assure the
 correctness of the software, the project team will continually discuss
 what is defined as correct behaviour as the project enters the execution
 phase. The software will be packaged with extensive unit testing suites
 to prove that the software is performing as intended. Continuous
-Integration will be setup in the GitLab repository of the project to
-ensure that features merged into production does not cause errors with
+integration testing will be setup in the GitLab repository of the project to
+ensure that features merged during production do not cause errors with
 the existing code base. From a coding perspective, the developers of the
 software should apply programming techniques such as error handling,
-pre/post condition checking and the maintenance of invariants. Observing
+pre/post condition checking and maintenance of invariants. Observing
 these techniques should mitigate the risk of the software entering an
-incorrect state and can help assure its correctness and reliability.
+incorrect state and help ensure correctness and reliability.
 
 ##### Maintainability and Extensibility
 
@@ -703,7 +695,7 @@ the project.
 
 ##### Testing
 
-Testing is crucial in the process of assuring the correctness and
+Testing is crucial in the process of asserting the correctness and
 reliability of the software. The testing strategy the project team will
 adopt is a combination of regular unit testing and integration testing.
 Unit testing will cover technical, lower-level aspects of the software
@@ -735,8 +727,31 @@ the following:
 
 #### 3.8.1 Physical Requirements
 
-_**TODO:**_ Need to decide what hardware components we are going to use.
-See suggested content above.
+The physical requirments placed on the rocket stem from the physical constraints imparted by the local authority and the client's minimum viable product. The requirements are:
+
+- Dimensions: The rocket will be of cylindrical shape with a nose at the top and gimbal at the bottom. The airframe will be 29mm in diameter and approximately 1250mm in length. The nose cone at it's base is 30mm and 50mm in height. The gimbal spans 50mm in diameter and 60mm in height.
+
+- Mass: Excluding the d class motor is 80g and 124.5g inclusive.
+
+- Volume: Yet to be determined.
+
+- Material: The rocket will be constructed largely from plastic including 3D printed parts.
+
+The components need to be sourced from well-known NZ suppliers. In this project most of the parts are sourced from DigiKey. Additional parts left from the previous 2018 team are also utilised to reduce cost and risk of part failure. These components are assembled and tested at Victoria University of Wellington inside a laboratory. The physical parts used in the design are:
+
+- D-class motor: Solid fuel rocket motor supplying ~20Ns of thrust over 2 second window.
+
+- Adafruit Feather STM32F405: On-board microcontroller for implementing the active control system, communications and processing sensor data.
+
+- MPU-6050: The IMU for providing data regarding position and momentum of the rocket to the microcontroller.
+
+- Adafruit RFM96W: LoRa radio trancievers for establishing remote communication between the microcontroller and base station.
+
+- Adafruit Mini GPS PA1010D: GPS module for providing positional data to the microcontroller.
+
+- Secondary microcontroiller for interfacing between the basestation laptop and LoRa trancievers.
+
+A custom PCB design is implemented to reduce the size of the electronics making it possible for them to fit inside the 29mm airframe. Programming of the device is achieved by flashing via micro usb.
 
 #### 3.8.2 Environmental Requirements
 
