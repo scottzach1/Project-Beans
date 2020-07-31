@@ -90,10 +90,9 @@ void process() {
     // delay(2000);    // for Arduino framework (fails on desktop)
     // wait(2);        // for Framework (fails on desktop)
     UNITY_BEGIN();  // these sleeps may need tweaking!
-    test_guidance_system();
-    test_lander();
-    test_gimbal();
-
+    RUN_TEST(test_guidance_system);
+    RUN_TEST(test_lander);
+    RUN_TEST(test_gimbal);
     UNITY_END();
 }
 
