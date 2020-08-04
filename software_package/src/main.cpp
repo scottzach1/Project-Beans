@@ -2,17 +2,74 @@
 
 #include <Adafruit_MPU6050.h>
 #include <Adafruit_Sensor.h>
+#include <Arduino.h>
+#include <STM32SD.h>
 #include <Wire.h>
 
-#include <Arduino.h>
+// If SD card slot has no detect pin then define it as SD_DETECT_NONE
+// to ignore it. One other option is to call 'SD.begin()' without parameter.
+#ifndef SD_DETECT_PIN
+#define SD_DETECT_PIN SD_DETECT_NONE
+#endif
 
 Adafruit_MPU6050 mpu;
+File myFile;
+
+void setup_sd(void);
+void setup_mpu(void);
 
 void setup(void) {
     Serial.begin(115200);
+
     while (!Serial)
         delay(10);  // will pause Zero, Leonardo, etc until serial console opens
 
+    setup_mpu();
+    setup_sd();
+}
+
+void setup_sd(void) {
+    Serial.print("Initializing SD card...");
+    while (!SD.begin(SD_DETECT_PIN)) {
+        delay(10);
+    }
+    Serial.println("initialization done.");
+
+    // open the file. note that only one file can be open at a time,
+    // so you have to close this one before opening another.
+    myFile = SD.open("test.txt", FILE_WRITE);
+
+    // if the file opened okay, write to it:
+    if (myFile) {
+        Serial.print("Writing to test.txt...");
+        myFile.println("testing 1, 2, 3.");
+        // close the file:
+        myFile.close();
+        Serial.println("done.");
+    } else {
+        // if the file didn't open, print an error:
+        Serial.println("error opening test.txt");
+    }
+
+    // re-open the file for reading:
+    myFile = SD.open("test.txt");
+    if (myFile) {
+        Serial.println("test.txt:");
+
+        // read from the file until there's nothing else in it:
+        while (myFile.available()) {
+            Serial.write(myFile.read());
+        }
+        // close the file:
+        myFile.close();
+    } else {
+        // if the file didn't open, print an error:
+        Serial.println("error opening test.txt");
+    }
+    Serial.println("###### End of the SD tests ######");
+}
+
+void setup_mpu(void) {
     Serial.println("Adafruit MPU6050 test!");
 
     // Try to initialize!
@@ -85,10 +142,15 @@ void setup(void) {
     }
 
     Serial.println("");
+
     delay(100);
 }
 
 void loop() {
+    /**
+     * PRINT MPU READINGS
+     **/
+
     /* Get new sensor events with the readings */
     sensors_event_t a, g, temp;
     mpu.getEvent(&a, &g, &temp);
@@ -149,4 +211,4 @@ int double_value(int input) { return input * 2; }
 
 // void loop() { beans::output_console(); }
 
-#endif
+#endif  // UNIT_TEST
