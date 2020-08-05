@@ -1,0 +1,27 @@
+        -:    0:Source:prime-tests.cpp
+        -:    0:Graph:prime-tests.gcno
+        -:    0:Data:prime-tests.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <iostream>
+        -:    2:#include "catch.hpp"
+        -:    3:
+        -:    4:// Simple (probably buggy) function that determines whether or not the supplied
+        -:    5:// number is a prime number
+        2:    6:bool isPrime(int num){
+        2:    7:    if (num < 2) return false;
+        1:    8:    else if (num == 2) return true;
+    #####:    9:    for (int i = 2; i < num; ++i)
+    #####:   10:        if (num % i == 0) return false;
+    #####:   11:    return true;
+        2:   12:}
+        -:   13:
+        -:   14:// Testing that 1 is determined as a prime number
+        2:   15:TEST_CASE("1 is not prime", "[prime]"){
+        1:   16:    REQUIRE(isPrime(1) == 0);
+        1:   17:}
+        -:   18:
+        -:   19:// Testing that 2 is determined as a prime number
+        2:   20:TEST_CASE("2 is prime", "[prime]"){
+        1:   21:    REQUIRE(isPrime(2) == 1);
+        1:   22:}

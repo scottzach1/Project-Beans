@@ -74,3 +74,8 @@ _minted*
 
 ## Log file
 # *.log
+
+# Code coverage data
+coverage.*.html
+*.gcda
+*.gcno
