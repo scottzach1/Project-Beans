@@ -15,8 +15,7 @@ factors involved in producing the code coverage reports correctly.
     - This will generate a bunch of html files in the `code_coverage` directory which gives you a 
     visual representation of the code coverage (simply view the html files in a browser of your choice)
 
-    - Example Usage:
-      - `./execute_tests_coverage.sh lib/control/src test/test_control`
+    - Example Usage: `./execute_tests_coverage.sh lib/control/src test/test_control`
       
 - **To cleanup the `code_coverage` directory** - `./clean_coverage_info.sh`
      - This will remove all html files and gcov meta data from the directory
@@ -25,10 +24,11 @@ factors involved in producing the code coverage reports correctly.
 [PIO Unit Testing](https://docs.platformio.org/en/latest/plus/unit-testing.html) uses a C/C++ unit testing framework
 known as [Unity](https://github.com/ThrowTheSwitch/Unity) to produce unit testing methods. Given that PIO is prone to
 a wide range of configuration and build errors, and the difficult nature of debugging what parts of the build has gone
-wrong **the code coverage tools were not implemented to work directly in tandem with PIO, but Unity only**
+wrong, **the code coverage tools were not implemented to work directly in tandem with PIO, but Unity only.**
 
 - What does this mean? - This means that doing a simple `pio test` will not generate any code coverage reports. However,
-this also means that the PIO project building and testing is not affected in anyway by the code coverage tools.
+this also means that the PIO project building and testing is not affected in anyway by the code coverage tools. (i.e 
+the scripts in this directory and the code coverage tools should be completely independent of PIO)
 
 This decoupling between Unity and PIO Unit Testing actually makes the generation of the code coverage reports easier,
 since we are not fully locked into the PIO ecosystem.
@@ -44,7 +44,35 @@ corresponding test files to execute the tests and generate the reports using gco
 (Note that `execute_tests_coverage.sh` also cleans the directory first before testing and generating reports)
 
 ## Does it work with GitLab's CI/CD?
-TODO:
+Yes. As it currently stands, the CI/CD pipeline of the repo succesfully produces the code coverage reports. The script
+for the pipeline currently compiles and tests _all_ modules in the `lib` folder of the project. The html files are
+stored as artifacts and can be downloaded upon the completion of the `code-coverage` job in the pipeline
+
+**Note:** You might notice that even though there are compilation errors, the code coverage reports are still generated,
+showing '0%' coverage. This means that the code coverage reporting was succesful, but, because some of the files failed 
+to compile, they cannot be tested. Therefore, this means that there is 0% line coverage for the tested files.
+
+The code below outlines the code-coverage files.
+```yml
+code-coverage:
+  stage: Test
+  tags:
+    - docker
+  image: gcc
+  script:
+    - apt-get update
+    - apt-get install -y gcovr
+    - cd software_package/code_coverage
+    - chmod u+x execute_tests_coverage.sh
+    - ./execute_tests_coverage.sh lib/ test/
+  artifacts:
+    paths:
+      - software_package/code_coverage/*.html
+    untracked: false
+    expire_in: 10 days
+  allow_failure: true
+
+```
 
 ## Any limitations?
 _*Yes.*_
