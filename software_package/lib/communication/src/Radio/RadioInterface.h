@@ -10,9 +10,7 @@ class RadioInterface {
 
     // methods
     virtual int runDiagnostics() = 0;
-
     virtual int getPostFlightData() = 0;
-
     virtual int getInflightData() = 0;
 };
 

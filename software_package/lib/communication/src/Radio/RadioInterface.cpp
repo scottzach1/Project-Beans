@@ -4,5 +4,4 @@
 #include "RadioInterface.h"
 
 RadioInterface::RadioInterface() {}
-
 RadioInterface::~RadioInterface() {}

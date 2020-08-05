@@ -120,14 +120,33 @@ void test5_sdWriteMulti(){
     delete logDb;
 }
 
+void test6_radioInit(){
+    RadioImpl *radioImpl = new RadioImpl();
+    //functions promised to base station
+    radioImpl->runDiagnostics();
+    radioImpl->getPostFlightData();
+    radioImpl->getInflightData();
+    delete radioImpl;
+}
+
+
+
+
+
+
+
 
 int main(void) {
     UNITY_BEGIN();
+    // ./Logging
     RUN_TEST(test1_packageInit);
     RUN_TEST(test2_loggerWrite);
     RUN_TEST(test3_loggerWriteMulti);
     RUN_TEST(test4_sdWrite);
     RUN_TEST(test5_sdWriteMulti);
+    // ./Radio
+    RUN_TEST(test6_radioInit);
+    // RUN_TEST(test7_ensureInternal);
     return UNITY_END();
 }
 
