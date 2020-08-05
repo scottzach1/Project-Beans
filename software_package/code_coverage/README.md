@@ -56,7 +56,7 @@ directory upon executing the script/s.
 arguments you give it. If you provide no arguments, it will try to obtain all cpp files in the project, including the
 stuff from PIO. **Please do not forget to include the command line arguments!** (The scripts themselves don't perform
 any writes to the files. They just create copies of the files and store them into the directory. So if you do forget
-to add the CLI arguments, do the following: `CTRL + C(cancel) and then ./clean_coverage_info.sh`, then try again)
+to add the CLI arguments, do the following: `CTRL + C(cancel) and then ./clean_coverage_info.sh`, then try again).
 
 - `unity.c`, `unity.h` and `unity_internals.h` all need to be in `code_coverage` directory - We need to use Unity's API
 in order to execute the tests, and in turn, to generate the reports. **These 3 files need to be in the directory at all
@@ -66,13 +66,28 @@ times.**
 the scripts to fail**) - The current implementation of the test files (in `/tests`) already do this (as of writing this
 document) therefore hopefully this isn't too problematic...
 
+- **_All_** test files must have the following functions declared:
+  ```c
+  void setUp(void) {
+    // Set up before every test execution
+  }
+
+  void tearDown(void) {
+    // Clean up after every test execution
+  }
+  ```
+  This is due to the fact that the scripts need to compile the test files with `unity.c` directly. For some reason,
+  it seems that having these functions is a requirement in order for the compilation to succeed.
+
 - **gcc or g++?** - The project uses a lot of **.cpp*** files, but Unity is written in C (and therefore `unity.c` is of
 course, a C file) - Currently, the tests are being compiled and executed by the scripts using g++, although this results
 in some warnings. **This problem is still being investigated.**
 
-- Hidden files and folders (i.e files/directories with a '.' at the start) do not get removed.
+- Hidden files and folders (i.e files/directories with a '.' at the start) do not get removed by the either of the
+scripts. You will have to remove hidden files/directories manually if they are added to the `code_coverage` directory.
 
-- There are probably some other problems. This method of generating code coverage reports is still somewhat experimental
+- There are probably some other problems. This method of generating code coverage reports is 
+still somewhat experimental.
 
 
 
