@@ -16,5 +16,5 @@ find ../$2 -name '*.cpp' -exec cp -prv '{}' './' ';'
 #Executing tests and obtaining code coverage information 
 g++ *.cpp unity.c -o tests --coverage -std=c++11
 ./tests
-gcovr -r . -e catch.hpp --html -o coverage.html --html-details
+gcovr -r . -e unity.c --html -o coverage.html --html-details
 echo "==================== FINISHED GENERATING CODE COVERAGE INFORMATION ===================="
