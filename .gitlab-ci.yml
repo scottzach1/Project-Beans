@@ -21,7 +21,7 @@ cpplint:
   stage: Lint
   script:
     - pip install cpplint
-    - cpplint --filter=-legal --recursive */*
+    - cpplint --filter=-legal --exclude software_package/code_coverage --recursive */*
   tags:
     - docker
   allow_failure: true
@@ -81,10 +81,10 @@ deploy:
     - exit 0
   allow_failure: true
 
-image: python:2.7
+# image: python:2.7
 
-before_script:
-  - "pip install -U platformio"
+# before_script:
+#   - "pip install -U platformio"
 
 # job:
 #   stage: Platformio
