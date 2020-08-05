@@ -55,7 +55,7 @@ unittest:
   allow_failure: true
 
 code-coverage:
-  stage: test
+  stage: Test
   tags:
     - docker
   image: gcc
