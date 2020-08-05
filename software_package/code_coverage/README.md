@@ -52,7 +52,7 @@ stored as artifacts and can be downloaded upon the completion of the `code-cover
 showing '0%' coverage. This means that the code coverage reporting was succesful, but, because some of the files failed 
 to compile, they cannot be tested. Therefore, this means that there is 0% line coverage for the tested files.
 
-The code below outlines the code-coverage files.
+The code below outlines the code-coverage job.
 ```yml
 code-coverage:
   stage: Test
