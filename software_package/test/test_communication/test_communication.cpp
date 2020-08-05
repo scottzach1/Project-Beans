@@ -130,12 +130,6 @@ void test6_radioInit(){
 }
 
 
-
-
-
-
-
-
 int main(void) {
     UNITY_BEGIN();
     // ./Logging

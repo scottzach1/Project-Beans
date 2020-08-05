@@ -7,6 +7,7 @@
 #include <ctime>
 #include <iostream>
 #include <string>
+#include <assert.h> 
 
 #include "Battery.h"
 #include "GPS.h"
