@@ -1,0 +1,11 @@
+﻿Part,Manufacturer,Part Number,Quantity,Price ($),Footprint (mm²),Description
+Coutx,TDK,C1608X5R1E106M080AC,1,0.2,4.68,Cap: 10 µF  Total Derated Cap: 2.7 µF  VDC: 25 V  ESR: 4.64 mΩ  Package: 0603  
+Rfbt,Yageo,RC0603FR-07649KL,1,0.01,4.68,Resistance: 649 kΩ  Tolerance: 1.0%  Power: 100 mW  
+Cout,TDK,C3216X5R1E476M160AC,1,0.39,10.92,Cap: 47 µF  Total Derated Cap: 14 µF  VDC: 25 V  ESR: 2.08 mΩ  Package: 1206  
+L1,Bourns,SDR0805-1R5ML,1,0.27,96.04,L: 1.5 µH  DCR: 20 mΩ  IDC: 6 A  
+Cin,MuRata,GRM32ER61C476KE15L,1,0.38,14.7,Cap: 47 µF  Total Derated Cap: 20 µF  VDC: 16 V  ESR: 3.04 mΩ  Package: 1210  
+U1,Texas Instruments,TPS63070RNMR,1,0.88,14,
+Caux,MuRata,GRM155R71C104KA88D,1,0.01,3,Cap: 100 nF  Total Derated Cap: 100 nF  VDC: 16 V  ESR: 1 mΩ  Package: 0402  
+Rfbb,Vishay-Dale,CRCW0603100KFKEA,1,0.01,4.68,Resistance: 100 kΩ  Tolerance: 1.0%  Power: 100 mW  
+Renable,Yageo,RC0201FR-0710KL,1,0.01,2.08,Resistance: 10 kΩ  Tolerance: 1.0%  Power: 50 mW  
+Rpgood,Vishay-Dale,CRCW0603100KFKEA,1,0.01,4.68,Resistance: 100 kΩ  Tolerance: 1.0%  Power: 100 mW  
