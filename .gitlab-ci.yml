@@ -67,10 +67,11 @@ platformio:
   image: python:2.7
   stage: PlatformIO
   script:
+    - cd software_package
     - pip install -U platformio
     - pio check # check that `main.cpp` and any referenced libraries compile fine.
     - pio test -e native # run only the non-hardware tests that can run on the desktop.
-  variables: {PLATFORMIO_CI_SRC: "software_package/src/main.cpp"}
+  variables: {PLATFORMIO_CI_SRC: "src/main.cpp"}
   tags:
     - docker
   allow_failure: true
