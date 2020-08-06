@@ -17,7 +17,6 @@ void test1(){
 
 int main(void) {
     UNITY_BEGIN();
-    // ./Logging
     RUN_TEST(test1);
 
     return UNITY_END();
