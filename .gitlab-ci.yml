@@ -21,7 +21,7 @@ cpplint:
   stage: Lint
   script:
     - pip install cpplint
-    - cpplint --filter=-legal --recursive */*
+    - cpplint --filter=-legal --exclude software_package/code_coverage --recursive */*
   tags:
     - docker
   allow_failure: true
@@ -67,6 +67,24 @@ unit-test:
         expire_in: 30 days
     allow_failure: true
 
+code-coverage:
+  stage: Test
+  tags:
+    - docker
+  image: gcc
+  script:
+    - apt-get update
+    - apt-get install -y gcovr
+    - cd software_package/code_coverage
+    - chmod u+x execute_tests_coverage.sh
+    - ./execute_tests_coverage.sh lib/ test/
+  artifacts:
+    paths:
+      - software_package/code_coverage/*.html
+    untracked: false
+    expire_in: 10 days
+  allow_failure: true
+
 deploy:
   stage: Deploy
   tags:
@@ -76,12 +94,12 @@ deploy:
     - exit 0
   allow_failure: true
 
-#image: python:2.7
+# image: python:2.7
 
-#before_script:
-#  - "pip install -U platformio"
+# before_script:
+#   - "pip install -U platformio"
 
-#job:
-#  stage: Platformio
-#  script: "platformio ci --board=adafruit_feather_f405"
-#  variables: {PLATFORMIO_CI_SRC: "software_package/src/main.cpp"}
+# job:
+#   stage: Platformio
+#   script: "platformio ci --board=adafruit_feather_f405"
+#   variables: {PLATFORMIO_CI_SRC: "software_package/src/main.cpp"}
