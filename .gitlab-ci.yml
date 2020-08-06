@@ -63,12 +63,14 @@ deploy:
     - exit 0
   allow_failure: true
 
-image: python:2.7
+#image: python:2.7
 
 before_script:
   - "pip install -U platformio"
 
 job:
   stage: Platformio
-  script: "platformio ci --board=adafruit_feather_f405"
+  script:
+    - pio check # check that `main.cpp` and any referenced libraries compile fine.
+    - pio test -e native # run only the non-hardware tests that can run on the desktop.
   variables: {PLATFORMIO_CI_SRC: "software_package/src/main.cpp"}
