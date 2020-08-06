@@ -251,28 +251,28 @@ GitLab gives the ability to break down projects into well defined pieces in the 
   When the issue has been completed, it is the responsibility of the issue assignee to move the issue to the **review stage** via the sprint board, and assigning the issue the 'review' label. The merge request should be assigned the review label to indicate to other team members that the merge request is ready for reviewing. Relevant team members will be responsible for inspecting the changes applied through the merge request, and will have to provide an approval.  Once the review stage has been completed, issues should then be automatically closed via Merge Requests. This is done by commenting "Fixes #Issue-Number" (eg. "Fixes #2"). this will link the issue to this merge request, so that upon merge these issues will be automatically closed.  **Each merge request must receive a certain number of approvals** before being able to merge its contents with the master branch. It is the responsibility of the team members to provide feedback and suggestions to the merge request as they see fit. After receiving the required number of approvals, the merge request can be completed by merging its corresponding branch to master and closing the merge request. The source branch has the option to be closed with the merge request, however it is up to individual team members to make use of this feature. <br><br>
 
 - **Continuous Integration**<br>
-  Continuous Integration is the idea of automating a pre-defined set of actions on the project repository after work is 
-  pushed to the remote repository. This enables the development team to closely monitor the state of the repository and 
+  Continuous Integration is the idea of automating a pre-defined set of actions on the project repository after work is
+  pushed to the remote repository. This enables the development team to closely monitor the state of the repository and
   identify issues within the project from a project maangement perspective, as well as from a technical perspective.
-  
+
   The CI/CD pipeline is configured through the `.gitlab-ci.yml` file at the root of the project repository. This file
   defines the actions taken on the repository when work is committed. For this project, the pipeline is configured to
   do the following:
 
   - Linting - Source code and markdown files in the repository are validated against selected linting software.
     (see Linting section below for more information)
-    
+
   - Building - All source code in the repository is built to ensure that the source code compiles correctly.
 
-  - Testing 
+  - Testing
     - Source code and output files of KiCad are tested to verify their correctness.
     - Code coverage generation is automated to aid developers in determining what parts of the source code has been
       tested
 
   - _**TODO:**_ PlatformIO building (once we complete this)
 
-  For technical details of the project's CI/CD implementation, refer to the 
-  [`.gitlab-ci.yml`](https://gitlab.ecs.vuw.ac.nz/course-work/engr300/2020/group3/group-3/-/blob/master/.gitlab-ci.yml) 
+  For technical details of the project's CI/CD implementation, refer to the
+  [`.gitlab-ci.yml`](https://gitlab.ecs.vuw.ac.nz/course-work/engr300/2020/group3/group-3/-/blob/master/.gitlab-ci.yml)
   file for more details.
 
 ##### Agile Project Management
@@ -309,20 +309,21 @@ For the markdown documents in the project, the linter being used is [markdownlin
 ##### PlatformIO
 The software development component of the project is facilitated by [PlatformIO](https://platformio.org/). PlatformIO is development platform
 focused around software development for embedded systems. Given the mix of hardware and software development this project features, PlatformIO
-is the ideal development platform to streamline the development of the project. 
+is the ideal development platform to streamline the development of the project.
 
 _**TODO:**_ There's more technical details we can add here at some point. We need to get to a point where we can confidently use PlatformIO
 
 ##### Unit Testing and Code Coverage
-Unit testing is facilitated directly by PlatformIO through the [PlatformIO Unit Testing](https://docs.platformio.org/en/latest/plus/unit-testing.html) framework. The incorporation of this framework within PlatformIO makes it the ideal unit testing framework for this project.
-Internally, this framework utilizes [Unity](https://github.com/ThrowTheSwitch/Unity), a C/C++ Unit Testing API.
+Unit testing is facilitated directly by PlatformIO through the [PlatformIO Unit Testing](https://docs.platformio.org/en/latest/plus/unit-testing.html) framework. Internally, this framework utilizes [Unity](https://github.com/ThrowTheSwitch/Unity), a C/C++ Unit Testing API. The incorporation of this framework within PlatformIO makes it the ideal unit testing framework for this project. Using PlatformIO allows for us to perform unit tests on both our personal machines and on the hardware. This is extremely important for allowing us to continue development from a remote stand point.
+
+Each of the packages in our source code library will have a dedicated package related to it inside of the test package. This modularization of the unit tests allows for us to better locate any weak points in our codebase, as we are able to perform diagnostics, eg. code coverage, on each specific package.
 
 Generating code coverage reports is not currently a feature of PlatformIO. As a result, the project generates code coverage reports using
-written shell scripts, as well as the usage of [gcov](https://gcc.gnu.org/onlinedocs/gcc/Gcov.html) and 
-[gcovr](https://gcc.gnu.org/onlinedocs/gcc/Gcov.html). gcov Is a code coverage tool that comes packed with gcc/g++ to 
-enable the generation of code-coverage related metadata. This tool works in tandem with gcovr to use the generated 
-metadata to create a visual representation of software's code coverage. Technical details of the project's code 
-coverage implementation can be viewed 
+written shell scripts, as well as the usage of [gcov](https://gcc.gnu.org/onlinedocs/gcc/Gcov.html) and
+[gcovr](https://gcc.gnu.org/onlinedocs/gcc/Gcov.html). gcov Is a code coverage tool that comes packed with gcc/g++ to
+enable the generation of code-coverage related metadata. This tool works in tandem with gcovr to use the generated
+metadata to create a visual representation of software's code coverage. Technical details of the project's code
+coverage implementation can be viewed
 [here](https://gitlab.ecs.vuw.ac.nz/course-work/engr300/2020/group3/group-3/-/tree/master/software_package/code_coverage).
 
 Both of these factors directly contribute to the project team's effort to fulfill the verification requirements of the
