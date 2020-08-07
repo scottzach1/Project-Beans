@@ -45,13 +45,44 @@ test-drc:
     - python -m kicad-automation.pcbnew_automation.run_drc ./hardware_package/avionics_pcb/testing/KiCad.kicad_pcb .output
   allow_failure: true
 
-unittest:
+unit-test:
+    stage: Test
+    image: gcc
+    script:
+        - apt-get update
+        - apt-get install -y gcovr
+        - cd software_package/src/tests #TODO: Update path later on if we need to
+        - mkdir coverage-files
+        - g++ *-tests.cpp catch-runner.cpp -o tests --coverage -std=c++11
+        - ./tests
+        - gcov *-tests.cpp
+        - gcovr -r . -e catch.hpp --html -o coverage-files/coverage.html --html-details
+    tags:
+        - docker
+    artifacts:
+        paths:
+            - software_package/src/tests/coverage-files/coverage.html
+            - software_package/src/tests/coverage-files/coverage.*-tests.cpp.html
+        untracked: false
+        expire_in: 30 days
+    allow_failure: true
+
+code-coverage:
   stage: Test
   tags:
-    - shell
+    - docker
+  image: gcc
   script:
-    - echo "test"
-    - exit 0
+    - apt-get update
+    - apt-get install -y gcovr
+    - cd software_package/code_coverage
+    - chmod u+x execute_tests_coverage.sh
+    - ./execute_tests_coverage.sh lib/ test/
+  artifacts:
+    paths:
+      - software_package/code_coverage/*.html
+    untracked: false
+    expire_in: 10 days
   allow_failure: true
 
 deploy:
