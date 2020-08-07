@@ -29,5 +29,11 @@ Log:
 
 
 #### Prototype 2:
+Specs:
+- M3 bolt size
+-
+
+
+
 Log:
 * Create and assemble prototype 2 (for 24mm engine)
