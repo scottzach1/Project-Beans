@@ -96,6 +96,8 @@ deploy:
 
 platformio:
   image: python:2.7
+  tags:
+    - drc
   stage: PlatformIO
   script:
     - cd software_package/development
@@ -103,6 +105,4 @@ platformio:
     - pio check -v # check that `main.cpp` and any referenced libraries compile fine.
     - pio test -v -e native # run only the non-hardware tests that can run on the desktop.
   variables: {PLATFORMIO_CI_SRC: "src/main.cpp"}
-  tags:
-    - docker
   allow_failure: true
