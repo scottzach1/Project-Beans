@@ -250,15 +250,33 @@ GitLab gives the ability to break down projects into well defined pieces in the 
 - **Completing an Issue and Merge Request**<br>
   When the issue has been completed, it is the responsibility of the issue assignee to move the issue to the **review stage** via the sprint board, and assigning the issue the 'review' label. The merge request should be assigned the review label to indicate to other team members that the merge request is ready for reviewing. Relevant team members will be responsible for inspecting the changes applied through the merge request, and will have to provide an approval.  Once the review stage has been completed, issues should then be automatically closed via Merge Requests. This is done by commenting "Fixes #Issue-Number" (eg. "Fixes #2"). this will link the issue to this merge request, so that upon merge these issues will be automatically closed.  **Each merge request must receive a certain number of approvals** before being able to merge its contents with the master branch. It is the responsibility of the team members to provide feedback and suggestions to the merge request as they see fit. After receiving the required number of approvals, the merge request can be completed by merging its corresponding branch to master and closing the merge request. The source branch has the option to be closed with the merge request, however it is up to individual team members to make use of this feature. <br><br>
 
-- _**TODO:**_ Write about CI/CD as more details become available / MD linter
-- **Continuous Integration / Continuous Delivery**<br>
+- **Continuous Integration**<br>
+  Continuous Integration is the idea of automating a pre-defined set of actions on the project repository after work is
+  pushed to the remote repository. This enables the development team to closely monitor the state of the repository and
+  identify issues within the project from a project maangement perspective, as well as from a technical perspective.
 
+  The CI/CD pipeline is configured through the `.gitlab-ci.yml` file at the root of the project repository. This file
+  defines the actions taken on the repository when work is committed. For this project, the pipeline is configured to
+  do the following:
 
+  - Linting - Source code and markdown files in the repository are validated against selected linting software.
+    (see Linting section below for more information)
+
+  - Building - All source code in the repository is built to ensure that the source code compiles correctly.
+
+  - Testing
+    - Source code and output files of KiCad are tested to verify their correctness.
+    - Code coverage generation is automated to aid developers in determining what parts of the source code has been
+      tested
+
+  - _**TODO:**_ PlatformIO building (once we complete this)
+
+  For technical details of the project's CI/CD implementation, refer to the
+  [`.gitlab-ci.yml`](https://gitlab.ecs.vuw.ac.nz/course-work/engr300/2020/group3/group-3/-/blob/master/.gitlab-ci.yml)
+  file for more details.
 
 ##### Agile Project Management
-The project will be managed by observing agile project management principles. In particular, the Scrum agile project management methodology is used as a template on how to conduct the project. The project is conducted in 2-week sprints, with each sprint addressing at least 1 epic defined for the project. Sprint planning meetings will be conducted to obtain a sprint backlog, and to officially initiate the sprint. Brief sprint reviews will be conducted at the end of sprints to give the project team some insight on how the sprint progressed, and what could be improved. The usage of issue boards and limiting the number of tasks that can be in a single phase are inspired from the Kanban methodology of agile project management. This assists the project team in determining the status of issues, and finding out what still needs to be addressed. Regular meetings are also conducted to monitor and encourage the progress of each individual towards the issues they are assigned to. By observing these ideas, team members are able to collaborate effectively, enabling the project the reach its goals in a systematic fashion.
-
-_**TODO:**_ Write about any potential conventions with the selected programming language and tools used
+The project will be managed by observing agile project management principles. In particular, the Scrum agile project management methodology is used as a template on how to conduct the project. The project is conducted in **2-week sprints**, with each sprint addressing at least 1 epic defined for the project. Sprint planning meetings will be conducted to obtain a sprint backlog, and to officially initiate the sprint. Brief sprint reviews will be conducted at the end of sprints to give the project team some insight on how the sprint progressed, and what could be improved. The usage of issue boards and limiting the number of tasks that can be in a single phase are inspired from the Kanban methodology of agile project management. This assists the project team in determining the status of issues, and finding out what still needs to be addressed. Regular meetings are also conducted to monitor and encourage the progress of each individual towards the issues they are assigned to. By observing these ideas, team members are able to collaborate effectively, enabling the project the reach its goals in a systematic fashion.
 
 ##### Coding Conventions
 Due to the safety-critical nature of the product being developed, it is imperative that the software system is written in a way that assures reliability, security and safety. To achieve this, the software is written in accordance with the "Power Of 10" which is a widely used ruleset for writing safety-critical software [3].
@@ -277,19 +295,40 @@ Due to the safety-critical nature of the product being developed, it is imperati
 10. Compile with all possible warnings active; all warnings should then be addressed before the release of the software.
 
 ***Style Guide***
-- To accompany the coding standard to laid out above, there will also be a C++ style guide. For this project, we intend to use the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
+- To accompany the coding standard to laid out above, there will also be a C++ style guide. For this project, the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) is used.
 - This style guide specifies rules to be followed such as variable, struct and file naming conventions.
 - To accompany this style guide, a C++ linter will also be configured to check for any violations in Continuous Integration (CI). The linter chosen is [cpplint](https://github.com/cpplint/cpplint) as it is fully open source and pre-configured to comply with the aforementioned Google Style guide.
 
 ##### Linting
 The Gitlab repository will use multiple linters to enforce that all documents are syntactically correct, consistent, safe, and readable. By conforming to these conventions, future users are given the ability to contribute to the software system much easier, given that they can understand the conventions followed.
 
-One linter used is [Cobra](https://github.com/nimble-code/Cobra), an open source C/C++ linter which was developed by NASA/JPL. This linter performs static analysis which verifies if the software system complies with "The Power of 10" rules.
-
-Another linter used is [cpplint](https://github.com/cpplint/cpplint). This open source C/C++ linter will be integrated as part of the CI component of the project's GitLab repository to enforce the Google C++ Style Guide. Being a command-line tool, this linter is ideal for deployment on the CI system of GitLab.
+The linter used is [cpplint](https://github.com/cpplint/cpplint). This open source C/C++ linter will be integrated as part of the CI component of the project's GitLab repository to enforce the Google C++ Style Guide. Being a command-line tool, this linter is ideal for deployment on the CI system of GitLab.
 
 For the markdown documents in the project, the linter being used is [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli). Like cpplint, this is also a command-line focused tool, making it an ideal tool for integration within GitLab's CI system. This linter will enforce a set of predefined markdown formatting rules specified [here](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md).
 
+##### PlatformIO
+The software development component of the project is facilitated by [PlatformIO](https://platformio.org/). PlatformIO is development platform
+focused around software development for embedded systems. Given the mix of hardware and software development this project features, PlatformIO
+is the ideal development platform to streamline the development of the project.
+
+_**TODO:**_ There's more technical details we can add here at some point. We need to get to a point where we can confidently use PlatformIO
+
+##### Unit Testing and Code Coverage
+Unit testing is facilitated directly by PlatformIO through the [PlatformIO Unit Testing](https://docs.platformio.org/en/latest/plus/unit-testing.html) framework. Internally, this framework utilizes [Unity](https://github.com/ThrowTheSwitch/Unity), a C/C++ Unit Testing API. The incorporation of this framework within PlatformIO makes it the ideal unit testing framework for this project. Using PlatformIO allows for us to perform unit tests on both our personal machines and on the hardware. This is extremely important for allowing us to continue development from a remote stand point.
+
+Each of the packages in our source code library will have a dedicated package related to it inside of the test package. This modularization of the unit tests allows for us to better locate any weak points in our codebase, as we are able to perform diagnostics, eg. code coverage, on each specific package.
+
+Generating code coverage reports is not currently a feature of PlatformIO. As a result, the project generates code coverage reports using
+written shell scripts, as well as the usage of [gcov](https://gcc.gnu.org/onlinedocs/gcc/Gcov.html) and
+[gcovr](https://gcc.gnu.org/onlinedocs/gcc/Gcov.html). gcov Is a code coverage tool that comes packed with gcc/g++ to
+enable the generation of code-coverage related metadata. This tool works in tandem with gcovr to use the generated
+metadata to create a visual representation of software's code coverage. Technical details of the project's code
+coverage implementation can be viewed
+[here](https://gitlab.ecs.vuw.ac.nz/course-work/engr300/2020/group3/group-3/-/tree/master/software_package/code_coverage).
+
+Both of these factors directly contribute to the project team's effort to fulfill the verification requirements of the
+project, as stated in [section 4](https://gitlab.ecs.vuw.ac.nz/course-work/engr300/2020/group3/group-3/-/blob/master/project_requirement/project-requirement.md#4-verification) of the Project Requirements document. In addition to this, both unit testing and
+code coverage generation is implemented as part of the project's CI implementation.
 ### 4.3 Process
 
 The Process view aims to visually explain and represent the interaction and communication between the different system processes during the run time of this package. Below is a high level UML Activity Diagram which showcases the control flow and different states.
