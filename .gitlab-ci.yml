@@ -1,6 +1,6 @@
 stages:
   - Lint
-  - Platformio
+  - PlatformIO
   - Build
   - Test
   - Deploy
@@ -21,7 +21,7 @@ cpplint:
   stage: Lint
   script:
     - pip install cpplint
-    - cpplint --filter=-legal --exclude software_package/code_coverage --recursive */*
+    - cpplint --filter=-legal --recursive */*
   tags:
     - docker
   allow_failure: true
@@ -94,12 +94,15 @@ deploy:
     - exit 0
   allow_failure: true
 
-# image: python:2.7
-
-# before_script:
-#   - "pip install -U platformio"
-
-# job:
-#   stage: Platformio
-#   script: "platformio ci --board=adafruit_feather_f405"
-#   variables: {PLATFORMIO_CI_SRC: "software_package/src/main.cpp"}
+platformio:
+  image: python:2.7
+  tags:
+    - drc
+  stage: PlatformIO
+  script:
+    - cd software_package/development
+    - pip install -U platformio
+    - pio check -v # check that `main.cpp` and any referenced libraries compile fine.
+    - pio test -v -e native # run only the non-hardware tests that can run on the desktop.
+  variables: {PLATFORMIO_CI_SRC: "src/main.cpp"}
+  allow_failure: true
