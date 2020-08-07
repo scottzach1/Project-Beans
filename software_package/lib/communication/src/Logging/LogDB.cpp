@@ -6,12 +6,12 @@
 
 #include <iostream>
 
-char* databaseStore[5];
+char* LogDB::databaseStore[10];
 
 LogDB::LogDB() {}
-LogDB::~LogDB() = default;
+LogDB::~LogDB() {}
 
-int LogDB::getData() {
+int LogDB::printData() {
     for (int i = 0; i < sizeof(databaseStore); i++) {
         if (databaseStore[i] != nullptr) {
             std::cout << databaseStore[i] << std::endl;
@@ -36,3 +36,10 @@ int LogDB::addToDB(char* data) {
 }
 
 int LogDB::writeToSD() { return 0; }
+
+//NOTE: TEMPORARY data structure as this still isn't determined - will not be using char** in future
+char** LogDB::getDatabaseStore(){
+    return databaseStore;
+}
+
+
