@@ -12,23 +12,38 @@
 
 void test1_manuallyCreatedBattery(){
     Battery *battery = new Battery("bName");
-    battery->read();
+    sensors::SensorReading batteryVal = battery->read();
+    TEST_ASSERT_EQUAL(batteryVal.value, 1000); //current hardcoded value in battery class
     delete battery;
 }
 
 void test2_manuallyCreatedGPS(){
     GPS *gps = new GPS("gName");
-    gps->read();
+    sensors::SensorReading gpsVal = gps->read();
+    TEST_ASSERT_EQUAL(gpsVal.value, 1000); //current hardcoded value in gps class
     delete gps;
 }
 
 void test3_manuallyCreatedIMU(){
     IMU *imu = new IMU("iName");
-    imu->read();
+    sensors::SensorReading imuVal = imu->read();
+    TEST_ASSERT_EQUAL(imuVal.value, 1000); //current hardcoded value in imu class
     delete imu;
 }
 
+void test4_sensorManager(){
+    sensors::SensorManager sensorManager;
+    sensorManager.initSensors();
 
+    sensors::SensorReading batteryVal = sensorManager.readBattery();
+    sensors::SensorReading imuVal = sensorManager.readIMU();
+    sensors::SensorReading gpsVal = sensorManager.readGPS();
+
+    //current hardcoded values
+    TEST_ASSERT_EQUAL(batteryVal.value, 1000);
+    TEST_ASSERT_EQUAL(gpsVal.value, 1000);
+    TEST_ASSERT_EQUAL(imuVal.value, 1000);
+}
 
 
 int main(void) {
