@@ -98,7 +98,7 @@ platformio:
   image: python:2.7
   stage: PlatformIO
   script:
-    - cd software_package
+    - cd software_package/development
     - pip install -U platformio
     - pio check -v # check that `main.cpp` and any referenced libraries compile fine.
     - pio test -v -e native # run only the non-hardware tests that can run on the desktop.
