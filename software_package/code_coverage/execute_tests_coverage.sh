@@ -7,11 +7,11 @@ echo "Specified location of files to be tested: $1"
 echo "Specified location of test files: $2"
 
 # Copying cpp and header files of target module to be tested ino coverage-results
-find ../$1 -name '*.cpp' -exec cp -prv '{}' './' ';'
-find ../$1 '*.h' -exec cp -prv '{}' './' ';'
+find ../development/$1 -name '*.cpp' -exec cp -prv '{}' './' ';'
+find ../development/$1 '*.h' -exec cp -prv '{}' './' ';'
 
 # Copying test files of target module into coverage-results
-find ../$2 -name '*.cpp' -exec cp -prv '{}' './' ';'
+find ../development/$2 -name '*.cpp' -exec cp -prv '{}' './' ';'
 
 #Executing tests and obtaining code coverage information 
 g++ *.cpp unity.c -o tests --coverage -std=c++11

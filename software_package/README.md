@@ -4,23 +4,25 @@
 
 ## Platformio
 
-In this directory there are 2 different directories, `development` and
-`testing`. Each of these directories are
+In this directory there are 3 different sub directories, `development`,
+`testing` and `code_coverage`. The first two directories are
 [PlatformIO](https://platformio.org/) projects. The easiest way to open
 them is to install the
 [PlatformIO IDE VSCode extension](https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide),
-then `file > open folder > select the desired package`.
+then `file > open folder > select the desired package`. The latter is
+associated with measuring code coverage of the development project.
 
 ## Project Overviews
 
-| File           | Description                                                                                                                                                                                                                                                                     |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `development/` | This package contains the latest development code directly relating to the rocket. This package will contain any libraries the team has written and adhere to the software architecture document.                                                                               |
-| `testing/`     | This package is solely dedicated to testing the hardware of the rocket. This project will mostly consist of variations of sample code and documentation describing and checking how we might interact with the hardware, as well as checking the hardware performs as expected. |
+| File             | Description                                                                                                                                                                                                                                                                     |
+|:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `development/`   | This package contains the latest development code directly relating to the rocket. This package will contain any libraries the team has written and adhere to the software architecture document.                                                                               |
+| `testing/`       | This package is solely dedicated to testing the hardware of the rocket. This project will mostly consist of variations of sample code and documentation describing and checking how we might interact with the hardware, as well as checking the hardware performs as expected. |
+| `code_coverage/` | This package is not a PlatformIO project and is solely related to code coverage analysis testing. See [here](./code_coverage/README.md).                                                                                                                                        |
 
 ## Platformio Structure
 
-###  Platformio Project Structure
+### Platformio Project Structure
 
 ```bash
 .
