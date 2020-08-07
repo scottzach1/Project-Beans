@@ -17,10 +17,10 @@ class RadioImpl : RadioInterface {
     int getInflightData() override;
 
  private:
-    static int pollSensors();
-    static int pollServos();
-    static int getCurrentPos();
-    static int getRocketState();
+    int pollSensors();
+    int pollServos();
+    int getCurrentPos();
+    int getRocketState();
 };
 
 #endif  // SOFTWARE_PACKAGE_SRC_COMMUNICATION_RADIO_RADIOIMPL_H_

@@ -5,6 +5,9 @@
 #include "Battery.h"
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <chrono>
+
 
 using sensors::SensorReading;
 

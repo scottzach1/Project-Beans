@@ -5,6 +5,13 @@
 #include <cassert>
 #include "SensorManager.h"
 
+#ifdef _WIN32
+#include <Windows.h>
+#define sleep(x) Sleep((x) / 1000)
+#else
+#include <unistd.h>
+#endif
+
 using sensors::AbstractSensor;
 using sensors::SensorReading;
 using sensors::SensorManager;
@@ -37,7 +44,7 @@ int main() {
     sensorManager.readBattery();
     sensorManager.readIMU();
     sensorManager.readGPS();
-    usleep(250000);  // Sleep for 1/4 second
+    sleep(250000);  // Sleep for 1/4 second
   }
 
   // Checking that reads were performed

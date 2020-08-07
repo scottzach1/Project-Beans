@@ -6,6 +6,8 @@
 #define SOFTWARE_PACKAGE_SRC_SENSORS_IMU_H_
 #include <string>
 #include "./sensors.h"
+#include <algorithm>
+#include <chrono>
 using sensors::AbstractSensor;
 using sensors::SensorReading;
 
