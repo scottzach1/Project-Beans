@@ -200,9 +200,9 @@ void loop() {
     Serial.print(altm);
     Serial.println(" meters");
 
-    float tempC = baro.getTemperature();
-    Serial.print(tempC);
-    Serial.println("*C");
+    // float tempC = baro.getTemperature();
+    // Serial.print(tempC);
+    // Serial.println("*C");
 }
 
 int double_value(int input) { return input * 2; }
