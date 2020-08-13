@@ -1,18 +1,14 @@
 
 #include "sd.h"
 
-Sd::Sd(){
-
+Sd::Sd() {
 }
 
-void Sd::write(){
-
+void Sd::write() {
 }
 
-void Sd::flush(){
-
+void Sd::flush() {
 }
 
-void Sd::close(){
-
+void Sd::close() {
 }

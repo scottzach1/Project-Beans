@@ -1,14 +1,11 @@
 
 #include "guidance_system.h"
 
-GuidanceSystem::GuidanceSystem(){
-
+GuidanceSystem::GuidanceSystem() {
 }
 
-void GuidanceSystem::step_pid(){
-
+void GuidanceSystem::step_pid() {
 }
 
-void GuidanceSystem::launch_parachute(){
-
+void GuidanceSystem::launch_parachute() {
 }

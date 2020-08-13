@@ -16,7 +16,7 @@ class Imu {
         double y;
         double z;
     } Axis;
-    
+
     /**
      * Constructor
     **/
