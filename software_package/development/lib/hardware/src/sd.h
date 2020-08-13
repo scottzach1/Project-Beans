@@ -11,11 +11,11 @@ class Sd {
     /**
      * Constructor
     **/
-    Lora();
+    Sd();
     /**
      * Destructor
     **/
-    ~Lora();
+    ~Sd();
 
     /**
      * Write information to the buffer.

@@ -11,11 +11,11 @@ class Parachute {
     /**
      * Constructor
     **/
-    Lora();
+    Parachute();
     /**
      * Destructor
     **/
-    ~Lora();
+    ~Parachute();
 
     /**
      * Ignites the ejection charge to launch the parachute.

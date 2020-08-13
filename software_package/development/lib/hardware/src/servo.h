@@ -6,16 +6,16 @@
 /**
  *Library which handles interactions with the Lora.
 **/
-class Lora {
+class Servo {
  public:
     /**
      * Constructor
     **/
-    Lora();
+    Servo();
     /**
      * Destructor
     **/
-    ~Lora();
+    ~Servo();
 
     /**
      * TODO(sargisfinl) - check names.
