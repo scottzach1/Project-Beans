@@ -4,9 +4,9 @@
 
 ## Planning
 
-> Zac Launch details, travel plans and environment subsections
-> Finn: Front cover, and The rocket Will: Launch, unforeseen
-> events, fault components and supervision.
+> Zac Launch details, travel plans and environment subsections Finn:
+> Front cover, and The rocket Will: Launch, unforeseen events, fault
+> components and supervision.
 
 ## Analysis of 2018 safety plans
 
