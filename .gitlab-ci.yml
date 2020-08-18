@@ -77,13 +77,14 @@ code-coverage:
     - apt-get install -y gcovr
     - cd software_package/code_coverage
     - chmod u+x execute_tests_coverage.sh
-    - ./execute_tests_coverage.sh lib/ test/
+    - ./execute_tests_coverage.sh -f lib/hardware/src -f lib/software/src -t test/test_hardware -t test/test_software 
   artifacts:
     paths:
       - software_package/code_coverage/*.html
     untracked: false
     expire_in: 10 days
   allow_failure: true
+  coverage: '/^TOTAL.*\s+(\d+\%)$/'
 
 deploy:
   stage: Deploy
