@@ -6,29 +6,44 @@ of steps must be taken in order to produce code coverage reports. This
 readme outlines the factors involved in producing the code coverage
 reports correctly.
 
-## TL;DR
+## TLDR
 
 - There are scripts that you can run. Firstly, try to make them
-  executable -
+  executable
 
   ```
   cd code_coverage
   chmod u+x execute_tests_coverage.sh
   chmod u+x clean_coverage_info.sh
   ```
-- **To produce code coverage reports** - `./execute_tests_coverage.sh
-  path/to/files/to/be/tested path/to/test/files`
+- **To produce code coverage reports** - `./execute_tests_coverage.sh -f
+  path/to/files/to/be/tested  -t path/to/test/files`
   - This will generate a bunch of html files in the `code_coverage`
     directory which gives you a visual representation of the code
     coverage (simply view the html files in a browser of your choice)
 
-  - Example Usage: `./execute_tests_coverage.sh lib/control/src
-    test/test_control`
+  - Example Usage: `./execute_tests_coverage.sh -f lib/hardware/src -t
+    test/test_hardware`
 
 - **To cleanup the `code_coverage` directory** -
   `./clean_coverage_info.sh`
   - This will remove all html files and gcov meta data from the
-    directory
+    directory (note that this is also executed everytime the 
+    `execute_tests_coverage.sh` script is executed. This is just a useful
+    way of cleaning up the `code_coverage` directory if you need to)
+
+- **Specifying multiple test and target directories** - The script is
+  able to handle an arbitrary number of test file directories and test
+  target directories so long as the command line argument flags are used
+  correctly.
+  
+  - `-f` - Specifies the path to the target directories
+  - `-t` - Specifies the path to the directory where the test files
+  are stored
+
+  - Example Usage with multiple directories
+  `./execute_tests_coverage.sh -f lib/hardware/src -f lib/software/src -t 
+  test/test_hardware -t test/test_software`
 
 ## PIO Unit Testing and Unity
 
@@ -93,14 +108,14 @@ code-coverage:
     - apt-get install -y gcovr
     - cd software_package/code_coverage
     - chmod u+x execute_tests_coverage.sh
-    - ./execute_tests_coverage.sh lib/ test/
+    - ./execute_tests_coverage.sh -f lib/hardware/src -f lib/software/src -t test/test_hardware -t test/test_software 
   artifacts:
     paths:
       - software_package/code_coverage/*.html
     untracked: false
     expire_in: 10 days
   allow_failure: true
-
+  coverage: '/^TOTAL.*\s+(\d+\%)$/'
 ```
 
 ## Any limitations?
