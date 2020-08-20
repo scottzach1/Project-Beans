@@ -30,10 +30,19 @@ Log:
 
 #### Prototype 2:
 Specs:
-- M3 bolt size
--
+- M3 bolt size (Servo screws are M2 (x4))
+- Motor diameter 24mm
+
 
 
 
 Log:
 * Create and assemble prototype 2 (for 24mm engine)
+  * Made Gimbal Tube
+  * Made inner and outer rings where axes of rotation are mounted.
+  * Added upper and lower servo mounts to rings
+    * Mounts are made to be the same offset from their respective axis of rotation. This is to ensure same angle change, show make control system easier to tweak.
+  * Added structural support to servo mounts.
+  * Screw holes added  to mounts.
+
+  * to do, Create Assembly.
