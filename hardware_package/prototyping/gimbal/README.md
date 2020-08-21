@@ -47,4 +47,5 @@ Specs:
 * Added structural support to servo mounts.
 * Screw holes added  to mounts.
 * Created Assembly.
+* added anchor for wire that attaches to servo lever.
 * May require changes based on selected bolts.
