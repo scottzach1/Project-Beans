@@ -38,9 +38,8 @@ Specs:
 
 
 
-Log:
 
-** Create and assemble prototype 2 (for 24mm engine) **
+**Log: Create and assemble prototype 2 (for 24mm engine)**
 * Made Gimbal Tube
 * Made inner and outer rings where axes of rotation are mounted.
 * Added upper and lower servo mounts to rings
@@ -48,3 +47,4 @@ Log:
 * Added structural support to servo mounts.
 * Screw holes added  to mounts.
 * Created Assembly.
+* May require changes based on selected bolts.
