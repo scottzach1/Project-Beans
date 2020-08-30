@@ -7,7 +7,8 @@
 #include "RadioLib.h"
 
 //#define DEBUG
-#define PACKET_SIZE 64
+#define PACKET_SIZE 	64
+#define RFM98_SYNC_WORD 0x32
 
 // Declare a buffer for storing serial data before it is packaged and sent over LoRa
 char serial_buf[PACKET_SIZE] = {0};
@@ -34,12 +35,6 @@ volatile bool packet_recieved = false;
 
 // Allow for this interrupt to be disabled. This is probably better done at a lower level, but that can be a problem for later.
 volatile bool enableISR = true;
-
-// Flag for waiting for transmission to finish
-bool waiting = false;
-
-// Store the transmission error state. This is global such that it can be utilised when the ISR fires upon transmission completion.
-int txState = 0;
 
 // Create a RFM98 radio object
 RFM98 radio = new Module(CS, DIO0, RESET);
@@ -95,6 +90,9 @@ void read_packet(){
 		}
 	#endif
 
+	// Print the recieved message to serial
+	Serial.println(str);
+
 	// start listening for packets
 	Serial.print(F("[RF98] Starting to listen ... "));
 	
@@ -114,12 +112,12 @@ void read_packet(){
 
 
 void setup() {
-	Serial.begin(115200);
+	Serial.begin(9600);
 	while(!Serial);
 	Serial.print("\n");
 
 	// Begin the radio, look for a suscesful connection
-	int state = radio.begin();
+	int state = radio.begin(434.0, 125.0, 9, 7, RFM98_SYNC_WORD, 10, 8, 0);
 	if(state == ERR_NONE){
     	Serial.println(F("success!"));
   	} 
