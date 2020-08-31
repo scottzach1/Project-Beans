@@ -19,9 +19,9 @@ char serial_buf[PACKET_SIZE] = {0};
  *  RESET pin: D2
  */
 
-#define CS D12
-#define DIO0 D11
-#define RESET D13
+#define CS D5
+#define DIO0 D9
+#define RESET D6
 
 /**
  * Interrupt Service Routine
@@ -34,7 +34,10 @@ char serial_buf[PACKET_SIZE] = {0};
 volatile bool enableISR = true;
 
 // flag to indicate that a packet was sent
-volatile bool transmitFlag = false;
+volatile bool transmitCompleteFlag = false;
+
+// flag to indicate if the module is currently sending
+volatile bool transmit = false;
 
 // Store the transmission error state. This is global such that it can be utilised when the ISR fires upon transmission completion.
 int txState = 0;
@@ -50,7 +53,7 @@ void radioISR(void){
     return;
   }
   // we sent a packet, set the flag
-  transmitFlag = true;
+  transmitCompleteFlag = true;
 }
 
 // Transmit a const char*
@@ -64,18 +67,17 @@ void transmitPacket(String message){
 }
 
 // Transmit a char array
-void transmittransmitPacket(uint8_t* message, uint8_t len){
+void transmitPacket(uint8_t* message, uint8_t len){
 	txState = radio.startTransmit(message, len);
 }
 
 void setup(){
 	Serial.begin(9600);
-	while(!Serial);
 
 	// initialize RFM98 with default settings
 	Serial.print(F("\nRFM98 Initializing ... "));
 
-	int state = radio.begin(434.0, 125.0, 9, 7, SX127X_SYNC_WORD, 10, 8, 0);
+	int state = radio.begin(434.0, 500.0, 9, 7, RFM98_SYNC_WORD, 17, 8, 0);
 
 	if(state == ERR_NONE){
     	Serial.println(F("success!"));
@@ -90,17 +92,24 @@ void setup(){
 	radio.setDio0Action(radioISR);
 } 
 
+
+
 void loop(){
-	transmitPacket("302 sucks balls");
+
+	if(!transmit){
+		transmitPacket("LoRa Test Message");
+		transmit = true;
+		Serial.println(F("transmission started!"));
+	}
 
 	// check if a transmission has finished
-	if(transmitFlag){
+	if(transmitCompleteFlag){
 		// disable the interrupt service routine while
 		// processing the data
 		enableISR = false;
 
 		// reset the transmission flag
-    	transmitFlag = false;
+    	transmitCompleteFlag = false;
 
 		if (txState == ERR_NONE){
 			// packet was successfully sent
@@ -111,6 +120,10 @@ void loop(){
 			Serial.println(txState);
 		}
 
-		enableISR = false;
+		enableISR = true;
+		transmit = false;
 	}
+
+	// This is the minimum delay or there will be a CRC error on the recieving end
+	delay(50);
 }

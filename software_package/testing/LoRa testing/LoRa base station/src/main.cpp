@@ -6,7 +6,7 @@
 #include <Arduino.h>
 #include "RadioLib.h"
 
-//#define DEBUG
+#define DEBUG
 #define PACKET_SIZE 	64
 #define RFM98_SYNC_WORD 0x32
 
@@ -39,7 +39,7 @@ volatile bool enableISR = true;
 // Create a RFM98 radio object
 RFM98 radio = new Module(CS, DIO0, RESET);
 
-// Define the interrupy service rutine, this requires the ICACHE_RAM_ATTR linker attribute so that it will be placed in ram
+// Define the interrupt service rutine, this requires the ICACHE_RAM_ATTR linker attribute so that it will be placed in ram
 ICACHE_RAM_ATTR void ISR(){
   if(!enableISR)return;
   // Packet has been recieved, set the flag
@@ -56,44 +56,43 @@ void read_packet(){
 	packet_recieved = false;
 
 	// you can read received data as an Arduino String
-	String str;
-	int state = radio.readData(str);
+	// String str;
+	// int state = radio.readData(str);
 
 	// you can also read received data as byte array
-	/*
-	byte byteArr[8];
-	int state = radio.readData(byteArr, 8);
-	*/
-	#ifdef DEBUG
-		if (state == ERR_NONE) {
-		// packet was successfully received
-		Serial.println(F("[RF69] Received packet!"));
+	uint8_t message[128];
+	int state = radio.readData(message, 17);
+	
+#ifdef DEBUG
+	if (state == ERR_NONE) {
+	// packet was successfully received
+	Serial.println(F("[RF98] Received packet!"));
+	// print data of the packet
+	Serial.print(F("[RF98] Data:\t\t"));
+	
+	for(uint8_t i = 0; i < radio.getPacketLength(); i++){
+		Serial.printf("%c", message[i]);
+	} Serial.print("\n");
 
-		// print data of the packet
-		Serial.print(F("[RF69] Data:\t\t"));
-		Serial.println(str);
+	// print RSSI (Received Signal Strength Indicator)
+	// of the last received packet
+	Serial.print(F("[RF98] RSSI:\t\t"));
+	Serial.print(radio.getRSSI());
+	Serial.println(F(" dBm"));
 
-		// print RSSI (Received Signal Strength Indicator)
-		// of the last received packet
-		Serial.print(F("[RF69] RSSI:\t\t"));
-		Serial.print(radio.getRSSI());
-		Serial.println(F(" dBm"));
+	} else if (state == ERR_CRC_MISMATCH) {
+	// packet was received, but is malformed
+	Serial.println(F("CRC error!"));
+	Serial.print(F("[RF98] Data:\t\t"));
 
-		} else if (state == ERR_CRC_MISMATCH) {
-		// packet was received, but is malformed
-		Serial.println(F("CRC error!"));
+	} else {
+	// some other error occurred
+	Serial.print(F("failed, code "));
+	Serial.println(state);
+	}
+#endif
 
-		} else {
-		// some other error occurred
-		Serial.print(F("failed, code "));
-		Serial.println(state);
-		}
-	#endif
-
-	// Print the recieved message to serial
-	Serial.println(str);
-
-	// start listening for packets
+	// start listening for packets again
 	Serial.print(F("[RF98] Starting to listen ... "));
 	
 	state = radio.startReceive();
@@ -117,7 +116,9 @@ void setup() {
 	Serial.print("\n");
 
 	// Begin the radio, look for a suscesful connection
-	int state = radio.begin(434.0, 125.0, 9, 7, RFM98_SYNC_WORD, 10, 8, 0);
+	int state = radio.begin(434.0, 500.0, 9, 7, RFM98_SYNC_WORD, 17, 8, 0);
+	radio.variablePacketLengthMode();
+
 	if(state == ERR_NONE){
     	Serial.println(F("success!"));
   	} 
@@ -130,6 +131,19 @@ void setup() {
 	// set the function that will be called
 	// when new packet is received
 	radio.setDio0Action(ISR);
+
+	// start listening for packets
+	Serial.print(F("[RF98] Starting to listen ... "));
+	
+	state = radio.startReceive();
+	if (state == ERR_NONE) {
+		Serial.println(F("success!"));
+	} 
+	else {
+		Serial.print(F("failed, code "));
+		Serial.println(state);
+		while (true);
+	}
 }
 
 void loop() {
