@@ -211,22 +211,47 @@ at the following link:
 The development architectural viewpoint centers around the static organization of the software system that needs to be developed, and specifying the set of practices to be applied in the development of the software [1]. This viewpoint targets the project stakeholders that are involved with the development of the software.
 
 #### 4.2.1 Software Module Organization
-![UML Component Diagram](software_architecture/Draw_IO/development-viewpoint-uml-component-diagram.png)<br>
+![UML Component Diagram](software_architecture/Draw_IO/development-viewpoint-uml-component-diagram-v2.png)<br>
 **Figure 1: UML Component Diagram of Software Module Organization**
 
-Figure 1 describes the target software structure at an abstract level in the form of a UML component diagram. The diagram conveys 3 central high-level components, Control, Communication and Sensors. These 3 components serve as an abstraction of what the software system is capable of doing. Within each high-level component, there are modules that each represent some feature or functionality logically related to the higher level component.
+Figure 1 describes the target software structure at an abstract level in the form of a UML component diagram. The diagram conveys the presence of 2 central high-level components, Hardware,  and Software. In addition to this, there is a Main component to intialize the system, and a third component 'Hardware Interfacing Libraries' (HILs) which refers to the external libraries that allow the Hardware component to obtain information from the physical hardware onboard the rocket.
 
-##### Control
-The Control component comprises of 3 main modules, the landing, gimbal and guidance system module. The landing module is independent of the gimbal module and vice versa, however, both modules require some input from the guidance system module to operate correctly. The guidance system will be responsible for calculations related to the flight of the rocket, and determining when the landing sequence should initiate, hence the 2 other modules depending on the guidance system module. At a higher level, the control component provides a service to the communication module. This was done to satisfy the requirement of stakeholders being able to monitor the flight at the base station.
+###### Hardware
+The Hardware component of the application comprises of 7 different sub-modules that directly corresponds to a piece of hardware onboard the rocket (Barometer, IMU, Servos, Radio, Battery, Parachute and SD). Each module serves the purpose of abstracting the ability of the entire software
+system to obtain readings from the HILs for its corresponding hardware (e.g if a submodule in the
+Software component nexwds to read from the physical hardware, it should make a call to the
+intended submodule in the Hardware component instead of directly interfacing with the HILs
+component). It is important to note that each submodule is decoupled from each other to 
+reinforce the maintainability and extensibility of the Hardware component.
 
-##### Sensors
-The Sensors component contains 4 submodules, Battery, IMU, GPS, and Sensor Manager. The Battery, IMU, and GPS will each interface with the corresponding on-board sensors of the rocket, whereas the Sensor Manager module serves as the access point of these sensors from a software perspective. Figure 1 shows that the Sensor Manager requires a service from the 3 other modules, but this relationship is one-directional, with none of the other modules requiring Sensor Manager to operate. This is due to the fact that the Sensor Manager will perform read-only operations on the other modules to send it to the Communication component for analysis and monitoring (as required by the client).
+###### Software
+The Software component of the architecture contains submodules that solely rely on software-only
+processing. In this project, there are 2 major aspects that are reliant on software-only processing,
+the Guidance System of the rocket (hence the Guidance System submodule) and the Logging system of
+the rocket (hence the Logger submodule). This component requires the usage of the Hardware component
+as the submodules the Software component contains will require the readings given by the 
+Hardware component (which the Hardware component will obtain from the HILs). 
 
-##### Communication
-The Communication component contains 2 modules, the Radio module to enable communication between the base station and the 2 other components (Control and Sensors), and a Logger module to log data from the Control and Sensors components to locations where they are needed. The Communication component relies on the 2 other components, and as a result, this component may be the most instable of the 3 components.
+##### Main and HILs
+The Main component is responsible for intializing the system (making use of the Hardware and
+Software components in order to do this) and maintaining the process loop that continues while
+the rocket is deemed active. The HILs are a collection of external open source libraries that 
+enables the developers of the projects to interface with the physical hardware. 
 
-##### Modularity and Reliability
-In section 3.7 of the requirements document, it has been outlined that maintainability and extensibility of the software is a desired non-functional requirement to make it easy for future individuals to contribute to the project. To work towards this objective, it is important that the organization of the software system accomodates for the idea of modularity. Steps were taken to minimize the number of dependencies that need to exist between the components. However, it is simply unavoidable for dependencies to exist between modules that are logically related to each other. Furthermore, forcing a small number of dependencies should not compromise the reliability of the software system. The Communication component has the highest number of dependencies which means it is the most instable. Despite this, it is important to note that the Communication component should not affect the rocket's flight and physical state because this component does not provide any services to the 2 other components. This means that even when the Communication component fails, the failure should not propagate to the 2 other components, enabling the rocket to maintain a safe flight trajectory despite the failure.
+##### Modularity, Reliability and the Layered Architecture
+In section 3.7 of the requirements document, it has been outlined that maintainability and extensibility of the software is a desired non-functional requirement to make it easy for future individuals to contribute to the project. To work towards this objective, it is important that the organization of the software system accomodates for the idea of modularity. Steps were taken to minimize the number of dependencies that need to exist between the components, as well as the
+dependencies between the submodules contained in each component. This is seen in Figure 1, where
+there are no client-service relationships between any of the submodules to ensure that each
+submodule can operate as an independent unit of software. Figure 1 also depicts a 3 layer architecture with 1 way dependencies (Software depends on
+Hardware and Hardware depends on HILs), with the Main component cross cutting between the layers.
+This is an essential aspect of the architecture as it creates a strict separation of duties,
+resulting in a high level of cohesion at each layer. Furthermore, the 1 way dependencies assist
+in minimizing the propagation of errors that occur within each component. For example, if an
+error occurs in the Software component, the Hardware and HILs components should remain unaffected
+and continue working as expected since neither of these components needs a service provided by
+the Software component. On the contrary however, an error occuring at the higher layers (i.e 
+Hardware and HILs components) will result in the failure of components that use services
+provided by these higher layers.
 
 #### 4.2.2 Development Environment and Practices
 
