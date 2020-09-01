@@ -93,6 +93,5 @@ platformio:
     - cd software_package/development
     - pip install -U platformio
     - pio check -v # check that `main.cpp` and any referenced libraries compile fine.
-    - pio test -v -e native # run only the non-hardware tests that can run on the desktop.
   variables: {PLATFORMIO_CI_SRC: "src/main.cpp"}
   allow_failure: true
