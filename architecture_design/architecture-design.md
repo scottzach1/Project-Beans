@@ -113,6 +113,7 @@ information.
 
 - Avionics package must maintain the same functionality as was required
   last year:
+
   - Implement some form of control system, guiding the rocket
   - Interface with and control a gimbal
   - Log all flight data and calculations for later analysis
@@ -121,6 +122,7 @@ information.
 
 - Designed PCB should be accessible to the wider rocket building
   community:
+
   - Easy to order from sites such as JLC-PCB
   - Parts will be accessible within New Zealand
   - Software will be easy to flash to the BCP, and will be well
@@ -172,9 +174,9 @@ address concerns regarding the management of the software.
 #### Process
 
 The process viewpoint will describe the dynamic and non-functional
-requirements of the system. *TODO I currently dont know what we should
+requirements of the system. _TODO I currently dont know what we should
 put here as it dosent seem to fit with the hardware aspect of our
-project*
+project_
 
 #### Physical
 
@@ -246,7 +248,7 @@ For all leaf nodes (no sub-modules) within the class diagram, there will
 be internal attributes that map characteristics of the respective
 components.
 
-***Figure ?: UML Class Diagram of Software Module Organization***
+**_Figure ?: UML Class Diagram of Software Module Organization_**
 
 ![Example UML class diagram](software_architecture/Yed/rocket.png)
 
@@ -267,44 +269,59 @@ at the following link:
 
 [https://www.uml-diagrams.org/state-machine-diagrams.html](https://www.uml-diagrams.org/state-machine-diagrams.html)
 
-***Figure ?: UML State Diagram of rocket***
+**_Figure ?: UML State Diagram of rocket_**
 
 ![Example of state diagram](logical_architecture/StateDiagram.png)
 
 ### 4.2 Development
 
-The development architectural viewpoint centers around the static
-organization of the software system that needs to be developed, and
-specifying the set of practices to be applied in the development of the
-software \[1]. This viewpoint targets the project stakeholders that are
-involved with the development of the software.
-
 #### 4.2.1 Software Module Organization
 
-![UML Component Diagram](software_architecture/Draw_IO/development-viewpoint-uml-component-diagram.png)
+![UML Component Diagram](software_architecture/Draw_IO/development-viewpoint-uml-component-diagram-v2.png)<br>
+**Figure 1: UML Component Diagram of Software Module Organization**
 
-Figure 1: UML Component Diagram of Software Module Organization
+Figure 1 describes the target software structure at an abstract level in the form of a UML component diagram. The diagram conveys the presence of 2 central high-level components, Hardware, and Software. In addition to this, there is a Main component to intialize the system, and a third component 'Hardware Interfacing Libraries' (HILs) which refers to the external libraries that allow the Hardware component to obtain information from the physical hardware onboard the rocket.
 
-Figure 1 describes the target software structure at an abstract level in
-the form of a UML component diagram. The diagram conveys 3 central
-high-level components, Control, Communication and Sensors. These 3
-components serve as an abstraction of what the software system is
-capable of doing. Within each high-level component, there are modules
-that each represent some feature or functionality logically related to
-the higher level component.
+###### Hardware
 
-##### Control
+The Hardware component of the application comprises of 7 different sub-modules that directly corresponds to a piece of hardware onboard the rocket (Barometer, IMU, Servos, Radio, Battery, Parachute and SD). Each module serves the purpose of abstracting the ability of the entire software
+system to obtain readings from the HILs for its corresponding hardware (e.g if a submodule in the
+Software component nexwds to read from the physical hardware, it should make a call to the
+intended submodule in the Hardware component instead of directly interfacing with the HILs
+component). It is important to note that each submodule is decoupled from each other to
+reinforce the maintainability and extensibility of the Hardware component.
 
-The Control component comprises of 3 main modules, the landing, gimbal
-and guidance system module. The landing module is independent of the
-gimbal module and vice versa, however, both modules require some input
-from the guidance system module to operate correctly. The guidance
-system will be responsible for calculations related to the flight of the
-rocket, and determining when the landing sequence should initiate, hence
-the 2 other modules depending on the guidance system module. At a higher
-level, the control component provides a service to the communication
-module. This was done to satisfy the requirement of stakeholders being
-able to monitor the flight at the base station.
+###### Software
+
+The Software component of the architecture contains submodules that solely rely on software-only
+processing. In this project, there are 2 major aspects that are reliant on software-only processing,
+the Guidance System of the rocket (hence the Guidance System submodule) and the Logging system of
+the rocket (hence the Logger submodule). This component requires the usage of the Hardware component
+as the submodules the Software component contains will require the readings given by the
+Hardware component (which the Hardware component will obtain from the HILs).
+
+##### Main and HILs
+
+The Main component is responsible for intializing the system (making use of the Hardware and
+Software components in order to do this) and maintaining the process loop that continues while
+the rocket is deemed active. The HILs are a collection of external open source libraries that
+enables the developers of the projects to interface with the physical hardware.
+
+##### Modularity, Reliability and the Layered Architecture
+
+In section 3.7 of the requirements document, it has been outlined that maintainability and extensibility of the software is a desired non-functional requirement to make it easy for future individuals to contribute to the project. To work towards this objective, it is important that the organization of the software system accomodates for the idea of modularity. Steps were taken to minimize the number of dependencies that need to exist between the components, as well as the
+dependencies between the submodules contained in each component. This is seen in Figure 1, where
+there are no client-service relationships between any of the submodules to ensure that each
+submodule can operate as an independent unit of software. Figure 1 also depicts a 3 layer architecture with 1 way dependencies (Software depends on
+Hardware and Hardware depends on HILs), with the Main component cross cutting between the layers.
+This is an essential aspect of the architecture as it creates a strict separation of duties,
+resulting in a high level of cohesion at each layer. Furthermore, the 1 way dependencies assist
+in minimizing the propagation of errors that occur within each component. For example, if an
+error occurs in the Software component, the Hardware and HILs components should remain unaffected
+and continue working as expected since neither of these components needs a service provided by
+the Software component. On the contrary however, an error occuring at the higher layers (i.e
+Hardware and HILs components) will result in the failure of components that use services
+provided by these higher layers.
 
 ##### Sensors
 
@@ -448,6 +465,7 @@ management and CI/CD.
     the source code compiles correctly.
 
   - Testing
+
     - Source code and output files of KiCad are tested to verify their
       correctness.
     - Code coverage generation is automated to aid developers in
@@ -1029,16 +1047,16 @@ expenditure the project requires and the date(s) on which it will be
 incurred. Substantiate each budget item by reference to fulfilment of
 project goals (one paragraph per item).
 
-| COMPONENT        | COST           | NAME/DESCRIPTION/LINK                                                                                                                                                                                                                                                                                                                                                                                                                                        | REASONS FOR CHOICE                                                                                                        |
-|:-----------------|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| Micro-Controller | $24.95 USD     | Adafruit Feather STM32F405 (168MHz) [BUY](https://www.adafruit.com/product/4382), [Github](https://github.com/adafruit/Adafruit-Feather-STM32F405-Express-PCB), [Documentation](https://www.digikey.co.nz/en/videos/a/adafruit/programming-the-adafruit-feather-stm32f405-express-with-stm32cubeide-maker-io)                                                                                                                                                | Small, Light, Good Opensource Libraries & Good Documentation                                                              |
-| IMU              | $17.59 NZD     | BNO055 [BUY](https://nz.mouser.com/ProductDetail/Bosch-Sensortec/BNO055?qs=QhAb4EtQfbV8Z2YmISucWw%3D%3D), [Datasheet](https://nz.mouser.com/datasheet/2/783/BST-BNO055-DS000-1509603.pdf), [Adafruit library](https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/arduino-code)                                                                                                                                                           | Good Libraries, quaternions, Better Documentation                                                                         |
-| GPS              | $61.93 NZD     | Adafruit Mini GPS PA1010D [BUY](https://www.digikey.co.nz/products/en?keywords=PA1010D), [Datasheet](https://cdn.taoglas.com/datasheets/GP.1575.25.4.A.02.pdf)                                                                                                                                                                                                                                                                                               | Cheap, Small and Meets requirments                                                                                        |
-| Transceivers     | $19.95 USD     | Adafruit RFM96W LoRa Radio Transceiver Breakout - 433 MHz - RadioFruit [BUY](https://www.adafruit.com/product/3073), [Overview](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts?fbclid=IwAR35VbMkCNa8vlXsCGSQ_aMt7WncGXr0NET0dsGQH1ARlQAluhj9rdhM1OQ), [Datasheet](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts.pdf?timestamp=1592280787) | SPI, Pins for extra antenna                                                                                               |
-| Gimbal Servos    | $6.97 NZD each | SERVOMOTOR RC 6V MICR METAL GEAR [BUY](https://www.digikey.com/product-detail/en/dfrobot/SER0011/1738-1232-ND/7087129?fbclid=IwAR3tHvFKb_L4hPvRHZ3XCM0uWsSMUwFsVYjAItaNuxh1T_yVfbpZaJRjYQQ)                                                                                                                                                                                                                                                                  | 15grams Small, Cheap, Has dimension specifications                                                                        |
-| Battery          | $12 NZD        | ZIPPY Compact 500mAh 2S 35C Lipo Pack [Buy](https://hobbyking.com/en_us/zippy-compact-500mah-2s-35c-lipo-pack.html?queryID=daa4b6898932867645b366984b5914b9&objectID=24762&indexName=hbk_live_magento_en_us_products)                                                                                                                                                                                                                                        | -Available in Australia, - Sufficient Charge, Voltage and Current discharge specifications, - Cheap, -Light for a battery |
-| Power supply     | $3.62 USD      | See power_supply.md                                                                                                                                                                                                                                                                                                                                                                                                                                          | See power_supply.md                                                                                                       |
-| -                | ~ $230 NZD     | -                                                                                                                                                                                                                                                                                                                                                                                                                                                            | -                                                                                                                         |
+| COMPONENT        | COST            | NAME/DESCRIPTION/LINK                                                                                                                                                                                                                                                                                                                                                                                                                                        | REASONS FOR CHOICE                                                                                                        |
+| :--------------- | :-------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------ |
+| Micro-Controller | \$24.95 USD     | Adafruit Feather STM32F405 (168MHz) [BUY](https://www.adafruit.com/product/4382), [Github](https://github.com/adafruit/Adafruit-Feather-STM32F405-Express-PCB), [Documentation](https://www.digikey.co.nz/en/videos/a/adafruit/programming-the-adafruit-feather-stm32f405-express-with-stm32cubeide-maker-io)                                                                                                                                                | Small, Light, Good Opensource Libraries & Good Documentation                                                              |
+| IMU              | \$17.59 NZD     | BNO055 [BUY](https://nz.mouser.com/ProductDetail/Bosch-Sensortec/BNO055?qs=QhAb4EtQfbV8Z2YmISucWw%3D%3D), [Datasheet](https://nz.mouser.com/datasheet/2/783/BST-BNO055-DS000-1509603.pdf), [Adafruit library](https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/arduino-code)                                                                                                                                                           | Good Libraries, quaternions, Better Documentation                                                                         |
+| GPS              | \$61.93 NZD     | Adafruit Mini GPS PA1010D [BUY](https://www.digikey.co.nz/products/en?keywords=PA1010D), [Datasheet](https://cdn.taoglas.com/datasheets/GP.1575.25.4.A.02.pdf)                                                                                                                                                                                                                                                                                               | Cheap, Small and Meets requirments                                                                                        |
+| Transceivers     | \$19.95 USD     | Adafruit RFM96W LoRa Radio Transceiver Breakout - 433 MHz - RadioFruit [BUY](https://www.adafruit.com/product/3073), [Overview](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts?fbclid=IwAR35VbMkCNa8vlXsCGSQ_aMt7WncGXr0NET0dsGQH1ARlQAluhj9rdhM1OQ), [Datasheet](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts.pdf?timestamp=1592280787) | SPI, Pins for extra antenna                                                                                               |
+| Gimbal Servos    | \$6.97 NZD each | SERVOMOTOR RC 6V MICR METAL GEAR [BUY](https://www.digikey.com/product-detail/en/dfrobot/SER0011/1738-1232-ND/7087129?fbclid=IwAR3tHvFKb_L4hPvRHZ3XCM0uWsSMUwFsVYjAItaNuxh1T_yVfbpZaJRjYQQ)                                                                                                                                                                                                                                                                  | 15grams Small, Cheap, Has dimension specifications                                                                        |
+| Battery          | \$12 NZD        | ZIPPY Compact 500mAh 2S 35C Lipo Pack [Buy](https://hobbyking.com/en_us/zippy-compact-500mah-2s-35c-lipo-pack.html?queryID=daa4b6898932867645b366984b5914b9&objectID=24762&indexName=hbk_live_magento_en_us_products)                                                                                                                                                                                                                                        | -Available in Australia, - Sufficient Charge, Voltage and Current discharge specifications, - Cheap, -Light for a battery |
+| Power supply     | \$3.62 USD      | See power_supply.md                                                                                                                                                                                                                                                                                                                                                                                                                                          | See power_supply.md                                                                                                       |
+| -                | ~ \$230 NZD     | -                                                                                                                                                                                                                                                                                                                                                                                                                                                            | -                                                                                                                         |
 
 (1 page).
 
@@ -1102,8 +1120,7 @@ emphasis on simplicity, modularity, and modifiability).
 The document will be assessed by considering both presentation and
 content. Group and individual group members will be assessed by
 identical criteria, the group mark for the finished PDF and the
-individual mark on the contributions visible through `git blame`, `git
-diff`, file histories, etc.
+individual mark on the contributions visible through `git blame`, `git diff`, file histories, etc.
 
 The presentation will be based on how easy it is to read, correct
 spelling, grammar, punctuation, clear diagrams, and so on.
