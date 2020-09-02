@@ -23,10 +23,10 @@ void Sd::init(){
     while (!SD.begin(SD_DETECT_PIN)) {
         delay(10);
     }
-    Serial.println("Initialization done.");
+    Serial.println("SD Initialization done.");
 }
 
-void Sd::write() {
+void Sd::write(string data) {
     myFile = SD.open(this.fileName, FILE_WRITE);
 
     //check if file opens
@@ -34,12 +34,15 @@ void Sd::write() {
         Serial.println("Error opening: " + this.fileName);
     } else {
         //TODO(sargsifinl) proper data
-        myFile.println("testing 1, 2, 3.");
+        this.currFile = myFile;
+        myFile.println(data);
     }
 }
 
 void Sd::flush() {
+    this.currFile.flush();
 }
 
 void Sd::close() {
+    this.currFile.close();
 }

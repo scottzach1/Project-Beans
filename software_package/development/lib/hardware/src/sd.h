@@ -4,7 +4,7 @@
 
 
 /**
- *Library which handles interactions with the Lora.
+ *Library which handles interactions with the SD Card.
 **/
 class Sd {
  public:
@@ -39,7 +39,8 @@ class Sd {
     void close();
 
  private:
-    string fileName;
+    string fileName; //TODO(sargisfinl) decide if this should be able to be changed
+    File currFile;
 };
 
 #endif  // SOFTWARE_PACKAGE_DEVELOPMENT_LIB_HARDWARE_SRC_SD_H_
