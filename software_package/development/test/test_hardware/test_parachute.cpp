@@ -8,8 +8,10 @@ void teardown(void) {
   // clean up to perform after every test
 }
 
+void testDeploy() {}
+
 int main() {
   UNITY_BEGIN();
-  // RUN_TEST calls here...
+  RUN_TEST(testDeploy);
   return UNITY_END();
 }
