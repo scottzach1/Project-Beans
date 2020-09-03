@@ -13,7 +13,7 @@ Imu::Axis Imu::read_accl() {}
 
 double Imu::read_gyro_x() {}
 
-double Imu::read_gyro_z() {}
+double Imu::read_gyro_y() {}
 
 double Imu::read_gyro_z() {}
 
