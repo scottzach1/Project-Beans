@@ -1,5 +1,7 @@
 #ifndef UNIT_TEST
 
+#include <Adafruit_MPL3115A2.h>
+#include <Adafruit_Sensor.h>
 #include <Arduino.h>
 #include <STM32SD.h>
 #include <Wire.h>
@@ -9,9 +11,11 @@
 
 Sd sd;
 Imu imu;
+Adafruit_MPL3115A2 baro = Adafruit_MPL3115A2();
 
 void setup_sd(void);
 void setup_mpu(void);
+void setup_barometer(void);
 
 void setup(void) {
     Serial.begin(115200);
@@ -21,6 +25,15 @@ void setup(void) {
 
     sd.init("file.txt");
     imu.init();
+    setup_barometer();
+}
+
+void setup_barometer(void) {
+    Serial.println("Initializing Barometer...");
+    while (!baro.begin()) {
+        Serial.println("Couldnt find sensor");
+        delay(10);
+    }
 }
 
 int counter = 0;

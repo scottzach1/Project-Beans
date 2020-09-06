@@ -21,7 +21,7 @@ cpplint:
   stage: Lint
   script:
     - pip install cpplint
-    - cpplint --filter=-legal --recursive */*
+    - cpplint --filter=-legal --exclude=*/*/.pio --recursive software_package/development
   tags:
     - docker
   allow_failure: true
