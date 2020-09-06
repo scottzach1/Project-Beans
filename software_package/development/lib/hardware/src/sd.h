@@ -26,7 +26,7 @@ class Sd {
 
     /**
      * Initiliase the SD object.
-     */
+     **/
     void init(std::string fileName);
 
     /**

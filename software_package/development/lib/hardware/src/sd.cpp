@@ -6,14 +6,8 @@
 #define SD_DETECT_PIN SD_DETECT_NONE
 #endif
 
-char* toCharArray(std::string str) {
-    char c[str.size() + 1];
-    str.copy(c, str.size() + 1);
-    return c;
-}
-
-Sd::Sd() {}
-Sd::~Sd() {}
+Sd::Sd() = default;
+Sd::~Sd() = default;
 
 void Sd::init(std::string fName) {
     Serial.begin(115200);
@@ -26,14 +20,12 @@ void Sd::init(std::string fName) {
     }
 
     fileName = fName;
-    file = SD.open(toCharArray(fName), FILE_WRITE);
+    file = SD.open(fName.c_str(), FILE_WRITE);
 
     Serial.println("SD Initialization done.");
 }
 
-void Sd::write(std::string data) {
-    file.write(toCharArray(data), data.size());
-}
+void Sd::write(std::string data) { file.write(data.c_str(), data.size()); }
 
 void Sd::flush() { file.flush(); }
 
