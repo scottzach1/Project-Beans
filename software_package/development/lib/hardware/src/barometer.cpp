@@ -1,29 +1,31 @@
 
-// #include "barometer.h"
+#include "barometer.h"
 
-// Barometer::Barometer() {
-// }
+Barometer::Barometer() = default;
+Barometer::~Barometer() = default;
 
-// double Barometer::read_accl_x() {
-// }
+void Barometer::init() {
+    Serial.println("Initializing Barometer...");
 
-// double Barometer::read_accl_y() {
-// }
+    while (!baro.begin()) delay(10);
 
-// double Barometer::read_accl_z() {
-// }
+    Serial.println("Barometer initialization done.");
+}
 
-// Barometer::Axis Barometer::read_accl() {
-// }
+float Barometer::read_pressure(PressureUnit unit) {
+    float pascals = baro.getPressure();
 
-// double Barometer::read_gyro_x() {
-// }
+    switch (unit) {
+        case pascal:
+            return pascals;
+        case bar:
+            return pascals * 0.00001;
+        case psi:
+            return pascals * 0.0001450377;
+    }
+    return std::numeric_limits<float_t>::signaling_NaN();
+}
 
-// double Barometer::read_gyro_z() {
-// }
-
-// double Barometer::read_gyro_z() {
-// }
-
-// Barometer::Axis Barometer::read_gyro() {
-// }
+float Barometer::read_altitude() {
+    return baro.getAltitude();
+}

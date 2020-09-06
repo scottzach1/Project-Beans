@@ -1,78 +1,49 @@
 #ifndef SOFTWARE_PACKAGE_DEVELOPMENT_LIB_HARDWARE_SRC_BAROMETER_H_
 #define SOFTWARE_PACKAGE_DEVELOPMENT_LIB_HARDWARE_SRC_BAROMETER_H_
 
+#include <Adafruit_MPL3115A2.h>
 
+#include <iostream>
+#include <limits>
 
 /**
  *Library which handles interactions with the Barometer.
-**/
+ **/
 class Barometer {
- public:
+   private:
+    Adafruit_MPL3115A2 baro;
+
+   public:
     /**
-     * Struct which stores all axis values.
+     * Different possible pessure units.
      **/
-    typedef struct {
-        double x;
-        double y;
-        double z;
-    } Axis;
+    enum PressureUnit { pascal, bar, psi };
 
     /**
      * Constructor
-    **/
+     **/
     Barometer();
     /**
      * Destructor
-    **/
+     **/
     ~Barometer();
 
     /**
-     * Reads the current acceleration in the x axis.
-     * @return - x
-    **/
-    double read_accl_x();
+     * Initialise the barometer unit.
+     **/
+    void init();
+
+    /**
+     * Reads the current pressure recorded by the barometer unit.
+     * @return - pressure in Pascals.
+     **/
+    float read_pressure(PressureUnit);
 
     /**
      * Reads the current acceleration in the y axis.
-     * @return - y
-    **/
-    double read_accl_y();
-
-    /**
-     * Reads the current acceleration in the z axis.
-     * @return - z
-    **/
-    double read_accl_z();
-
-    /**
-     * Reads the current acceleration in all axis'.
-     * @return - Axis struct of each acceleration value.
-    **/
-    Axis read_accl();
-
-    /**
-     * Reads the current gyroscope value in the x axis.
-     * @return - x
-    **/
-    double read_gyro_x();
-
-    /**
-     * Reads the current gyroscope value in the y axis.
-     * @return - y
-    **/
-    double read_gyro_y();
-
-    /**
-     * Reads the current gyroscope value in the z axis.
-     * @return - z
-    **/
-    double read_gyro_z();
-
-    /**
-     * Reads the current gyroscope value in all axis'.
-     * @return - Axis struct of each gyroscope value.
-    **/
-    Axis read_gyro();
+     * @return - altitude in Meters.
+     **/
+    float read_altitude();
 };
 
 #endif  // SOFTWARE_PACKAGE_DEVELOPMENT_LIB_HARDWARE_SRC_BAROMETER_H_
