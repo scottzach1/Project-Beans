@@ -1,5 +1,6 @@
 #ifndef UNIT_TEST
 
+#include <Adafruit_MPL3115A2.h>
 #include <Adafruit_MPU6050.h>
 #include <Adafruit_Sensor.h>
 #include <Arduino.h>
@@ -14,9 +15,11 @@
 
 Adafruit_MPU6050 mpu;
 File myFile;
+Adafruit_MPL3115A2 baro = Adafruit_MPL3115A2();
 
 void setup_sd(void);
 void setup_mpu(void);
+void setup_barometer(void);
 
 void setup(void) {
     Serial.begin(115200);
@@ -26,6 +29,15 @@ void setup(void) {
 
     setup_mpu();
     setup_sd();
+    setup_barometer();
+}
+
+void setup_barometer(void) {
+    Serial.println("Initializing Barometer...");
+    while (!baro.begin()) {
+        Serial.println("Couldnt find sensor");
+        delay(10);
+    }
 }
 
 void setup_sd(void) {
@@ -175,6 +187,22 @@ void loop() {
     // Serial.println(" degC");
 
     // Serial.println("");
+
+    /* Barometer Readings */
+
+    float pascals = baro.getPressure();
+    // Our weather page presents pressure in Inches (Hg)
+    // Use http://www.onlineconversion.com/pressure.htm for other units
+    Serial.print(pascals / 3377);
+    Serial.println(" Inches (Hg)");
+
+    float altm = baro.getAltitude();
+    Serial.print(altm);
+    Serial.println(" meters");
+
+    // float tempC = baro.getTemperature();
+    // Serial.print(tempC);
+    // Serial.println("*C");
 }
 
 int double_value(int input) { return input * 2; }
