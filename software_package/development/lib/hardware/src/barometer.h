@@ -15,11 +15,6 @@ class Barometer {
 
    public:
     /**
-     * Different possible pessure units.
-     **/
-    enum PressureUnit { pascal, bar, psi };
-
-    /**
      * Constructor
      **/
     Barometer();
@@ -34,10 +29,24 @@ class Barometer {
     void init();
 
     /**
-     * Reads the current pressure recorded by the barometer unit.
+     * Reads the current pressure recorded by the barometer unit in Pascals.
      * @return - pressure in Pascals.
      **/
-    float read_pressure(PressureUnit);
+    float read_pressure_pascals();
+
+    /**
+     * Reads the current pressure recorded by the barometer unit in barometric
+     * units.
+     * @return - pressure in Bars.
+     **/
+    float read_pressure_bars();
+
+    /**
+     * Reads the current pressure recorded by the barometer unit in pounds per
+     *square inch.
+     * @return - pressure in PSI.
+     **/
+    float read_pressure_psi();
 
     /**
      * Reads the current acceleration in the y axis.

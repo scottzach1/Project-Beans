@@ -30,7 +30,7 @@ void setup(void) {
 int counter = 0;
 
 void loop() {
-    Serial.println("Beginning loop");
+    Serial.printf("Beginning loop %d\n", counter);
 
     sd.write("This is a log message " + std::to_string(counter) + "\n");
 
@@ -40,7 +40,7 @@ void loop() {
     imu.read_accl();
     imu.read_gyro();
 
-    float bar = baro.read_pressure(Barometer::PressureUnit::bar);
+    float bar = baro.read_pressure_bars();
     float alt = baro.read_altitude();
     Serial.printf("The pressure is %f bar and the alt is %fm.", bar, alt);
 }

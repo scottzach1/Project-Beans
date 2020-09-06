@@ -12,20 +12,12 @@ void Barometer::init() {
     Serial.println("Barometer initialization done.");
 }
 
-float Barometer::read_pressure(PressureUnit unit) {
-    float pascals = baro.getPressure();
+float Barometer::read_pressure_bars() { return baro.getPressure() * 0.00001; }
 
-    switch (unit) {
-        case pascal:
-            return pascals;
-        case bar:
-            return pascals * 0.00001;
-        case psi:
-            return pascals * 0.0001450377;
-    }
-    return std::numeric_limits<float_t>::signaling_NaN();
+float Barometer::read_pressure_pascals() { return baro.getPressure(); }
+
+float Barometer::read_pressure_psi() {
+    return baro.getPressure() * 0.0001450377;
 }
 
-float Barometer::read_altitude() {
-    return baro.getAltitude();
-}
+float Barometer::read_altitude() { return baro.getAltitude(); }
