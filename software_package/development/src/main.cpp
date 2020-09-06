@@ -7,12 +7,6 @@
 #include "imu.h"
 #include "sd.h"
 
-// If SD card slot has no detect pin then define it as SD_DETECT_NONE
-// to ignore it. One other option is to call 'SD.begin()' without parameter.
-#ifndef SD_DETECT_PIN
-#define SD_DETECT_PIN SD_DETECT_NONE
-#endif
-
 Sd sd;
 Imu imu;
 
