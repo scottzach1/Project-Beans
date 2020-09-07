@@ -1,20 +1,26 @@
 
 #include "barometer.h"
 
-Barometer::Barometer() {}
+Barometer::Barometer() = default;
+Barometer::~Barometer() = default;
 
-double Barometer::read_accl_x() {}
+void Barometer::init() {
+  Serial.println("Initializing Barometer...");
 
-double Barometer::read_accl_y() {}
+  while (!baro.begin()) delay(10);
 
-double Barometer::read_accl_z() {}
+  Serial.println("Barometer initialization done.");
+}
 
-Barometer::Axis Barometer::read_accl() {}
+float Barometer::read_pressure_bars() { return baro.getPressure() * 0.00001; }
 
-double Barometer::read_gyro_x() {}
+float Barometer::read_pressure_pascals() { return baro.getPressure(); }
 
-double Barometer::read_gyro_y() {}
+float Barometer::read_pressure_psi() {
+  return baro.getPressure() * 0.0001450377;
+}
 
-double Barometer::read_gyro_z() {}
-
-Barometer::Axis Barometer::read_gyro() {}
+/**
+ * This is reading the wrong value (-44.94m at Uni), but code hasn't changed.
+ **/
+float Barometer::read_altitude() { return baro.getAltitude(); }

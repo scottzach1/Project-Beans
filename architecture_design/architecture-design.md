@@ -9,16 +9,16 @@ Requirement: "One page overall introduction including sections 1.1 and
 1.2 (ISO/IEC/IEEE 42010:2011(E) clause 5.2)"
 
 For rockets ranging from NASAs Saturn V to an amateur rocket enthusiasts
-first rocket, stability is a desireable. The method in which stable
+first rocket, stability is a desirable. The method in which stable
 flight is achieved varies to a large degree, but can be divided into two
-basic categories. The most common being passively stablized rockets.
+basic categories. The most common being passively stabilized rockets.
 These maintain a stable flight due to passive aerodynamic features, an
-example being fins that give the rocket a stablizing rotation (similar
+example being fins that give the rocket a stabilizing rotation (similar
 to the effect of rifling on a bullet). The simplicity of a passive
-system is apealing but any error introduced to the system can cause an
+system is appealing but any error introduced to the system can cause an
 unwanted flight trajectory. Some examples of sources of error include,
 unexpected wind or a fin of differing size that is not accounted for.
-The second category is an active control system. Onboard electonics can
+The second category is an active control system. Onboard electronics can
 be used to achieve active course correction. Error in the rockets
 trajectory can be mitigated in a way that passive systems cannot. The
 drawbacks of this are the complexity and large overhead introduced when
@@ -248,9 +248,9 @@ For all leaf nodes (no sub-modules) within the class diagram, there will
 be internal attributes that map characteristics of the respective
 components.
 
-**_Figure ?: UML Class Diagram of Software Module Organization_**
-
 ![Example UML class diagram](software_architecture/Yed/rocket.png)
+
+**_Figure 1:_** UML Class Diagram of Software Module Organization
 
 **State Diagrams**: To represent the different states and modes that the
 node may be in a state diagram will be used. This diagram will follow
@@ -269,83 +269,68 @@ at the following link:
 
 [https://www.uml-diagrams.org/state-machine-diagrams.html](https://www.uml-diagrams.org/state-machine-diagrams.html)
 
-**_Figure ?: UML State Diagram of rocket_**
-
 ![Example of state diagram](logical_architecture/StateDiagram.png)
+
+**_Figure 2:_** UML State Diagram of rocket
 
 ### 4.2 Development
 
+The development architectural viewpoint centers around the static
+organization of the software system that needs to be developed, and
+specifying the set of practices to be applied in the development of the
+software \[1]. This viewpoint targets the project stakeholders that are
+involved with the development of the software.
+
 #### 4.2.1 Software Module Organization
 
-![UML Component Diagram](software_architecture/Draw_IO/development-viewpoint-uml-component-diagram-v2.png)<br>
-**Figure 1: UML Component Diagram of Software Module Organization**
+![UML Component Diagram](software_architecture/Draw_IO/development-viewpoint-uml-component-diagram-v2.png)
 
-Figure 1 describes the target software structure at an abstract level in the form of a UML component diagram. The diagram conveys the presence of 2 central high-level components, Hardware, and Software. In addition to this, there is a Main component to intialize the system, and a third component 'Hardware Interfacing Libraries' (HILs) which refers to the external libraries that allow the Hardware component to obtain information from the physical hardware onboard the rocket.
+**Figure 3:** UML Component Diagram of Software Module Organization
 
-###### Hardware
+Figure 1 describes the target software structure at an abstract level in
+the form of a UML component diagram. The diagram conveys the presence of
+2 central high-level components, Hardware, and Software. In addition to
+this, there is a Main component to intialize the system, and a third
+component 'Hardware Interfacing Libraries' (HILs) which refers to the
+external libraries that allow the Hardware component to obtain
+information from the physical hardware onboard the rocket.
 
-The Hardware component of the application comprises of 7 different sub-modules that directly corresponds to a piece of hardware onboard the rocket (Barometer, IMU, Servos, Radio, Battery, Parachute and SD). Each module serves the purpose of abstracting the ability of the entire software
-system to obtain readings from the HILs for its corresponding hardware (e.g if a submodule in the
-Software component nexwds to read from the physical hardware, it should make a call to the
-intended submodule in the Hardware component instead of directly interfacing with the HILs
-component). It is important to note that each submodule is decoupled from each other to
-reinforce the maintainability and extensibility of the Hardware component.
+##### Hardware Package
 
-###### Software
+The Hardware component of the application comprises of 7 different
+sub-modules that directly corresponds to a piece of hardware onboard the
+rocket (Barometer, IMU, Servos, Radio, Battery, Parachute and SD). Each
+module serves the purpose of abstracting the ability of the entire
+software system to obtain readings from the HILs for its corresponding
+hardware (e.g if a submodule in the Software component nexwds to read
+from the physical hardware, it should make a call to the intended
+submodule in the Hardware component instead of directly interfacing with
+the HILs component). It is important to note that each submodule is
+decoupled from each other to reinforce the maintainability and
+extensibility of the Hardware component.
 
-The Software component of the architecture contains submodules that solely rely on software-only
-processing. In this project, there are 2 major aspects that are reliant on software-only processing,
-the Guidance System of the rocket (hence the Guidance System submodule) and the Logging system of
-the rocket (hence the Logger submodule). This component requires the usage of the Hardware component
-as the submodules the Software component contains will require the readings given by the
-Hardware component (which the Hardware component will obtain from the HILs).
+##### Software Package
+
+The Software component of the architecture contains submodules that
+solely rely on software-only processing. In this project, there are 2
+major aspects that are reliant on software-only processing, the Guidance
+System of the rocket (hence the Guidance System submodule) and the
+Logging system of the rocket (hence the Logger submodule). This
+component requires the usage of the Hardware component as the submodules
+the Software component contains will require the readings given by the
+Hardware component (which the Hardware component will obtain from the
+HILs).
 
 ##### Main and HILs
 
-The Main component is responsible for intializing the system (making use of the Hardware and
-Software components in order to do this) and maintaining the process loop that continues while
-the rocket is deemed active. The HILs are a collection of external open source libraries that
-enables the developers of the projects to interface with the physical hardware.
+The Main component is responsible for intializing the system (making use
+of the Hardware and Software components in order to do this) and
+maintaining the process loop that continues while the rocket is deemed
+active. The HILs are a collection of external open source libraries that
+enables the developers of the projects to interface with the physical
+hardware.
 
 ##### Modularity, Reliability and the Layered Architecture
-
-In section 3.7 of the requirements document, it has been outlined that maintainability and extensibility of the software is a desired non-functional requirement to make it easy for future individuals to contribute to the project. To work towards this objective, it is important that the organization of the software system accomodates for the idea of modularity. Steps were taken to minimize the number of dependencies that need to exist between the components, as well as the
-dependencies between the submodules contained in each component. This is seen in Figure 1, where
-there are no client-service relationships between any of the submodules to ensure that each
-submodule can operate as an independent unit of software. Figure 1 also depicts a 3 layer architecture with 1 way dependencies (Software depends on
-Hardware and Hardware depends on HILs), with the Main component cross cutting between the layers.
-This is an essential aspect of the architecture as it creates a strict separation of duties,
-resulting in a high level of cohesion at each layer. Furthermore, the 1 way dependencies assist
-in minimizing the propagation of errors that occur within each component. For example, if an
-error occurs in the Software component, the Hardware and HILs components should remain unaffected
-and continue working as expected since neither of these components needs a service provided by
-the Software component. On the contrary however, an error occuring at the higher layers (i.e
-Hardware and HILs components) will result in the failure of components that use services
-provided by these higher layers.
-
-##### Sensors
-
-The Sensors component contains 4 submodules, Battery, IMU, GPS, and
-Sensor Manager. The Battery, IMU, and GPS will each interface with the
-corresponding on-board sensors of the rocket, whereas the Sensor Manager
-module serves as the access point of these sensors from a software
-perspective. Figure 1 shows that the Sensor Manager requires a service
-from the 3 other modules, but this relationship is one-directional, with
-none of the other modules requiring Sensor Manager to operate. This is
-due to the fact that the Sensor Manager will perform read-only
-operations on the other modules to send it to the Communication
-component for analysis and monitoring (as required by the client).
-
-##### Communication
-
-The Communication component contains 2 modules, the Radio module to
-enable communication between the base station and the 2 other components
-(Control and Sensors), and a Logger module to log data from the Control
-and Sensors components to locations where they are needed. The
-Communication component relies on the 2 other components, and as a
-result, this component may be the most instable of the 3 components.
-
-##### Modularity and Reliability
 
 In section 3.7 of the requirements document, it has been outlined that
 maintainability and extensibility of the software is a desired
@@ -353,18 +338,23 @@ non-functional requirement to make it easy for future individuals to
 contribute to the project. To work towards this objective, it is
 important that the organization of the software system accomodates for
 the idea of modularity. Steps were taken to minimize the number of
-dependencies that need to exist between the components. However, it is
-simply unavoidable for dependencies to exist between modules that are
-logically related to each other. Furthermore, forcing a small number of
-dependencies should not compromise the reliability of the software
-system. The Communication component has the highest number of
-dependencies which means it is the most instable. Despite this, it is
-important to note that the Communication component should not affect the
-rocket's flight and physical state because this component does not
-provide any services to the 2 other components. This means that even
-when the Communication component fails, the failure should not propagate
-to the 2 other components, enabling the rocket to maintain a safe flight
-trajectory despite the failure.
+dependencies that need to exist between the components, as well as the
+dependencies between the submodules contained in each component. This is
+seen in Figure 1, where there are no client-service relationships
+between any of the submodules to ensure that each submodule can operate
+as an independent unit of software. Figure 1 also depicts a 3 layer
+architecture with 1 way dependencies (Software depends on Hardware and
+Hardware depends on HILs), with the Main component cross cutting between
+the layers. This is an essential aspect of the architecture as it
+creates a strict separation of duties, resulting in a high level of
+cohesion at each layer. Furthermore, the 1 way dependencies assist in
+minimizing the propagation of errors that occur within each component.
+For example, if an error occurs in the Software component, the Hardware
+and HILs components should remain unaffected and continue working as
+expected since neither of these components needs a service provided by
+the Software component. On the contrary however, an error occuring at
+the higher layers (i.e Hardware and HILs components) will result in the
+failure of components that use services provided by these higher layers.
 
 #### 4.2.2 Development Environment and Practices
 
@@ -1056,7 +1046,7 @@ project goals (one paragraph per item).
 | Gimbal Servos    | \$6.97 NZD each | SERVOMOTOR RC 6V MICR METAL GEAR [BUY](https://www.digikey.com/product-detail/en/dfrobot/SER0011/1738-1232-ND/7087129?fbclid=IwAR3tHvFKb_L4hPvRHZ3XCM0uWsSMUwFsVYjAItaNuxh1T_yVfbpZaJRjYQQ)                                                                                                                                                                                                                                                                  | 15grams Small, Cheap, Has dimension specifications                                                                        |
 | Battery          | \$12 NZD        | ZIPPY Compact 500mAh 2S 35C Lipo Pack [Buy](https://hobbyking.com/en_us/zippy-compact-500mah-2s-35c-lipo-pack.html?queryID=daa4b6898932867645b366984b5914b9&objectID=24762&indexName=hbk_live_magento_en_us_products)                                                                                                                                                                                                                                        | -Available in Australia, - Sufficient Charge, Voltage and Current discharge specifications, - Cheap, -Light for a battery |
 | Power supply     | \$3.62 USD      | See power_supply.md                                                                                                                                                                                                                                                                                                                                                                                                                                          | See power_supply.md                                                                                                       |
-| -                | ~ \$230 NZD     | -                                                                                                                                                                                                                                                                                                                                                                                                                                                            | -                                                                                                                         |
+| Total            | ~\$230 NZD      | -                                                                                                                                                                                                                                                                                                                                                                                                                                                            | -                                                                                                                         |
 
 (1 page).
 

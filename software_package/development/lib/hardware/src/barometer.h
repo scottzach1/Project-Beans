@@ -1,78 +1,58 @@
 #ifndef SOFTWARE_PACKAGE_DEVELOPMENT_LIB_HARDWARE_SRC_BAROMETER_H_
 #define SOFTWARE_PACKAGE_DEVELOPMENT_LIB_HARDWARE_SRC_BAROMETER_H_
 
+#include <Adafruit_MPL3115A2.h>
 
+#include <iostream>
+#include <limits>
 
 /**
  *Library which handles interactions with the Barometer.
-**/
+ **/
 class Barometer {
- public:
-    /**
-     * Struct which stores all axis values.
-     **/
-    typedef struct {
-        double x;
-        double y;
-        double z;
-    } Axis;
+   private:
+    Adafruit_MPL3115A2 baro;
 
+   public:
     /**
      * Constructor
-    **/
+     **/
     Barometer();
     /**
      * Destructor
-    **/
+     **/
     ~Barometer();
 
     /**
-     * Reads the current acceleration in the x axis.
-     * @return - x
-    **/
-    double read_accl_x();
+     * Initialise the barometer unit.
+     **/
+    void init();
+
+    /**
+     * Reads the current pressure recorded by the barometer unit in Pascals.
+     * @return - pressure in Pascals.
+     **/
+    float read_pressure_pascals();
+
+    /**
+     * Reads the current pressure recorded by the barometer unit in barometric
+     * units.
+     * @return - pressure in Bars.
+     **/
+    float read_pressure_bars();
+
+    /**
+     * Reads the current pressure recorded by the barometer unit in pounds per
+     *square inch.
+     * @return - pressure in PSI.
+     **/
+    float read_pressure_psi();
 
     /**
      * Reads the current acceleration in the y axis.
-     * @return - y
-    **/
-    double read_accl_y();
-
-    /**
-     * Reads the current acceleration in the z axis.
-     * @return - z
-    **/
-    double read_accl_z();
-
-    /**
-     * Reads the current acceleration in all axis'.
-     * @return - Axis struct of each acceleration value.
-    **/
-    Axis read_accl();
-
-    /**
-     * Reads the current gyroscope value in the x axis.
-     * @return - x
-    **/
-    double read_gyro_x();
-
-    /**
-     * Reads the current gyroscope value in the y axis.
-     * @return - y
-    **/
-    double read_gyro_y();
-
-    /**
-     * Reads the current gyroscope value in the z axis.
-     * @return - z
-    **/
-    double read_gyro_z();
-
-    /**
-     * Reads the current gyroscope value in all axis'.
-     * @return - Axis struct of each gyroscope value.
-    **/
-    Axis read_gyro();
+     * @return - altitude in Meters.
+     **/
+    float read_altitude();
 };
 
 #endif  // SOFTWARE_PACKAGE_DEVELOPMENT_LIB_HARDWARE_SRC_BAROMETER_H_

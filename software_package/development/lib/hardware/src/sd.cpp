@@ -1,4 +1,3 @@
-
 #include "sd.h"
 
 #include <STM32SD.h>
@@ -9,36 +8,23 @@
 #define SD_DETECT_PIN SD_DETECT_NONE
 #endif
 
-Sd::Sd(string fName) {
-  this.fileName = fName;
-  init();
-}
+Sd::Sd() = default;
+Sd::~Sd() = default;
 
-void Sd::init() {
-  Serial.begin(115200);
-
+void Sd::init(std::string fName) {
   while (!Serial) delay(10);
 
-  Serial.print("Initializing SD card.");
-  while (!SD.begin(SD_DETECT_PIN)) {
-    delay(10);
-  }
+  Serial.println("Initializing SD card.");
+  while (!SD.begin(SD_DETECT_PIN)) delay(10);
+
+  fileName = fName;
+  file = SD.open(fName.c_str(), FILE_WRITE);
+
   Serial.println("SD Initialization done.");
 }
 
-void Sd::write(string data) {
-  myFile = SD.open(this.fileName, FILE_WRITE);
+void Sd::write(std::string data) { file.write(data.c_str(), data.size()); }
 
-  // check if file opens
-  if (!myFile) {
-    Serial.println("Error opening: " + this.fileName);
-  } else {
-    // TODO(sargsifinl) proper data
-    this.currFile = myFile;
-    myFile.println(data);
-  }
-}
+void Sd::flush() { file.flush(); }
 
-void Sd::flush() { this.currFile.flush(); }
-
-void Sd::close() { this.currFile.close(); }
+void Sd::close() { file.close(); }
