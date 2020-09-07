@@ -47,24 +47,13 @@ test-drc:
 
 unit-test:
     stage: Test
-    image: gcc
+    image: python:2.7
     script:
-        - apt-get update
-        - apt-get install -y gcovr
-        - cd software_package/src/tests #TODO: Update path later on if we need to
-        - mkdir coverage-files
-        - g++ *-tests.cpp catch-runner.cpp -o tests --coverage -std=c++11
-        - ./tests
-        - gcov *-tests.cpp
-        - gcovr -r . -e catch.hpp --html -o coverage-files/coverage.html --html-details
+      - pip install -U platformio
+      - cd software_package/development
+      - pio test -v -e native
     tags:
-        - docker
-    artifacts:
-        paths:
-            - software_package/src/tests/coverage-files/coverage.html
-            - software_package/src/tests/coverage-files/coverage.*-tests.cpp.html
-        untracked: false
-        expire_in: 30 days
+        - drc
     allow_failure: true
 
 code-coverage:
@@ -77,13 +66,14 @@ code-coverage:
     - apt-get install -y gcovr
     - cd software_package/code_coverage
     - chmod u+x execute_tests_coverage.sh
-    - ./execute_tests_coverage.sh lib/ test/
+    - ./execute_tests_coverage.sh -f lib/hardware/src -f lib/software/src -t test/test_hardware -t test/test_software 
   artifacts:
     paths:
       - software_package/code_coverage/*.html
     untracked: false
     expire_in: 10 days
   allow_failure: true
+  coverage: '/^TOTAL.*\s+(\d+\%)$/'
 
 deploy:
   stage: Deploy
@@ -103,6 +93,5 @@ platformio:
     - cd software_package/development
     - pip install -U platformio
     - pio check -v # check that `main.cpp` and any referenced libraries compile fine.
-    - pio test -v -e native # run only the non-hardware tests that can run on the desktop.
   variables: {PLATFORMIO_CI_SRC: "src/main.cpp"}
   allow_failure: true
