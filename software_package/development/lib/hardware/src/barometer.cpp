@@ -20,4 +20,7 @@ float Barometer::read_pressure_psi() {
     return baro.getPressure() * 0.0001450377;
 }
 
+/**
+ * This is reading the wrong value (-44.94m at Uni), but code hasn't changed.
+**/
 float Barometer::read_altitude() { return baro.getAltitude(); }

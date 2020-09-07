@@ -78,42 +78,47 @@ void Imu::init() {
 void Imu::update() { mpu.getEvent(&a, &g, &temp); }
 
 float Imu::read_accl_x() {
-    Serial.printf("Acceleration X: %f m/s^2\n", a.acceleration.x);
+    // Serial.printf("Acceleration X: %s m/s^2\n",
+    //               String(a.acceleration.x).c_str());
     return a.acceleration.x;
 }
 
 float Imu::read_accl_y() {
-    Serial.printf("Acceleration Y: %f m/s^2\n", a.acceleration.y);
+    // Serial.printf("Acceleration Y: %s m/s^2\n",
+    //               String(a.acceleration.y).c_str());
     return a.acceleration.y;
 }
 
 float Imu::read_accl_z() {
-    Serial.printf("Acceleration Z: %f m/s^2\n", a.acceleration.z);
+    // Serial.printf("Acceleration Z: %s m/s^2\n",
+    //               String(a.acceleration.z).c_str());
     return a.acceleration.z;
 }
 
 sensors_vec_t Imu::read_accl() {
-    Serial.printf("Acceleration: {%f, %f, %f} m/s^2\n", a.acceleration.x,
-                  a.acceleration.y, a.acceleration.z);
+    // Serial.printf(
+    //     "Acceleration: {%s, %s, %s} m/s^2\n", String(a.acceleration.x).c_str(),
+    //     String(a.acceleration.y).c_str(), String(a.acceleration.z).c_str());
     return a.acceleration;
 }
 
 float Imu::read_gyro_x() {
-    Serial.printf("Rotation X: %f rad/s\n", g.gyro.x);
+    // Serial.printf("Rotation X: %s rad/s\n", String(g.gyro.x).c_str());
     return g.gyro.x;
 }
 
 float Imu::read_gyro_y() {
-    Serial.printf("Rotation Y: %f rad/s\n", g.gyro.y);
+    // Serial.printf("Rotation Y: %s rad/s\n", String(g.gyro.y).c_str());
     return g.gyro.y;
 }
 
 float Imu::read_gyro_z() {
-    Serial.printf("Rotation Z: %f rad/s\n", g.gyro.z);
+    // Serial.printf("Rotation Z: %s rad/s\n", String(g.gyro.z).c_str());
     return g.gyro.z;
 }
 
-sensors_vec_t Imu::read_gyro() {
-    Serial.printf("Gyro: {%f, %f, %f} rad/s\n", g.gyro.x, g.gyro.y, g.gyro.z);
+sensors_vec_t Imu::read_gyro() {    
+    // Serial.printf("Gyro: {%s, %s, %s} rad/s.\n", String(gyro.x).c_str(),
+    //               String(gyro.y).c_str(), String(gyro.z).c_str());
     return g.gyro;
 }

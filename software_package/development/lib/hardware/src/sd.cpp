@@ -10,14 +10,10 @@ Sd::Sd() = default;
 Sd::~Sd() = default;
 
 void Sd::init(std::string fName) {
-    Serial.begin(115200);
-
     while (!Serial) delay(10);
 
-    Serial.print("Initializing SD card.");
-    while (!SD.begin(SD_DETECT_PIN)) {
-        delay(10);
-    }
+    Serial.println("Initializing SD card.");
+    while (!SD.begin(SD_DETECT_PIN)) delay(10);
 
     fileName = fName;
     file = SD.open(fName.c_str(), FILE_WRITE);
