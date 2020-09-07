@@ -10,40 +10,40 @@
  *Library which handles interactions with the SD Card.
  **/
 class Sd {
-   private:
-    std::string fileName;
-    File file;
+ private:
+  std::string fileName;
+  File file;
 
-   public:
-    /**
-     * Constructor
-     **/
-    Sd();
-    /**
-     * Destructor
-     **/
-    ~Sd();
+ public:
+  /**
+   * Constructor
+   **/
+  Sd();
+  /**
+   * Destructor
+   **/
+  ~Sd();
 
-    /**
-     * Initiliase the SD object.
-     **/
-    void init(std::string fileName);
+  /**
+   * Initiliase the SD object.
+   **/
+  void init(std::string fileName);
 
-    /**
-     * Write information to the buffer.
-     * Note: you can only write to one file at a time.
-     **/
-    void write(std::string data);
+  /**
+   * Write information to the buffer.
+   * Note: you can only write to one file at a time.
+   **/
+  void write(std::string data);
 
-    /**
-     * Flush information from the buffer.
-     **/
-    void flush();
+  /**
+   * Flush information from the buffer.
+   **/
+  void flush();
 
-    /**
-     * Close the sd writer.
-     **/
-    void close();
+  /**
+   * Close the sd writer.
+   **/
+  void close();
 };
 
 #endif  // SOFTWARE_PACKAGE_DEVELOPMENT_LIB_HARDWARE_SRC_SD_H_
