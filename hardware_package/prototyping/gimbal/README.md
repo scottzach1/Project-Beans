@@ -61,4 +61,5 @@ Specs:
 - Screw holes added to mounts.
 - Created Assembly.
 - added anchor for wire that attaches to servo lever.
-- May require changes based on selected bolts.
+- Bolt types confirmed, fixtures made for M3 9mm thread bolts and nuts.
+- Updated with fixtures for rocket body to attach.
