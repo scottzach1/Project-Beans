@@ -18,61 +18,52 @@ X ~ 2 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# PCBwBreakout-eagle-import_HEADER-1X5
+# PCBwBreakout-eagle-import_3.3V
 #
-DEF PCBwBreakout-eagle-import_HEADER-1X5 JP 0 40 Y Y 1 L N
-F0 "JP" -250 325 59 H V L BNN
-F1 "PCBwBreakout-eagle-import_HEADER-1X5" -250 -400 59 H V L BNN
-F2 "" 0 0 71 H I C CNN
-F3 "" 0 0 71 H I C CNN
-DRAW
-P 2 1 0 0 -250 -300 50 -300 N
-P 2 1 0 0 -250 300 -250 -300 N
-P 2 1 0 0 50 -300 50 300 N
-P 2 1 0 0 50 300 -250 300 N
-X 1 1 -100 200 100 R 50 0 1 0 P I
-X 2 2 -100 100 100 R 50 0 1 0 P I
-X 3 3 -100 0 100 R 50 0 1 0 P I
-X 4 4 -100 -100 100 R 50 0 1 0 P I
-X 5 5 -100 -200 100 R 50 0 1 0 P I
-ENDDRAW
-ENDDEF
-#
-# PCBwBreakout-eagle-import_HEADER-1X9
-#
-DEF PCBwBreakout-eagle-import_HEADER-1X9 JP 0 40 Y Y 1 L N
-F0 "JP" -250 525 59 H V L BNN
-F1 "PCBwBreakout-eagle-import_HEADER-1X9" -250 -600 59 H V L BNN
-F2 "" 0 0 71 H I C CNN
-F3 "" 0 0 71 H I C CNN
-DRAW
-P 2 1 0 0 -250 -500 50 -500 N
-P 2 1 0 0 -250 500 -250 -500 N
-P 2 1 0 0 50 -500 50 500 N
-P 2 1 0 0 50 500 -250 500 N
-X 1 1 -100 400 100 R 50 0 1 0 P I
-X 2 2 -100 300 100 R 50 0 1 0 P I
-X 3 3 -100 200 100 R 50 0 1 0 P I
-X 4 4 -100 100 100 R 50 0 1 0 P I
-X 5 5 -100 0 100 R 50 0 1 0 P I
-X 6 6 -100 -100 100 R 50 0 1 0 P I
-X 7 7 -100 -200 100 R 50 0 1 0 P I
-X 8 8 -100 -300 100 R 50 0 1 0 P I
-X 9 9 -100 -400 100 R 50 0 1 0 P I
-ENDDRAW
-ENDDEF
-#
-# PCBwBreakout-eagle-import_VIN
-#
-DEF PCBwBreakout-eagle-import_VIN ~ 0 40 Y Y 1 L P
+DEF PCBwBreakout-eagle-import_3.3V ~ 0 40 Y Y 1 L P
 F0 "" 0 0 71 H I C CNN
-F1 "PCBwBreakout-eagle-import_VIN" -60 40 42 H V L BNN
+F1 "PCBwBreakout-eagle-import_3.3V" -60 40 42 H V L BNN
 F2 "" 0 0 71 H I C CNN
 F3 "" 0 0 71 H I C CNN
 DRAW
 P 2 1 0 0 -50 -50 0 0 N
 P 2 1 0 0 0 0 50 -50 N
-X VIN 1 0 -100 100 U 0 0 1 0 W
+X 3.3V 1 0 -100 100 U 0 0 1 0 W
+ENDDRAW
+ENDDEF
+#
+# PCBwBreakout-eagle-import_HEADER-1X6
+#
+DEF PCBwBreakout-eagle-import_HEADER-1X6 JP 0 40 Y Y 1 L N
+F0 "JP" -250 425 59 H V L BNN
+F1 "PCBwBreakout-eagle-import_HEADER-1X6" -250 -400 59 H V L BNN
+F2 "" 0 0 71 H I C CNN
+F3 "" 0 0 71 H I C CNN
+DRAW
+P 2 1 0 0 -250 -300 50 -300 N
+P 2 1 0 0 -250 400 -250 -300 N
+P 2 1 0 0 50 -300 50 400 N
+P 2 1 0 0 50 400 -250 400 N
+X 1 1 -100 300 100 R 50 0 1 0 P I
+X 2 2 -100 200 100 R 50 0 1 0 P I
+X 3 3 -100 100 100 R 50 0 1 0 P I
+X 4 4 -100 0 100 R 50 0 1 0 P I
+X 5 5 -100 -100 100 R 50 0 1 0 P I
+X 6 6 -100 -200 100 R 50 0 1 0 P I
+ENDDRAW
+ENDDEF
+#
+# PCBwBreakout-eagle-import_VCC
+#
+DEF PCBwBreakout-eagle-import_VCC #P+ 0 40 Y Y 1 L P
+F0 "#P+" 0 0 71 H I C CNN
+F1 "PCBwBreakout-eagle-import_VCC" -100 -100 59 V V L BNN
+F2 "" 0 0 71 H I C CNN
+F3 "" 0 0 71 H I C CNN
+DRAW
+P 2 1 0 0 0 0 -50 -75 N
+P 2 1 0 0 50 -75 0 0 N
+X VCC 1 0 -100 100 U 0 0 1 0 W
 ENDDRAW
 ENDDEF
 #
@@ -134,6 +125,50 @@ X 9 9 -100 -100 100 R 50 0 1 0 P I
 ENDDRAW
 ENDDEF
 #
+# PCBwBreakout-rescue_HEADER-1X5-PCBwBreakout-eagle-import
+#
+DEF PCBwBreakout-rescue_HEADER-1X5-PCBwBreakout-eagle-import JP 0 40 Y Y 1 L N
+F0 "JP" -250 325 59 H V L BNN
+F1 "PCBwBreakout-rescue_HEADER-1X5-PCBwBreakout-eagle-import" -250 -400 59 H V L BNN
+F2 "" 0 0 71 H I C CNN
+F3 "" 0 0 71 H I C CNN
+DRAW
+P 2 1 0 0 -250 -300 50 -300 N
+P 2 1 0 0 -250 300 -250 -300 N
+P 2 1 0 0 50 -300 50 300 N
+P 2 1 0 0 50 300 -250 300 N
+X 1 1 -100 200 100 R 50 0 1 0 P I
+X 2 2 -100 100 100 R 50 0 1 0 P I
+X 3 3 -100 0 100 R 50 0 1 0 P I
+X 4 4 -100 -100 100 R 50 0 1 0 P I
+X 5 5 -100 -200 100 R 50 0 1 0 P I
+ENDDRAW
+ENDDEF
+#
+# PCBwBreakout-rescue_HEADER-1X9-PCBwBreakout-eagle-import
+#
+DEF PCBwBreakout-rescue_HEADER-1X9-PCBwBreakout-eagle-import JP 0 40 Y Y 1 L N
+F0 "JP" -250 525 59 H V L BNN
+F1 "PCBwBreakout-rescue_HEADER-1X9-PCBwBreakout-eagle-import" -250 -600 59 H V L BNN
+F2 "" 0 0 71 H I C CNN
+F3 "" 0 0 71 H I C CNN
+DRAW
+P 2 1 0 0 -250 -500 50 -500 N
+P 2 1 0 0 -250 500 -250 -500 N
+P 2 1 0 0 50 -500 50 500 N
+P 2 1 0 0 50 500 -250 500 N
+X 1 1 -100 400 100 R 50 0 1 0 P I
+X 2 2 -100 300 100 R 50 0 1 0 P I
+X 3 3 -100 200 100 R 50 0 1 0 P I
+X 4 4 -100 100 100 R 50 0 1 0 P I
+X 5 5 -100 0 100 R 50 0 1 0 P I
+X 6 6 -100 -100 100 R 50 0 1 0 P I
+X 7 7 -100 -200 100 R 50 0 1 0 P I
+X 8 8 -100 -300 100 R 50 0 1 0 P I
+X 9 9 -100 -400 100 R 50 0 1 0 P I
+ENDDRAW
+ENDDEF
+#
 # PCBwBreakout-rescue_VBAT-PCBwBreakout-eagle-import
 #
 DEF PCBwBreakout-rescue_VBAT-PCBwBreakout-eagle-import ~ 0 40 Y Y 1 L P
@@ -159,6 +194,20 @@ DRAW
 P 2 1 0 0 -50 -50 0 0 N
 P 2 1 0 0 0 0 50 -50 N
 X VBUS 1 0 -100 100 U 0 0 1 0 W
+ENDDRAW
+ENDDEF
+#
+# PCBwBreakout-rescue_VIN-PCBwBreakout-eagle-import
+#
+DEF PCBwBreakout-rescue_VIN-PCBwBreakout-eagle-import ~ 0 40 Y Y 1 L P
+F0 "" 0 0 71 H I C CNN
+F1 "PCBwBreakout-rescue_VIN-PCBwBreakout-eagle-import" -60 40 42 H V L BNN
+F2 "" 0 0 71 H I C CNN
+F3 "" 0 0 71 H I C CNN
+DRAW
+P 2 1 0 0 -50 -50 0 0 N
+P 2 1 0 0 0 0 50 -50 N
+X VIN 1 0 -100 100 U 0 0 1 0 W
 ENDDRAW
 ENDDEF
 #

@@ -92,8 +92,6 @@ Wire Wire Line
 	3100 2400 2900 2400
 Wire Wire Line
 	3100 2500 2900 2500
-Text Label 2600 2500 0    50   ~ 0
-+3V3
 Wire Wire Line
 	2900 2400 2900 2500
 Connection ~ 2900 2500
@@ -179,10 +177,10 @@ Text Label 1200 2250 0    50   ~ 0
 SDA
 Wire Notes Line
 	500  3100 4100 3100
-Text Notes 600  600  0    71   ~ 0
-Feather Headers\n
+Text Notes 600  700  0    71   ~ 0
+STM32 Adafruit Feather\n\n
 $Comp
-L PCBwBreakout-eagle-import:HEADER-1X5 JP?
+L PCBwBreakout-rescue:HEADER-1X5-PCBwBreakout-eagle-import JP?
 U 1 1 5F60BB99
 P 1750 4000
 F 0 "JP?" H 1828 4053 59  0000 L CNN
@@ -213,7 +211,7 @@ DIO4
 Text Label 1200 4200 0    71   ~ 0
 DIO5
 $Comp
-L PCBwBreakout-eagle-import:HEADER-1X9 JP?
+L PCBwBreakout-rescue:HEADER-1X9-PCBwBreakout-eagle-import JP?
 U 1 1 5F613941
 P 3300 3850
 F 0 "JP?" H 3378 3903 59  0000 L CNN
@@ -224,7 +222,7 @@ F 3 "" H 3300 3850 71  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PCBwBreakout-eagle-import:VIN ?
+L PCBwBreakout-rescue:VIN-PCBwBreakout-eagle-import ?
 U 1 1 5F61445D
 P 2500 3450
 F 0 "?" H 2550 3500 71  0001 C CNN
@@ -300,7 +298,7 @@ Wire Wire Line
 Wire Wire Line
 	2800 4250 2800 4350
 $Comp
-L PCBwBreakout-eagle-import:VIN ?
+L PCBwBreakout-rescue:VIN-PCBwBreakout-eagle-import ?
 U 1 1 5F628E28
 P 2500 4850
 F 0 "?" H 2550 4900 71  0001 C CNN
@@ -311,7 +309,7 @@ F 3 "" H 2500 4850 71  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L PCBwBreakout-eagle-import:VIN U?
+L PCBwBreakout-rescue:VIN-PCBwBreakout-eagle-import U?
 U 1 1 5F629B04
 P 2800 4850
 F 0 "U?" H 2850 4900 71  0001 C CNN
@@ -329,10 +327,142 @@ Text Label 2650 4150 0    71   ~ 0
 CS_5V
 Text Label 2800 4250 0    71   ~ 0
 RST_5V
-Wire Notes Line
-	450  5150 4100 5150
-Wire Notes Line
-	4100 500  4100 5150
 Text Notes 550  3250 0    71   ~ 0
 RFM69HCW\n
+$Comp
+L PCBwBreakout-eagle-import:3.3V ?
+U 1 1 5F660521
+P 2400 2500
+F 0 "?" H 2450 2550 71  0001 C CNN
+F 1 "3.3V" V 2517 2463 42  0000 C CNN
+F 2 "" H 2400 2500 71  0001 C CNN
+F 3 "" H 2400 2500 71  0001 C CNN
+	1    2400 2500
+	0    -1   -1   0   
+$EndComp
+Text Label 850  6200 0    71   ~ 0
+~RESET~
+Text Label 950  6100 0    71   ~ 0
+SDA
+Text Label 950  6000 0    71   ~ 0
+SCL
+Wire Wire Line
+	1400 6200 800  6200
+Wire Wire Line
+	1400 6100 800  6100
+Wire Wire Line
+	1400 6000 800  6000
+Wire Wire Line
+	900  5900 1400 5900
+$Comp
+L power:GND #PWR?
+U 1 1 5F665743
+P 900 5900
+F 0 "#PWR?" H 900 5650 50  0001 C CNN
+F 1 "GND" V 905 5772 50  0000 R CNN
+F 2 "" H 900 5900 50  0001 C CNN
+F 3 "" H 900 5900 50  0001 C CNN
+	1    900  5900
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	750  5800 1400 5800
+$Comp
+L PCBwBreakout-eagle-import:3.3V ?
+U 1 1 5F65D5C2
+P 650 5800
+F 0 "?" H 700 5850 71  0001 C CNN
+F 1 "3.3V" V 767 5763 42  0000 C CNN
+F 2 "" H 650 5800 71  0001 C CNN
+F 3 "" H 650 5800 71  0001 C CNN
+	1    650  5800
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	850  5700 1400 5700
+Wire Wire Line
+	850  5600 850  5700
+$Comp
+L PCBwBreakout-eagle-import:VCC #P+?
+U 1 1 5F658A43
+P 850 5500
+F 0 "#P+?" H 850 5500 71  0001 C CNN
+F 1 "VCC" H 850 5622 59  0000 C CNN
+F 2 "" H 850 5500 71  0001 C CNN
+F 3 "" H 850 5500 71  0001 C CNN
+	1    850  5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L PCBwBreakout-eagle-import:HEADER-1X6 JP?
+U 1 1 5F6558D8
+P 1500 6000
+F 0 "JP?" H 1578 6103 59  0000 L CNN
+F 1 "HEADER-1X6" H 1578 5998 59  0000 L CNN
+F 2 "" H 1500 6000 71  0001 C CNN
+F 3 "" H 1500 6000 71  0001 C CNN
+	1    1500 6000
+	1    0    0    -1  
+$EndComp
+Wire Notes Line
+	450  5150 4100 5150
+$Comp
+L PCBwBreakout-eagle-import:HEADER-1X6 JP?
+U 1 1 5F675AA7
+P 3300 6000
+F 0 "JP?" H 3378 6103 59  0000 L CNN
+F 1 "HEADER-1X6" H 3378 5998 59  0000 L CNN
+F 2 "" H 3300 6000 71  0001 C CNN
+F 3 "" H 3300 6000 71  0001 C CNN
+	1    3300 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F677526
+P 2500 5700
+F 0 "#PWR?" H 2500 5450 50  0001 C CNN
+F 1 "GND" V 2505 5572 50  0000 R CNN
+F 2 "" H 2500 5700 50  0001 C CNN
+F 3 "" H 2500 5700 50  0001 C CNN
+	1    2500 5700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3200 5700 2500 5700
+Wire Wire Line
+	3200 5800 2500 5800
+Wire Wire Line
+	3200 5900 2500 5900
+Wire Wire Line
+	3200 6000 2500 6000
+Wire Wire Line
+	3200 6100 2500 6100
+Wire Wire Line
+	3200 6200 2500 6200
+Text Label 2650 5800 0    71   ~ 0
+1PPS
+$Comp
+L PCBwBreakout-eagle-import:VCC #P+?
+U 1 1 5F68239E
+P 2400 5900
+F 0 "#P+?" H 2400 5900 71  0001 C CNN
+F 1 "VCC" V 2400 5969 59  0000 L CNN
+F 2 "" H 2400 5900 71  0001 C CNN
+F 3 "" H 2400 5900 71  0001 C CNN
+	1    2400 5900
+	0    -1   -1   0   
+$EndComp
+Text Label 2700 6000 0    71   ~ 0
+RXI
+Text Label 2700 6100 0    71   ~ 0
+TXO
+Text Label 2600 6200 0    71   ~ 0
+WAKEUP
+Wire Notes Line
+	450  6500 4100 6500
+Wire Notes Line
+	4100 500  4100 6500
+Text Notes 500  5300 0    71   ~ 0
+GPS \n
 $EndSCHEMATC
