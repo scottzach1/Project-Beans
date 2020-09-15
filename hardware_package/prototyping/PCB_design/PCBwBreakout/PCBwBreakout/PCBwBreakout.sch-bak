@@ -575,4 +575,16 @@ Wire Wire Line
 	6050 1250 6750 1250
 Wire Wire Line
 	6050 1350 6750 1350
+Wire Notes Line
+	4100 1650 7700 1650
+Wire Notes Line
+	7700 1650 7700 450 
+Text Notes 4150 600  0    71   ~ 0
+MPU-6050\n
+Text Notes 7400 7500 0    71   ~ 0
+Breakout PCB - Rocket P.1
+Text Notes 8150 7650 0    63   ~ 0
+15/09/2020\n
+Text Notes 10600 7650 0    63   ~ 0
+1.0\n
 $EndSCHEMATC

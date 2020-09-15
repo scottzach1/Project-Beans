@@ -175,8 +175,6 @@ Text Label 1200 2150 0    50   ~ 0
 SCL
 Text Label 1200 2250 0    50   ~ 0
 SDA
-Wire Notes Line
-	500  3100 4100 3100
 Text Notes 600  700  0    71   ~ 0
 STM32 Adafruit Feather\n\n
 $Comp
@@ -581,4 +579,75 @@ Wire Notes Line
 	7700 1650 7700 450 
 Text Notes 4150 600  0    71   ~ 0
 MPU-6050\n
+Text Notes 7400 7500 0    71   ~ 0
+Breakout PCB - Rocket P.1
+Text Notes 8150 7650 0    63   ~ 0
+15/09/2020\n
+Text Notes 10600 7650 0    63   ~ 0
+1.0\n
+$Comp
+L PCBwBreakout-eagle-import:HEADER-1X7 JP?
+U 1 1 5F6FE755
+P 5250 2850
+F 0 "JP?" H 5378 3456 63  0000 L CNN
+F 1 "HEADER-1X7" H 5378 3345 63  0000 L CNN
+F 2 "" H 5250 2850 63  0001 C CNN
+F 3 "" H 5250 2850 63  0001 C CNN
+	1    5250 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L PCBwBreakout-eagle-import:3.3V ?
+U 1 1 5F700307
+P 4800 1800
+F 0 "?" H 4850 1850 71  0001 C CNN
+F 1 "3.3V" H 4878 1763 42  0000 L CNN
+F 2 "" H 4800 1800 71  0001 C CNN
+F 3 "" H 4800 1800 71  0001 C CNN
+	1    4800 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4800 1900 4800 2000
+Wire Wire Line
+	4800 2000 5200 2000
+$Comp
+L power:GND #PWR?
+U 1 1 5F703624
+P 4700 2100
+F 0 "#PWR?" H 4700 1850 50  0001 C CNN
+F 1 "GND" V 4705 1972 50  0000 R CNN
+F 2 "" H 4700 2100 50  0001 C CNN
+F 3 "" H 4700 2100 50  0001 C CNN
+	1    4700 2100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5200 2100 4700 2100
+Wire Wire Line
+	5200 2200 4650 2200
+Wire Wire Line
+	5200 2300 4650 2300
+Wire Wire Line
+	5200 2400 4650 2400
+Wire Wire Line
+	5200 2500 4650 2500
+Wire Wire Line
+	5200 2600 4650 2600
+Text Label 4800 2200 0    63   ~ 0
+3vo
+Text Label 4800 2300 0    63   ~ 0
+INT2
+Text Label 4800 2400 0    63   ~ 0
+INT1
+Text Label 4800 2500 0    63   ~ 0
+SCL
+Text Label 4800 2600 0    63   ~ 0
+SDA
+Wire Notes Line
+	6550 3100 6550 1650
+Wire Notes Line
+	500  3100 6550 3100
+Text Notes 4200 1750 0    71   ~ 0
+MPL3115A2\n
 $EndSCHEMATC
