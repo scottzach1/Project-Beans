@@ -27,9 +27,10 @@ The guidance system of the rocket is the bulk of the logic performed in this
 state. Exiting this state is constituted by the criterion:
     - Barometer detects a decrease in air pressure AND accelerometer detects a
 deceleration
+- This state is exited when the parachute is deployed
 
-- LANDING - This state consists of parachute deployment to ensure the rocket
-lands safely.
+- LANDING - This state consists of continuosly logging the rocket's status and
+waiting for it to land.
 
 - LANDED - Pretty self explanatory. This state means that the rocket has landed
 and is awaiting retrieval by the stakeholders. The logger will continue to log
@@ -47,5 +48,40 @@ enum State {
 
 int main(void) {
   State currentState = LOCKED_SOFTWARE;
-  cout << currentState << endl;
+  while (true) {
+    if (currentState == LOCKED_SOFTWARE) {
+      cout << "LOCKED_SOFTWARE state active - Awaiting green light signal from "
+              "mission control"
+           << endl;
+      currentState = PRE_LAUNCH;
+    }
+
+    if (currentState == PRE_LAUNCH) {
+      cout << "Initializing hardware and software systems..." << endl;
+      // ...
+      currentState = LAUNCH;
+    }
+
+    if (currentState == LAUNCH) {
+      cout << "Triggering Launch" << endl;
+      currentState = FLIGHT;
+    }
+
+    if (currentState == FLIGHT) {
+      cout << "In Flight..." << endl;
+      // ...
+      cout << "Deploying Parachute" << endl;
+      currentState = LANDING;
+    }
+
+    if (currentState == LANDING) {
+      cout << "Parachutes deployed, rocket descending" << endl;
+      currentState == LANDED;
+    }
+
+    if (currentState == LANDED) {
+      cout << "Rocket landed at GSP coords: ... " << endl;
+      break;
+    }
+  }
 }
