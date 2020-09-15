@@ -247,13 +247,13 @@ F 3 "" H 2700 3550 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3200 3550 2700 3550
-Text Label 2800 3650 0    71   ~ 0
+Text Label 2650 3650 0    71   ~ 0
 EN
-Text Label 2750 3750 0    71   ~ 0
+Text Label 2650 3750 0    71   ~ 0
 DIO0
 Text Label 2650 3850 0    71   ~ 0
 SCK_5V
-Text Label 2600 3950 0    71   ~ 0
+Text Label 2650 3950 0    71   ~ 0
 MISO_3V
 Wire Wire Line
 	2550 3950 3200 3950
@@ -265,7 +265,7 @@ Wire Wire Line
 	2550 3650 3200 3650
 Wire Wire Line
 	2550 4050 3200 4050
-Text Label 2600 4050 0    71   ~ 0
+Text Label 2650 4050 0    71   ~ 0
 MOSI_5V
 $Comp
 L Device:R R?
@@ -340,11 +340,11 @@ F 3 "" H 2400 2500 71  0001 C CNN
 	1    2400 2500
 	0    -1   -1   0   
 $EndComp
-Text Label 850  6200 0    71   ~ 0
+Text Label 900  6200 0    71   ~ 0
 ~RESET~
-Text Label 950  6100 0    71   ~ 0
+Text Label 900  6100 0    71   ~ 0
 SDA
-Text Label 950  6000 0    71   ~ 0
+Text Label 900  6000 0    71   ~ 0
 SCL
 Wire Wire Line
 	1400 6200 800  6200
@@ -440,7 +440,7 @@ Wire Wire Line
 	3200 6100 2500 6100
 Wire Wire Line
 	3200 6200 2500 6200
-Text Label 2650 5800 0    71   ~ 0
+Text Label 2600 5800 0    71   ~ 0
 1PPS
 $Comp
 L PCBwBreakout-eagle-import:VCC #P+?
@@ -453,9 +453,9 @@ F 3 "" H 2400 5900 71  0001 C CNN
 	1    2400 5900
 	0    -1   -1   0   
 $EndComp
-Text Label 2700 6000 0    71   ~ 0
+Text Label 2600 6000 0    71   ~ 0
 RXI
-Text Label 2700 6100 0    71   ~ 0
+Text Label 2600 6100 0    71   ~ 0
 TXO
 Text Label 2600 6200 0    71   ~ 0
 WAKEUP
@@ -465,4 +465,120 @@ Wire Notes Line
 	4100 500  4100 6500
 Text Notes 500  5300 0    71   ~ 0
 GPS \n
+$Comp
+L PCBwBreakout-eagle-import:HEADER-1X6 JP?
+U 1 1 5F69AE38
+P 5300 1250
+F 0 "JP?" H 5378 1353 59  0000 L CNN
+F 1 "HEADER-1X6" H 5378 1248 59  0000 L CNN
+F 2 "" H 5300 1250 71  0001 C CNN
+F 3 "" H 5300 1250 71  0001 C CNN
+	1    5300 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L PCBwBreakout-eagle-import:HEADER-1X6 JP?
+U 1 1 5F69BA80
+P 6850 1250
+F 0 "JP?" H 6928 1353 59  0000 L CNN
+F 1 "HEADER-1X6" H 6928 1248 59  0000 L CNN
+F 2 "" H 6850 1250 71  0001 C CNN
+F 3 "" H 6850 1250 71  0001 C CNN
+	1    6850 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L PCBwBreakout-eagle-import:VCC #P+?
+U 1 1 5F69FFEA
+P 4750 750
+F 0 "#P+?" H 4750 750 71  0001 C CNN
+F 1 "VCC" H 4750 872 59  0000 C CNN
+F 2 "" H 4750 750 71  0001 C CNN
+F 3 "" H 4750 750 71  0001 C CNN
+	1    4750 750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L PCBwBreakout-eagle-import:3.3V ?
+U 1 1 5F6A08C9
+P 4450 750
+F 0 "?" H 4500 800 71  0001 C CNN
+F 1 "3.3V" H 4528 713 42  0000 L CNN
+F 2 "" H 4450 750 71  0001 C CNN
+F 3 "" H 4450 750 71  0001 C CNN
+	1    4450 750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F6A166A
+P 4550 1150
+F 0 "#PWR?" H 4550 900 50  0001 C CNN
+F 1 "GND" V 4555 1022 50  0000 R CNN
+F 2 "" H 4550 1150 50  0001 C CNN
+F 3 "" H 4550 1150 50  0001 C CNN
+	1    4550 1150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4450 850  4450 1050
+Wire Wire Line
+	4450 1050 5200 1050
+Wire Wire Line
+	4750 850  4750 950 
+Wire Wire Line
+	4750 950  5200 950 
+Wire Wire Line
+	4550 1150 5200 1150
+Wire Wire Line
+	5200 1250 4550 1250
+Wire Wire Line
+	5200 1350 4550 1350
+Wire Wire Line
+	5200 1450 4550 1450
+Text Label 4700 1250 0    71   ~ 0
+SCL
+Text Label 4700 1350 0    71   ~ 0
+SDA
+Text Label 4700 1450 0    71   ~ 0
+INT
+$Comp
+L power:GND #PWR?
+U 1 1 5F6AE3D2
+P 6200 1450
+F 0 "#PWR?" H 6200 1200 50  0001 C CNN
+F 1 "GND" V 6205 1322 50  0000 R CNN
+F 2 "" H 6200 1450 50  0001 C CNN
+F 3 "" H 6200 1450 50  0001 C CNN
+	1    6200 1450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6750 1450 6200 1450
+Text Label 6100 950  0    71   ~ 0
+AD0
+Text Label 6100 1050 0    71   ~ 0
+FSYNC_IN
+Text Label 6100 1150 0    71   ~ 0
+SCL_EXT
+Text Label 6100 1250 0    71   ~ 0
+SDA_EXT
+Text Label 6100 1350 0    71   ~ 0
+CLKIN
+Wire Wire Line
+	6050 1050 6750 1050
+Wire Wire Line
+	6050 950  6750 950 
+Wire Wire Line
+	6050 1150 6750 1150
+Wire Wire Line
+	6050 1250 6750 1250
+Wire Wire Line
+	6050 1350 6750 1350
+Wire Notes Line
+	4100 1650 7700 1650
+Wire Notes Line
+	7700 1650 7700 450 
+Text Notes 4150 600  0    71   ~ 0
+MPU-6050\n
 $EndSCHEMATC
