@@ -33,9 +33,6 @@ class GuidanceSystem {
     Servo servo_x;
     Servo servo_y;
 
-    // FIXME(scottzach1): Is this automatically initaiized? I get
-    // deleted functon error when I manually initialize using its
-    // own constructor.
     PID pid_x;
     PID pid_y;
 
