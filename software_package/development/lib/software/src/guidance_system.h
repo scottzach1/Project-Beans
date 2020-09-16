@@ -3,6 +3,8 @@
 
 #include "Arduino.h"
 #include "servo.h"
+#include "imu.h"
+#include "parachute.h"
 
 /**
  *Library which handles interactions with the Lora.
@@ -20,16 +22,34 @@ class GuidanceSystem {
         const float P = 0.5;
         const float I = 0.5;
         const float D = 0.5;
+        const float LIMIT = 45;
 
+        /**
+         * Constructor / Destructors
+        **/
         PID() = default;
         ~PID() = default;
+        /**
+         * Adds servo to PID post initialization.
+        **/
         void add_servo(Servo *s);
-        void step_pid();
+        /**
+         * Implementation of a PID isolated to the control of a single servo.
+         * This will represent a single axis of the gimbal.
+         * @param axis_angle: The angle from the latest readings.
+        **/
+        bool step_pid(float axis_angle);
+        /**
+         * Converts the arbitrary value from the PID into a value safe to
+         * control the servo.
+        **/
         int8_t santize_value(float input);
-        boolean error();
     };
 
  private:
+    Imu imu;
+    Parachute parachute;
+
     Servo servo_x;
     Servo servo_y;
 
@@ -41,6 +61,7 @@ class GuidanceSystem {
      * Constructor
      **/
     GuidanceSystem();
+
     /**
      * Destructor
      **/
@@ -48,8 +69,9 @@ class GuidanceSystem {
 
     /**
      * Step through the pid controller once.
+     * @return bool: true if under control, false if in critical state.
      **/
-    void step_pid();
+    bool step_pid();
 
     /**
      * Call to launch the parachute.
