@@ -234,7 +234,7 @@ the basic design and structure of the system. This representation will
 only provide a rough overview, and to reduce noise, individual
 implementations will be omitted.
 
-**Class Diagrams**: The class diagrams will contain nodes that represent
+<!-- **Class Diagrams**: The class diagrams will contain nodes that represent
 components within the system. Some components of the system by nature
 have a lot of inherent complexity. To provide better encapsulation of
 the system entirely, the use of components within a system may be
@@ -246,7 +246,41 @@ Communication component in Figure 1.
 
 For all leaf nodes (no sub-modules) within the class diagram, there will
 be internal attributes that map characteristics of the respective
-components.
+components. -->
+
+- 2 Different Libraries: Software and Hardware
+
+- reason for splitting
+    - modularise our code for future iterations
+    - allows code to be as flexible and reusable as possible
+    - hardware library is quite specific to the exact parts we're using
+    - software library should be versatile enough to handle different/new hardware parts
+        - only needs to interface with hardware library calls, doesn't need to know specifics
+
+- software
+    - purpose:
+        - controls rocket's states
+        - keep track of logging
+        - interface with all hardware components
+        - Communicate with base station
+    - contains:
+        - guidance_system.h/.cpp
+        - logging.h/.cpp
+- hardware
+    - purpose:
+        - contains all hardware parts for software lib to interact with
+        - interacts with libraries which came with parts, eg. adafruit
+        - provides an interface for software lib
+    - contains:
+        - barometer.h/.cpp
+        - imu.h/.cpp
+        - lora.h/.cpp
+        - parachute.h/.cpp
+        - sd.h/.cpp
+        - servo/h/.cpp
+
+
+**TODO: Class diagram representing hardware and software respectively** 
 
 ![Example UML class diagram](software_architecture/Yed/rocket.png)
 
