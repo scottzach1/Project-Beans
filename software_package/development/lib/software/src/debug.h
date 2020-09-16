@@ -13,7 +13,7 @@
 //     Eg. `Returned value 5` or `Entering loop iteration 2`.
 
 #ifndef DEBUG
-#define DEBUG 1
+#define DEBUG 0
 #endif
 
 #include "Arduino.h"
