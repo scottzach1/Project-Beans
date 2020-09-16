@@ -253,7 +253,7 @@ components.
 **_Figure 1:_** UML Class Diagram of Software Module Organization
 
 **State Diagrams**: To represent the different states and modes that the
-node may be in a state diagram will be used. This diagram will follow
+rocket may be in, a state diagram will be used. This diagram will follow
 traditional state chart diagrams. Namely, different states will be
 represented within a rounded oblong. Arrows will point between different
 nodes to indicate transitions. These arrow will contain any relevant
@@ -269,9 +269,26 @@ at the following link:
 
 [https://www.uml-diagrams.org/state-machine-diagrams.html](https://www.uml-diagrams.org/state-machine-diagrams.html)
 
-![Example of state diagram](logical_architecture/StateDiagram.png)
+![Example of state diagram](software_architecture/Draw_IO/rocket-uml-state-diagram-v2.png)
 
-**_Figure 2:_** UML State Diagram of rocket
+**_Figure 2:_** UML State Diagram of Rocket
+
+In the specific case of the project, Figure 2 describes the specific
+states the rocket can take during its life, and the actions/events that
+need to occur to transition between them. Its also important to
+note that the system follows a linear progression in states, with each
+state performing specific actions that contributes to trigger a
+transition to the next state.
+
+Given the safety-critical nature of the project, there are many points in
+the diagram that terminates the life of the rocket before being given the
+opportunity to transition through all states successfully. For example,
+the progression through states is ended prematurely in the
+'Software Interlocks Active' state if the mission control software
+sends a 'Cancel Launch' signal, indicating that environmental launch
+requirements were not met. The existence of premature termination in the
+system is crucial in order to comply with the health and safety
+regulations the project must adhere to.
 
 ### 4.2 Development
 
