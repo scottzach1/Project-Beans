@@ -6,6 +6,7 @@
 #include <STM32SD.h>
 
 #include "barometer.h"
+#include "debug.h"
 #include "imu.h"
 #include "sd.h"
 
@@ -35,26 +36,26 @@ void setup(void) {
 int counter = 0;
 
 void loop() {
-    Serial.printf("Beginning loop %d\n", ++counter);
+    DEBUG_MSG_F(2, "Beginning loop %d\n", ++counter);
 
     // IMU READINGS
     imu.update();
 
     sensors_vec_t accl = imu.read_accl();
-    Serial.printf("- Acceleration: {%s, %s, %s} m/s^2.\n",
-                  String(accl.x).c_str(), String(accl.y).c_str(),
-                  String(accl.z).c_str());
+    DEBUG_MSG_F(2, "- Acceleration: {%s, %s, %s} m/s^2.\n",
+                String(accl.x).c_str(), String(accl.y).c_str(),
+                String(accl.z).c_str());
 
     sensors_vec_t gyro = imu.read_gyro();
-    Serial.printf("- Gyro: {%s, %s, %s} rad/s.\n", String(gyro.x).c_str(),
-                  String(gyro.y).c_str(), String(gyro.z).c_str());
+    DEBUG_MSG_F(2, "- Gyro: {%s, %s, %s} rad/s.\n", String(gyro.x).c_str(),
+                String(gyro.y).c_str(), String(gyro.z).c_str());
 
     // BAROMETER READINGS
     float pasc = baro.read_pressure_pascals();
-    Serial.printf("- Pressure: %s pascals.\n", String(pasc).c_str());
+    DEBUG_MSG_F(2, "- Pressure: %s pascals.\n", String(pasc).c_str());
 
     float alt = baro.read_altitude();
-    Serial.printf("- Altitude: %s meters.\n", String(alt).c_str());
+    DEBUG_MSG_F(2, "- Altitude: %s meters.\n", String(alt).c_str());
 
     // SD TESTINGS
     // sd.write("Entry " + std::to_string(counter) + "\n");
@@ -66,7 +67,7 @@ void read_file(std::string file_name) {
     // re-open the file for reading:
     File file = SD.open(file_name.c_str());
     if (file) {
-        Serial.printf("%s contents:\n", file_name.c_str());
+        DEBUG_MSG_F(2, "%s contents:\n", file_name.c_str());
 
         // read from the file until there's nothing else in it:
         while (file.available()) {
@@ -76,7 +77,7 @@ void read_file(std::string file_name) {
         file.close();
     } else {
         // if the file didn't open, print an error:
-        Serial.printf("error opening %s\n", file_name.c_str());
+        DEBUG_MSG_F(2, "error opening %s\n", file_name.c_str());
     }
 }
 

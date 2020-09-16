@@ -19,6 +19,14 @@
 #include "Arduino.h"
 
 /**
+ * This macro acts as a conditional debug wrapper to `Serial.print()`.
+ **/
+#define DEBUG_MSG(level, ...)     \
+    if (DEBUG && level >= DEBUG) {  \
+        Serial.print(__VA_ARGS__); \
+    }
+
+/**
  * This macro acts as a conditional debug wrapper to `Serial.println()`.
  **/
 #define DEBUG_MSG_LN(level, ...)     \
