@@ -335,5 +335,17 @@ F 3 "" H 8500 1500 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	8500 1500 8300 1500
-NoConn ~ 8050 2800
+$Comp
+L Connector:Conn_01x01_Male J2
+U 1 1 5F636A13
+P 8550 2800
+F 0 "J2" H 8522 2732 50  0000 R CNN
+F 1 "ANT" H 8522 2823 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-0.1sqmm_1x01_D0.4mm_OD1mm" H 8550 2800 50  0001 C CNN
+F 3 "~" H 8550 2800 50  0001 C CNN
+	1    8550 2800
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8050 2800 8350 2800
 $EndSCHEMATC
