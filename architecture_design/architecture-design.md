@@ -261,7 +261,7 @@ The code in the software library is independent of the hardware, and should be a
             - launch_parachute()
         - logging.h/.cpp
             - log_sd()
-            - log_lora()
+            - log_radio()
         - debug.h
             - DEBUG_MSG_LN()
             - DEBUG_MSG_F()
