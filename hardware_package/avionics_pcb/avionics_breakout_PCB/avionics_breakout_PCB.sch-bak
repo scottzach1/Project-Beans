@@ -1,0 +1,105 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L avionics:Adafruit_Feather_STM32F405 STM32
+U 1 1 5F62EEAA
+P 4900 2400
+F 0 "STM32" H 4900 3515 50  0000 C CNN
+F 1 "Adafruit_Feather_STM32F405" H 4900 3424 50  0000 C CNN
+F 2 "avionics:Adafruit_Feather_STM32F405" H 4900 2300 50  0001 C CNN
+F 3 "" H 4900 2200 50  0001 C CNN
+	1    4900 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L avionics:MPU-6050-Adafruit IMU1
+U 1 1 5F631A9D
+P 7300 2450
+F 0 "IMU1" H 7300 3065 50  0000 C CNN
+F 1 "MPU-6050-Adafruit" H 7300 2974 50  0000 C CNN
+F 2 "avionics:MPU6050-adafruit" H 7300 1750 50  0001 C CNN
+F 3 "DOCUMENTATION" H 7300 1850 50  0001 C CNN
+	1    7300 2450
+	1    0    0    -1  
+$EndComp
+NoConn ~ 6750 3850
+NoConn ~ 7100 3100
+NoConn ~ 6750 4100
+$Comp
+L avionics:MPL3115A2-Adafruit Barometer1
+U 1 1 5F6344B6
+P 7050 4750
+F 0 "Barometer1" H 7428 5196 50  0000 L CNN
+F 1 "MPL3115A2-Adafruit" H 7428 5105 50  0000 L CNN
+F 2 "avionics:MPL3115A2-Adafruit" H 7100 4500 50  0001 C CNN
+F 3 "" H 7050 4750 50  0001 C CNN
+	1    7050 4750
+	1    0    0    -1  
+$EndComp
+NoConn ~ 7200 4250
+$Comp
+L avionics:RFM98 LoRa_Radio1
+U 1 1 5F636F5E
+P 4900 4400
+F 0 "LoRa_Radio1" H 4900 5015 50  0000 C CNN
+F 1 "RFM98" H 4900 4924 50  0000 C CNN
+F 2 "avionics:RFM98" H 4900 3850 50  0001 C CNN
+F 3 "" H 4900 4400 50  0001 C CNN
+	1    4900 4400
+	1    0    0    -1  
+$EndComp
+Text GLabel 5650 3150 2    50   Input ~ 0
+SDA
+Text GLabel 5650 3050 2    50   Input ~ 0
+SCL
+Text GLabel 6950 4650 0    50   Input ~ 0
+SDA
+Text GLabel 6550 2600 0    50   Input ~ 0
+SDA
+Text GLabel 6550 2500 0    50   Input ~ 0
+SCL
+Text GLabel 6950 4550 0    50   Input ~ 0
+SCL
+Text GLabel 4150 1850 0    50   Input ~ 0
+3V3
+Text GLabel 4150 1750 0    50   Input ~ 0
+3v3
+Text GLabel 4150 1950 0    50   Input ~ 0
+GND
+Text GLabel 6550 2200 0    50   Input ~ 0
+3V3
+Text GLabel 6950 4050 0    50   Input ~ 0
+3V3
+Text GLabel 5400 4350 2    50   Input ~ 0
+3V3
+Text GLabel 5400 4650 2    50   Input ~ 0
+GND
+Text GLabel 6950 4150 0    50   Input ~ 0
+GND
+Text GLabel 6550 2400 0    50   Input ~ 0
+GND
+$Comp
+L Switch:SW_Push SW1
+U 1 1 5F65522E
+P 8450 3850
+F 0 "SW1" H 8450 4135 50  0000 C CNN
+F 1 "SW_Push" H 8450 4044 50  0000 C CNN
+F 2 "" H 8450 4050 50  0001 C CNN
+F 3 "~" H 8450 4050 50  0001 C CNN
+	1    8450 3850
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
