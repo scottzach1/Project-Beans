@@ -248,39 +248,59 @@ For all leaf nodes (no sub-modules) within the class diagram, there will
 be internal attributes that map characteristics of the respective
 components. -->
 
-- 2 Different Libraries: Software and Hardware
+We've decided to split our codebase into two separate libraries: hardware and software. By modularizing our code like this we are able to keep our code as flexible as possible, which will best accommodate future iterations and extensions of this project.
 
-- reason for splitting
-    - modularise our code for future iterations
-    - allows code to be as flexible and reusable as possible
-    - hardware library is quite specific to the exact parts we're using
-    - software library should be versatile enough to handle different/new hardware parts
-        - only needs to interface with hardware library calls, doesn't need to know specifics
+The code in the hardware library is very specific to the parts used for this project. For example, the code in imu.cpp is based off of our IMU; the MPU-6050. Each of these files will likely need to be replaced or tweaked if the relative part is changed out. This library essentially provides and API for the software library to interact with all of the hardware components.
+
+The code in the software library is independent of the hardware, and should be able to work for the most part regardless of the specific parts used. This is due to it exclusively interfacing with the hardware, and having no knowledge of the inner workings of the hardware calls it makes. This package is mainly about the actual logic of the rocket and the process it takes, so will keep track of more abstract things such as the rocket state and logging.
 
 - software
-    - purpose:
-        - controls rocket's states
-        - keep track of logging
-        - interface with all hardware components
-        - Communicate with base station
     - contains:
         - guidance_system.h/.cpp
+            - step_pid()
+            - launch_parachute()
         - logging.h/.cpp
+            - log_sd()
+            - log_lora()
+        - debug.h
+            - DEBUG_MSG_LN()
+            - DEBUG_MSG_F()
+            - DEBUG_MSG()
 - hardware
-    - purpose:
-        - contains all hardware parts for software lib to interact with
-        - interacts with libraries which came with parts, eg. adafruit
-        - provides an interface for software lib
     - contains:
         - barometer.h/.cpp
+            - init()
+            - read_pressure_bars()
+            - read_pressure_pascals()
+            - read_pressure_psi()
+            - read_altitude()
         - imu.h/.cpp
+            - init()
+            - update()
+            - read_accl_x()
+            - read_accl_y()
+            - read_accl_z()
+            - read_accl()
+            - read_gyro_x()
+            - read_gyro_y()
+            - read_gyro_z()
+            - read_gyro()
         - lora.h/.cpp
+            - send_packet()
+            - receive_packet()
         - parachute.h/.cpp
+            - ignite()
         - sd.h/.cpp
+            - init()
+            - write()
+            - flush()
+            - close()
         - servo/h/.cpp
+            - read_packet()
+            - set_packet()
 
 
-**TODO: Class diagram representing hardware and software respectively** 
+**TODO: Class diagram representing hardware and software respectively**
 
 ![Example UML class diagram](software_architecture/Yed/rocket.png)
 
