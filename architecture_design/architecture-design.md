@@ -228,27 +228,19 @@ responsibilities of the system such as those concerned with the systems
 computation, communication and heuristic.
 
 To help represent this, UML diagrams will be used to represent the
-logical view, including both state and class diagrams. By reading these
-diagrams, the reader should have a reasonable level of understanding of
-the basic design and structure of the system. This representation will
-only provide a rough overview, and to reduce noise, individual
-implementations will be omitted.
+logical view, including both state and class diagrams. By reading these diagrams, the reader should have a reasonable level of understanding of the basic design and structure of the system. This representation will only provide a rough overview, and to reduce noise, individual implementations will be omitted.
 
-**Class Diagrams**: The class diagrams will contain nodes that represent
-components within the system. Some components of the system by nature
-have a lot of inherent complexity. To provide better encapsulation of
-the system entirely, the use of components within a system may be
-represented in more depth via subcomponents. An example of how this may
-can be observed by the use of subcomponents (Radio, Logger) within the
-Communication component in Figure 1.
+**Class Diagrams**: The class diagrams will contain nodes that represent components within the system. For all leaf nodes (no sub-modules) within the class diagram, there will be internal attributes that map characteristics of the respective components.
 
-**FIXME:** This may or may not be our desired implementation!
+We've decided to split our codebase into two separate libraries: hardware and software. By modularizing our code like this we are able to keep our code as flexible as possible. This is important for accommodating future iterations and extensions of this project.
 
-For all leaf nodes (no sub-modules) within the class diagram, there will
-be internal attributes that map characteristics of the respective
-components.
+**Hardware:** <br>
+The code in the hardware library is very specific to the components used for this project. For example, the code in imu.cpp is based off of our IMU; the MPU-6050. Each of these files will likely need to be replaced or tweaked if the relative part is changed out. The key goal for this library is to provide an API for interacting with each of the hardware components.
 
-![Example UML class diagram](software_architecture/Yed/rocket.png)
+**Software:** <br>
+The code in the software library is independent of the hardware, and should be able to work for the most part regardless of the specific parts used. This is possible due to the software library exclusively interfacing with hardware through the hardware package method calls, so there is no need to know about the internal workings of any of the hardware methods or processes. This package is mainly about the actual logic of the rocket and the process it takes, so will keep track of more abstract things such as the rocket state and logging. In theory, this package should be quite robust to future iterations of the project.
+
+![Example UML class diagram](software_architecture/Yed/rocket_restructured.png)
 
 **_Figure 1:_** UML Class Diagram of Software Module Organization
 

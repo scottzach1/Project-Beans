@@ -4,7 +4,7 @@
 Logging::Logging() {
 }
 
-void Logging::log_lora() {
+void Logging::log_radio() {
 }
 
 void Logging::log_sd() {
