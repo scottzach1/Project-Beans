@@ -42,8 +42,9 @@ test-drc:
   image: productize/kicad-automation-scripts:latest
   script:
     - export DISPLAY=:0
-    - python -m kicad-automation.pcbnew_automation.run_drc ./hardware_package/avionics_pcb/testing/KiCad.kicad_pcb .output
-  allow_failure: true
+    - python -m kicad-automation.pcbnew_automation.run_drc ./hardware_package/avionics_pcb/avionics_breakout_PCB/avionics_breakout_PCB.kicad_pcb .output
+    - python -m kicad-automation.eeschema.schematic run_erc ./hardware_package/avionics_pcb/avionics_breakout_PCB/avionics_breakout_PCB.sch .output
+  allow_failure: false
 
 unit-test:
     stage: Test
