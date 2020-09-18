@@ -61,5 +61,16 @@ Specs:
 - Screw holes added to mounts.
 - Created Assembly.
 - added anchor for wire that attaches to servo lever.
-- Bolt types confirmed, fixtures made for M3 9mm thread bolts and nuts.
+- Bolt types confirmed, fixtures made for M3 9mm/6mm bolts and nuts.
 - Updated with fixtures for rocket body to attach.
+
+## Prototype 3
+
+The gimbal itself is kept the same as 2 with a few reinforcements. The additions for this include the fixtures to the rest of the rocket body.
+
+**Log: Create and assemble prototype 3 (for 24mm engine)**:
+
+- reinforced several bolt holes and thinner areas
+- Added a structure extending up to attach to a 10mm thick shaft that will connect to the rocket body. This is desired as it will increase the torque of the gimbal on the rocket. This should hopefully reduce difficulty of tuning the controller.
+- Created assembly and had to make a few modifications to ensure the functionality remains.
+  - added a ring near top of inner tube that will act as a uniform angle limiter, this must be calibrated so the max absolute angle of the gimbal is know (10 degrees or less is ideal at this stage0).
