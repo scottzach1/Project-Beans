@@ -219,7 +219,6 @@ F 3 "" H 1300 1200 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	1300 1400 1450 1400
-NoConn ~ 1450 1300
 NoConn ~ 1450 1100
 Wire Wire Line
 	1300 1200 1450 1200
@@ -420,4 +419,27 @@ Wire Wire Line
 	2950 2000 3050 2000
 Wire Wire Line
 	2950 2100 3050 2100
+$Comp
+L Connector:Conn_01x01_Male J9
+U 1 1 5F646CDC
+P 1100 1400
+F 0 "J9" H 750 1400 50  0000 R CNN
+F 1 "GND_IN" H 1050 1400 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-0.1sqmm_1x01_D0.4mm_OD1mm" H 1100 1400 50  0001 C CNN
+F 3 "~" H 1100 1400 50  0001 C CNN
+	1    1100 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J8
+U 1 1 5F649BF1
+P 1100 1200
+F 0 "J8" H 750 1200 50  0000 R CNN
+F 1 "3V3_IN" H 1050 1200 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-0.1sqmm_1x01_D0.4mm_OD1mm" H 1100 1200 50  0001 C CNN
+F 3 "~" H 1100 1200 50  0001 C CNN
+	1    1100 1200
+	1    0    0    -1  
+$EndComp
+NoConn ~ 1450 1300
 $EndSCHEMATC
