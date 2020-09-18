@@ -5,7 +5,7 @@ I discussed modelling the rocket body with Andre and several changes to this hav
 
 **Components**
 * Gimbal
- * Status: completed Gimbal. However requires extra fixtures to attach to displacement rod.
+ * Status: completed Gimbal. (Item done, gimbal is now attached to rocket) However requires extra fixtures to attach to displacement rod.
  * (Item done) Also needs some rework on bolt/nut holes. Require conformation that the team has M3 6mm & 9mm bolts.
 * ~~PCB housing~~ PCB (due to existing in Andres rocket)
  * Status: Require dimensions for PCB, once this is done the Existing PCB case can be altered.
