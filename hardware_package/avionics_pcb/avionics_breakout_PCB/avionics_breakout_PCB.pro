@@ -1,4 +1,4 @@
-update=18/09/2020 12:57:29 AM
+update=Fri 18 Sep 2020 12:02:37 PM NZST
 version=1
 last_client=kicad
 [general]

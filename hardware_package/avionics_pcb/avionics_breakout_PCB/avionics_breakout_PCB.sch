@@ -52,8 +52,6 @@ Text GLabel 7050 2400 0    50   Input ~ 0
 SCK
 Text GLabel 7050 2500 0    50   Input ~ 0
 CS
-Text GLabel 8050 2300 2    50   Input ~ 0
-INT_LORA
 Text GLabel 2950 2300 2    50   Input ~ 0
 RESET
 Text GLabel 1450 2000 0    50   Input ~ 0
@@ -174,21 +172,15 @@ NoConn ~ 7250 4300
 NoConn ~ 7250 4400
 NoConn ~ 1450 1500
 NoConn ~ 1450 1600
-NoConn ~ 1450 1700
-NoConn ~ 1450 1800
 NoConn ~ 1450 1900
 NoConn ~ 2950 1500
 NoConn ~ 2950 1600
 NoConn ~ 2950 1700
-NoConn ~ 2950 1800
-NoConn ~ 2950 1900
-NoConn ~ 2950 2000
-NoConn ~ 2950 2100
 $Comp
-L Connector_Generic:Conn_01x04 J1
+L Connector_Generic:Conn_01x04 J0
 U 1 1 5F64C92F
 P 1750 4150
-F 0 "J1" V 1622 4330 50  0000 L CNN
+F 0 "J0" V 1622 4330 50  0000 L CNN
 F 1 "GPS" V 1713 4330 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 1750 4150 50  0001 C CNN
 F 3 "~" H 1750 4150 50  0001 C CNN
@@ -227,17 +219,6 @@ F 3 "" H 1300 1200 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	1300 1400 1450 1400
-$Comp
-L avionics_breakout_PCB-rescue:Adafruit_Feather_STM32F405-avionics STM32
-U 1 1 5F62EEAA
-P 2200 1850
-F 0 "STM32" H 2200 2965 50  0000 C CNN
-F 1 "Adafruit_Feather_STM32F405" H 2200 2874 50  0000 C CNN
-F 2 "avionics:Adafruit_Feather_STM32F405" H 2200 1750 50  0001 C CNN
-F 3 "" H 2200 1650 50  0001 C CNN
-	1    2200 1850
-	1    0    0    -1  
-$EndComp
 NoConn ~ 1450 1300
 NoConn ~ 1450 1100
 Wire Wire Line
@@ -336,10 +317,10 @@ $EndComp
 Wire Wire Line
 	8500 1500 8300 1500
 $Comp
-L Connector:Conn_01x01_Male J2
+L Connector:Conn_01x01_Male J1
 U 1 1 5F636A13
 P 8550 2800
-F 0 "J2" H 8522 2732 50  0000 R CNN
+F 0 "J1" H 8522 2732 50  0000 R CNN
 F 1 "ANT" H 8522 2823 50  0000 R CNN
 F 2 "Connector_Wire:SolderWire-0.1sqmm_1x01_D0.4mm_OD1mm" H 8550 2800 50  0001 C CNN
 F 3 "~" H 8550 2800 50  0001 C CNN
@@ -348,4 +329,95 @@ F 3 "~" H 8550 2800 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	8050 2800 8350 2800
+Text GLabel 8050 2300 2    50   Input ~ 0
+INT_LORA
+$Comp
+L avionics_breakout_PCB-rescue:Adafruit_Feather_STM32F405-avionics STM32
+U 1 1 5F62EEAA
+P 2200 1850
+F 0 "STM32" H 2200 2965 50  0000 C CNN
+F 1 "Adafruit_Feather_STM32F405" H 2200 2874 50  0000 C CNN
+F 2 "avionics:Adafruit_Feather_STM32F405" H 2200 1750 50  0001 C CNN
+F 3 "" H 2200 1650 50  0001 C CNN
+	1    2200 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J3
+U 1 1 5F65726D
+P 1100 1700
+F 0 "J3" H 750 1700 50  0000 R CNN
+F 1 "SER_2" H 1050 1700 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-0.1sqmm_1x01_D0.4mm_OD1mm" H 1100 1700 50  0001 C CNN
+F 3 "~" H 1100 1700 50  0001 C CNN
+	1    1100 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J2
+U 1 1 5F658B0B
+P 1100 1800
+F 0 "J2" H 750 1800 50  0000 R CNN
+F 1 "SER_1" H 1050 1800 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-0.1sqmm_1x01_D0.4mm_OD1mm" H 1100 1800 50  0001 C CNN
+F 3 "~" H 1100 1800 50  0001 C CNN
+	1    1100 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1300 1700 1450 1700
+Wire Wire Line
+	1300 1800 1450 1800
+$Comp
+L Connector:Conn_01x01_Male J4
+U 1 1 5F65C68E
+P 3250 2100
+F 0 "J4" H 2950 2100 50  0000 R CNN
+F 1 "IGN_1" H 3200 2100 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-0.1sqmm_1x01_D0.4mm_OD1mm" H 3250 2100 50  0001 C CNN
+F 3 "~" H 3250 2100 50  0001 C CNN
+	1    3250 2100
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J5
+U 1 1 5F65D9FC
+P 3250 2000
+F 0 "J5" H 2950 2000 50  0000 R CNN
+F 1 "IGN_2" H 3200 2000 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-0.1sqmm_1x01_D0.4mm_OD1mm" H 3250 2000 50  0001 C CNN
+F 3 "~" H 3250 2000 50  0001 C CNN
+	1    3250 2000
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J6
+U 1 1 5F65DEA0
+P 3250 1900
+F 0 "J6" H 2950 1900 50  0000 R CNN
+F 1 "IGN_3" H 3200 1900 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-0.1sqmm_1x01_D0.4mm_OD1mm" H 3250 1900 50  0001 C CNN
+F 3 "~" H 3250 1900 50  0001 C CNN
+	1    3250 1900
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J7
+U 1 1 5F65E280
+P 3250 1800
+F 0 "J7" H 2950 1800 50  0000 R CNN
+F 1 "IGN_4" H 3200 1800 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-0.1sqmm_1x01_D0.4mm_OD1mm" H 3250 1800 50  0001 C CNN
+F 3 "~" H 3250 1800 50  0001 C CNN
+	1    3250 1800
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2950 1800 3050 1800
+Wire Wire Line
+	2950 1900 3050 1900
+Wire Wire Line
+	2950 2000 3050 2000
+Wire Wire Line
+	2950 2100 3050 2100
 $EndSCHEMATC
