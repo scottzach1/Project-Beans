@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name PCBwBreakout-eagle-import)(type Legacy)(uri ${KIPRJMOD}/PCBwBreakout-eagle-import.lib)(options "")(descr ""))
+  (lib (name PCBwBreakout-rescue)(type Legacy)(uri ${KIPRJMOD}/PCBwBreakout-rescue.lib)(options "")(descr ""))
+)
