@@ -1,15 +1,16 @@
-
 #include "barometer.h"
+
+#include "debug.h"
 
 Barometer::Barometer() = default;
 Barometer::~Barometer() = default;
 
 void Barometer::init() {
-  Serial.println("Initializing Barometer...");
+    DEBUG_MSG_LN(1, "Initializing Barometer...");
 
-  while (!baro.begin()) delay(10);
+    while (!baro.begin()) delay(10);
 
-  Serial.println("Barometer initialization done.");
+    DEBUG_MSG_LN(1, "Barometer initialization done.");
 }
 
 float Barometer::read_pressure_bars() { return baro.getPressure() * 0.00001; }
@@ -17,7 +18,7 @@ float Barometer::read_pressure_bars() { return baro.getPressure() * 0.00001; }
 float Barometer::read_pressure_pascals() { return baro.getPressure(); }
 
 float Barometer::read_pressure_psi() {
-  return baro.getPressure() * 0.0001450377;
+    return baro.getPressure() * 0.0001450377;
 }
 
 /**

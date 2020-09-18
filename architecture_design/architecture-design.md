@@ -1,7 +1,9 @@
 # ENGR 301 Project Architectural Design and Proof-of-Concept
 
-**Authors:** a comma-separated list of the names of each member of the
-team.
+[[_TOC_]]
+
+**Authors:** Billy Rob, Finlay Sargisson, Niels Clayton, Ron Crisostomo,
+Will Fowler, Zac Scott
 
 ## 1. Introduction
 
@@ -518,7 +520,29 @@ ruleset for writing safety-critical software \[3].
   open source and pre-configured to comply with the aforementioned
   Google Style guide.
 
-##### Linting
+###### Debugging
+
+Debugging mission critical software can be a tiring concern. As software
+executes on the rocket's micro-controller instead of on the developers
+PC. This can mean debugging can be limited. One of the mechanisms
+developers can use to help check the rockets' software is performing
+correctly is writing log files or printing to the serial console.
+Although log files are great for retrospectively investigating the
+software's behaviour it would be insufficient to utilise for general
+development testing. To support this, we have introduced a debug flag
+and method that can help manage all of these debug messages. This flag
+can be passed to the software as a build argument, and will default to
+`0` (OFF) by default. This flag can be set using GCC's `-D` flag and is
+set within the `platformio.ini` platformio project configuration file.
+The following debug scale is as specified below:
+
+| DEBUG | Description                               | Example                                                 |
+|:------|:------------------------------------------|:--------------------------------------------------------|
+| 0     | No debug whatsoever.                      | N/A                                                     |
+| 1     | Debugging (light messages, no specifics). | Eg. `TODO implement this...` and `parachute launched.`. |
+| 2     | Full verbose (remainder of information).  | Eg. `Returned value 5` or `Entering loop iteration 2`.  |
+
+###### Linting
 
 The Gitlab repository will use multiple linters to enforce that all
 documents are syntactically correct, consistent, safe, and readable. By
@@ -539,7 +563,7 @@ ideal tool for integration within GitLab's CI system. This linter will
 enforce a set of predefined markdown formatting rules specified
 [here](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md).
 
-##### PlatformIO
+###### PlatformIO
 
 The software development component of the project is facilitated by
 [PlatformIO](https://platformio.org/). PlatformIO is development
@@ -1030,7 +1054,7 @@ incurred. Substantiate each budget item by reference to fulfilment of
 project goals (one paragraph per item).
 
 | COMPONENT        | COST            | NAME/DESCRIPTION/LINK                                                                                                                                                                                                                                                                                                                                                                                                                                        | REASONS FOR CHOICE                                                                                                        |
-| :--------------- | :-------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------ |
+|:-----------------|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|
 | Micro-Controller | \$24.95 USD     | Adafruit Feather STM32F405 (168MHz) [BUY](https://www.adafruit.com/product/4382), [Github](https://github.com/adafruit/Adafruit-Feather-STM32F405-Express-PCB), [Documentation](https://www.digikey.co.nz/en/videos/a/adafruit/programming-the-adafruit-feather-stm32f405-express-with-stm32cubeide-maker-io)                                                                                                                                                | Small, Light, Good Opensource Libraries & Good Documentation                                                              |
 | IMU              | \$17.59 NZD     | BNO055 [BUY](https://nz.mouser.com/ProductDetail/Bosch-Sensortec/BNO055?qs=QhAb4EtQfbV8Z2YmISucWw%3D%3D), [Datasheet](https://nz.mouser.com/datasheet/2/783/BST-BNO055-DS000-1509603.pdf), [Adafruit library](https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/arduino-code)                                                                                                                                                           | Good Libraries, quaternions, Better Documentation                                                                         |
 | GPS              | \$61.93 NZD     | Adafruit Mini GPS PA1010D [BUY](https://www.digikey.co.nz/products/en?keywords=PA1010D), [Datasheet](https://cdn.taoglas.com/datasheets/GP.1575.25.4.A.02.pdf)                                                                                                                                                                                                                                                                                               | Cheap, Small and Meets requirments                                                                                        |
@@ -1102,7 +1126,8 @@ emphasis on simplicity, modularity, and modifiability).
 The document will be assessed by considering both presentation and
 content. Group and individual group members will be assessed by
 identical criteria, the group mark for the finished PDF and the
-individual mark on the contributions visible through `git blame`, `git diff`, file histories, etc.
+individual mark on the contributions visible through `git blame`, `git
+diff`, file histories, etc.
 
 The presentation will be based on how easy it is to read, correct
 spelling, grammar, punctuation, clear diagrams, and so on.

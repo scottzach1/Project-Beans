@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "sd.h"
 
 #include <STM32SD.h>
@@ -14,13 +15,13 @@ Sd::~Sd() = default;
 void Sd::init(std::string fName) {
   while (!Serial) delay(10);
 
-  Serial.println("Initializing SD card.");
+  DEBUG_MSG_LN(1, "Initializing SD card.");
   while (!SD.begin(SD_DETECT_PIN)) delay(10);
 
   fileName = fName;
   file = SD.open(fName.c_str(), FILE_WRITE);
 
-  Serial.println("SD Initialization done.");
+  DEBUG_MSG_LN(1, "SD Initialization done.");
 }
 
 void Sd::write(std::string data) { file.write(data.c_str(), data.size()); }
