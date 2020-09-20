@@ -178,9 +178,9 @@ BOOT0
 Text Label 7650 2400 0    50   ~ 0
 A0
 Text Label 7650 2500 0    50   ~ 0
-A1
+INT2
 Text Label 7650 2600 0    50   ~ 0
-A2
+INT1
 Text Notes 7950 2450 0    50   ~ 0
 DACs
 $Comp
@@ -1401,7 +1401,7 @@ $EndComp
 Wire Wire Line
 	7650 2900 7650 3000
 Text Label 7650 2700 0    50   ~ 0
-A3
+INT
 Wire Wire Line
 	6850 5500 6950 5500
 Connection ~ 6850 5500
