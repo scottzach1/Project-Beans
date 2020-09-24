@@ -865,7 +865,7 @@ Text Notes 14650 2850 2    50   ~ 0
 JST Battery Connector\n
 Text Notes 12850 2900 3    50   ~ 0
 Voltage Divider
-Text Notes 800  1400 3    50   ~ 0
+Text Notes 2750 650  0    71   ~ 0
 USB-C Connector\n
 Text Notes 13250 10950 2    59   ~ 12
 Rocket PCB Schematic\n
@@ -2273,4 +2273,8 @@ Text Label 1550 4900 0    71   ~ 0
 BOOT0
 Text Notes 1150 5050 0    71   ~ 0
 Program
+Wire Notes Line
+	450  5250 3850 5250
+Text Notes 2500 3950 0    71   ~ 0
+Reset & Prog Switches\n
 $EndSCHEMATC
