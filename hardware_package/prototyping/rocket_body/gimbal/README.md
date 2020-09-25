@@ -73,4 +73,5 @@ The gimbal itself is kept the same as 2 with a few reinforcements. The additions
 - reinforced several bolt holes and thinner areas
 - Added a structure extending up to attach to a 10mm thick shaft that will connect to the rocket body. This is desired as it will increase the torque of the gimbal on the rocket. This should hopefully reduce difficulty of tuning the controller.
 - Created assembly and had to make a few modifications to ensure the functionality remains.
-  - added a ring near top of inner tube that will act as a uniform angle limiter, this must be calibrated so the max absolute angle of the gimbal is know (10 degrees or less is ideal at this stage0).
+  - added a ring near top of inner tube that will act as a uniform angle limiter, this must be calibrated so the max absolute angle of the gimbal is know (10 degrees or less is ideal at this stage).
+- Added a stand for the gimbal. May need to change the size for better stability. Gimbal has been printed but the stand is yet to be finalized and printed.
