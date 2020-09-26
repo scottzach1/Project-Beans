@@ -1,3 +1,2 @@
 (sym_lib_table
-  (lib (name avionics_breakout_PCB-rescue)(type Legacy)(uri ${KIPRJMOD}/avionics_breakout_PCB-rescue.lib)(options "")(descr ""))
 )
