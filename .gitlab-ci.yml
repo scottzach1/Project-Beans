@@ -26,15 +26,6 @@ cpplint:
     - docker
   allow_failure: true
 
-build:
-  stage: Build
-  tags:
-    - shell
-  script:
-    - echo "static analysis"
-    - exit 0
-  allow_failure: true
-
 test-drc:
   stage: Test
   tags:
@@ -47,17 +38,36 @@ test-drc:
   allow_failure: false
 
 unit-test:
-    stage: Test
-    image: python:2.7
-    script:
-      - pip install -U platformio
-      - cd software_package/development
-      - pio test -v -e native
-    tags:
-        - drc
-    allow_failure: true
+  stage: Test
+  image: python:2.7
+  script:
+    - pip install -U platformio
+    - cd software_package/development
+    - pio test -v -e native
+  tags:
+    - drc
+  allow_failure: true
 
-code-coverage:
+# code-coverage:
+#   stage: Test
+#   tags:
+#     - docker
+#   image: gcc
+#   script:
+#     - apt-get update
+#     - apt-get install -y gcovr
+#     - cd software_package/code_coverage
+#     - chmod u+x execute_tests_coverage.sh
+#     - ./execute_tests_coverage.sh -f lib/hardware/src -f lib/software/src -t test/test_hardware -t test/test_software
+#   artifacts:
+#     paths:
+#       - software_package/code_coverage/*.html
+#     untracked: false
+#     expire_in: 10 days
+#   allow_failure: true
+#   coverage: '/^TOTAL.*\s+(\d+\%)$/'
+
+code-coverage-experimental:
   stage: Test
   tags:
     - docker
@@ -66,24 +76,10 @@ code-coverage:
     - apt-get update
     - apt-get install -y gcovr
     - cd software_package/code_coverage
-    - chmod u+x execute_tests_coverage.sh
-    - ./execute_tests_coverage.sh -f lib/hardware/src -f lib/software/src -t test/test_hardware -t test/test_software 
-  artifacts:
-    paths:
-      - software_package/code_coverage/*.html
-    untracked: false
-    expire_in: 10 days
+    - chmod u+x experimental-coverage.sh
+    - ./experimental-coverage.sh
   allow_failure: true
   coverage: '/^TOTAL.*\s+(\d+\%)$/'
-
-deploy:
-  stage: Deploy
-  tags:
-    - shell
-  script:
-    - echo "deploy"
-    - exit 0
-  allow_failure: true
 
 platformio:
   image: python:2.7
@@ -94,5 +90,5 @@ platformio:
     - cd software_package/development
     - pip install -U platformio
     - pio check -v # check that `main.cpp` and any referenced libraries compile fine.
-  variables: {PLATFORMIO_CI_SRC: "src/main.cpp"}
+  variables: { PLATFORMIO_CI_SRC: "src/main.cpp" }
   allow_failure: true
