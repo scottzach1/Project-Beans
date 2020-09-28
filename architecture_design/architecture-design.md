@@ -728,43 +728,21 @@ corrupted or damaged.
 
 The circuit architecture
 viewpoint details the physical components of the avionics package and
-how these interact on the printed circuit board (PCB).
+how these connect on the printed circuit board (PCB).
 
-The wiring on the circuit board can be split into two categories, those
-that carry signals between components and those that provide power to
-the components. Beginning with wiring between components, all signals
-either originate from or are sent to the microcontroller. During
-operation, the IMU and GPS both pass analogue signals to ports on the
-microcontroller. During flight the microcontroller frequently polls the
-port wired to the IMU and digitizes the signal for use in the active
-control of the rocket. The port wired to the GPS is simply polled when
-the location of the rocket (post-flight) is required. The
-microcontroller then generates control signals on the port wired to the
-gimbal servos to adjust the rockets vector. During the ignition sequence
-the microcontroller outputs an ignition signal on the port wired to the
-ignition system to ignite the motor. In terms of communications, the
-microcontroller both polls and outputs signals to the radio interface in
-order to receive and transmit data to the base station. The radio
-interface modulates/demodulates signals passed to and received from the
-antenna. Lastly, the microcontroller also outputs signals on the port
-wired to the SD Card reader/writer. This signal is then transcribed onto
-the SD card for retrieval post-flight.
+The main components included on the PCB are listed:
+- STM32F405 microcontroller
+- MPU-6050 IMU
+- RFM69HCW radio module
+- MPL3115A2 Barometer
+- Micro SD reader/writer
+- USB-C recepticle
+- Battery
 
-The remaining wiring is involved in providing power to the components
-which require it. In this case, all the components require power
-including the radio antenna and SD card. The power supply circuitry
-begins with the battery. <Insert further details regarding battery
-configuration> The batteries are wired in series with a diode and a
-circuit breaker. The diode ensures that incorrect battery polarity does
-not result in potentially damaging reverse currents. Meanwhile the
-circuit breaker ensures that in the event of a short-circuit, power is
-cut to protect all of the hardware. Following these, the electrical
-signal is passed into a series of voltage regulators. The voltage
-regulators regulate the batteries' output to the voltages required by
-all the components. Once this is achieved power is delivered to all the
-components via the rails outputted by the voltage regulator. In addition
-to providing the power, the batteries' negative terminal is also used as
-the ground reference for all of the components.
+The connections on the PCB fall into two categories, those transfering data and those providing power.
+Beginning with the power, the board is connected to a 2-cell LiPo battery which outputs a voltage between 8.4-6V depending on charge. As the STM32F405 requires half of this voltage it is first regulated down to 3.7V (nominal voltage of an individual cell). This is then fed into a second 3.3V regulator which is enabled only when the board is not connected to USB-C. The 3.3V DC is then connected to the microcontroller, microSD port, radio module, IMU, Flash memory, barometer and GPS. To improve the robustness of the design against EMI and under voltage issues, an array of capacitors are connected in parallel to the 3.3V rail. The ground for all components is referenced to the negative terminal of the battery. As the JST connector on the LiPo battery is keyed it is not necessary to add reverse polarity protection, however, a polyfuse is included to provide protection against over current in the event of a short circuit.
+
+In terms of data, the sensors and peripherls on the board communicate with the microcontroller via I2C and SPI interfaces. The barometer, GPS and IMU all make use of I2C, while the radio module uses SPI. The USB-C and microSD ports both use their respective protocols to transfer data to and from external hardware.
 
 For development, the circuit incorporates several test points and LEDs
 to aid in quickly identifying the status of the system as well and
@@ -778,12 +756,6 @@ example.
 
 #### 4.4.2 Hardware
 
-- One or more concerns framed by this viewpoint
-- typical stakeholders for concerns framed by this viewpoints
-- one or more model kinds used in this viewpoint;
-- concern = Topic of interest pertaining to the system
-- Stakeholders of a system hold these concerns e.g. controller flight.
-
 The hardware architecture is specifically related to the interaction
 between software and the hardware systems onboard the rocket. The
 purpose of this viewpoint it to address the main concerns within the
@@ -795,16 +767,8 @@ of dependencies between hardware and systems is shown below.
 
 ![Physical Deployment Diagram](hardware_architecture/Hardware_Architecture.png)
 
-The arrow directions point to what is depend on the system where the
-arrow originates from. The red arrows indicate the transfer or
-dependency on power, whereas the green indicate data transfer. This
-diagram can be used to see dependencies between the software and
-hardware systems within the rocket. This diagram omits the base station
-receiver.
-
-The arrow directions point to what is depend on the system where the
-arrow originates from. The red arrows indicate the transfer or
-dependency on power, whereas the green indicate data transfer. This
+The arrow directions points to the component that relies on the system where the
+arrow originates from. The red arrows indicate power dependency, whereas the green arrows indicate data transfer. This
 diagram can be used to see dependencies between the software and
 hardware systems within the rocket. This diagram omits the base station
 receiver.
@@ -819,11 +783,10 @@ concerns must be addressed.
 The power system is the most important system within the rocket. All
 Hardware components (excluding non-electrical components) will not
 function if this system malfunctions. There are several concerns
-regarding the power supply. Each component added to this system, like
-the exiting components, need to be connected to the correct voltage
-line. The existing lines are (? what volages) with max currents (?)
-respectively. The voltage must and max current must be abided by, else
-the power supply with shut off or fail. If these are not sufficient for
+regarding the power supply. Each component added to this system, similarly to
+the existing components, need to be connected to the correct voltage
+rail. The existing lines are 7.4V and 3.7V. The voltage and max current must be abided by, otherwise
+the power supply may shut off or fail. If these are not sufficient for
 the new hardware a new voltage line must be added. A concern reguarding
 adding a new voltage line is the portion of the total battery current it
 will draw. This must not exceed (?) and must still allow enough for the
