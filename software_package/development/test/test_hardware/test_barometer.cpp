@@ -1,8 +1,5 @@
 #include "unity.h"
-// #include "barometer.h"
-
-
- 
+#include "barometer.h"
 
 // values found according to https://www.freemaptools.com/elevation-finder.htm
 // currently based on Trentham Memorial Park launch site, this value will need to be changed if the launch site changes.
