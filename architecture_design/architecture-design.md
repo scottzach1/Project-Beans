@@ -701,24 +701,23 @@ This viewpoint extends to the physical hardware that the system will be
 implemented on. For the avionics package the view of the physical system
 includes two major blocks, the rocket and the base station. Interaction
 between these two systems is fairly limited as the rocket's operation is
-entirely autonomous during flight. However, radio communication still
+intended to be autonomous during flight. However, radio communication still
 occurs throughout operation. Pre-flight, the system status of the rocket
-must be verified before the launch sequence is initiated remotely.
+must be verified before the launch sequence is initiated.
 During flight, telemetry is broadcasted and received by the base
 station, this is to ensure that in the event the rocket is not
 recovered, flight data can still be reviewed. Post-flight, the base
 station is able to query the location of the rocket should its location
-be unknown after landing. During operation the rockets functions are to
+be unknown after landing. During operation the rocket's functions are to
 take measurements from on-board sensors, actively control flight through
 the gimbal and store as well as broadcast data pertaining to sensor
-measurements and controller response. The Base Station actively monitors
+measurements. The Base Station actively monitors
 the radio channel and stores the received telemetry data into a local
 database.
 
 In terms of scalability, the physical hardware could be improved in a
-few aspects. The processor onboard the avionics package could be
-improved to support greater data logging resolution. There could be more
-than one base station communicating with the rocket to ensure a more
+few aspects. The onboard STM32F405 could be upgraded, or hardware acceleration components could be included to support greater data logging resolution. There could be more
+than one base station/and or antennas communicating with the rocket to ensure a more
 stable connection. The flight data could also be stored across more than
 one SD card or hard drive in the event that one or more of the drives is
 corrupted or damaged.
@@ -727,8 +726,7 @@ corrupted or damaged.
 
 #### 4.4.1 Circuit
 
-<_**TODO:**_ Make this section a bit more detailed on the physical
-circuit, which requires designing the circuit> The circuit architecture
+The circuit architecture
 viewpoint details the physical components of the avionics package and
 how these interact on the printed circuit board (PCB).
 
