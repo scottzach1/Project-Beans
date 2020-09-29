@@ -19,7 +19,7 @@ for val in "${test_files_directories[@]}"; do
     echo " - $val"
 
     # Copying test files of target module into code_coverage
-    find ../development/$val -name '*.cpp' -exec cp -prv '{}' './' ';'
+    find ../$val -name '*.cpp' -exec cp -prv '{}' './' ';'
 done
 
 # Echoing and copying files to test into this directory
@@ -28,8 +28,8 @@ for val in "${files_to_test_directories[@]}"; do
     echo " - $val"
 
     # Copying cpp and header files of target module to be tested into code_coverage
-    find ../development/$val -name '*.cpp' -exec cp -prv '{}' './' ';'
-    find ../development/$val '*.h' -exec cp -prv '{}' './' ';'
+    find ../$val -name '*.cpp' -exec cp -prv '{}' './' ';'
+    find ../$val '*.h' -exec cp -prv '{}' './' ';'
 
 done
 
