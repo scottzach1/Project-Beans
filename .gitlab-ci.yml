@@ -48,6 +48,18 @@ unit-test:
     - drc
   allow_failure: true
 
+# Unit testing job that targets one of the PIO projects with code that has no dependencies with adafruit libraries
+unit-test-poc:
+  stage: Test
+  image: python:2.7
+  script:
+    - pip install -U platformio
+    - cd software_package/testing/testing_environment_experiment
+    - pio test -e no_adafruit_deps
+  tags:
+    - drc
+  allow_failure: true
+
 code-coverage:
   stage: Test
   tags:
