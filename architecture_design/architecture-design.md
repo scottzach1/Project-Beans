@@ -787,70 +787,54 @@ regarding the power supply. Each component added to this system, similarly to
 the existing components, need to be connected to the correct voltage
 rail. The existing lines are 7.4V and 3.7V. The voltage and max current must be abided by, otherwise
 the power supply may shut off or fail. If these are not sufficient for
-the new hardware a new voltage line must be added. A concern reguarding
-adding a new voltage line is the portion of the total battery current it
-will draw. This must not exceed (?) and must still allow enough for the
-required current draw on the other lines, else other components will
+the new hardware a new voltage rail must be added. A concern regarding new voltage lines is the portion of the total battery current it
+will draw. This must not exceed 22.5A and must still allow enough for the
+required current draw on the other lines, otherwise other components will
 malfunction.
 
 ###### Communications and Storage systems
 
-A requirement is that Data must be saved transferred to base station.
+A requirement is that data must be saved and transferred to the base station.
 All saved and transmitted data is processed in the microcontroller where
-it is packaged. The packaged data is from the IMU, and the other
-sensors(what sensors?). The software on the microcontroller is what
-polls the sensors at a rate (What rate?). A failure in the sensors will
-be handled by the software and data may still be sent missing the failed
-components data. However, if the microcontroller, Antenna, or the signal
-amplifier fails, the communications requirement will not be met. There
-is hardware to interface with the SD card for onboard storage of data,
-if this fails or data will not be saved onboard and may cause a halt on
+it is packaged. The packaged data is from the IMU, GPS and Barometer. The software on the microcontroller is what
+polls the sensors. A failure in the sensors will
+be handled by the software and data may still be sent to the basestation. However, if the microcontroller, antenna, or the signal
+amplifier fails, the communications requirement will not be met. In addition to radio, there
+is hardware to interface with a microSD card for onboard storage of data,
+if this fails, data will not be saved onboard and may cause a halt on
 the microcontroller causing the system to fail.
 
 The rocket acceleration will not allow some components to work properly.
-The onboard GPS (? what GPS) is not accurate for the acceleration phase
-of the rockets flight. This must be noted when adding new hardware and
+The onboard GPS is not accurate for the acceleration phase
+of the rocket's flight. This must be noted when adding new hardware and
 software system. new software should not rely on the GPS during the
 acceleration phase. Caution should be employed when adding new hardware,
 that is intended to be used during acceleration phase as the
-acceleration may effect function.
+acceleration may effect functionality.
 
 ###### Control system
 
 The microcontroller is at the center of the Control System, it contains
-the software that polls the IMU and the transfer function that take the
-desired flight angles (? what this called) and outputs the gimbal motor
+the software that polls the IMU and outputs the gimbal motor
 voltage signals to adjust the flight path. All components in this chain
-are required for this process, including the software if any fail,
+are required for this process, including the software. If any of these fail,
 controlled flight will not happen.
 
 ###### Ignition system
 
-The ignition system requires a high one off voltage to ignite the powder
-fuel. This has to remain isolated from the power system as not to damage
-the components within that are operating at lower voltages(?). (?
-specifications of this voltage signal and how it is implemented in our
-rocket. e.g. Power supply slowly charges a large capacitor then is
-discharged at ignition, this would then require a note of how long this
-will take to charge, how much battery charge this takes initially? (if
-significant))
+The ignition system requires a large current for a short duration to ignite the charge. This has to remain isolated from the power system as not to damage
+the components within. This works by charging a large capacitor and using a mosfet to quickly discharge it through the ignition charges when toggled by the microcontroller.
 
 ###### Base Station
 
 Key data is sent to the base station, the rest is stored on the rocket
 to save the computing resource available. Sent data includes the Battery
-level, GPS position (For locating after the acceleration phase), (?
-other indicators of system status).
+level, GPS position (For locating after the acceleration phase), as well as the output from the control system.
 
 ###### Software
 
-The microcontrollers onboard flash memory is where the control system
-parameters are stored along with (? Timing intervals for certain
-triggers, large sections of software that wont fit in the program
-memory? Subroutines for interrupts). Triggers include: Ignition, Base
-station triggers?. Continuous data flows include: Control system
-(receiving from IMU, sending to Gimbal), Data storage (Polling Sensors,
-sending data to SD), Communications (Sending to amplifier).
+The microcontroller's onboard flash memory is where the control system
+parameters are stored along with the program code, and the device drivers. The software is responsible for writing data to the LoRa module and SD card as well as polling data from the IMU, barometer and GPS. 
 
 ### 4.5 Scenarios
 
