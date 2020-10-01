@@ -172,7 +172,7 @@ int main() {
   RUN_TEST(unit_test_1);
 
   return UNITY_END();
-
+}
 ```
 
 ## Any limitations?
