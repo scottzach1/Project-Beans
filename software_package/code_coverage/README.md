@@ -16,19 +16,20 @@ reports correctly.
   chmod u+x execute_tests_coverage.sh
   chmod u+x clean_coverage_info.sh
   ```
-- **To produce code coverage reports** - `./execute_tests_coverage.sh -f
-  path/to/files/to/be/tested  -t path/to/test/files`
+
+- **To produce code coverage reports** - `./execute_tests_coverage.sh -f path/to/files/to/be/tested -t path/to/test/files`
+
   - This will generate a bunch of html files in the `code_coverage`
     directory which gives you a visual representation of the code
     coverage (simply view the html files in a browser of your choice)
 
-  - Example Usage: `./execute_tests_coverage.sh -f lib/hardware/src -t
-    test/test_hardware`
+  - Example Usage: `./execute_tests_coverage.sh -f development/lib/hardware/src -t development/test/test_hardware`
 
 - **To cleanup the `code_coverage` directory** -
   `./clean_coverage_info.sh`
+
   - This will remove all html files and gcov meta data from the
-    directory (note that this is also executed everytime the 
+    directory (note that this is also executed everytime the
     `execute_tests_coverage.sh` script is executed. This is just a useful
     way of cleaning up the `code_coverage` directory if you need to)
 
@@ -36,14 +37,13 @@ reports correctly.
   able to handle an arbitrary number of test file directories and test
   target directories so long as the command line argument flags are used
   correctly.
-  
+
   - `-f` - Specifies the path to the target directories
   - `-t` - Specifies the path to the directory where the test files
-  are stored
+    are stored
 
   - Example Usage with multiple directories
-  `./execute_tests_coverage.sh -f lib/hardware/src -f lib/software/src -t 
-  test/test_hardware -t test/test_software`
+    `./execute_tests_coverage.sh -f developmentlib/hardware/src -f development/lib/software/src -t development/test/test_hardware -t development/test/test_software`
 
 ## PIO Unit Testing and Unity
 
@@ -72,6 +72,7 @@ reporting and generation happens in `code_coverage` directory.
 
 **There are 2 scripts in this directory (see TL;DR at the top to see how
 to execute the scripts)**
+
 - `execute_tests_coverage.sh` - Responsible for using Unity, obtaining
   all files to be tested, and their corresponding test files to execute
   the tests and generate the reports using gcov and gcovr
@@ -88,14 +89,38 @@ currently compiles and tests _all_ modules in the `lib` folder of the
 project. The html files are stored as artifacts and can be downloaded
 upon the completion of the `code-coverage` job in the pipeline
 
-**Note:** You might notice that even though there are compilation
-errors, the code coverage reports are still generated, showing '0%'
-coverage. This means that the code coverage reporting was succesful,
-but, because some of the files failed to compile, they cannot be tested.
-Therefore, this means that there is 0% line coverage for the tested
-files.
+**Note 1:** You might notice that even though there are compilation and
+build errors in the job's output, the code coverage reports are still
+generated, showing '0%' coverage. This means that the code coverage
+reporting was succesful, but, because some of the files failed to
+compile, they cannot be tested. Therefore, this means that there is 0%
+line coverage for the tested files.
 
-The code below outlines the code-coverage job.
+- As an aside, the build errors are to do with adafruit libraries not
+  not being located correctly in a development environment outside of
+  the onboard microcontroller being used for the rocket. This creates
+  issues with regards to CI/CD, especially for the unit testing and
+  code coverage generation components of the pipeline. An approach to
+  demonstrate meaningful code coverage reporting is outlined in Note 2.
+
+**Note 2:** There are actually 2 implementations of the `code-coverage`
+job in `.gitlab-ci.yml`. One is named `code-coverage` and the other is
+named `code-coverage-poc`.
+
+- `code-coverage` is the intended 'main' code coverage job of the
+  repository
+
+- `code-coverage-poc` performs the exact same operations as the main
+  `code-coverage` job, but it instead targets a separate PIO project
+  that contains source code that does not depend on any adafruit
+  dependencies. The reason why this job exists is to serve as a
+  proof-of-concept (POC) that demonstrates the capabilities of the
+  current code coverage implementation in a meaningful manner. The
+  regular `code-coverage` is limited by factors described in Note 1,
+  making it difficult to convey the abilities of the current code
+  coverage implementation.
+
+The yml code below outlines the code-coverage job.
 
 ```yml
 code-coverage:
@@ -108,7 +133,7 @@ code-coverage:
     - apt-get install -y gcovr
     - cd software_package/code_coverage
     - chmod u+x execute_tests_coverage.sh
-    - ./execute_tests_coverage.sh -f lib/hardware/src -f lib/software/src -t test/test_hardware -t test/test_software 
+    - ./execute_tests_coverage.sh -f development/lib/hardware/src -f development/lib/software/src -t development/test/test_hardware -t development/test/test_software
   artifacts:
     paths:
       - software_package/code_coverage/*.html
@@ -118,11 +143,19 @@ code-coverage:
   coverage: '/^TOTAL.*\s+(\d+\%)$/'
 ```
 
+## How to write code coverage compliant test files?
+
+Use the template
+[here](software_package/testing/testing_environment_experiment/test/test_file_template.cpp)
+to write test files that are compliant with this method of generating
+code coverage reports.
+
 ## Any limitations?
 
 _*Yes.*_
+
 - Both of the scripts do some removal of files and directories which can
-  be dangerous. Particularly, the line `rm -R -- */`. Do not replace '*'
+  be dangerous. Particularly, the line `rm -R -- */`. Do not replace '\*'
   with a symlink to another directory since this may result in the
   removal of the linked directory upon executing the script/s.
 
@@ -133,8 +166,7 @@ _*Yes.*_
   include the command line arguments!** (The scripts themselves don't
   perform any writes to the files. They just create copies of the files
   and store them into the directory. So if you do forget to add the CLI
-  arguments, do the following: `CTRL + C(cancel) and then
-  ./clean_coverage_info.sh`, then try again).
+  arguments, do the following: `CTRL + C(cancel) and then ./clean_coverage_info.sh`, then try again).
 
 - `unity.c`, `unity.h` and `unity_internals.h` all need to be in
   `code_coverage` directory - We need to use Unity's API in order to
@@ -177,5 +209,3 @@ _*Yes.*_
 
 - There are probably some other problems. This method of generating code
   coverage reports is still somewhat experimental.
-
-
