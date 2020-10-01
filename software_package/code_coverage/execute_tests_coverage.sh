@@ -1,7 +1,7 @@
 echo "==================== GENERATING CODE COVERAGE INFORMATION ===================="
 
 echo "Cleaning past code coverage info..."
-find . -type f -not \( -name 'unity.c' -or -name 'unity.h' -or -name 'unity_internals.h' -or -name 'execute_tests_coverage.sh' -or -name 'clean_coverage_info.sh' -or -name 'README.md' \) -delete
+find . -type f -not \( -name 'unity.c' -or -name 'unity.h' -or -name 'unity_internals.h' -or -name 'execute_tests_coverage.sh' -or -name 'clean_coverage_info.sh' -or -name 'README.md' -or -name 'test_file_template.cpp' \) -delete
 rm -R -- */ # Removing sub-directories - Potentially dangerous! Dont replace * with a symlink to another link, it could remove the contents of the linked directory!
 
 while getopts "t:f:" opt; do

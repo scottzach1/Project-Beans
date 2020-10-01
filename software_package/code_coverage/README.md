@@ -146,7 +146,7 @@ code-coverage:
 ## How to write code coverage compliant test files?
 
 Use the template
-[here](software_package/testing/testing_environment_experiment/test/test_file_template.cpp)
+[here](software_package/code_coverage/test_file_template.cpp)
 to write test files that are compliant with this method of generating
 code coverage reports.
 
