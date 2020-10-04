@@ -17,20 +17,15 @@ Each component is represented with a header file (.h), as well as a concrete imp
 |IMU      | This is based off of the `Adafruit_MPU6050.h` library. The main purpose of this is to perform accelerometer and gyroscope readings.|
 |Parachute| This component is still in development, but aims to simply handle the launching of the parachute ejection charges.|
 |SD       | This is based off of the `STM32SD.h` library. The primary functionality for this is performing file reading and writing on the SD card.|
-|Servo    | This makes use of the `Servo.h` library. The goal of this component here is adjusting and controllign the angle of the servo.|
+|Servo    | This makes use of the `Servo.h` library. The goal of this component here is adjusting and controlling the angle of the servo.|
 
 
 ### Software   
-    - as it is more abstracted it is designed to be used with any hardware
-    - disclaimer: may need retuning with diff components, eg. running at different speeds
-    - debug.h
-        - used for debugging messages, can be used for writing and testing code, as well as actual flight analysis
-    - states && state machine   
-        - handle all potential states of rocket
-        - see finite state machine in [architecture](/../../architecture_design/architecture_design.md) (4.1) for an in-depth and higher level understanding of all states and the flow which they follow.
-    - guidance system
-        - essentially the main process for the rocket
-        - handles all logic
-            - states, pid, hardware communication via `/hardware` lib API calls
-    - logging
-        - handles logging to lora and sd card
+This library aims to handle all of the logic for our rocket, and works in tandem with the hardware library to achieve this. As it is more abstracted away than the hardware library it is designed to be robust enough to be used with different hardware components. Small things, eg. tuning a value to match a new parts speed, may need updating when replacing and upgrading components, but the core logic should be relatively versatile.
+
+|Component|Description|
+:--------:|:----------|
+|Debug  |This file is used for debugging messages related to our hardware. It can be used for writing and testing code, as well as pre-, post- and in-flight analysis. |
+|States and State Machine   | The state machine handles the current state of the rocket. States contains all potential states the rockets system can be in. For a more in-depth explanation see section 4.1 of the [architecture](/../../architecture_design/architecture_design.md) document, which covers the flow this software is modelled around.|
+|Guidance System | This is essentially the main process of our rocket. It handles all of the logic necessary to function, such as the pid, state machine, and all hardware communication. |
+|Logging | This handles sending data to both the SD card and LoRa radio. |
