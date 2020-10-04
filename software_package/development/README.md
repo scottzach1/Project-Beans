@@ -26,6 +26,6 @@ This library aims to handle all of the logic for our rocket, and works in tandem
 |Component|Description|
 :--------:|:----------|
 |Debug  |This file is used for debugging messages related to our hardware. It can be used for writing and testing code, as well as pre-, post- and in-flight analysis. |
-|States and State Machine   | The state machine handles the current state of the rocket. States contains all potential states the rockets system can be in. For a more in-depth explanation see section 4.1 of the [architecture](/../../architecture_design/architecture_design.md) document, which covers the flow this software is modelled around.|
+|States and State Machine   | The state machine handles the current state of the rocket. States contains all potential states the rockets system can be in. For a more in-depth explanation see section 4.1 of the [architecture](../../architecture_design/architecture_design.md) document, which covers the flow this software is modelled around.|
 |Guidance System | This is essentially the main process of our rocket. It handles all of the logic necessary to function, such as the pid, state machine, and all hardware communication. |
 |Logging | This handles sending data to both the SD card and LoRa radio. |
