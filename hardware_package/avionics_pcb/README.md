@@ -1,4 +1,4 @@
-# Software Package
+# Avionics PCB's
 
 > Description of the different avionics PCB's and libraries
 
@@ -12,7 +12,7 @@
 
 | File             | Description       |
 |:-----------------|:------------------|
-| `avionics_base_station/`  | The avionics base station PCB will be used to connect the RFM98 LoRa radio to the [ESP8266 microcontroller](https://www.espressif.com/en/products/socs/esp8266), maintaining a small formfactor. This board is designed to be the final base station product. |
+| `avionics_base_station/`  | The avionics base station PCB will be used to connect the RFM98 LoRa radio to the [ESP8266 microcontroller](https://www.espressif.com/en/products/socs/esp8266), maintaining a small form-factor. This board is designed to be the final base station product. |
 | `avionics_breakout_PCB/`  | The avionics breakout PCB will is the second prototype of the rocket hardware. This PCB will take all of the testing breakout boards that can be found [here](../bill_of_materials/bill_of_materials.md) in the BOM, and will integrate all of then onto a single compact board that is limited to a single side. This board will be used for extensive testing of the hardware in unison. |
 | `Final_PCB/` | The avionics final PCB is the final iteration of the PCB. This board will take all of the individual components found on each of the breakouts, and will place them onto a single PCB. This board will also include power supplies for all components, including the ignition circuitry and servo motors.  |
 
