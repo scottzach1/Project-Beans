@@ -5,6 +5,5 @@ Changes since talking to Andre about this: The avionics package is what we are d
 ~~This directory will contain mathematical relations between certain aspects of the rocket that the control system will need along with a block diagram connecting them all.~~
 
 **Working on/completed**
-- WIP: Motor angle to gimbal angle relation. (will include digital conversion for PWM signal to servos) (will be included in future issue)
-- Block diagram for avionics control system done.
-- ~~Torque relation on rocket body (gimbal angle and force of engine relative to center of mass, will not take into account drag initially (will be simplified when it is))~~
+- WIP: Motor angle to gimbal angle relation. PWM relation is handled by the Library. Have found the limits of the servos and now must settle on a mapping range. The issue at the moment is that both servos have a different safe range. It may be better to reduce both to the same absolute angle range in the code.
+- Block diagram for avionics control system done (Must add latest to repo).
