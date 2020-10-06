@@ -151,35 +151,6 @@ INT1
 Text Notes 7950 2450 0    50   ~ 0
 DACs
 $Comp
-L Device:C C1
-U 1 1 5F34E284
-P 4300 4000
-F 0 "C1" H 4415 4046 50  0000 L CNN
-F 1 "22pF" H 4415 3955 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 4338 3850 50  0001 C CNN
-F 3 "~" H 4300 4000 50  0001 C CNN
-	1    4300 4000
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR010
-U 1 1 5F34FAF1
-P 4300 4150
-F 0 "#PWR010" H 4300 3900 50  0001 C CNN
-F 1 "GND" H 4305 3977 50  0000 C CNN
-F 2 "" H 4300 4150 50  0001 C CNN
-F 3 "" H 4300 4150 50  0001 C CNN
-	1    4300 4150
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4300 3850 4300 3650
-Wire Wire Line
-	4300 3650 4450 3650
-Wire Wire Line
-	4300 3650 4300 3200
-Connection ~ 4300 3650
-$Comp
 L Connector:USB_C_Receptacle J1
 U 1 1 5F384AC9
 P 1300 1800
@@ -837,10 +808,6 @@ F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/da
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4950 3300 6150 3300
-Wire Wire Line
-	4950 3650 4950 3300
-Wire Wire Line
 	7650 3000 7550 3000
 Wire Wire Line
 	7550 3100 7800 3100
@@ -897,8 +864,6 @@ Wire Wire Line
 Wire Wire Line
 	6150 3500 5800 3500
 Wire Wire Line
-	4300 3200 6150 3200
-Wire Wire Line
 	6750 5400 6750 5500
 Wire Wire Line
 	6850 5400 6850 5500
@@ -943,44 +908,6 @@ Text Notes 6850 3950 2    50   ~ 0
 J2S2ext_SD\n
 Text Label 6150 3500 2    50   ~ 0
 SDIO_CMD
-Connection ~ 4950 3650
-Wire Wire Line
-	4950 3650 4950 3850
-Wire Wire Line
-	4750 3650 4950 3650
-$Comp
-L power:GND #PWR011
-U 1 1 5F350220
-P 4950 4150
-F 0 "#PWR011" H 4950 3900 50  0001 C CNN
-F 1 "GND" H 4955 3977 50  0000 C CNN
-F 2 "" H 4950 4150 50  0001 C CNN
-F 3 "" H 4950 4150 50  0001 C CNN
-	1    4950 4150
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C2
-U 1 1 5F34F563
-P 4950 4000
-F 0 "C2" H 5065 4046 50  0000 L CNN
-F 1 "22pF" H 5065 3955 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 4988 3850 50  0001 C CNN
-F 3 "~" H 4950 4000 50  0001 C CNN
-	1    4950 4000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Crystal Y1
-U 1 1 5F34C8EB
-P 4600 3650
-F 0 "Y1" H 4600 3918 50  0000 C CNN
-F 1 "12MHz" H 4600 3827 50  0000 C CNN
-F 2 "Oscillator:Oscillator_DIP-14_LargePads" H 4600 3650 50  0001 C CNN
-F 3 "~" H 4600 3650 50  0001 C CNN
-	1    4600 3650
-	1    0    0    -1  
-$EndComp
 Text Label 6150 4900 2    50   ~ 0
 SDIO_CLK
 Text Label 6150 4800 2    50   ~ 0
@@ -1518,69 +1445,6 @@ Text Notes 2500 3950 0    71   ~ 0
 Reset & Prog Switches\n
 Wire Wire Line
 	6650 1250 6650 1800
-Wire Wire Line
-	5150 5700 5150 5450
-$Comp
-L Device:C C3
-U 1 1 5F33BF27
-P 5150 5850
-F 0 "C3" H 5265 5896 50  0000 L CNN
-F 1 "22pF" H 5265 5805 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 5188 5700 50  0001 C CNN
-F 3 "~" H 5150 5850 50  0001 C CNN
-	1    5150 5850
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C7
-U 1 1 5F33D1AE
-P 5650 5850
-F 0 "C7" H 5765 5896 50  0000 L CNN
-F 1 "22pF" H 5765 5805 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 5688 5700 50  0001 C CNN
-F 3 "~" H 5650 5850 50  0001 C CNN
-	1    5650 5850
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Crystal Y2
-U 1 1 5F33DA69
-P 5400 5450
-F 0 "Y2" H 5400 5718 50  0000 C CNN
-F 1 "32MHz" H 5400 5627 50  0000 C CNN
-F 2 "Oscillator:Oscillator_DIP-8_LargePads" H 5400 5450 50  0001 C CNN
-F 3 "~" H 5400 5450 50  0001 C CNN
-	1    5400 5450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5250 5450 5150 5450
-Wire Wire Line
-	5550 5450 5650 5450
-Wire Wire Line
-	5650 5450 5650 5700
-$Comp
-L power:GND #PWR016
-U 1 1 5F34B2CF
-P 5650 6000
-F 0 "#PWR016" H 5650 5750 50  0001 C CNN
-F 1 "GND" H 5655 5827 50  0000 C CNN
-F 2 "" H 5650 6000 50  0001 C CNN
-F 3 "" H 5650 6000 50  0001 C CNN
-	1    5650 6000
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR013
-U 1 1 5F34BAA6
-P 5150 6000
-F 0 "#PWR013" H 5150 5750 50  0001 C CNN
-F 1 "GND" H 5155 5827 50  0000 C CNN
-F 2 "" H 5150 6000 50  0001 C CNN
-F 3 "" H 5150 6000 50  0001 C CNN
-	1    5150 6000
-	1    0    0    -1  
-$EndComp
 Connection ~ 9350 10450
 Wire Wire Line
 	8250 10450 9250 10450
@@ -1742,19 +1606,8 @@ $EndComp
 Connection ~ 8450 9450
 Wire Wire Line
 	8350 9450 8450 9450
-Wire Wire Line
-	5150 5100 5150 5450
-Wire Wire Line
-	5150 5100 5650 5100
-Connection ~ 5150 5450
-Wire Wire Line
-	5650 5100 5650 5450
-Connection ~ 5650 5100
-Wire Wire Line
-	5650 5100 6150 5100
-Connection ~ 5650 5450
 $Comp
-L gps_header:GPS_header U8
+L RocketPCB-rescue:GPS_header-gps_header U8
 U 1 1 5F7E44DB
 P 13800 8950
 F 0 "U8" H 13800 9565 50  0000 C CNN
@@ -1765,7 +1618,7 @@ F 3 "DOCUMENTATION" H 13800 8950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L radio_header:Radio_Header U3
+L RocketPCB-rescue:Radio_Header-radio_header U3
 U 1 1 5F7F38B6
 P 11150 4350
 F 0 "U3" H 11628 4396 50  0000 L CNN
@@ -1883,7 +1736,7 @@ FLASH MEMORY\n
 Text Notes 11700 7400 2    47   ~ 0
 16M-BIT SERIAL FLASH MEMORY
 $Comp
-L flash_memory:W25Q16JV U5
+L RocketPCB-rescue:W25Q16JV-flash_memory U5
 U 1 1 5F7BE5CF
 P 11100 6850
 F 0 "U5" H 11100 7365 50  0000 C CNN
@@ -2582,4 +2435,13 @@ $EndComp
 Connection ~ 1000 8200
 Wire Wire Line
 	1000 8200 1150 8200
+Wire Wire Line
+	6150 3200 5800 3200
+Wire Wire Line
+	6150 3300 5800 3300
+Wire Wire Line
+	6150 5100 5800 5100
+NoConn ~ 5800 5100
+NoConn ~ 5800 3300
+NoConn ~ 5800 3200
 $EndSCHEMATC
