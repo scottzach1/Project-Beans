@@ -1,4 +1,11 @@
-18634856686555554
+18638061929390271
+3v3 _linReg
+SOIC127P599X175-8N
+
+
+0
+8
+8
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -51505,6 +51512,13 @@ GPS_header_fp
 0
 12
 12
+GPS_head0
+JR_connector_3pin
+
+
+0
+3
+3
 GPS_head0
 MPU6050-footprint
 
