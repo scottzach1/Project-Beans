@@ -120,8 +120,6 @@ Wire Wire Line
 	5000 2000 5250 2000
 Wire Wire Line
 	5500 2200 5000 2200
-Text Label 7650 2300 0    50   ~ 0
-V_DIV
 Text Label 5850 2200 0    50   ~ 0
 BOOT0
 Text Label 7650 2400 0    50   ~ 0
@@ -231,7 +229,7 @@ U 1 1 5F3F19FC
 P 1350 4300
 F 0 "SW1" H 1350 4585 50  0000 C CNN
 F 1 "SW_Push" H 1350 4494 50  0000 C CNN
-F 2 "Button_Switch_THT:SW_PUSH-12mm" H 1350 4500 50  0001 C CNN
+F 2 "Button_Switch_SMD:SW_Push_SPST_NO_Alps_SKRK" H 1350 4500 50  0001 C CNN
 F 3 "~" H 1350 4500 50  0001 C CNN
 	1    1350 4300
 	1    0    0    -1  
@@ -253,63 +251,6 @@ F 3 "" H 900 4300 50  0001 C CNN
 $EndComp
 Text Notes 1650 4550 2    50   ~ 0
 RESET BUTTON\n\n
-$Comp
-L Device:R R15
-U 1 1 5F4E7BC3
-P 13000 2950
-F 0 "R15" H 13070 2996 50  0000 L CNN
-F 1 "100k" H 13070 2905 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 12930 2950 50  0001 C CNN
-F 3 "~" H 13000 2950 50  0001 C CNN
-	1    13000 2950
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R16
-U 1 1 5F4E8272
-P 13000 3400
-F 0 "R16" H 13070 3446 50  0000 L CNN
-F 1 "100k" H 13070 3355 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 12930 3400 50  0001 C CNN
-F 3 "~" H 13000 3400 50  0001 C CNN
-	1    13000 3400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	13000 2650 13000 2800
-Wire Wire Line
-	13000 3100 13000 3150
-$Comp
-L power:GND #PWR045
-U 1 1 5F4F8513
-P 13000 3650
-F 0 "#PWR045" H 13000 3400 50  0001 C CNN
-F 1 "GND" H 13005 3477 50  0000 C CNN
-F 2 "" H 13000 3650 50  0001 C CNN
-F 3 "" H 13000 3650 50  0001 C CNN
-	1    13000 3650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	13000 3550 13000 3600
-$Comp
-L Device:C C17
-U 1 1 5F508EDD
-P 13500 3400
-F 0 "C17" H 13615 3446 50  0000 L CNN
-F 1 "1uF" H 13615 3355 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 13538 3250 50  0001 C CNN
-F 3 "~" H 13500 3400 50  0001 C CNN
-	1    13500 3400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	13000 3150 13500 3150
-Wire Wire Line
-	13500 3150 13500 3250
-Connection ~ 13000 3150
-Wire Wire Line
-	13000 3150 13000 3250
 $Comp
 L Connector:Conn_01x03_Female J3
 U 1 1 5F51AC89
@@ -477,8 +418,6 @@ Wire Wire Line
 	14650 4100 14850 4100
 Text Notes 14150 2350 2    50   ~ 0
 JST Battery Connector\n
-Text Notes 12850 2900 3    50   ~ 0
-Voltage Divider
 Text Notes 2750 650  0    71   ~ 0
 USB-C Connector\n
 Text Notes 13250 10950 2    59   ~ 12
@@ -917,8 +856,6 @@ Wire Notes Line
 	9300 5650 12650 5650
 Wire Notes Line
 	12650 500  12650 8050
-Text Label 13150 3150 0    50   ~ 0
-V_DIV
 Text Notes 8100 4400 1    50   ~ 0
 I2C1
 $Comp
@@ -1008,11 +945,6 @@ Wire Wire Line
 	1850 10250 1350 10250
 Text Label 1400 10250 0    50   ~ 0
 SDIO_D0
-Wire Wire Line
-	1900 10350 1850 10350
-Connection ~ 1850 10350
-Wire Wire Line
-	1850 10350 1350 10350
 Text Label 1400 10350 0    50   ~ 0
 SDIO_D1
 Text Label 1400 9850 0    50   ~ 0
@@ -1188,7 +1120,7 @@ U 1 1 5F878647
 P 1350 4900
 F 0 "SW2" H 1350 5185 50  0000 C CNN
 F 1 "SW_Push" H 1350 5094 50  0000 C CNN
-F 2 "Button_Switch_THT:SW_PUSH-12mm" H 1350 5100 50  0001 C CNN
+F 2 "Button_Switch_SMD:SW_Push_SPST_NO_Alps_SKRK" H 1350 5100 50  0001 C CNN
 F 3 "~" H 1350 5100 50  0001 C CNN
 	1    1350 4900
 	1    0    0    -1  
@@ -1662,7 +1594,7 @@ Wire Wire Line
 Wire Wire Line
 	4850 7550 4450 7550
 Wire Wire Line
-	4850 6900 5200 6900
+	4850 6900 5000 6900
 Wire Wire Line
 	4450 6900 4850 6900
 Connection ~ 4850 6900
@@ -1984,13 +1916,6 @@ PWM1
 Text GLabel 2650 800  2    47   Input ~ 0
 VBUS
 Wire Wire Line
-	13500 3550 13500 3600
-Wire Wire Line
-	13500 3600 13000 3600
-Connection ~ 13000 3600
-Wire Wire Line
-	13000 3600 13000 3650
-Wire Wire Line
 	900  8200 1000 8200
 $Comp
 L power:GND #PWR0107
@@ -2068,10 +1993,8 @@ F 3 "" H 8150 9650 50  0001 C CNN
 	1    8150 9650
 	0    1    1    0   
 $EndComp
-Text GLabel 8100 9450 0    47   Input ~ 0
+Text GLabel 7750 9450 0    47   Input ~ 0
 +3V3
-Wire Wire Line
-	8100 9450 8150 9450
 Text GLabel 8100 9750 0    47   Output ~ 0
 +3V3
 Wire Wire Line
@@ -2263,8 +2186,6 @@ Connection ~ 11200 9450
 Wire Wire Line
 	11200 9100 11200 8850
 Connection ~ 11200 9100
-Text GLabel 13000 2650 1    47   Output ~ 0
-+3V3
 $Comp
 L Device:R R12
 U 1 1 60014579
@@ -2443,14 +2364,129 @@ Wire Wire Line
 Wire Wire Line
 	9400 2000 10300 2000
 $Comp
-L Transistor_FET:DMG2301L Q?
+L Transistor_FET:DMG2301L Q2
 U 1 1 6048B4F6
 P 14950 2650
-F 0 "Q?" V 15292 2650 50  0000 C CNN
+F 0 "Q2" V 15292 2650 50  0000 C CNN
 F 1 "DMG2301L" V 15201 2650 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 15150 2575 50  0001 L CIN
 F 3 "https://www.diodes.com/assets/Datasheets/DMG2301L.pdf" H 14950 2650 50  0001 L CNN
 	1    14950 2650
 	0    -1   -1   0   
 $EndComp
+NoConn ~ 7850 2300
+$Comp
+L Device:LED D?
+U 1 1 5F856AA9
+P 7800 8950
+F 0 "D?" H 7793 9167 50  0000 C CNN
+F 1 "LED" H 7793 9076 50  0000 C CNN
+F 2 "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 7800 8950 50  0001 C CNN
+F 3 "~" H 7800 8950 50  0001 C CNN
+	1    7800 8950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1850 10350 1350 10350
+Wire Wire Line
+	7750 9450 7800 9450
+Wire Wire Line
+	7800 9450 7800 9250
+Connection ~ 7800 9450
+Wire Wire Line
+	7800 9450 8150 9450
+Wire Wire Line
+	7800 8800 7800 8600
+$Comp
+L power:GND #PWR?
+U 1 1 5F96333D
+P 7800 8600
+F 0 "#PWR?" H 7800 8350 50  0001 C CNN
+F 1 "GND" H 7805 8427 50  0000 C CNN
+F 2 "" H 7800 8600 50  0001 C CNN
+F 3 "" H 7800 8600 50  0001 C CNN
+	1    7800 8600
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5F966683
+P 7800 9250
+F 0 "TP?" H 7850 9500 50  0000 L CNN
+F 1 "TestPoint" H 7850 9400 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 8000 9250 50  0001 C CNN
+F 3 "~" H 8000 9250 50  0001 C CNN
+	1    7800 9250
+	0    -1   -1   0   
+$EndComp
+Connection ~ 7800 9250
+Wire Wire Line
+	7800 9250 7800 9100
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5F983E00
+P 5150 6900
+F 0 "TP?" H 5200 7150 50  0000 L CNN
+F 1 "TestPoint" H 5200 7050 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5350 6900 50  0001 C CNN
+F 3 "~" H 5350 6900 50  0001 C CNN
+	1    5150 6900
+	1    0    0    -1  
+$EndComp
+Connection ~ 5150 6900
+Wire Wire Line
+	5150 6900 5200 6900
+$Comp
+L Device:LED D?
+U 1 1 5F987713
+P 4300 6700
+F 0 "D?" H 4293 6917 50  0000 C CNN
+F 1 "LED" H 4293 6826 50  0000 C CNN
+F 2 "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 4300 6700 50  0001 C CNN
+F 3 "~" H 4300 6700 50  0001 C CNN
+	1    4300 6700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F989A8C
+P 4150 6700
+F 0 "#PWR?" H 4150 6450 50  0001 C CNN
+F 1 "GND" V 4155 6572 50  0000 R CNN
+F 2 "" H 4150 6700 50  0001 C CNN
+F 3 "" H 4150 6700 50  0001 C CNN
+	1    4150 6700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5000 6700 5000 6900
+Connection ~ 5000 6900
+Wire Wire Line
+	5000 6900 5150 6900
+$Comp
+L Device:R R?
+U 1 1 5F9EC1AC
+P 4600 6700
+F 0 "R?" H 4670 6746 50  0000 L CNN
+F 1 "46" H 4670 6655 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4530 6700 50  0001 C CNN
+F 3 "~" H 4600 6700 50  0001 C CNN
+	1    4600 6700
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4750 6700 5000 6700
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5FA5605A
+P 7100 5500
+F 0 "TP?" H 7150 5750 50  0000 L CNN
+F 1 "TestPoint" H 7150 5650 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 7300 5500 50  0001 C CNN
+F 3 "~" H 7300 5500 50  0001 C CNN
+	1    7100 5500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6950 5500 7100 5500
 $EndSCHEMATC
