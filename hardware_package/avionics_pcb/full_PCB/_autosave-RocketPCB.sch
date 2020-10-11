@@ -410,17 +410,6 @@ Wire Wire Line
 	7550 4800 8350 4800
 Wire Wire Line
 	7550 4700 8000 4700
-$Comp
-L MCU_ST_STM32F4:STM32F405RGTx U1
-U 1 1 5F2C61AB
-P 6850 3600
-F 0 "U1" H 6450 1850 50  0000 C CNN
-F 1 "STM32F405RGTx" H 6800 3700 50  0000 C CNN
-F 2 "Package_QFP:LQFP-64_10x10mm_P0.5mm" H 6250 1900 50  0001 R CNN
-F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00037051.pdf" H 6850 3600 50  0001 C CNN
-	1    6850 3600
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	7650 3000 7550 3000
 Wire Wire Line
@@ -552,8 +541,6 @@ Text Label 7850 4300 2    50   ~ 0
 SCL
 Text Label 8100 4200 2    50   ~ 0
 FLASH_MOSI
-Wire Wire Line
-	8600 4050 8600 4200
 Wire Wire Line
 	8450 4200 8600 4200
 $Comp
@@ -1473,8 +1460,6 @@ F 3 "~" H 900 7900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7550 2000 7850 2000
-Wire Wire Line
 	7550 2100 7850 2100
 Wire Wire Line
 	6150 5000 5800 5000
@@ -2040,7 +2025,7 @@ L Device:C C7
 U 1 1 60229A5A
 P 850 10400
 F 0 "C7" H 965 10446 50  0000 L CNN
-F 1 "C" H 965 10355 50  0000 L CNN
+F 1 "100nF" H 965 10355 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 888 10250 50  0001 C CNN
 F 3 "~" H 850 10400 50  0001 C CNN
 	1    850  10400
@@ -2425,4 +2410,19 @@ NoConn ~ 1200 2100
 NoConn ~ 1200 2000
 NoConn ~ 1200 1900
 NoConn ~ 1200 1800
+Wire Wire Line
+	8600 4050 8600 4200
+Wire Wire Line
+	7550 2000 7850 2000
+$Comp
+L MCU_ST_STM32F4:STM32F405RGTx U1
+U 1 1 5F2C61AB
+P 6850 3600
+F 0 "U1" H 6450 1850 50  0000 C CNN
+F 1 "STM32F405RGTx" H 6800 3700 50  0000 C CNN
+F 2 "Package_QFP:LQFP-64_10x10mm_P0.5mm" H 6250 1900 50  0001 R CNN
+F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00037051.pdf" H 6850 3600 50  0001 C CNN
+	1    6850 3600
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
