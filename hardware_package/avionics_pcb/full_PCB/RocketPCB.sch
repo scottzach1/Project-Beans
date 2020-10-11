@@ -19,7 +19,7 @@ U 1 1 5F2CCE72
 P 8050 1000
 F 0 "FB1" V 7776 1000 50  0000 C CNN
 F 1 "Ferrite_Bead" V 7867 1000 50  0000 C CNN
-F 2 "Ferrite_THT:LairdTech_28C0236-0JW-10" V 7980 1000 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 7980 1000 50  0001 C CNN
 F 3 "~" H 8050 1000 50  0001 C CNN
 	1    8050 1000
 	0    1    1    0   
@@ -512,9 +512,9 @@ SDIO_D3
 Text Label 6150 4700 2    50   ~ 0
 SDIO_D2
 Text Label 6150 4600 2    50   ~ 0
-SDIO_D1
-Text Label 6150 4500 2    50   ~ 0
 SDIO_D0
+Text Label 6150 4500 2    50   ~ 0
+SDIO_D1
 Text Label 6000 4400 2    50   ~ 0
 D5
 Text Label 6000 4300 2    50   ~ 0
@@ -921,8 +921,6 @@ Wire Notes Line
 	450  5250 3850 5250
 Text Notes 2500 3950 0    71   ~ 0
 Reset & Prog Switches\n
-Wire Wire Line
-	6650 1250 6650 1800
 Text Notes 7600 8200 0    71   ~ 0
 Battery Regulator\n
 $Comp
@@ -1472,17 +1470,6 @@ Wire Wire Line
 	5650 2600 5650 2500
 Wire Wire Line
 	5650 2500 6150 2500
-$Comp
-L Connector:TestPoint TP1
-U 1 1 60517AA2
-P 6650 1250
-F 0 "TP1" H 6708 1368 50  0000 L CNN
-F 1 "TestPoint" H 6708 1277 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 6850 1250 50  0001 C CNN
-F 3 "~" H 6850 1250 50  0001 C CNN
-	1    6650 1250
-	1    0    0    -1  
-$EndComp
 NoConn ~ 7850 2400
 Wire Wire Line
 	7150 1800 7150 1700
@@ -2255,7 +2242,7 @@ U 1 1 600603B9
 P 2150 2000
 F 0 "J1" H 2150 2965 50  0000 C CNN
 F 1 "DX07S024XJ1R1100" H 2150 2874 50  0000 C CNN
-F 2 "JAE_DX07S024XJ1R1100" H 2150 2000 50  0001 L BNN
+F 2 "DX07S024XJ1R1100:JAE_DX07S024XJ1R1100" H 2150 2000 50  0001 L BNN
 F 3 "JAE" H 2150 2000 50  0001 L BNN
 F 4 "3.34mm" H 2150 2000 50  0001 L BNN "Field4"
 F 5 "1" H 2150 2000 50  0001 L BNN "Field5"
@@ -2395,10 +2382,10 @@ F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/da
 $EndComp
 NoConn ~ 10150 1900
 $Comp
-L Device:R R?
+L Device:R R16
 U 1 1 608B0935
 P 9550 4650
-F 0 "R?" H 9620 4696 50  0000 L CNN
+F 0 "R16" H 9620 4696 50  0000 L CNN
 F 1 "4.7K" H 9620 4605 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 9480 4650 50  0001 C CNN
 F 3 "~" H 9550 4650 50  0001 C CNN
@@ -2429,4 +2416,6 @@ NoConn ~ 15250 6300
 NoConn ~ 15250 6400
 NoConn ~ 7850 2500
 NoConn ~ 7850 2600
+NoConn ~ 6650 1800
+NoConn ~ 5200 2750
 $EndSCHEMATC
