@@ -122,12 +122,6 @@ Wire Wire Line
 	5500 2200 5000 2200
 Text Label 5850 2200 0    50   ~ 0
 BOOT0
-Text Label 7650 2400 0    50   ~ 0
-A0
-Text Label 7650 2500 0    50   ~ 0
-INT2
-Text Label 7650 2600 0    50   ~ 0
-INT1
 Text Notes 7950 2450 0    50   ~ 0
 DACs
 $Comp
@@ -410,17 +404,6 @@ Wire Wire Line
 	7550 4800 8350 4800
 Wire Wire Line
 	7550 4700 8000 4700
-$Comp
-L MCU_ST_STM32F4:STM32F405RGTx U1
-U 1 1 5F2C61AB
-P 6850 3600
-F 0 "U1" H 6450 1850 50  0000 C CNN
-F 1 "STM32F405RGTx" H 6800 3700 50  0000 C CNN
-F 2 "Package_QFP:LQFP-64_10x10mm_P0.5mm" H 6250 1900 50  0001 R CNN
-F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00037051.pdf" H 6850 3600 50  0001 C CNN
-	1    6850 3600
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	7650 3000 7550 3000
 Wire Wire Line
@@ -553,8 +536,6 @@ SCL
 Text Label 8100 4200 2    50   ~ 0
 FLASH_MOSI
 Wire Wire Line
-	8600 4050 8600 4200
-Wire Wire Line
 	8450 4200 8600 4200
 $Comp
 L Device:R R6
@@ -582,8 +563,6 @@ Wire Wire Line
 	7650 2900 7850 2900
 Wire Wire Line
 	7650 2900 7650 3000
-Text Label 7650 2700 0    50   ~ 0
-INT
 Wire Wire Line
 	6850 5500 6950 5500
 Connection ~ 6850 5500
@@ -647,12 +626,6 @@ Wire Wire Line
 	5000 2200 5000 2250
 Wire Notes Line
 	11800 9950 11800 8050
-Text Label 10250 1900 0    59   ~ 0
-INT
-Text Label 11950 1500 0    59   ~ 0
-FSYNC_IN
-Text Label 11900 1800 0    59   ~ 0
-CLKIN
 Text Label 10000 1700 0    59   ~ 0
 SCL
 Text Label 10000 1800 0    59   ~ 0
@@ -780,8 +753,6 @@ Wire Wire Line
 	14300 2550 14750 2550
 Wire Wire Line
 	7550 3700 8000 3700
-Text Label 7750 3700 0    50   ~ 0
-CS
 $Comp
 L power:GND #PWR030
 U 1 1 5F6AEB87
@@ -914,10 +885,6 @@ Wire Wire Line
 	14800 6300 15250 6300
 Wire Wire Line
 	14800 6400 15250 6400
-Text Label 14900 6300 0    71   ~ 0
-INT1
-Text Label 14900 6400 0    71   ~ 0
-INT2
 Text Notes 12750 5150 0    71   ~ 0
 Barometer\n
 $Comp
@@ -1014,8 +981,6 @@ Wire Wire Line
 	10400 4550 9700 4550
 Wire Wire Line
 	10400 4650 9700 4650
-Wire Wire Line
-	10400 4750 9700 4750
 $Comp
 L power:GND #PWR0102
 U 1 1 5FA1391A
@@ -1044,10 +1009,6 @@ F 3 "" H 14950 8700 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7550 2200 7850 2200
-Text Label 7650 2200 0    47   ~ 0
-PPS
-Text Label 14650 8800 0    47   ~ 0
-PPS
 Text Label 14700 9000 0    47   ~ 0
 RX_D0
 Text Label 14700 9100 0    47   ~ 0
@@ -1065,18 +1026,12 @@ F 3 "" H 9700 4050 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7550 2800 7850 2800
-Text Label 7650 2800 0    47   ~ 0
-G0
-Text Label 9900 4250 0    47   ~ 0
-G0
 Text Label 9900 4350 0    47   ~ 0
 SCK
 Text Label 9900 4450 0    47   ~ 0
 MISO
 Text Label 9900 4550 0    47   ~ 0
 MOSI
-Text Label 9900 4650 0    47   ~ 0
-CS
 Text Notes 11900 8200 0    71   ~ 0
 GPS Module
 Text Notes 9400 3300 0    71   ~ 0
@@ -1473,8 +1428,6 @@ F 3 "~" H 900 7900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7550 2000 7850 2000
-Wire Wire Line
 	7550 2100 7850 2100
 Wire Wire Line
 	6150 5000 5800 5000
@@ -1588,7 +1541,7 @@ Wire Wire Line
 	6050 2000 5550 2000
 Text GLabel 12550 9200 0    47   Output ~ 0
 ~RESET~
-Text GLabel 9700 4750 0    47   Input ~ 0
+Text GLabel 10100 4750 0    47   Input ~ 0
 ~RESET~
 NoConn ~ 7800 3500
 NoConn ~ 10650 450 
@@ -2040,7 +1993,7 @@ L Device:C C7
 U 1 1 60229A5A
 P 850 10400
 F 0 "C7" H 965 10446 50  0000 L CNN
-F 1 "C" H 965 10355 50  0000 L CNN
+F 1 "100nF" H 965 10355 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 888 10250 50  0001 C CNN
 F 3 "~" H 850 10400 50  0001 C CNN
 	1    850  10400
@@ -2425,4 +2378,55 @@ NoConn ~ 1200 2100
 NoConn ~ 1200 2000
 NoConn ~ 1200 1900
 NoConn ~ 1200 1800
+Wire Wire Line
+	8600 4050 8600 4200
+Wire Wire Line
+	7550 2000 7850 2000
+$Comp
+L MCU_ST_STM32F4:STM32F405RGTx U1
+U 1 1 5F2C61AB
+P 6850 3600
+F 0 "U1" H 6450 1850 50  0000 C CNN
+F 1 "STM32F405RGTx" H 6800 3700 50  0000 C CNN
+F 2 "Package_QFP:LQFP-64_10x10mm_P0.5mm" H 6250 1900 50  0001 R CNN
+F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00037051.pdf" H 6850 3600 50  0001 C CNN
+	1    6850 3600
+	1    0    0    -1  
+$EndComp
+NoConn ~ 10150 1900
+$Comp
+L Device:R R?
+U 1 1 608B0935
+P 9550 4650
+F 0 "R?" H 9620 4696 50  0000 L CNN
+F 1 "4.7K" H 9620 4605 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 9480 4650 50  0001 C CNN
+F 3 "~" H 9550 4650 50  0001 C CNN
+	1    9550 4650
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	10100 4750 10400 4750
+Wire Wire Line
+	9400 4650 9350 4650
+Wire Wire Line
+	9350 4650 9350 4700
+Text GLabel 9400 4750 3    47   Output ~ 0
++3V3
+NoConn ~ 8000 3700
+NoConn ~ 7850 2700
+Wire Wire Line
+	9400 4750 9400 4700
+Wire Wire Line
+	9400 4700 9350 4700
+NoConn ~ 7850 2200
+NoConn ~ 14950 8800
+Text Label 7650 2800 0    47   ~ 0
+G0
+Text Label 9900 4250 0    47   ~ 0
+G0
+NoConn ~ 15250 6300
+NoConn ~ 15250 6400
+NoConn ~ 7850 2500
+NoConn ~ 7850 2600
 $EndSCHEMATC
