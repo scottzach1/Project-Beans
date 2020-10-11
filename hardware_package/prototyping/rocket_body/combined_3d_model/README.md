@@ -1,7 +1,7 @@
 ### Documentation of 3D rocket body model:
 
 I discussed modelling the rocket body with Andre and several changes to this have been decided (strike throughs in component section due to this). Andre has an existing rocket 3D model that he has already launched and tested and recommended using that rather than starting from scratch. The reasons being, other than time, is that it has been assembled and flown before, there are Openrocket files for this containing the parameters the program needs to simulate it. This will help speed up the project substantially. Andre could possibly help with components as it already exists. The rocket model is uncontrolled so the gimbal will have to be added along with other modifications to fit out avionics package.
-
+ [Onshape document here](https://cad.onshape.com/documents/680992436589857c3900b920/w/8b2925f5f640ad1ec1b9204e/e/6e3dd653e3c04d2cc172e233)
 
 **Components**
 * Gimbal

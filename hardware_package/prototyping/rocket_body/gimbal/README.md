@@ -80,5 +80,25 @@ The gimbal itself is kept the same as 2 with a few reinforcements. The additions
   - *added a ring near top of inner tube that will act as a uniform angle limiter, this must be calibrated so the max absolute angle of the gimbal is know (10 degrees or less is ideal at this stage).*
 - *Added a stand for the gimbal. May need to change the size for better stability. Gimbal has been printed but the stand is yet to be finalized and printed.*
 
+###### Printed Gimbal:
+
+![](printed.png)
+***
+## Prototype 4 - Final
+
+To ensure linear relation between servo angle and motor angle this design was made. The upper servo was changed so that is was not fixed when the other servo moves. The inner ring that acts as a angle limit has been increased in size to further limit movement. This prevents other components blocking movement before it can. This was a problem in the printed design.
+
+**Log: Create and assemble prototype 4 (for 24mm engine)**:
+
+- *Modifications were made to PART 3, a new part is now added to give the upper servo an axis of rotation*
+- *Offsets to motor was maintained*
+- *Angle limiting ring was made larger*
+- *remade many of the reinforcement structures as large changes were made to PART 3*
+- *Modified Gimbal stand with bolt fixtures incase rocket is too unstable for the stand. So may need to have stand fixed*
+- *A launch rail is likely to be used, so added section to attach a wire ring to*
+
+###### Free movement addition:
+
+![](free_movement_feature.PNG)
 
 ***
