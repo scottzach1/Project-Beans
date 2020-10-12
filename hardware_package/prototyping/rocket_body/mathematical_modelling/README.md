@@ -16,7 +16,7 @@
 ***
 **Block diagram for avionics control system**
 
-*general diagram*
-![loopfeedback](avionics_control_feedback_loop.PNG)
-*WIP: add specific values and isolate the avionics package component*
+*Control Diagram*
+![loopfeedback](control_diagram.PNG)
+*Shows how the main code loop fits with the conceptualized feedback loop*
 ***
