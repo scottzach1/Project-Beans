@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 6)
+    (drawings 7)
     (tracks 589)
     (zones 0)
     (modules 72)
@@ -3244,6 +3244,9 @@
     )
   )
 
+  (gr_text "Group 3 Avionics PCB " (at 108.712 82.677) (layer B.Cu)
+    (effects (font (size 1.5 1.5) (thickness 0.3)) (justify mirror))
+  )
   (dimension 88.392365 (width 0.15) (layer Dwgs.User)
     (gr_text "88.392 mm" (at 109.232488 89.054779 0.1646425914) (layer Dwgs.User)
       (effects (font (size 1 1) (thickness 0.15)))
