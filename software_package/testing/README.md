@@ -1,6 +1,6 @@
 ## Testing
 
-As explained in the software_package [README](./software_package/README.md) this directory is solely dedicated to the testing of the hardware. For the most part the focus on this package is about gaining an understanding of the specific hardware components, as well as the libraries attached to them. This includes getting each of these working inside of the PIO structure.
+As explained in the software_package [README](./software_package/README.md) this directory is solely dedicated to the testing of the hardware, and/or other aspects of the software system. For the most part the focus on this package is about gaining an understanding of the specific hardware components and the libraries attached to them. This also serves as a 'playground' to determine how to approach a given task from a technical/practical perspective. This includes getting each of these working inside of the PIO structure.
 
 The key goal of this package can be viewed as creating code that works. That which can than be iterated on and refined both here and in the `development` package. Due to the experimental nature of this package there is little structure to each package, with most testing packages just containing a single `main.cpp`.
 
