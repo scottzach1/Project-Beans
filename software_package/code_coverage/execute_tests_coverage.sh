@@ -1,8 +1,7 @@
 echo "==================== GENERATING CODE COVERAGE INFORMATION ===================="
 
 echo "Cleaning past code coverage info..."
-find . -type f -not \( -name 'unity.c' -or -name 'unity.h' -or -name 'unity_internals.h' -or -name 'execute_tests_coverage.sh' -or -name 'clean_coverage_info.sh' -or -name 'README.md' \) -delete
-rm -R -- */ # Removing sub-directories - Potentially dangerous! Dont replace * with a symlink to another link, it could remove the contents of the linked directory!
+./clean_coverage_info.sh
 
 while getopts "t:f:" opt; do
     case $opt in
@@ -19,7 +18,7 @@ for val in "${test_files_directories[@]}"; do
     echo " - $val"
 
     # Copying test files of target module into code_coverage
-    find ../development/$val -name '*.cpp' -exec cp -prv '{}' './' ';'
+    find ../$val -name '*.cpp' -exec cp -prv '{}' './' ';'
 done
 
 # Echoing and copying files to test into this directory
@@ -28,8 +27,8 @@ for val in "${files_to_test_directories[@]}"; do
     echo " - $val"
 
     # Copying cpp and header files of target module to be tested into code_coverage
-    find ../development/$val -name '*.cpp' -exec cp -prv '{}' './' ';'
-    find ../development/$val '*.h' -exec cp -prv '{}' './' ';'
+    find ../$val -name '*.cpp' -exec cp -prv '{}' './' ';'
+    find ../$val '*.h' -exec cp -prv '{}' './' ';'
 
 done
 

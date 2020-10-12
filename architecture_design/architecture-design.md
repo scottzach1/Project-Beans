@@ -701,24 +701,23 @@ This viewpoint extends to the physical hardware that the system will be
 implemented on. For the avionics package the view of the physical system
 includes two major blocks, the rocket and the base station. Interaction
 between these two systems is fairly limited as the rocket's operation is
-entirely autonomous during flight. However, radio communication still
+intended to be autonomous during flight. However, radio communication still
 occurs throughout operation. Pre-flight, the system status of the rocket
-must be verified before the launch sequence is initiated remotely.
+must be verified before the launch sequence is initiated.
 During flight, telemetry is broadcasted and received by the base
 station, this is to ensure that in the event the rocket is not
 recovered, flight data can still be reviewed. Post-flight, the base
 station is able to query the location of the rocket should its location
-be unknown after landing. During operation the rockets functions are to
+be unknown after landing. During operation the rocket's functions are to
 take measurements from on-board sensors, actively control flight through
 the gimbal and store as well as broadcast data pertaining to sensor
-measurements and controller response. The Base Station actively monitors
+measurements. The Base Station actively monitors
 the radio channel and stores the received telemetry data into a local
 database.
 
 In terms of scalability, the physical hardware could be improved in a
-few aspects. The processor onboard the avionics package could be
-improved to support greater data logging resolution. There could be more
-than one base station communicating with the rocket to ensure a more
+few aspects. The onboard STM32F405 could be upgraded, or hardware acceleration components could be included to support greater data logging resolution. There could be more
+than one base station/and or antennas communicating with the rocket to ensure a more
 stable connection. The flight data could also be stored across more than
 one SD card or hard drive in the event that one or more of the drives is
 corrupted or damaged.
@@ -727,46 +726,23 @@ corrupted or damaged.
 
 #### 4.4.1 Circuit
 
-<_**TODO:**_ Make this section a bit more detailed on the physical
-circuit, which requires designing the circuit> The circuit architecture
+The circuit architecture
 viewpoint details the physical components of the avionics package and
-how these interact on the printed circuit board (PCB).
+how these connect on the printed circuit board (PCB).
 
-The wiring on the circuit board can be split into two categories, those
-that carry signals between components and those that provide power to
-the components. Beginning with wiring between components, all signals
-either originate from or are sent to the microcontroller. During
-operation, the IMU and GPS both pass analogue signals to ports on the
-microcontroller. During flight the microcontroller frequently polls the
-port wired to the IMU and digitizes the signal for use in the active
-control of the rocket. The port wired to the GPS is simply polled when
-the location of the rocket (post-flight) is required. The
-microcontroller then generates control signals on the port wired to the
-gimbal servos to adjust the rockets vector. During the ignition sequence
-the microcontroller outputs an ignition signal on the port wired to the
-ignition system to ignite the motor. In terms of communications, the
-microcontroller both polls and outputs signals to the radio interface in
-order to receive and transmit data to the base station. The radio
-interface modulates/demodulates signals passed to and received from the
-antenna. Lastly, the microcontroller also outputs signals on the port
-wired to the SD Card reader/writer. This signal is then transcribed onto
-the SD card for retrieval post-flight.
+The main components included on the PCB are listed:
+- STM32F405 microcontroller
+- MPU-6050 IMU
+- RFM69HCW radio module
+- MPL3115A2 Barometer
+- Micro SD reader/writer
+- USB-C recepticle
+- Battery
 
-The remaining wiring is involved in providing power to the components
-which require it. In this case, all the components require power
-including the radio antenna and SD card. The power supply circuitry
-begins with the battery. <Insert further details regarding battery
-configuration> The batteries are wired in series with a diode and a
-circuit breaker. The diode ensures that incorrect battery polarity does
-not result in potentially damaging reverse currents. Meanwhile the
-circuit breaker ensures that in the event of a short-circuit, power is
-cut to protect all of the hardware. Following these, the electrical
-signal is passed into a series of voltage regulators. The voltage
-regulators regulate the batteries' output to the voltages required by
-all the components. Once this is achieved power is delivered to all the
-components via the rails outputted by the voltage regulator. In addition
-to providing the power, the batteries' negative terminal is also used as
-the ground reference for all of the components.
+The connections on the PCB fall into two categories, those transfering data and those providing power.
+Beginning with the power, the board is connected to a 2-cell LiPo battery which outputs a voltage between 8.4-6V depending on charge. As the STM32F405 requires half of this voltage it is first regulated down to 3.7V (nominal voltage of an individual cell). This is then fed into a second 3.3V regulator which is enabled only when the board is not connected to USB-C. The 3.3V DC is then connected to the microcontroller, microSD port, radio module, IMU, Flash memory, barometer and GPS. To improve the robustness of the design against EMI and under voltage issues, an array of capacitors are connected in parallel to the 3.3V rail. The ground for all components is referenced to the negative terminal of the battery. As the JST connector on the LiPo battery is keyed it is not necessary to add reverse polarity protection, however, a polyfuse is included to provide protection against over current in the event of a short circuit.
+
+In terms of data, the sensors and peripherls on the board communicate with the microcontroller via I2C and SPI interfaces. The barometer, GPS and IMU all make use of I2C, while the radio module uses SPI. The USB-C and microSD ports both use their respective protocols to transfer data to and from external hardware.
 
 For development, the circuit incorporates several test points and LEDs
 to aid in quickly identifying the status of the system as well and
@@ -780,12 +756,6 @@ example.
 
 #### 4.4.2 Hardware
 
-- One or more concerns framed by this viewpoint
-- typical stakeholders for concerns framed by this viewpoints
-- one or more model kinds used in this viewpoint;
-- concern = Topic of interest pertaining to the system
-- Stakeholders of a system hold these concerns e.g. controller flight.
-
 The hardware architecture is specifically related to the interaction
 between software and the hardware systems onboard the rocket. The
 purpose of this viewpoint it to address the main concerns within the
@@ -797,16 +767,8 @@ of dependencies between hardware and systems is shown below.
 
 ![Physical Deployment Diagram](hardware_architecture/Hardware_Architecture.png)
 
-The arrow directions point to what is depend on the system where the
-arrow originates from. The red arrows indicate the transfer or
-dependency on power, whereas the green indicate data transfer. This
-diagram can be used to see dependencies between the software and
-hardware systems within the rocket. This diagram omits the base station
-receiver.
-
-The arrow directions point to what is depend on the system where the
-arrow originates from. The red arrows indicate the transfer or
-dependency on power, whereas the green indicate data transfer. This
+The arrow directions points to the component that relies on the system where the
+arrow originates from. The red arrows indicate power dependency, whereas the green arrows indicate data transfer. This
 diagram can be used to see dependencies between the software and
 hardware systems within the rocket. This diagram omits the base station
 receiver.
@@ -821,75 +783,58 @@ concerns must be addressed.
 The power system is the most important system within the rocket. All
 Hardware components (excluding non-electrical components) will not
 function if this system malfunctions. There are several concerns
-regarding the power supply. Each component added to this system, like
-the exiting components, need to be connected to the correct voltage
-line. The existing lines are (? what volages) with max currents (?)
-respectively. The voltage must and max current must be abided by, else
-the power supply with shut off or fail. If these are not sufficient for
-the new hardware a new voltage line must be added. A concern reguarding
-adding a new voltage line is the portion of the total battery current it
-will draw. This must not exceed (?) and must still allow enough for the
-required current draw on the other lines, else other components will
+regarding the power supply. Each component added to this system, similarly to
+the existing components, need to be connected to the correct voltage
+rail. The existing lines are 7.4V and 3.7V. The voltage and max current must be abided by, otherwise
+the power supply may shut off or fail. If these are not sufficient for
+the new hardware a new voltage rail must be added. A concern regarding new voltage lines is the portion of the total battery current it
+will draw. This must not exceed 22.5A and must still allow enough for the
+required current draw on the other lines, otherwise other components will
 malfunction.
 
 ###### Communications and Storage systems
 
-A requirement is that Data must be saved transferred to base station.
+A requirement is that data must be saved and transferred to the base station.
 All saved and transmitted data is processed in the microcontroller where
-it is packaged. The packaged data is from the IMU, and the other
-sensors(what sensors?). The software on the microcontroller is what
-polls the sensors at a rate (What rate?). A failure in the sensors will
-be handled by the software and data may still be sent missing the failed
-components data. However, if the microcontroller, Antenna, or the signal
-amplifier fails, the communications requirement will not be met. There
-is hardware to interface with the SD card for onboard storage of data,
-if this fails or data will not be saved onboard and may cause a halt on
+it is packaged. The packaged data is from the IMU, GPS and Barometer. The software on the microcontroller is what
+polls the sensors. A failure in the sensors will
+be handled by the software and data may still be sent to the basestation. However, if the microcontroller, antenna, or the signal
+amplifier fails, the communications requirement will not be met. In addition to radio, there
+is hardware to interface with a microSD card for onboard storage of data,
+if this fails, data will not be saved onboard and may cause a halt on
 the microcontroller causing the system to fail.
 
 The rocket acceleration will not allow some components to work properly.
-The onboard GPS (? what GPS) is not accurate for the acceleration phase
-of the rockets flight. This must be noted when adding new hardware and
+The onboard GPS is not accurate for the acceleration phase
+of the rocket's flight. This must be noted when adding new hardware and
 software system. new software should not rely on the GPS during the
 acceleration phase. Caution should be employed when adding new hardware,
 that is intended to be used during acceleration phase as the
-acceleration may effect function.
+acceleration may effect functionality.
 
 ###### Control system
 
 The microcontroller is at the center of the Control System, it contains
-the software that polls the IMU and the transfer function that take the
-desired flight angles (? what this called) and outputs the gimbal motor
+the software that polls the IMU and outputs the gimbal motor
 voltage signals to adjust the flight path. All components in this chain
-are required for this process, including the software if any fail,
+are required for this process, including the software. If any of these fail,
 controlled flight will not happen.
 
 ###### Ignition system
 
-The ignition system requires a high one off voltage to ignite the powder
-fuel. This has to remain isolated from the power system as not to damage
-the components within that are operating at lower voltages(?). (?
-specifications of this voltage signal and how it is implemented in our
-rocket. e.g. Power supply slowly charges a large capacitor then is
-discharged at ignition, this would then require a note of how long this
-will take to charge, how much battery charge this takes initially? (if
-significant))
+The ignition system requires a large current for a short duration to ignite the charge. This has to remain isolated from the power system as not to damage
+the components within. This works by charging a large capacitor and using a mosfet to quickly discharge it through the ignition charges when toggled by the microcontroller.
 
 ###### Base Station
 
 Key data is sent to the base station, the rest is stored on the rocket
 to save the computing resource available. Sent data includes the Battery
-level, GPS position (For locating after the acceleration phase), (?
-other indicators of system status).
+level, GPS position (For locating after the acceleration phase), as well as the output from the control system.
 
 ###### Software
 
-The microcontrollers onboard flash memory is where the control system
-parameters are stored along with (? Timing intervals for certain
-triggers, large sections of software that wont fit in the program
-memory? Subroutines for interrupts). Triggers include: Ignition, Base
-station triggers?. Continuous data flows include: Control system
-(receiving from IMU, sending to Gimbal), Data storage (Polling Sensors,
-sending data to SD), Communications (Sending to amplifier).
+The microcontroller's onboard flash memory is where the control system
+parameters are stored along with the program code, and the device drivers. The software is responsible for writing data to the LoRa module and SD card as well as polling data from the IMU, barometer and GPS. 
 
 ### 4.5 Scenarios
 

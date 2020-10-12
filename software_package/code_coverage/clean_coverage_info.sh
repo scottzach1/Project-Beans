@@ -1,3 +1,3 @@
-echo "Cleaning past code coverage info..."
 find . -type f -not \( -name 'unity.c' -or -name 'unity.h' -or -name 'unity_internals.h' -or -name 'execute_tests_coverage.sh' -or -name 'clean_coverage_info.sh' -or -name 'README.md' \) -delete
 rm -R -- */ # Removing sub-directories - Potentially dangerous! Dont replace * with a symlink to another link, it could remove the contents of the linked directory!
+echo " ------------ Past code coverage info cleaned ------------"
