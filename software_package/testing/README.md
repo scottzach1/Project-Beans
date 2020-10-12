@@ -15,3 +15,10 @@ On of the key discoveries in this process was that the LoRa module struggled to 
 This package is and was used for testing a wide range of the components individually. This includes custom methods, eg. double_test(), for testing the effectiveness and limitations of performing calculations on the hardware.
 
 The first iteration of our MPU and SD interaction can also be found here. This includes logic for initializing components, reading accelerometer and gyroscope values, adjusting filter bandwidth values, and reading and writing from files.
+
+### Testing Environment Experiment
+The package [`testing_environment_experiment`](./testing_environment_experiment) is a PIO project that demonstrates the CI/CD pipeline capabilities of the project with regards to unit testing and code coverage, and existing issues with the current implementation of the CI/CD pipeline.
+
+To demonstrate the CI/CD unit testing and code coverage, this project contains source code that has no dependencies with adafruit libraries (e.g the state machine of the software system). This highlights an issue with the current implementation of the CI/CD of the project. As it currently stands, the CI/CD pipeline is incapable of testing aspects of the software system that has dependencies with adafruit libraries, given the fact that the docker image being used for the CI/CD jobs that perform unit testing and code coverage reporting are not pre-configured with the required libraries to execute the tests. 
+
+As a proof-of-concept for proper unit testing and code coverage reporting in the project's pipeline, this is the project that is being used by the pipeline (see [`.gitlab-ci.yml`](../../.gitlab-ci.yml)) to demonstrate the execution of tests and code coverage reports in the project's CI/CD pipeline.
