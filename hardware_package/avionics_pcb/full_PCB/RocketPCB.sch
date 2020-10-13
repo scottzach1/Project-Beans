@@ -639,8 +639,6 @@ Wire Notes Line
 Wire Notes Line
 	3850 6450 9300 6450
 Wire Notes Line
-	500  3800 3850 3800
-Wire Notes Line
 	9300 3150 12650 3150
 Wire Notes Line
 	9300 5650 12650 5650
@@ -2236,135 +2234,6 @@ Wire Wire Line
 	11900 1400 12250 1400
 NoConn ~ 12250 1400
 NoConn ~ 12200 1800
-$Comp
-L USB-C_symbol:DX07S024XJ1R1100 J1
-U 1 1 600603B9
-P 2150 2000
-F 0 "J1" H 2150 2965 50  0000 C CNN
-F 1 "DX07S024XJ1R1100" H 2150 2874 50  0000 C CNN
-F 2 "DX07S024XJ1R1100:JAE_DX07S024XJ1R1100" H 2150 2000 50  0001 L BNN
-F 3 "JAE" H 2150 2000 50  0001 L BNN
-F 4 "3.34mm" H 2150 2000 50  0001 L BNN "Field4"
-F 5 "1" H 2150 2000 50  0001 L BNN "Field5"
-F 6 "Manufacturer recommendations" H 2150 2000 50  0001 L BNN "Field6"
-	1    2150 2000
-	1    0    0    -1  
-$EndComp
-Text Label 3050 1600 2    50   ~ 0
-D-
-Text Label 1400 1600 2    50   ~ 0
-D-
-Text Label 3050 1500 2    50   ~ 0
-D+
-Text Label 1400 1500 2    50   ~ 0
-D+
-$Comp
-L power:GND #PWR011
-U 1 1 60097787
-P 3500 2400
-F 0 "#PWR011" H 3500 2150 50  0001 C CNN
-F 1 "GND" H 3505 2227 50  0000 C CNN
-F 2 "" H 3500 2400 50  0001 C CNN
-F 3 "" H 3500 2400 50  0001 C CNN
-	1    3500 2400
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:R R2
-U 1 1 60099F83
-P 1050 2400
-F 0 "R2" H 980 2354 50  0000 R CNN
-F 1 "5.1k" H 980 2445 50  0000 R CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 980 2400 50  0001 C CNN
-F 3 "~" H 1050 2400 50  0001 C CNN
-	1    1050 2400
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:R R3
-U 1 1 6009A378
-P 3150 2400
-F 0 "R3" H 3080 2354 50  0000 R CNN
-F 1 "5.1k" H 3080 2445 50  0000 R CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 3080 2400 50  0001 C CNN
-F 3 "~" H 3150 2400 50  0001 C CNN
-	1    3150 2400
-	0    1    1    0   
-$EndComp
-Text GLabel 3200 1300 2    47   Input ~ 0
-VBUS
-$Comp
-L power:GND #PWR09
-U 1 1 6009C4EA
-P 3150 2600
-F 0 "#PWR09" H 3150 2350 50  0001 C CNN
-F 1 "GND" H 3155 2427 50  0000 C CNN
-F 2 "" H 3150 2600 50  0001 C CNN
-F 3 "" H 3150 2600 50  0001 C CNN
-	1    3150 2600
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	1450 1600 1200 1600
-Wire Wire Line
-	2850 1600 3150 1600
-Wire Wire Line
-	2850 1500 3150 1500
-Wire Wire Line
-	1450 1500 1200 1500
-Wire Wire Line
-	2850 1300 3200 1300
-Wire Wire Line
-	2850 2600 3150 2600
-Wire Wire Line
-	2850 2400 3000 2400
-Wire Wire Line
-	3300 2400 3500 2400
-Wire Wire Line
-	1450 2400 1200 2400
-$Comp
-L power:GND #PWR07
-U 1 1 60238A05
-P 700 2400
-F 0 "#PWR07" H 700 2150 50  0001 C CNN
-F 1 "GND" H 705 2227 50  0000 C CNN
-F 2 "" H 700 2400 50  0001 C CNN
-F 3 "" H 700 2400 50  0001 C CNN
-	1    700  2400
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	900  2400 700  2400
-Wire Wire Line
-	2850 2300 2950 2300
-Wire Wire Line
-	2850 2100 3150 2100
-Wire Wire Line
-	2850 2000 3150 2000
-Wire Wire Line
-	2850 1900 3150 1900
-Wire Wire Line
-	2850 1800 3150 1800
-NoConn ~ 2950 2300
-NoConn ~ 3150 2100
-NoConn ~ 3150 2000
-NoConn ~ 3150 1900
-NoConn ~ 3150 1800
-Wire Wire Line
-	1450 2300 1200 2300
-Wire Wire Line
-	1450 2100 1200 2100
-Wire Wire Line
-	1450 2000 1200 2000
-Wire Wire Line
-	1450 1900 1200 1900
-Wire Wire Line
-	1450 1800 1200 1800
-NoConn ~ 1200 2300
-NoConn ~ 1200 2100
-NoConn ~ 1200 2000
-NoConn ~ 1200 1900
-NoConn ~ 1200 1800
 Wire Wire Line
 	8600 4050 8600 4200
 Wire Wire Line
@@ -2418,4 +2287,135 @@ NoConn ~ 7850 2500
 NoConn ~ 7850 2600
 NoConn ~ 6650 1800
 NoConn ~ 5200 2750
+NoConn ~ 2100 3100
+NoConn ~ 2100 3000
+NoConn ~ 2100 2800
+NoConn ~ 2100 2700
+NoConn ~ 2100 2500
+NoConn ~ 2100 2400
+NoConn ~ 2100 2200
+NoConn ~ 2100 2100
+NoConn ~ 2100 1900
+NoConn ~ 2100 1800
+Wire Wire Line
+	2000 1500 2350 1500
+Wire Wire Line
+	2600 1000 2650 1000
+Connection ~ 2600 1000
+Wire Wire Line
+	2600 1100 2600 1000
+Wire Wire Line
+	2500 1100 2600 1100
+Wire Wire Line
+	2500 1000 2600 1000
+$Comp
+L power:GND #PWR09
+U 1 1 5FD05A10
+P 2650 1000
+F 0 "#PWR09" H 2650 750 50  0001 C CNN
+F 1 "GND" H 2655 827 50  0000 C CNN
+F 2 "" H 2650 1000 50  0001 C CNN
+F 3 "" H 2650 1000 50  0001 C CNN
+	1    2650 1000
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	1900 1100 2200 1100
+Wire Wire Line
+	1900 1000 2200 1000
+$Comp
+L Connector:USB_C_Receptacle J1
+U 1 1 5F882D78
+P 1300 1800
+F 0 "J1" H 1407 3067 50  0000 C CNN
+F 1 "USB_C_Receptacle" H 1407 2976 50  0000 C CNN
+F 2 "Connector_USB:USB_C_Receptacle_Palconn_UTC16-G" H 1450 1800 50  0001 C CNN
+F 3 "https://www.usb.org/sites/default/files/documents/usb_type-c.zip" H 1450 1800 50  0001 C CNN
+	1    1300 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 5FC3CEF9
+P 2350 1100
+F 0 "R3" H 2280 1054 50  0000 R CNN
+F 1 "5.1k" H 2280 1145 50  0000 R CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 2280 1100 50  0001 C CNN
+F 3 "~" H 2350 1100 50  0001 C CNN
+	1    2350 1100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 5FC3C7BA
+P 2350 1000
+F 0 "R2" H 2280 954 50  0000 R CNN
+F 1 "5.1k" H 2280 1045 50  0000 R CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 2280 1000 50  0001 C CNN
+F 3 "~" H 2350 1000 50  0001 C CNN
+	1    2350 1000
+	0    1    1    0   
+$EndComp
+NoConn ~ 1000 3600
+$Comp
+L power:GND #PWR07
+U 1 1 5FC072E4
+P 1300 3600
+F 0 "#PWR07" H 1300 3350 50  0001 C CNN
+F 1 "GND" H 1305 3427 50  0000 C CNN
+F 2 "" H 1300 3600 50  0001 C CNN
+F 3 "" H 1300 3600 50  0001 C CNN
+	1    1300 3600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 3400 1000 3600
+Wire Wire Line
+	1300 3400 1300 3600
+Wire Wire Line
+	1900 3100 2100 3100
+Wire Wire Line
+	1900 3000 2100 3000
+Wire Wire Line
+	1900 2800 2100 2800
+Wire Wire Line
+	1900 2700 2100 2700
+Wire Wire Line
+	1900 2500 2100 2500
+Wire Wire Line
+	1900 2400 2100 2400
+Wire Wire Line
+	1900 2200 2100 2200
+Wire Wire Line
+	1900 2100 2100 2100
+Wire Wire Line
+	1900 1900 2100 1900
+Wire Wire Line
+	1900 1800 2100 1800
+Connection ~ 2000 1500
+Wire Wire Line
+	2000 1600 2000 1500
+Wire Wire Line
+	1900 1600 2000 1600
+Wire Wire Line
+	1900 1500 2000 1500
+Text Label 2350 1500 2    50   ~ 0
+D+
+Connection ~ 2000 1300
+Wire Wire Line
+	1900 1300 2000 1300
+Wire Wire Line
+	2000 1300 2350 1300
+Wire Wire Line
+	2000 1400 2000 1300
+Wire Wire Line
+	1900 1400 2000 1400
+Text Label 2350 1300 2    50   ~ 0
+D-
+Wire Wire Line
+	1900 800  2350 800 
+Text GLabel 2350 800  2    47   Input ~ 0
+VBUS
+Wire Notes Line
+	500  3800 3850 3800
 $EndSCHEMATC
