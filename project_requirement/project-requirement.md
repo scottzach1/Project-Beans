@@ -51,7 +51,8 @@ chat (Mattermost Customer channel).
 
 The purpose of this system is to create a rocket which can be controlled
 in flight while remaining open source and accessible, so that it can be
-further developed and contribute to the amateur rocketry community.
+further developed by the amateur rocketry community, and contribute to
+the existing body of knowledge.
 
 ### 1.2 Scope
 
@@ -81,7 +82,7 @@ alike. Our client is aiming to one day launch rockets from a weather
 balloon. This will require a system that can launch and achieve stable
 flight from a platform with active control. Due to this the project's
 main focus is on designing a robust active control system that can be
-adapted later on to help the client reach their goa.
+adapted later on to help the client reach their goal.
 
 This project is open source, allowing the final product to be tweaked
 and repurposed by the community. This adds longevity to the project
@@ -135,8 +136,8 @@ this project. These include:
 Users should have an understanding of how this package will be applied
 to their own specific projects. It's also important that the users are
 able to fully comply with all of the health and safety regulations
-required by their local Authority on civil aviation if a rocket is
-intended to be launched.
+required by their local authority on civil aviation if a rocket is 
+to be launched.
 
 #### 1.3.4 Limitations
 
@@ -173,30 +174,21 @@ people within a safe distance are the required constraints.
 
 ## 2. References
 
-[IEEE website](https://ieeexplore-ieee-org.helicon.vuw.ac.nz/stamp/stamp.jsp?tp=&arnumber=6146379&tag=1)
-
-\[1]
-[www.nzrocketry.org.nz/rocketry/rocket-safety](https://www.nzrocketry.org.nz/rocketry/rocket-safety)
-(Viewed 30/4/2020)
+\[1] “Rocket Safety,” NZ Rocketry Association. [Online]. Available: https://www.nzrocketry.org.nz/rocketry/rocket-safety. [Accessed: 30-Apr-2020]. 
 
 \[2]
-[www.aviation.govt.nz/rules/rule-part/show/101/4](https://www.aviation.govt.nz/rules/rule-part/show/101/4)
-(Viewed 6/5/2020)
+Part 101 Gyrogliders and Parasails, Unmanned Aircraft (including Balloons), Kites, and Rockets Operating Rules. [Online]. Available: http://www.aviation.govt.nz/rules/rule-part/show/101/4. [Accessed: 13-May-2020]. 
 
 \[3]
-[www.grc.nasa.gov/WWW/K-12/airplane/vecthrst.html](https://www.grc.nasa.gov/WWW/K-12/airplane/vecthrst.html)
-(Viewed 13/5/2020)
+“Vectored Thrust,” NASA. [Online]. Available: http://www.grc.nasa.gov/WWW/K-12/airplane/vecthrst.html. [Accessed: 13-May-2020]. 
 
-\[4] [opensource.org/licenses](https://opensource.org/licenses) (Viewed
-16/5/2020)
+\[4] “Licenses & Standards,” Licenses &amp; Standards | Open Source Initiative. [Online]. Available: https://opensource.org/licenses. [Accessed: 16-May-2020]. 
 
 \[5]
-[www.legislation.govt.nz/regulation/public/2001/0240/latest/DLM71513.html](http://www.legislation.govt.nz/regulation/public/2001/0240/latest/DLM71513.html)
-(Viewed 2/5/2020)
+“Radiocommunications Regulations 2001,” Radiocommunications Regulations 2001 (SR 2001/240) (as at 01 October 2017) Contents – New Zealand Legislation. [Online]. Available: http://www.legislation.govt.nz/regulation/public/2001/0240/latest/DLM71513.html. [Accessed: 02-May-2020]. 
 
 \[6]
-[https://gazette.govt.nz/notice/id/2019-go1588](https://gazette.govt.nz/notice/id/2019-go1588)
-(Viewed 2/5/2020)
+“Radiocommunications Regulations (General User Radio Licence for Short Range Devices) Notice 2019 - 2019-go1588 - New Zealand Gazette,” New Zealand Official Crest. [Online]. Available: https://gazette.govt.nz/notice/id/2019-go1588. [Accessed: 02-May-2020]. 
 
 ---
 
@@ -212,9 +204,8 @@ must allow for the live broadcast of the package's geographical location
 data which will be provided by the GPS unit post flight. This will allow
 for easier retrieval of the unit by the customer. While in flight, the
 radio antenna will also facilitate the periodic sending of other sensor
-data to the base station for use in live monitoring of performance. This
-data will be sent according to the **TODO agreed on specification**, and
-will include but is not limited to:
+data to the base station for use in live monitoring of performance. The
+data to be sent will include the following but is not limited to:
 
 - Current gimbal position/angle
 - Directional acceleration data
@@ -240,18 +231,18 @@ the same rate (or faster) than the rate it is polled from the sensors.
 At the same time this process must not impact the performance of the
 active control system.
 
-#### External: Internal Measurement Unit (IMU / Sensors)
+#### External: Inertial Measurement Unit (IMU / Sensors)
 
 In order to identify the relative position, momentum and orientation of
 the rocket throughout flight, the avionics package needs to track its
 linear and angular acceleration.
 
-This is performed by the internal measurement unit (IMU) of the avionics
-package. The IMU will be polled **TODO insert the required polling rate
-here** for 9-axis gyroscopic data, as well as linear acceleration data,
-which will be used to track the position of the rocket relative to the
-launch site in real time. This is required by the active control system
-and is also written to the SD card for analysis and troubleshooting.
+This is performed by the Inertial Measurement Unit (IMU) of the avionics
+package. The IMU will be poll for for 9-axis gyroscopic data, as well 
+as linear acceleration data, which will be used to track the position
+of the rocket relative to the launch site in real time. This is required 
+by the active control system and is also written to the SD card for 
+analysis and troubleshooting.
 
 #### External: Guidance System
 
@@ -297,29 +288,29 @@ still various interactions between users and the rocket.
 
 ***Use Cases:***
 
-1. **Launch the Rocket:** This is the primary and therefore most
+1. **Launch the Rocket:** This is a primary use case and therefore most
    important use case for this project.
-2. **Transportation of Rocket:** It's important that the rocket is
-   handled safely and for this reason it will be handled by a
+2. **Transportation of Rocket:** It is important that the rocket is
+   handled safely, and for this reason, it will be handled by a
    professional. The specifics of this are outlined further in the
    safety plan.
 3. **Assembly of rocket:** The rocket is designed with different
    packages and components which must be assembled before launch. This
    is a process which should take less than 15 minutes, and is well
    documented in the supplementary assembly instructions.
-4. **Disassembly of rocket:** This is important as we need the ability
+4. **Disassembly of rocket:** This is important as the rocket needs the ability
    to add or remove components for a range of reasons, i.e. faulty or
-   outdated components. It also allows future users to more easily
+   outdated components. It also allows future users to 
    extend the product. This is also covered in the supporting assembly
    document.
 5. **Reading of flight data:** It is important to record all flight
    data, as this provides the users insight as to why the system behaved
    as was observed. This data will be sent to the base station during
    flight, and is visible to the team positioned at the base station.
-6. **Analysis of flight data:** In addition to reading the data it is
+6. **Analysis of flight data:** In addition to reading the data, it is
    also important to formally record the data. This gives users the
-   opportunity to perform further analysis, and improvements for future
-   launches.
+   opportunity to perform further analysis, and to apply improvements 
+   for future launches.
 
 #### 3.2.2 Requirements
 
@@ -352,8 +343,8 @@ are listed which
 4. **The rocket is tunable/tweakable for optimization:** This means that
    there are no unnecessary dependencies between packages. This should
    reduce "god objects" and help to make all packages as interchangeable
-   as possible to provide the user with more options when attempting
-   when attempting to optimize the system. It also means that once built
+   as possible to provide the user with more options
+   when attempting to optimize the system. It also means that once built,
    the rocket is able to be disassembled with relative ease.
 5. **Once flashed the rocket can be assembled and ready to launch within
    15 minutes:** Essentially from starting the assembly process of the
@@ -367,7 +358,7 @@ are listed which
 
 ***Hardware Requirements***
 
-1. Due to the nature of model rockets, all components of the rocket must
+1. **Physically withstand high acceleration:** Due to the nature of model rockets, all components of the rocket must
    be able to withstand significant acceleration. It is crucial that no
    component becomes loose or dislodged during launch as this poses a
    safety risk and may also result in further damage to the package. To
@@ -375,19 +366,19 @@ are listed which
    second per second of acceleration. To ensure the rocket meets this
    requirement, measures such as secure mounting and bracings must be
    implemented on the rocket.
-2. Due to the potential altitudes of model rockets using class D and E
+2. **Safe and controlled landing:** Due to the potential altitudes of model rockets using class D and E
    motors, an uncontrolled landing can cause significant damage to both
    the rocket itself, as well as any people or objects in the
    surrounding environment. To ensure the rocket is safe, it is
    essential that the rocket performs a safe and controlled landing,
    without drifting too far from the initial launch position.
-3. The rocket fits within a _**TODO:**_ X*Y*Zmm enclosure. This hardware
+3. **The rocket fits within a 29mm airframe enclosure:** This hardware
    requirement is an extension of the usability requirement where the
    rocket must be contained within a single kit. The dimensions of the
    rocket would affect how its internal components are structured. A
    smaller rocket promotes efficient use of space and more affordable
    components.
-4. The components of the rocket must be easily accessible to the public.
+4. **Rocket components must be easily accessible to the public:**
    As this rocket is to be open source. It is a requirement that all
    components can be reasonably obtained or produced by a member of the
    public. This extends the lifetime of the rocket and reduces the risk
@@ -398,19 +389,19 @@ are listed which
 
 ***Software Requirements***
 
-1. The Rocket's software must be capable of handling wind speeds up to
+1. **Control system adaptation to varying wind velocities:** The Rocket's software must be capable of handling wind speeds up to
    and within the maximum wind threshold specified inside the safety
    document. This requires the control system to offset any biases and
    deviations introduced by the weather conditions.
 
-2. The rocket must log all flight data. This will include the logging of
+2. **Logging:** The rocket must log all flight data. This will include the logging of
    all internal sensor data, as well as commands issued to the IMU. The
    components in particular whose readings should be logged include the
    IMU, Radio and GPS. The readings must be logged to a file within the
    SD card for post launch analysis as well as critical data broadcast
    over LoRa.
 
-3. The rocket's software must attempt to perform in air error analysis.
+3. **Mid-flight error correction:** The rocket's software must attempt to perform in air error analysis.
    This critical component of the rocket is fundamental to the safety of
    the rocket and any people or objects in the surrounding area. It is
    critical the rocket can respond correctly to erroneous data.
@@ -435,7 +426,8 @@ and easy to transport:
 
 - Contained within a single kit.
 - Weigh no more than 1.5kg as per the NZCAA regulations \[2]
-- Possess reasonable dimensions (_**TODO:**_ Insert numbers here)
+- Possess reasonable dimensions (must fit within a 29mm airframe as per 
+the hardware requirements)
 
 ##### Usability: Base Station Setup and Interactivity
 
@@ -568,91 +560,12 @@ rocket over multiple consecutive launches to their preference.
 This section outlines the software system that will be implemented for
 the rocket.
 
-![UML Class Diagram](/architecture_design/software_architecture/Yed/rocket.png)
+![UML Class Diagram](/architecture_design/software_architecture/Yed/rocket_restructured.png)
 
-The software system is split into 3 main parts - Control, Sensors, and
-Communication.
+The software system is split into 2 main parts - Hardware, and Software.
 
-#### Logical: Control
-
-The control system is responsible for correctly guiding the rocket
-during its flight. This module is separated into 3 sub modules, each of
-which serves a crucial role in thecontrol of the rocket.
-
-##### Logical: Gimbal
-
-- This module is responsible for facilitating the interaction between
-  the microcontroller and the Servos of the rocket.
-
-##### Logical: Guidance System
-
-- The guidance system of the software is where the majority of the PID
-  related calculations will take place during the rocket's flight. The
-  PID class within this module will perform calculations based on PID
-  parameters provided by the user, as well as the current state of the
-  Gimbal and other sensor readings from the Sensors module.
-
-##### Logical: Landing
-
-- The landing module will serve the purpose of initiating and
-  controlling the landing sequence of the rocket. The Parachute software
-  component will trigger the deployment of the parachute, while the
-  Lander component will determine when to deploy the parachute, and if
-  it is safe to do so.
-
-#### Logical: Sensors
-
-The sensor module is responsible for interfacing with the on-board
-sensors of the rocket. The modules within this module include:
-
-##### Logical: Battery
-
-- A simple software module that tracks the voltage and remaining
-  capacity of the on-board battery
-
-##### Logical: IMU
-
-- This module will take readings from the IMU on-board the rocket to
-  obtain information regarding the angular and linear acceleration.
-
-##### Logical: SensorManager
-
-- The SensorManager module serves as a reader of all sensor readings of
-  the rocket. This module interfaces with the communication module of
-  the rocket to send the sensor readings from the rocket, to the base
-  station. Note that this module will maintain a collection of all
-  on-board sensors but will read the sensors and cannot change the state
-  of the sensors in any way.
-
-##### Logical: GPS
-
-- The GPS module will read the coordinates of the rocket and send it
-  back to the base station. This contributes to the recoverability use
-  case of the rocket since it will assist the project stakeholders in
-  recovering the rocket after a flight.
-
-#### Logical: Communication
-
-The communication module is the software interface that will enable
-bi-directional communication between the rocket and the base station.
-The purpose of the communication module is centered around the
-establishing a connection with the rocket's antenna and the USB LoRa
-interface at the base station. This is required forlogging information
-about the state of the rocket during flight.
-
-##### Logical: Radio
-
-- The Radio module serves the purpose of establishing a connection
-  between the rocket's antenna and the base station, as well as the
-  control of what information should be retrieved from the rocket.
-
-##### Logical: Logging
-
-- This module is responsible for logging the data retrieved from the
-  sensors into the on-board SD card, as well the location within the
-  base station laptop specified by the user. This module is also
-  responsible for transforming the sensor data into a human readable
-  format to contribute the usability of the logging system.
+**Please refer to section 4.1 of the [architecture document](../architecture_design/architecture-design.md/) for technical details of the
+software system's implementation.**
 
 ### 3.6 Design constraints
 
@@ -746,9 +659,9 @@ all external interfaces on the rocket, including but not limited to:
 
 It is crucial the hardware of the rocket is reliable as we are dealing
 with potentially dangerous and harmful equipment. It was also specified
-by the client that the hardware should not be able to be damaged though
-simple actions like plugging in the battery or the sensors into the
-main-board incorrectly. Therefore the reliability and accuracy of
+by the client that the hardware should retain its physical integrity when performing
+simple actions incorrectly, like plugging in the battery or the sensors into the
+main-board in the wrong orientation. Therefore, the reliability and accuracy of
 components needs to be measured via testing to ensure that incorrect use
 of certain components will not damage the hardware, or harm the user. To
 protect the hardware, components such as sensors can be attached through
@@ -819,9 +732,6 @@ the following:
 - **Code Quality** - The software should adhere to existing coding
   conventions and follow design patterns where appropriate. The software
   should facilitate easy maintenance and adaptability.
-- **Logger** - The software can include a logging module that is used to
-  report telemetry data and other useful information about the state of
-  the avionics package.
 - **Ease of Deployment** - Deployment of the software system should be
   easy for the user. A manual should accompany the software to describe
   how to use it, and to describe any important parts of the software the
@@ -842,8 +752,6 @@ viable product. The requirements are:
   height.
 
 - Mass: Excluding the d class motor is 80g and 124.5g inclusive.
-
-- Volume: Yet to be determined.
 
 - Material: The rocket will be constructed largely from plastic
   including 3D printed parts.
@@ -870,7 +778,7 @@ parts used in the design are:
 - Adafruit Mini GPS PA1010D: GPS module for providing positional data to
   the microcontroller.
 
-- Secondary microcontroiller for interfacing between the basestation
+- Secondary microcontroller for interfacing between the basestation
   laptop and LoRa trancievers.
 
 A custom PCB design is implemented to reduce the size of the electronics
@@ -1052,11 +960,11 @@ to within a 5 metre radius of the rocket.
    perform a safe and slow landing as a result of deploying a recovery
    system after a set amount of time during its flight. Alternatively,
    the parachute is deployed when the on-board barometer detects an
-   increase in air pressure. A landing that causes noticeable damage to
+   increase in air pressure, accompanied by a deceleration as indicated by the IMU. A landing that causes noticeable damage to
    any person or property despite the deployment of the recovery system
    will mean that this requirement will fail to meet the verification
    standard.
-3. Fits within X*Y*Z enclosure - This requirement is verified if the
+3. Fits within an enclosure with the specified dimensions - This requirement is verified if the
    entire rocket posses a width and diameter of no more than 220mm by
    50mm respectively. The comnponents must also fit within an airframe
    whose maximum width does not exceed 29mm. Exceeding any of the
@@ -1119,7 +1027,7 @@ use case/scenario in order to verify the usability of the system.
 
 - The setup of the base station laptop, USB LoRa, and the software
   module to enable interaction between the rocket and the base station
-  takes no longer than **5 minutes to setup.**.
+  takes no longer than **5 minutes to setup.**
 
 ##### Pre-Flight Tuning
 
@@ -1339,7 +1247,7 @@ this attribute. Each persona will be considered to see if that persona
 can understand the code-base and the manuals provided in a way that will
 enable them to make suggestions or apply changes to the code.
 
-**Attribute 3 - Testing**:'
+**Attribute 3 - Testing**:
 
 This attribute can be verified by assessing the package against
 quantitative and qualitative metrics. From a quantitative point of view,
@@ -1584,7 +1492,7 @@ likelihood of occurrance and extent of impact are described as follows:
 **1. Managing computer related risks**:
 
 - It is the responsibility of the individual to make sure they have done
-  he best they personally can to ensure they have a healthy, safe and
+  the best they personally can to ensure they have a healthy, safe and
   tidy working environment. However, if for any circumstances these
   conditions cannot be met for an individual, there are still options
   that can be done as a team to ensure everyone's health and safety when
@@ -1626,10 +1534,10 @@ likelihood of occurrance and extent of impact are described as follows:
   appropriate considerations are made ahead of time. These
   considerations will be realised in the form of a health and safety
   plan. Before the team visits any planned locations, they must first as
-  a group brainstorm or discuss any health and safety risks that might
+  a group, brainstorm or discuss any health and safety risks that might
   be applicable to the location. It is important to note that mental
   health is also a vital consideration. Once these risks have been
-  assessed, both the likelihood and what mitigation can / will be
+  assessed, both the likelihood and what mitigation cawhat is continuous integration and continuous deliveryn / will be
   undertaken to reduce the risks. If any individual has concerns
   conflicting with the team about any offsite locations, then they can
   either express their stance with the team, or discretely raise the
@@ -1661,11 +1569,35 @@ document for further information.
 
 ### 6.1 Assumptions and dependencies
 
-One page on assumptions and dependencies (9.5.7).
+- **Interaction with Mission Control Project** - A fully functioning avionics
+package relies on a reliable, fully developed mission control software provided
+by a separate team. This is due to the fact that the mission control software
+is responsible for monitoring the launch environment to determine whether or
+not a rocket launch is safe. An agreed upon communications protocol between
+the rocket and mission control is required.
+
+- **Interaction with Simulation Project** - The PID of the control system is
+too costly to test with real launches. This project assumes that the testing
+of the control system will be happening in a simulated environment, as
+facilitated by monte carlo software developed by a separate team. 
 
 ### 6.2 Acronyms and abbreviations
 
-One page glossary _as required_.
+IMU (Inertial Measurement Unit): A device capable of sensing forces acting
+on a physical body.
+
+CI/CD (Continuous Integration/Continunous Delivery):  The software process
+of merging version control branches into a single branch and conducting 
+software operations and workflow (i.e testing) in an automated fashion.
+
+NZCAA (New Zealand Civil Aviation Authority): Governing body with regards to
+aviation rules and procedures.
+
+GPS (Global Positioning System): A device that tracks the position of the object
+it is attached to in the world.
+
+DRY (Do not repeat yourself): A software philosophy centered around reducing
+redundancy and repetition in software systems.
 
 ---
 
