@@ -25,9 +25,9 @@ The mapping should be kept close to the actual degrees so trouble shooting and t
 ***
 **Block diagram for avionics control system**
 
-*general diagram*
-![loopfeedback](avionics_control_feedback_loop.PNG)
-*WIP: add specific values and isolate the avionics package component*
+*Control Diagram*
+![loopfeedback](control_diagram.PNG)
+*Shows how the main code loop fits with the conceptualized feedback loop*
 
 ##### IMU data
 Ideally we want to use the library that interacts with the DSP (runs fast enough to return reading whenever polled since the micros main loop will run slower than data is ready) onboard the IMU to return quaternions. Currently this is not the library used and it may not be implemented before handover due to time constraints.
