@@ -1539,9 +1539,9 @@ likelihood of occurrance and extent of impact are described as follows:
   a group, brainstorm or discuss any health and safety risks that might
   be applicable to the location. It is important to note that mental
   health is also a vital consideration. Once these risks have been
-  assessed, both the likelihood and what mitigation cawhat is continuous integration and continuous deliveryn / will be
-  undertaken to reduce the risks. If any individual has concerns
-  conflicting with the team about any offsite locations, then they can
+  assessed, mitigation strategies can be developed to minimize the impact
+  of these risks. If any individual has concerns conflicting with the
+  team about any offsite locations, then they can
   either express their stance with the team, or discretely raise the
   concern with the course coordinator / health and safety officer. Any
   industrial locations must require an induction, whether this is
