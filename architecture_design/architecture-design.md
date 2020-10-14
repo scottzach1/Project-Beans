@@ -7,9 +7,6 @@ Will Fowler, Zac Scott
 
 ## 1. Introduction
 
-Requirement: "One page overall introduction including sections 1.1 and
-1.2 (ISO/IEC/IEEE 42010:2011(E) clause 5.2)"
-
 For rockets ranging from NASAs Saturn V to an amateur rocket enthusiasts
 first rocket, stability is a desirable. The method in which stable
 flight is achieved varies to a large degree, but can be divided into two
@@ -46,15 +43,11 @@ the project, the team can also contact Andre via a live text chat
 
 ### 1.1 Purpose
 
-Requirement: "One sentence describing the purpose of the system(9.5.1)"
-
 The purpose of this system is to control a rocket in flight while being
 opensource and accessible so that it can be used in the amateur rocketry
 community.
 
 ### 1.2 Scope
-
-Requirement: "One paragraph describing the scope of the system(9.5.2)"
 
 The objective is to deliver an avionics system that will allow stable
 controlled flight while simultaneously logging and broadcasting data.
@@ -79,11 +72,6 @@ only if required)
 
 ## 2. References
 
-References to other documents or standards. Follow the IEEE Citation
-Reference scheme, available from the
-[IEEE website](https://ieee-dataport.org/sites/default/files/analysis/27/IEEE%20Citation%20Guidelines.pdf)
-(PDF; 20 KB). (1 page, longer if required)
-
 <https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf>
 \[1] (Viewed 27/5/2020)
 <https://www.aviation.govt.nz/assets/rules/consolidations/Part_101_Consolidation.pdf>
@@ -91,25 +79,7 @@ Reference scheme, available from the
 
 ## 3. Architecture
 
-Describe your system's architecture according to ISO/IEC/IEEE
-42010:2011(E), ISO/IEC/IEEE 12207, ISO/IEC/IEEE 15289 and ISO/IEC/IEEE
-15288\.
-
-Note in particular the note to clause 5 of 42010:
-
-_"The verb include when used in Clause 5 indicates that either the
-information is present in the architecture description or reference to
-that information is provided therein."_
-
-This means that you should refer to information (e.g. risks,
-requirements, models) in this or other documents rather than repeat
-information.
-
 ### 3.1 Stakeholders
-
-> See ISO/IEC/IEEE 42010 clause 5.3 and ISO/IEC/IEEE 12207 clause
-> 6.4.4.3(2). For most systems this will be about 2 pages, including a
-> table mapping concerns to stakeholder.
 
 #### Client
 
@@ -194,32 +164,6 @@ interactions between users and the system. This will then allow for
 qualitative reviews of our given architecture.
 
 ### 4. Architectural Views
-
-(5 sub-sections of 2 pages each sub-section, per 42010, 5.5, 5.6, with
-reference to Annex F of both 12207 and 15288)
-
-Describe your system's architecture in a series of architectural views,
-each view corresponding to one viewpoint.
-
-You should include views from the following viewpoints (from Kruchten's
-4+1 model):
-
-- Logical
-- Development
-- Process
-- Physical
-- Scenarios - present scenarios illustrating how two of your most
-  important use cases are supported by your architecture
-
-As appropriate you should include the following viewpoints:
-
-- Circuit Architecture
-- Hardware Architecture
-
-Each architectural view should include at least one architectural model.
-If architectural models are shared across views, refer back to the first
-occurrence of that model in your document, rather than including a
-separate section for the architectural models.
 
 ### 4.1 Logical
 
@@ -462,8 +406,9 @@ management and CI/CD.
     validated against selected linting software. (see Linting section
     below for more information)
 
-  - Building - All source code in the repository is built to ensure that
-    the source code compiles correctly.
+  - PlatfromIO Building - All source code in the repository is built
+    through the PlatformIO platform. This ensures that the source code is
+    always in a valid state as it appears on the repository.
 
   - Testing
 
@@ -471,8 +416,6 @@ management and CI/CD.
       correctness.
     - Code coverage generation is automated to aid developers in
       determining what parts of the source code has been tested
-
-  - _**TODO:**_ PlatformIO building (once we complete this)
 
   For technical details of the project's CI/CD implementation, refer to
   the
@@ -554,7 +497,7 @@ set within the `platformio.ini` platformio project configuration file.
 The following debug scale is as specified below:
 
 | DEBUG | Description                               | Example                                                 |
-|:------|:------------------------------------------|:--------------------------------------------------------|
+| :---- | :---------------------------------------- | :------------------------------------------------------ |
 | 0     | No debug whatsoever.                      | N/A                                                     |
 | 1     | Debugging (light messages, no specifics). | Eg. `TODO implement this...` and `parachute launched.`. |
 | 2     | Full verbose (remainder of information).  | Eg. `Returned value 5` or `Entering loop iteration 2`.  |
@@ -589,8 +532,29 @@ the mix of hardware and software development this project features,
 PlatformIO is the ideal development platform to streamline the
 development of the project.
 
-_**TODO:**_ There's more technical details we can add here at some
-point. We need to get to a point where we can confidently use PlatformIO
+The software system is enclosed within a PlatformIO project. All building
+and compilation of source code is facilitated by PlatformIO
+(via `pio run`), as well as the execution of unit tests (via `pio test`).
+The project also makes use of PlatformIO events which enables the creation
+of distinct development environments within a single project. From a
+development perspective, this means that developers are able to create
+different environments, each with their own characteristics (e.g
+differing compilation options, libraries) in a way that accomodates for
+a wide range of settings and applications.
+
+In the specific case of this project, there are 2 important environments
+
+- Adafruit Environment - This is the environment used by the on-board
+  microcontroller. This environment contains all the adafruit libraries
+  required for the source code to operate correctly.
+
+- Native Environment - This is the environment used by any machine that
+  is not the microcontroller. This environment is applicable only to host
+  machines that are incapable of obtaining the adafruit libraries.
+
+For further details on how PlatformIO is used in the project, refer to
+the [`development`](../software_package/development) directory
+to see a live example.
 
 ##### Unit Testing and Code Coverage
 
@@ -731,6 +695,7 @@ viewpoint details the physical components of the avionics package and
 how these connect on the printed circuit board (PCB).
 
 The main components included on the PCB are listed:
+
 - STM32F405 microcontroller
 - MPU-6050 IMU
 - RFM69HCW radio module
@@ -834,7 +799,7 @@ level, GPS position (For locating after the acceleration phase), as well as the 
 ###### Software
 
 The microcontroller's onboard flash memory is where the control system
-parameters are stored along with the program code, and the device drivers. The software is responsible for writing data to the LoRa module and SD card as well as polling data from the IMU, barometer and GPS. 
+parameters are stored along with the program code, and the device drivers. The software is responsible for writing data to the LoRa module and SD card as well as polling data from the IMU, barometer and GPS.
 
 ### 4.5 Scenarios
 
@@ -1016,7 +981,7 @@ incurred. Substantiate each budget item by reference to fulfilment of
 project goals (one paragraph per item).
 
 | COMPONENT        | COST            | NAME/DESCRIPTION/LINK                                                                                                                                                                                                                                                                                                                                                                                                                                        | REASONS FOR CHOICE                                                                                                        |
-|:-----------------|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|
+| :--------------- | :-------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------ |
 | Micro-Controller | \$24.95 USD     | Adafruit Feather STM32F405 (168MHz) [BUY](https://www.adafruit.com/product/4382), [Github](https://github.com/adafruit/Adafruit-Feather-STM32F405-Express-PCB), [Documentation](https://www.digikey.co.nz/en/videos/a/adafruit/programming-the-adafruit-feather-stm32f405-express-with-stm32cubeide-maker-io)                                                                                                                                                | Small, Light, Good Opensource Libraries & Good Documentation                                                              |
 | IMU              | \$17.59 NZD     | BNO055 [BUY](https://nz.mouser.com/ProductDetail/Bosch-Sensortec/BNO055?qs=QhAb4EtQfbV8Z2YmISucWw%3D%3D), [Datasheet](https://nz.mouser.com/datasheet/2/783/BST-BNO055-DS000-1509603.pdf), [Adafruit library](https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/arduino-code)                                                                                                                                                           | Good Libraries, quaternions, Better Documentation                                                                         |
 | GPS              | \$61.93 NZD     | Adafruit Mini GPS PA1010D [BUY](https://www.digikey.co.nz/products/en?keywords=PA1010D), [Datasheet](https://cdn.taoglas.com/datasheets/GP.1575.25.4.A.02.pdf)                                                                                                                                                                                                                                                                                               | Cheap, Small and Meets requirments                                                                                        |
@@ -1088,8 +1053,7 @@ emphasis on simplicity, modularity, and modifiability).
 The document will be assessed by considering both presentation and
 content. Group and individual group members will be assessed by
 identical criteria, the group mark for the finished PDF and the
-individual mark on the contributions visible through `git blame`, `git
-diff`, file histories, etc.
+individual mark on the contributions visible through `git blame`, `git diff`, file histories, etc.
 
 The presentation will be based on how easy it is to read, correct
 spelling, grammar, punctuation, clear diagrams, and so on.
