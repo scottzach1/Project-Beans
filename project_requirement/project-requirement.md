@@ -4,7 +4,7 @@
 
 ## Authors
 
-Billy Rob, Niels Clayton, Finn Sargisson, William Fowler, Ron
+Billy Robb, Niels Clayton, Finlay Sargisson, William Fowler, Ron
 Crisostomo, Zac Scott.
 
 ---
@@ -136,7 +136,7 @@ this project. These include:
 Users should have an understanding of how this package will be applied
 to their own specific projects. It's also important that the users are
 able to fully comply with all of the health and safety regulations
-required by their local authority on civil aviation if a rocket is 
+required by their local authority on civil aviation if a rocket is
 to be launched.
 
 #### 1.3.4 Limitations
@@ -174,21 +174,21 @@ people within a safe distance are the required constraints.
 
 ## 2. References
 
-\[1] “Rocket Safety,” NZ Rocketry Association. [Online]. Available: https://www.nzrocketry.org.nz/rocketry/rocket-safety. [Accessed: 30-Apr-2020]. 
+\[1] “Rocket Safety,” NZ Rocketry Association. [Online]. Available: https://www.nzrocketry.org.nz/rocketry/rocket-safety. [Accessed: 30-Apr-2020].
 
 \[2]
-Part 101 Gyrogliders and Parasails, Unmanned Aircraft (including Balloons), Kites, and Rockets Operating Rules. [Online]. Available: http://www.aviation.govt.nz/rules/rule-part/show/101/4. [Accessed: 13-May-2020]. 
+Part 101 Gyrogliders and Parasails, Unmanned Aircraft (including Balloons), Kites, and Rockets Operating Rules. [Online]. Available: http://www.aviation.govt.nz/rules/rule-part/show/101/4. [Accessed: 13-May-2020].
 
 \[3]
-“Vectored Thrust,” NASA. [Online]. Available: http://www.grc.nasa.gov/WWW/K-12/airplane/vecthrst.html. [Accessed: 13-May-2020]. 
+“Vectored Thrust,” NASA. [Online]. Available: http://www.grc.nasa.gov/WWW/K-12/airplane/vecthrst.html. [Accessed: 13-May-2020].
 
-\[4] “Licenses & Standards,” Licenses &amp; Standards | Open Source Initiative. [Online]. Available: https://opensource.org/licenses. [Accessed: 16-May-2020]. 
+\[4] “Licenses & Standards,” Licenses &amp; Standards | Open Source Initiative. [Online]. Available: https://opensource.org/licenses. [Accessed: 16-May-2020].
 
 \[5]
-“Radiocommunications Regulations 2001,” Radiocommunications Regulations 2001 (SR 2001/240) (as at 01 October 2017) Contents – New Zealand Legislation. [Online]. Available: http://www.legislation.govt.nz/regulation/public/2001/0240/latest/DLM71513.html. [Accessed: 02-May-2020]. 
+“Radiocommunications Regulations 2001,” Radiocommunications Regulations 2001 (SR 2001/240) (as at 01 October 2017) Contents – New Zealand Legislation. [Online]. Available: http://www.legislation.govt.nz/regulation/public/2001/0240/latest/DLM71513.html. [Accessed: 02-May-2020].
 
 \[6]
-“Radiocommunications Regulations (General User Radio Licence for Short Range Devices) Notice 2019 - 2019-go1588 - New Zealand Gazette,” New Zealand Official Crest. [Online]. Available: https://gazette.govt.nz/notice/id/2019-go1588. [Accessed: 02-May-2020]. 
+“Radiocommunications Regulations (General User Radio Licence for Short Range Devices) Notice 2019 - 2019-go1588 - New Zealand Gazette,” New Zealand Official Crest. [Online]. Available: https://gazette.govt.nz/notice/id/2019-go1588. [Accessed: 02-May-2020].
 
 ---
 
@@ -238,10 +238,10 @@ the rocket throughout flight, the avionics package needs to track its
 linear and angular acceleration.
 
 This is performed by the Inertial Measurement Unit (IMU) of the avionics
-package. The IMU will be poll for for 9-axis gyroscopic data, as well 
+package. The IMU will be poll for for 9-axis gyroscopic data, as well
 as linear acceleration data, which will be used to track the position
-of the rocket relative to the launch site in real time. This is required 
-by the active control system and is also written to the SD card for 
+of the rocket relative to the launch site in real time. This is required
+by the active control system and is also written to the SD card for
 analysis and troubleshooting.
 
 #### External: Guidance System
@@ -286,7 +286,7 @@ goods, it's not advised to use this package for different purposes
 without careful consideration and alterations. That being said there are
 still various interactions between users and the rocket.
 
-***Use Cases:***
+**_Use Cases:_**
 
 1. **Launch the Rocket:** This is a primary use case and therefore most
    important use case for this project.
@@ -300,7 +300,7 @@ still various interactions between users and the rocket.
    documented in the supplementary assembly instructions.
 4. **Disassembly of rocket:** This is important as the rocket needs the ability
    to add or remove components for a range of reasons, i.e. faulty or
-   outdated components. It also allows future users to 
+   outdated components. It also allows future users to
    extend the product. This is also covered in the supporting assembly
    document.
 5. **Reading of flight data:** It is important to record all flight
@@ -309,7 +309,7 @@ still various interactions between users and the rocket.
    flight, and is visible to the team positioned at the base station.
 6. **Analysis of flight data:** In addition to reading the data, it is
    also important to formally record the data. This gives users the
-   opportunity to perform further analysis, and to apply improvements 
+   opportunity to perform further analysis, and to apply improvements
    for future launches.
 
 #### 3.2.2 Requirements
@@ -322,7 +322,7 @@ ensure the project is considered successful. Following the minimum
 viable product, additional functions specific to hardware and software
 are listed which
 
-***Requirements / functions of the Minimum Viable Product***:
+**_Requirements / functions of the Minimum Viable Product_**:
 
 1. **The Rocket is safe to transport:** As the motor is classified as a
    Class 1 dangerous goods (New Zealand Land Transport Rule: Dangerous
@@ -356,9 +356,10 @@ are listed which
    easily transported and decreases the risk of losing launch critical
    components.
 
-***Hardware Requirements***
+**_Hardware Requirements_**
 
-1. **Physically withstand high acceleration:** Due to the nature of model rockets, all components of the rocket must
+1. **Physically withstand high acceleration:** Due to the nature of model
+   rockets, all components of the rocket must
    be able to withstand significant acceleration. It is crucial that no
    component becomes loose or dislodged during launch as this poses a
    safety risk and may also result in further damage to the package. To
@@ -366,12 +367,12 @@ are listed which
    second per second of acceleration. To ensure the rocket meets this
    requirement, measures such as secure mounting and bracings must be
    implemented on the rocket.
-2. **Safe and controlled landing:** Due to the potential altitudes of model rockets using class D and E
-   motors, an uncontrolled landing can cause significant damage to both
-   the rocket itself, as well as any people or objects in the
-   surrounding environment. To ensure the rocket is safe, it is
-   essential that the rocket performs a safe and controlled landing,
-   without drifting too far from the initial launch position.
+2. **Safe and controlled landing:** Due to the potential altitudes of model
+   rockets using class D and E motors, an uncontrolled landing can cause
+   significant damage to both the rocket itself, as well as any people or
+   objects in the surrounding environment. To ensure the rocket is safe,
+   it is essential that the rocket performs a safe and controlled
+   landing, without drifting too far from the initial launch position.
 3. **The rocket fits within a 29mm airframe enclosure:** This hardware
    requirement is an extension of the usability requirement where the
    rocket must be contained within a single kit. The dimensions of the
@@ -387,27 +388,28 @@ are listed which
    printed parts, will also contribute to the assembly to help achieve
    this.
 
-***Software Requirements***
+**_Software Requirements_**
 
-1. **Control system adaptation to varying wind velocities:** The Rocket's software must be capable of handling wind speeds up to
-   and within the maximum wind threshold specified inside the safety
-   document. This requires the control system to offset any biases and
-   deviations introduced by the weather conditions.
+1. **Control system adaptation to varying wind velocities:** The Rocket's
+   software must be capable of handling wind speeds up to and within the
+   maximum wind threshold specified inside the safety document. This
+   requires the control system to offset any biases and deviations
+   introduced by the weather conditions.
 
-2. **Logging:** The rocket must log all flight data. This will include the logging of
-   all internal sensor data, as well as commands issued to the IMU. The
-   components in particular whose readings should be logged include the
-   IMU, Radio and GPS. The readings must be logged to a file within the
-   SD card for post launch analysis as well as critical data broadcast
-   over LoRa.
+2. **Logging:** The rocket must log all flight data. This will include
+   the logging of all internal sensor data, as well as commands issued to
+   the IMU. The components in particular whose readings should be logged
+   include the IMU, Radio and GPS. The readings must be logged to a file
+   within the SD card for post launch analysis as well as critical data
+   broadcast over LoRa.
 
-3. **Mid-flight error correction:** The rocket's software must attempt to perform in air error analysis.
-   This critical component of the rocket is fundamental to the safety of
-   the rocket and any people or objects in the surrounding area. It is
-   critical the rocket can respond correctly to erroneous data.
-   Erroneous data could be observed via any readings from components
-   whose output is part of the integral control system. This includes
-   the IMU, battery and the SD card.
+3. **Mid-flight error correction:** The rocket's software must attempt to
+   perform in air error analysis. This critical component of the rocket
+   is fundamental to the safety of the rocket and any people or objects
+   in the surrounding area. It is critical the rocket can respond
+   correctly to erroneous data. Erroneous data could be observed via any
+   readings from components whose output is part of the integral control
+   system. This includes the IMU, battery and the SD card.
 
 ### 3.3 Usability Requirements
 
@@ -426,8 +428,8 @@ and easy to transport:
 
 - Contained within a single kit.
 - Weigh no more than 1.5kg as per the NZCAA regulations \[2]
-- Possess reasonable dimensions (must fit within a 29mm airframe as per 
-the hardware requirements)
+- Possess reasonable dimensions (must fit within a 29mm airframe as per
+  the hardware requirements)
 
 ##### Usability: Base Station Setup and Interactivity
 
@@ -560,12 +562,12 @@ rocket over multiple consecutive launches to their preference.
 This section outlines the software system that will be implemented for
 the rocket.
 
-![UML Class Diagram](/architecture_design/software_architecture/Yed/rocket_restructured.png)
+![UML Class Diagram](../architecture_design/software_architecture/Yed/rocket_restructured.png)
 
 The software system is split into 2 main parts - Hardware, and Software.
 
-**Please refer to section 4.1 of the [architecture document](../architecture_design/architecture-design.md/) for technical details of the
-software system's implementation.**
+**Please refer to section 4.1 of the [architecture document](../architecture_design/architecture-design.md/)
+for technical details of the software system's implementation.**
 
 ### 3.6 Design constraints
 
@@ -946,7 +948,7 @@ to within a 5 metre radius of the rocket.
    components required to assemble the rocket are small enough to fit
    into a suitable sized container.
 
-***Hardware***
+**_Hardware_**
 
 1. Withstanding significant acceleration: The rocket and its components
    must be able to withstand at least 20ms<sup>-2</sup> of acceleration
@@ -960,10 +962,10 @@ to within a 5 metre radius of the rocket.
    perform a safe and slow landing as a result of deploying a recovery
    system after a set amount of time during its flight. Alternatively,
    the parachute is deployed when the on-board barometer detects an
-   increase in air pressure, accompanied by a deceleration as indicated by the IMU. A landing that causes noticeable damage to
-   any person or property despite the deployment of the recovery system
-   will mean that this requirement will fail to meet the verification
-   standard.
+   increase in air pressure, accompanied by a deceleration as indicated
+   by the IMU. A landing that causes noticeable damage to any person or
+   property despite the deployment of the recovery system will mean that
+   this requirement will fail to meet the verification standard.
 3. Fits within an enclosure with the specified dimensions - This requirement is verified if the
    entire rocket posses a width and diameter of no more than 220mm by
    50mm respectively. The comnponents must also fit within an airframe
@@ -972,13 +974,13 @@ to within a 5 metre radius of the rocket.
 4. Open Source and Accessible: This requirement is verified if all work
    contributing to the development of the hardware system of the rocket
    is openly visible to the public, and that the total cost of all
-   components is less than or equal to $300 NZD. To verify this
+   components is less than or equal to \$300 NZD. To verify this
    requirement, all schematics, plans and diagrams related to the
    hardware system of the rocket will be available on GitLab. Tools used
    to create schematics, plans and diagrams will be open source, or free
    to use.
 
-***Software***
+**_Software_**
 
 1. Error Correction and Control: This requirement is verified if the
    software system correctly guides the rocket to take a safe, upward
@@ -1287,18 +1289,18 @@ that:
 
 The environmental requirements can be verified given:
 
-The environmental conditions meet the requirements of the New Zealand
-Rocketry Association \[1] which specify:
+- The environmental conditions meet the requirements of the New Zealand
+  Rocketry Association \[1] which specify:
 
-The environmental conditions adhere to the New Zealand Civil Aviation
-Authority Rules Part 101 \[2] which specify:
+- The environmental conditions adhere to the New Zealand Civil Aviation
+  Authority Rules Part 101 \[2] which specify:
 
-The rocket adheres to the guidelines presented by the Faculty of
-Engineering and Computer Science at Victoria University which will be
-checked at all times throughout the duration of the project.
+- The rocket adheres to the guidelines presented by the Faculty of
+  Engineering and Computer Science at Victoria University which will be
+  checked at all times throughout the duration of the project.
 
-The rocket is launched at a location permitted by the Wellington City
-Council and does not damage the surrounding property or the environment.
+- The rocket is launched at a location permitted by the Wellington City
+  Council and does not damage the surrounding property or the environment.
 
 ## 5. Development schedule
 
@@ -1313,21 +1315,21 @@ significant releases. Published by October 18th.
 
 ### 5.2 Budget
 
-In total the project has an allocated budget of $300.00 NZD.
+In total the project has an allocated budget of \$300.00 NZD.
 
 Presented here is a table outlining the expenditure on key components.
 All links and prices valid as of the 15th of June 2020.
 
-| COMPONENT        | COST           | NAME/DESCRIPTION/LINK                                                                                                                                                                                                                                                                                                                                                                                                                                        | REASONS FOR CHOICE                                                                                                        |
-|:-----------------|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| Micro-Controller | $24.95 USD     | Adafruit Feather STM32F405 (168MHz) [BUY](https://www.adafruit.com/product/4382), [Github](https://github.com/adafruit/Adafruit-Feather-STM32F405-Express-PCB), [Documentation](https://www.digikey.co.nz/en/videos/a/adafruit/programming-the-adafruit-feather-stm32f405-express-with-stm32cubeide-maker-io)                                                                                                                                                | Small, Light, Good Opensource Libraries & Good Documentation                                                              |
-| IMU              | $17.59 NZD     | BNO055 [BUY](https://nz.mouser.com/ProductDetail/Bosch-Sensortec/BNO055?qs=QhAb4EtQfbV8Z2YmISucWw%3D%3D), [Datasheet](https://nz.mouser.com/datasheet/2/783/BST-BNO055-DS000-1509603.pdf), [Adafruit library](https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/arduino-code)                                                                                                                                                           | Good Libraries, quaternions, Better Documentation                                                                         |
-| GPS              | $61.93 NZD     | Adafruit Mini GPS PA1010D [BUY](https://www.digikey.co.nz/products/en?keywords=PA1010D), [Datasheet](https://cdn.taoglas.com/datasheets/GP.1575.25.4.A.02.pdf)                                                                                                                                                                                                                                                                                               | Cheap, Small and Meets requirments                                                                                        |
-| Transceivers     | $19.95 USD     | Adafruit RFM96W LoRa Radio Transceiver Breakout - 433 MHz - RadioFruit [BUY](https://www.adafruit.com/product/3073), [Overview](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts?fbclid=IwAR35VbMkCNa8vlXsCGSQ_aMt7WncGXr0NET0dsGQH1ARlQAluhj9rdhM1OQ), [Datasheet](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts.pdf?timestamp=1592280787) | SPI, Pins for extra antenna                                                                                               |
-| Gimbal Servos    | $6.97 NZD each | SERVOMOTOR RC 6V MICR METAL GEAR [BUY](https://www.digikey.com/product-detail/en/dfrobot/SER0011/1738-1232-ND/7087129?fbclid=IwAR3tHvFKb_L4hPvRHZ3XCM0uWsSMUwFsVYjAItaNuxh1T_yVfbpZaJRjYQQ)                                                                                                                                                                                                                                                                  | 15grams Small, Cheap, Has dimension specifications                                                                        |
-| Battery          | $12 NZD        | ZIPPY Compact 500mAh 2S 35C Lipo Pack [Buy](https://hobbyking.com/en_us/zippy-compact-500mah-2s-35c-lipo-pack.html?queryID=daa4b6898932867645b366984b5914b9&objectID=24762&indexName=hbk_live_magento_en_us_products)                                                                                                                                                                                                                                        | -Available in Australia, - Sufficient Charge, Voltage and Current discharge specifications, - Cheap, -Light for a battery |
-| Power supply     | $3.62 USD      | See power_supply.md                                                                                                                                                                                                                                                                                                                                                                                                                                          | See power_supply.md                                                                                                       |
-| -                | ~ $230 NZD     | -                                                                                                                                                                                                                                                                                                                                                                                                                                                            | -                                                                                                                         |
+| COMPONENT        | COST            | NAME/DESCRIPTION/LINK                                                                                                                                                                                                                                                                                                                                                                                                                                        | REASONS FOR CHOICE                                                                                                        |
+| :--------------- | :-------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------ |
+| Micro-Controller | \$24.95 USD     | Adafruit Feather STM32F405 (168MHz) [BUY](https://www.adafruit.com/product/4382), [Github](https://github.com/adafruit/Adafruit-Feather-STM32F405-Express-PCB), [Documentation](https://www.digikey.co.nz/en/videos/a/adafruit/programming-the-adafruit-feather-stm32f405-express-with-stm32cubeide-maker-io)                                                                                                                                                | Small, Light, Good Opensource Libraries & Good Documentation                                                              |
+| IMU              | \$17.59 NZD     | BNO055 [BUY](https://nz.mouser.com/ProductDetail/Bosch-Sensortec/BNO055?qs=QhAb4EtQfbV8Z2YmISucWw%3D%3D), [Datasheet](https://nz.mouser.com/datasheet/2/783/BST-BNO055-DS000-1509603.pdf), [Adafruit library](https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/arduino-code)                                                                                                                                                           | Good Libraries, quaternions, Better Documentation                                                                         |
+| GPS              | \$61.93 NZD     | Adafruit Mini GPS PA1010D [BUY](https://www.digikey.co.nz/products/en?keywords=PA1010D), [Datasheet](https://cdn.taoglas.com/datasheets/GP.1575.25.4.A.02.pdf)                                                                                                                                                                                                                                                                                               | Cheap, Small and Meets requirments                                                                                        |
+| Transceivers     | \$19.95 USD     | Adafruit RFM96W LoRa Radio Transceiver Breakout - 433 MHz - RadioFruit [BUY](https://www.adafruit.com/product/3073), [Overview](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts?fbclid=IwAR35VbMkCNa8vlXsCGSQ_aMt7WncGXr0NET0dsGQH1ARlQAluhj9rdhM1OQ), [Datasheet](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts.pdf?timestamp=1592280787) | SPI, Pins for extra antenna                                                                                               |
+| Gimbal Servos    | \$6.97 NZD each | SERVOMOTOR RC 6V MICR METAL GEAR [BUY](https://www.digikey.com/product-detail/en/dfrobot/SER0011/1738-1232-ND/7087129?fbclid=IwAR3tHvFKb_L4hPvRHZ3XCM0uWsSMUwFsVYjAItaNuxh1T_yVfbpZaJRjYQQ)                                                                                                                                                                                                                                                                  | 15grams Small, Cheap, Has dimension specifications                                                                        |
+| Battery          | \$12 NZD        | ZIPPY Compact 500mAh 2S 35C Lipo Pack [Buy](https://hobbyking.com/en_us/zippy-compact-500mah-2s-35c-lipo-pack.html?queryID=daa4b6898932867645b366984b5914b9&objectID=24762&indexName=hbk_live_magento_en_us_products)                                                                                                                                                                                                                                        | -Available in Australia, - Sufficient Charge, Voltage and Current discharge specifications, - Cheap, -Light for a battery |
+| Power supply     | \$3.62 USD      | See power_supply.md                                                                                                                                                                                                                                                                                                                                                                                                                                          | See power_supply.md                                                                                                       |
+| -                | ~ \$230 NZD     | -                                                                                                                                                                                                                                                                                                                                                                                                                                                            | -                                                                                                                         |
 
 ### 5.3 Risks
 
@@ -1570,24 +1572,27 @@ document for further information.
 ### 6.1 Assumptions and dependencies
 
 - **Interaction with Mission Control Project** - A fully functioning avionics
-package relies on a reliable, fully developed mission control software provided
-by a separate team. This is due to the fact that the mission control software
-is responsible for monitoring the launch environment to determine whether or
-not a rocket launch is safe. An agreed upon communications protocol between
-the rocket and mission control is required.
+  package relies on a reliable, fully developed mission control software
+  provided by a separate team. This is due to the fact that the mission
+  control software is responsible for monitoring the launch environment
+  to determine whether or not the environment permits a safe launch. An
+  agreed upon communications protocol between the rocket and mission
+  control is required to enable the rocket to communicate between itself
+  and mission control.
 
-- **Interaction with Simulation Project** - The PID of the control system is
-too costly to test with real launches. This project assumes that the testing
-of the control system will be happening in a simulated environment, as
-facilitated by monte carlo software developed by a separate team. 
+- **Interaction with Simulation Project** - The PID of the control system
+  is too costly to test with real launches. This project assumes that the
+  testing of the control system will be happening in a simulated
+  environment, as facilitated by monte carlo software developed by a
+  separate team.
 
 ### 6.2 Acronyms and abbreviations
 
 IMU (Inertial Measurement Unit): A device capable of sensing forces acting
 on a physical body.
 
-CI/CD (Continuous Integration/Continunous Delivery):  The software process
-of merging version control branches into a single branch and conducting 
+CI/CD (Continuous Integration/Continunous Delivery): The software process
+of merging version control branches into a single branch and conducting
 software operations and workflow (i.e testing) in an automated fashion.
 
 NZCAA (New Zealand Civil Aviation Authority): Governing body with regards to
@@ -1603,7 +1608,13 @@ redundancy and repetition in software systems.
 
 ## 7. Contributions
 
-A one page statement of contributions, including a list of each member
-of the group and what they contributed to this document.
+|      Member      |                        Contribution                         |
+| :--------------: | :---------------------------------------------------------: |
+|  Niels Clayton   |                    3.1 - 3.2, 3.8.1, 5.2                    |
+|  Ron Crisostomo  | 2.0, 3.3, 3.6, 3.7.2, 3.8.2, 3.9, 4.3, 4.6, 4.7.2, 5.3, 6.0 |
+|   Will Fowler    |             3.4, 4.1, 4.2, 4.4, 4.7.1, 4.8, 5.2             |
+|    Billy Robb    |         1.1, 1.3.1, 1.3.2, 1.3.3, 1.3.4, 5.1, 5.2,          |
+| Finlay Sargisson |                    1.2, 1.3.3, 3.2, 3.5                     |
+|    Zac Scott     |        3.2, 3.5, 5.4, Formatting, table of contents,        |
 
 ---
