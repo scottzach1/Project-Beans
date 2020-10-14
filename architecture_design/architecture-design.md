@@ -70,12 +70,15 @@ document, outline the changes here. Changes must be justified and
 supported by evidences, i.e., they must be substantiated. (max one page,
 only if required)
 
+---
+
 ## 2. References
 
-<https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf>
-\[1] (Viewed 27/5/2020)
-<https://www.aviation.govt.nz/assets/rules/consolidations/Part_101_Consolidation.pdf>
-\[2] (Viewed 12/06/2020)
+\[1] P. Kruchten, Architectural Blueprints—The “4+1” View Model of Software Architecture, 12th ed. IEEE Software, 1995. [Online] Available: https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf. [Accessed: 27- May- 2020]
+
+\[2] Aviation.govt.nz, 2020. [Online]. Available: https://www.aviation.govt.nz/assets/rules/consolidations/Part_101_Consolidation.pdf. [Accessed: 12- Jun- 2020].
+
+---
 
 ## 3. Architecture
 
@@ -162,6 +165,8 @@ reliability, and performance of both the hardware and software system.
 The scenarios viewpoint will detail use cases that describe the
 interactions between users and the system. This will then allow for
 qualitative reviews of our given architecture.
+
+---
 
 ### 4. Architectural Views
 
@@ -928,6 +933,8 @@ means definite, and is likely to be expanded on throughout development.
   kit, so that I can bring it anywhere easily without the potential of
   losing important parts.
 
+---
+
 ## 5. Development Schedule
 
 > _For each subsection, make clear what (if anything) has changed from
@@ -1019,51 +1026,41 @@ Information regarding health and safety provided in section 5.4 of the
 Detailed safety plan regarding operation can be found here:
 [safety plan](https://gitlab.ecs.vuw.ac.nz/course-work/engr300/2020/group3/group-3/-/blob/master/project_requirement/safety-plan-analysis.md)
 
+---
+
 ## 6. Appendices
 
 ### 6.1 Assumptions and dependencies
 
-One page on assumptions and dependencies (9.5.7)
+- All hardware components used in the construction of the rocket are free
+  of defects immediately after being delivered from the vendor.
+
+- Microcontroller in use is more than capable of everything the software
+  system requires it to do.
+
+- Adafruit/Arduino libraries and will remain FOSS indefinitely.
+
+- Adafruit/Arduino libraries are tested and reliable
 
 ### 6.2 Acronyms and abbreviations
 
-One page glossary as required
+CI/CD (Continuous Integration/Continunous Delivery): The software process
+of merging version control branches into a single branch and conducting
+software operations and workflow (i.e testing) in an automated fashion.
+
+pio or PIO (PlatformIO): A development platform for embedded systems.
+
+HILs (Hardware Interfacing Libraries): 3rd party libraries (usually
+provided by Adafruit) that enable the software system of the project
+to interact directly with the hardware.
+
+FOSS (Free and Open Source Software): The concept of software and other
+designs, components, constructed material etc. being transparently
+available to the public at no additional cost.
+
+---
 
 ## 7. Contributions
 
 An one page statement of contributions, including a list of each member
 of the group and what they contributed to this document.
-
-## Formatting Rules
-
-- Write your document using
-  [Markdown](https://gitlab.ecs.vuw.ac.nz/help/user/markdown#gitlab-flavored-markdown-gfm)
-  in your team's GitLab repository.
-- Major sections should be separated by a horizontal rule.
-
-## Assessment
-
-This document will be weighted at 20% on the architectural
-proof-of-concept(s), and 80% on the architecture design.
-
-The proof-of-concept will be assessed for coverage (does it demonstrate
-all the technologies needed to build your project?) and quality (with an
-emphasis on simplicity, modularity, and modifiability).
-
-The document will be assessed by considering both presentation and
-content. Group and individual group members will be assessed by
-identical criteria, the group mark for the finished PDF and the
-individual mark on the contributions visible through `git blame`, `git diff`, file histories, etc.
-
-The presentation will be based on how easy it is to read, correct
-spelling, grammar, punctuation, clear diagrams, and so on.
-
-The content will be assessed according to its clarity, consistency,
-relevance, critical engagement and a demonstrated understanding of the
-material in the course. We look for evidence these traits are
-represented and assess the level of performance against these traits.
-Inspection of the GitLab Group is the essential form of assessing this
-document. While being comprehensive and easy to understand, this
-document must be reasonably concise too. You will be affected negatively
-by writing a report with too many pages (far more than what has been
-suggested for each section above).
