@@ -1,9 +1,6 @@
 #include "states.h"
 
-#include <iostream>
-
-using std::cout;
-using std::endl;
+#include "debug.h"
 
 void PreLaunchState::execute() {
   // This comes before LOCKED_MISSION_CONTROL since we need to setup LoRa
@@ -12,14 +9,14 @@ void PreLaunchState::execute() {
 
   // if(allActionsCompleted && verified) break;
   // else {abort = true; break;}
-  cout << "Executing PreLaunch state" << endl;
+  DEBUG_MSG_LN(1, "Executing PreLaunch state");
 }
 
 void LockedMissionControlState::execute() {
   // Wait for signal from mission control
   // if(greenLight) break;
   // else {abort = true; break;}
-  cout << "Executing LockedMissionControlState state" << endl;
+  DEBUG_MSG_LN(1, "Executing LockedMissionControlState state");
 }
 
 void LaunchState::execute() {
@@ -27,7 +24,7 @@ void LaunchState::execute() {
   // Logging begins
 
   // if(!launch actions completed succesfully) break;
-  cout << "Executing LaunchState state" << endl;
+  DEBUG_MSG_LN(1, "Executing LaunchState state");
 }
 
 void FlightState::execute() {
@@ -41,17 +38,16 @@ void FlightState::execute() {
   // if(decreasing_air_pressure && deceleration) {
   // deployParachute(); break;
   // }
-  cout << "Executing FlightState state" << endl;
+  DEBUG_MSG_LN(1, "Executing FlightState state");
 }
 
 void LandingState::execute() {
   // Only thing happening here is that the rocket continues to log
   // if(AGL ~ ground level) break;
-  cout << "Executing LandingState state" << endl;
+  DEBUG_MSG_LN(1, "Executing LandingState state");
 }
 
 void LandedState::execute() {
   // Keep logging GPS coords
-
-  cout << "Executing LandedState state" << endl;
+  DEBUG_MSG_LN(1, "Executing LandedState state");
 }

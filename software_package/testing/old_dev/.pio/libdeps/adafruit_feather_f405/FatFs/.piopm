@@ -1,0 +1,1 @@
+{"type": "library", "name": "FatFs", "version": "2.0.3", "spec": {"owner": "stm32duino", "id": 1805, "name": "FatFs", "requirements": null, "url": null}}

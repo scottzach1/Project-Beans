@@ -1,5 +1,5 @@
-#ifndef SOFTWARE_PACKAGE_DEVELOPMENT_LIB_SOFTWARE_SRC_STATES_H_
-#define SOFTWARE_PACKAGE_DEVELOPMENT_LIB_SOFTWARE_SRC_STATES_H_
+#ifndef LIB_SOFTWARE_SRC_STATES_H_
+#define LIB_SOFTWARE_SRC_STATES_H_
 /*These classes represent the different states the rocket can be in throughout
 its life
  (Note - The initial state is 'LockedPhysicalState' but this is not represented
@@ -68,4 +68,4 @@ class LandedState : public AbstractState {
  public:
   virtual void execute();
 };
-#endif  // SOFTWARE_PACKAGE_DEVELOPMENT_LIB_SOFTWARE_SRC_STATES_H_
+#endif  // LIB_SOFTWARE_SRC_STATES_H_
