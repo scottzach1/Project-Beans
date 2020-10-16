@@ -1,4 +1,0 @@
-(sym_lib_table
-  (lib (name RocketPCB-rescue)(type Legacy)(uri ${KIPRJMOD}/RocketPCB-rescue.lib)(options "")(descr ""))
-  (lib (name RocketPCB-eagle-import)(type Legacy)(uri ${KIPRJMOD}/RocketPCB-eagle-import.lib)(options "")(descr ""))
-)
