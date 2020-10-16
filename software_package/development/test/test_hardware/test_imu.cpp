@@ -13,25 +13,25 @@ void teardown(void) {
 }
 
 void test_read_quat_w(void) {
-  // Attempt to read the w quat and assert that its a reasonable value
+  // Attempt to read the w quat and assert that its correct for pre-launch.
   imu.read_quat_w();
   TEST_ASSERT_EQUAL(1.0, imu.read_quat_w());
 }
 
 void test_read_quat_x(void) {
-  // Attempt to read the x quat and assert that its a reasonable value
+  // Attempt to read the x quat and assert that its correct for pre-launch.
   imu.read_quat_x();
   TEST_ASSERT_EQUAL(1.0, imu.read_quat_x());
 }
 
 void test_read_quat_y(void) {
-  // Attempt to read the y quat and assert that its a reasonable value
+  // Attempt to read the y quat and assert that its correct for pre-launch.
   imu.read_quat_y();
   TEST_ASSERT_EQUAL(1.0, imu.read_quat_y());
 }
 
 void test_read_quat_z(void) {
-  // Attempt to read the x quat and assert that its a reasonable value
+  // Attempt to read the x quat and assert that its correct for pre-launch.
   imu.read_quat_z();
   TEST_ASSERT_EQUAL(1.0, imu.read_quat_z());
 }

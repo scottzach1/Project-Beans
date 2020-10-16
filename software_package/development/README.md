@@ -1,9 +1,9 @@
 ## Development
 
-The structures covered in the software_package [README](../README.md),
-if you wish to understand more about this then go there. This README
-entails an overview of each of our libraries which can be found inside
-this package.
+The project structure  is covered in the `software_package` 
+[README](../README.md), if you wish to understand more about this then 
+go there. This README entails an overview of each of our libraries which 
+can be found inside this package.
 
 
 ### Hardware
@@ -56,7 +56,31 @@ relatively versatile.
 |        Component         | Description                                                                                                                                                                                                                                                                                                              |
 |:------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |          Debug           | This file is used for debugging messages related to our hardware. It can be used for writing and testing code, as well as pre-, post- and in-flight analysis.                                                                                                                                                            |
-| States and State Machine | The state machine handles the current state of the rocket. States contains all potential states the rockets' system can be in. For a more in-depth explanation see section 4.1 of the [architecture](../../architecture_design/architecture-design.md) document, which covers the flow this software is modelled around. |
+| States and State Machine | The state machine handles the current state of the rocket, and how to transition between them. States contains all potential states the rockets' system can be in. For a more in-depth explanation see section 4.1 of the [architecture](../../architecture_design/architecture-design.md) document, which covers the flow this software is modelled around. |
 |     Guidance System      | This is essentially the main process of our rocket. It handles all the logic necessary to function, such as the pid, state machine, and all hardware communication.                                                                                                                                                      |
 |         Logging          | This component handles sending data to both the SD card and LoRa radio.                                                                                                                                                                                                                                                  |
 
+
+How to build PlatformIO based project
+=====================================
+Keep in mind that this entire directory _is_ a PlatformIO project. The steps below
+outline how to build this project.
+
+1. `Install PlatformIO Core <http://docs.platformio.org/page/core.html>`_
+2. Download `development platform with examples <https://github.com/platformio/platform-native/archive/develop.zip>`_
+3. Extract ZIP archive
+4. Run these commands:
+
+```bash
+    # Change directory to example
+    > cd platform-native/examples/hello-world
+
+    # Build project
+    > platformio run
+
+    # Run program
+    > .pioenvs/native/program
+
+    # Clean build files
+    > platformio run --target clean
+```

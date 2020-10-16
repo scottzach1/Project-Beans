@@ -234,3 +234,51 @@ _*Yes.*_
 
 - There are probably some other problems. This method of generating code
   coverage reports is still somewhat experimental.
+
+## A note on the CI/CD pipeline with regards to code coverage and testing
+
+As previously outlined, the current implementation of the `code-coverage`
+and `unit` test jobs are afflicted by the fact that the adafruit
+libraries required to compile and execute the unit tests cannot be found
+in any environment other than the microcontroller itself. In terms of the
+CI/CD pipeline, these jobs are using docker images that do not have these
+libraries, and therefore, **no testing can be done on aspects of the
+software system that have any dependencies with the adafruit libraries**.
+
+### Addressing this issue
+
+Due to time constraints, we were unable to implement any of the following
+suggestions, but they will be listed here so that future developers have
+some working ideas of a solution to the problem.
+
+#### Potential Solutions
+
+- **Create a properly configured docker image to use for the pipeline** -
+  All jobs in the CI/CD pipeline are using pre-configured docker images.
+  While this is sufficient for some of the jobs in the pipeline, the niche
+  nature of PIO and CI/CD for embedded systems means that building a docker
+  image solely for the project may be necessary in order for the code
+  coverage and unit testing jobs to adequately serve their purpose. The
+  docker image should be configured to have all the required adafruit
+  libraries that the project uses, so when GitLab pulls the docker image
+  for jobs that use it, the jobs will be executed in an environment that
+  matches the environment on the actual microcontroller. To align with the
+  FOSS requirements of the project, the docker image needs to be made in a
+  public docker hub repository.
+
+- **Obtain a second microcontroller purely for testing purposes** - A
+  second microcontroller can be obtained and setup to match the environment
+  of the original microcontroller such that unit tests can be executed
+  correctly. The original microcontroller will retain its purpose as the
+  rocket's microcontroller. With this approach, the `unit-test` and
+  `code-coverage` jobs will see significant changes in the sense that they
+  no longer need to be executed in GitLab's CI/CD pipeline. All unit
+  testing and code coverage reporting can be conducted within the second
+  microcontroller, with the microcontroller committing the results of the
+  unit test and code coverage reports to the repository. The drawback of
+  this approach is the obvious cost of acquiring a second micrcontroller
+  (although given the safety-critical nature of the project, this is a
+  justifiable purchase), and how this approach seemingly steers away from
+  the concept of continuous integration and delivery (since the jobs are
+  now being executed on a local microcontroller instead of a centralized
+  system such as GitLab).
