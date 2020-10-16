@@ -22,16 +22,26 @@ maximum flexibility and reuse. If one specific component is upgraded or
 replaced then only the relative header and implementation file should
 need modifying.
 
+### Current State
+
+Towards the end of development for this project, there was a significant
+update to platformio that changed how some of the libraries were
+handled. This change, inherently broke the builds on a lot of the team
+members devices. For some devices, this can be mitigated by installing
+the `Servo` package to the project locally. Then manually moving it into
+the `~/.platformio/lib/` directory (global libraries). There were
+occasionally issues regarding the i2cdev libraries for the MPU6050 after
+integration with the rest of the code base.
+
 ### Component Library Breakdown
 
-| Component | Description                                                                                                                             |
-|:---------:|:----------------------------------------------------------------------------------------------------------------------------------------|
-| Barometer | This is based off of the `Adafruit_MPL3115A2.h` library. The key functionality of this is reading air pressure and altitude data.       |
-|    IMU    | This is based off of the `Adafruit_MPU6050.h` library. The main purpose of this is to perform the accelerometer and gyroscope readings. |
-| Parachute | This component is still in development, but aims to simply handle the launching of the parachute ejection charges.                      |
-|    SD     | This is based off of the `STM32SD.h` library. The primary functionality for this is performing file reading and writing on the SD card. |
-|   Servo   | This makes use of the `Servo.h` library. The goal of this component here is adjusting and controlling the angle of the servo.           |
-
+| Component | Description                                                                                                                                                                                                                                                                                                                                                                        |
+|:---------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Barometer | This is based off of the `Adafruit_MPL3115A2.h` library. The key functionality of this is reading air pressure and altitude data.                                                                                                                                                                                                                                                  |
+|    IMU    | This was originally based off of the `Adafruit_MPU6050.h` library. To get more accurate readings this has since been switched to `I2Cdevlib-Core` and `I2Cdevlib-Core`. This allows us to be able to read quaternion values that are inherently less prone to errors and gimbal lock. In general, the main purpose of this is to perform the accelerometer and gyroscope readings. |
+| Parachute | This component is still in development, but aims to simply handle the launching of the parachute ejection charges.                                                                                                                                                                                                                                                                 |
+|    SD     | This is based off of the `STM32SD.h` library. The primary functionality for this is performing file reading and writing on the SD card.                                                                                                                                                                                                                                            |
+|   Servo   | This makes use of the `Servo.h` library. The goal of this component here is adjusting and controlling the angle of the servo.                                                                                                                                                                                                                                                      |
 
 ### Software
 

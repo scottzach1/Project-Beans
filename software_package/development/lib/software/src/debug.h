@@ -21,25 +21,28 @@
 /**
  * This macro acts as a conditional debug wrapper to `Serial.print()`.
  **/
-#define DEBUG_MSG(level, ...)     \
-    if (DEBUG && level >= DEBUG) {  \
-        Serial.print(__VA_ARGS__); \
-    }
-
+#ifndef DEBUG_MSG
+#define DEBUG_MSG(level, ...)    \
+  if (DEBUG && level >= DEBUG) { \
+    Serial.print(__VA_ARGS__);   \
+  }
+#endif
 /**
  * This macro acts as a conditional debug wrapper to `Serial.println()`.
  **/
-#define DEBUG_MSG_LN(level, ...)     \
-    if (DEBUG && level >= DEBUG) {   \
-        Serial.println(__VA_ARGS__); \
-    }
-
+#ifndef DEBUG_MSG_LN
+#define DEBUG_MSG_LN(level, ...) \
+  if (DEBUG && level >= DEBUG) { \
+    Serial.println(__VA_ARGS__); \
+  }
+#endif
 /**
  * This macro acts as a conditional debug wrapper to `Serial.printf()`.
  **/
-#define DEBUG_MSG_F(level, ...)     \
-    if (DEBUG && level >= DEBUG) {  \
-        Serial.printf(__VA_ARGS__); \
-    }
-
+#ifndef DEBUG_MSG_F
+#define DEBUG_MSG_F(level, ...)  \
+  if (DEBUG && level >= DEBUG) { \
+    Serial.printf(__VA_ARGS__);  \
+  }
+#endif
 #endif  // LIB_SOFTWARE_SRC_DEBUG_H_

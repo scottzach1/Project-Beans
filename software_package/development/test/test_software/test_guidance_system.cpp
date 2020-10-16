@@ -8,8 +8,6 @@ void teardown(void) {
   // clean up to perform after every test
 }
 
-// TODO: Discuss what the guidance system should do exactly
-
 int main(void) {
   UNITY_BEGIN();
   return UNITY_END();

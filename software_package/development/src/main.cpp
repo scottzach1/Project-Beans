@@ -1,86 +1,51 @@
-#ifndef UNIT_TEST
+#include <Arduino.h>
 
-// #include <Arduino.h>
-// #include <STM32SD.h>
-// #include <Wire.h>
-#include <STM32SD.h>
+#include <sstream>
+#include <string>
 
+/* Hardware Package */
 #include "barometer.h"
-#include "debug.h"
+#include "gservo.h"
 #include "imu.h"
+#include "lora.h"
+#include "parachute.h"
 #include "sd.h"
 
-// If SD card slot has no detect pin then define it as SD_DETECT_NONE
-// to ignore it. One other option is to call 'SD.begin()' without parameter.
-#ifndef SD_DETECT_PIN
-#define SD_DETECT_PIN SD_DETECT_NONE
-#endif
+/* Software Package */
+#include "debug.h"
+#include "guidance.h"
+#include "logging.h"
+// #include "guidance_pid.h"
 
-Sd sd;
-Imu imu;
+GuidanceSystem guidance;
 Barometer baro;
+Logging logger;
+unsigned int counter;
 
-void read_file(std::string file_name);
+void setup() {
+  // put your setup code here, to run once:
+  DEBUG_MSG_LN(1, "Beginning global setup.");
 
-void setup(void) {
-    Serial.begin(115200);
+  guidance.init();
+  baro.init();
 
-    // will pause Zero, Leonardo, etc until serial console opens
-    while (!Serial) delay(10);
-
-    // sd.init("file.txt");
-    imu.init();
-    baro.init();
+  DEBUG_MSG_LN(1, "Finished global setup, beginning main loop.");
 }
-
-int counter = 0;
 
 void loop() {
-    DEBUG_MSG_F(2, "Beginning loop %d\n", ++counter);
+  // put your main code here, to run repeatedly:
+  guidance.step();
 
-    // IMU READINGS
-    imu.update();
-
-    sensors_vec_t accl = imu.read_accl();
-    DEBUG_MSG_F(2, "- Acceleration: {%s, %s, %s} m/s^2.\n",
-                String(accl.x).c_str(), String(accl.y).c_str(),
-                String(accl.z).c_str());
-
-    sensors_vec_t gyro = imu.read_gyro();
-    DEBUG_MSG_F(2, "- Gyro: {%s, %s, %s} rad/s.\n", String(gyro.x).c_str(),
-                String(gyro.y).c_str(), String(gyro.z).c_str());
-
-    // BAROMETER READINGS
-    float pasc = baro.read_pressure_pascals();
-    DEBUG_MSG_F(2, "- Pressure: %s pascals.\n", String(pasc).c_str());
-
-    float alt = baro.read_altitude();
-    DEBUG_MSG_F(2, "- Altitude: %s meters.\n", String(alt).c_str());
-
-    // SD TESTINGS
-    // sd.write("Entry " + std::to_string(counter) + "\n");
-    // if (counter % 2) sd.flush();
-    // if (counter % 10) read_file("file.txt");
-}
-
-void read_file(std::string file_name) {
-    // re-open the file for reading:
-    File file = SD.open(file_name.c_str());
-    if (file) {
-        DEBUG_MSG_F(2, "%s contents:\n", file_name.c_str());
-
-        // read from the file until there's nothing else in it:
-        while (file.available()) {
-            Serial.write(file.read());
-        }
-        // close the file:
-        file.close();
-    } else {
-        // if the file didn't open, print an error:
-        DEBUG_MSG_F(2, "error opening %s\n", file_name.c_str());
+  // optional logging.
+  if (DEBUG > 2) {
+    if (++counter % 30) {
+      std::stringstream ss;
+      ss << "alt: " << baro.read_altitude() << "m" << std::endl;
+      logger.log_sd(ss.str());
     }
+
+    if (counter % 60) {
+      logger.flush_sd();
+    }
+  }
 }
-
-int double_value(int input) { return input * 2; }
-
-#endif  // UNIT_TEST
