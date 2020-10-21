@@ -33,8 +33,8 @@ void GuidanceSystem::step() {
   // [0, 100]
 
   // Initial Step.
-  botQuat = (botQuat + 0.5) * 100;
-  topQuat = (topQuat + 0.5) * 100;
+  botQuat = (botQuat + 0.5) * 100 * P_BOT;
+  topQuat = (topQuat + 0.5) * 100 * P_TOP;
 
   // SetPositionMap should clamp and warn of bad input.
   servoBot->setPositionMap(botQuat);

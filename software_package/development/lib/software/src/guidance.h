@@ -11,6 +11,8 @@ class GuidanceSystem {
   GServo *servoTop;
 
  public:
+  const float P_TOP = 1;
+  const float P_BOT = 1;
   GuidanceSystem();
   ~GuidanceSystem();
   void init();
