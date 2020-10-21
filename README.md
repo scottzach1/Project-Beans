@@ -15,9 +15,9 @@ within the documentation of this repository.
 
 ### Software
 
-| [![Zac Scott](https://avatars2.githubusercontent.com/u/38968222?s=460&u=3ec9a0cd3fa38a006cbc7e9d8014d05e609fa5f5&v=4)](https://gitlab.ecs.vuw.ac.nz/scottzach1) | [![Ron Crisostomo](https://avatars0.githubusercontent.com/u/37648842?s=460&v=4)](https://github.com/crisosron) | [![Finlay Sargisson](https://avatars3.githubusercontent.com/u/54577289?s=460&v=4)](https://github.com/sarrgi) |
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
-| [Zac Scott](https://github.com/scottzach1)                                                                                                                      | [Ron Crisostomo](https://github.com/crisosron)                                                                 | [Finlay Sargisson](https://github.com/sarrgi)                                                                 |
+| [![Zac Scott](https://avatars2.githubusercontent.com/u/38968222?s=460&u=3ec9a0cd3fa38a006cbc7e9d8014d05e609fa5f5&v=4)](https://github.com/scottzach1) | [![Ron Crisostomo](https://avatars0.githubusercontent.com/u/37648842?s=460&v=4)](https://github.com/crisosron) | [![Finlay Sargisson](https://avatars3.githubusercontent.com/u/54577289?s=460&v=4)](https://github.com/sarrgi) |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
+| [Zac Scott](https://github.com/scottzach1)                                                                                                            | [Ron Crisostomo](https://github.com/crisosron)                                                                 | [Finlay Sargisson](https://github.com/sarrgi)                                                                 |
 
 ### Hardware
 
