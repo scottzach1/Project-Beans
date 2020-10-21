@@ -99,6 +99,6 @@ To ensure linear relation between servo angle and motor angle this design was ma
 
 ###### Free movement addition:
 
-![](free_movement_feature.PNG)
+![](free_movement_feature.png)
 
 ***
