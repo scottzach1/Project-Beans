@@ -955,28 +955,10 @@ Identify dates for key project deliverables:
 
 #### Demos
 
-- **TODO DATE** - This demo will enable the software team to ensure that
-  software is logged correctly.
-- **TODO DATE** - This demo will be used to verify safety critical
-  components of the rocket such as ensure the parachute launches as
-  expected.
-- **TODO DATE** - This demo will be used to ensure communication with
-  the rocket over LoRa performs as expected. In this demo, we will be
-  testing how far we can reliably communicate with the rocket.
-- **TODO DATE** - This demo will be testing usability and introduce a
-  prospective user with the rocket. The rocket will be defused before
-  the demo and is strictly to observer user behaviour.
+Refer to the [Requirements Document](../project_requirement/project_requirement.md) for more details.
 
 #### Releases
-
-- Architectural Prototypes
-  - The architectural prototype will be completed my **TODO**.
-- Minimum Viable Product
-  - The minimum viable product will be completed by **TODO**.
-- Final Revision
-  - The final revision will be completed by **TODO**.
-
-(1 page).
+Refer to the [Requirements Document](../project_requirement/project_requirement.md) for more details.
 
 ### 5.2 Budget and Procurement
 
@@ -1062,5 +1044,16 @@ available to the public at no additional cost.
 
 ## 7. Contributions
 
-An one page statement of contributions, including a list of each member
-of the group and what they contributed to this document.
+Niels Clayton - 3.1, 3.2, 4.4
+
+Ron Crisostomo - 2.0, 4.1, 4.2, 
+
+William Fowler - 4.4
+
+Billy Robb - 4.4
+
+Finlay Sargisson - 4.1, 4.2, 4.3, 4.5
+
+Zac Scott - 4.1, 4.2
+
+Section 5 Contributions - Refer to [Requirements Document](../project_requirement/project_requirement.md)

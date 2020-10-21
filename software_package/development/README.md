@@ -60,6 +60,20 @@ relatively versatile.
 |     Guidance System      | This is essentially the main process of our rocket. It handles all the logic necessary to function, such as the pid, state machine, and all hardware communication.                                                                                                                                                      |
 |         Logging          | This component handles sending data to both the SD card and LoRa radio.                                                                                                                                                                                                                                                  |
 
+### Installed Packages
+```bash
+'Adafruit GFX Library'/
+'Adafruit ILI9341'/
+'Adafruit BusIO'/
+'Adafruit MPL3115A2 Library'/
+'Adafruit STMPE610'/
+'Adafruit TouchScreen'/
+'FatFs'/
+'I2Cdevlib-Core'/
+'I2Cdevlib-MPU6050'/
+'STM32duino STM32SD'/
+```
+
 
 How to build PlatformIO based project
 =====================================
