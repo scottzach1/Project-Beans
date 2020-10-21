@@ -45,4 +45,5 @@
     Serial.printf(__VA_ARGS__);  \
   }
 #endif
+
 #endif  // LIB_SOFTWARE_SRC_DEBUG_H_
